@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/refresh"
+        android:icon="@drawable/ic_refresh"
+        android:title="Refresh"
+        app:showAsAction="ifRoom" />
+
+        <item android:id="@+id/togray"
+            android:title="To gray"
+            app:showAsAction="never" />
+
+        <item android:id="@+id/colorize"
+            android:title="Colorize"
+            app:showAsAction="never" />
+
+        <item android:id="@+id/keepcolor"
+            android:title="Keep Color"
+            app:showAsAction="never" />
+
+        <item android:id="@+id/contraste"
+            android:title="Contraste Gris"
+            app:showAsAction="never">
+
+            <menu>
+
+                <item android:id="@+id/contrasteplus"
+                    android:title="Contrast +" />
+
+                <item android:id="@+id/contrastemoins"
+                    android:title="Contrast -" />
+
+            </menu>
+
+        </item>
+
+        <item android:id="@+id/contrastecouleur"
+            android:title="Contraste couleur"
+            app:showAsAction="never" >
+
+            <menu>
+
+                <item android:id="@+id/contrastecouleurplus"
+                    android:title="Contraste + (RGB)" />
+
+                <item android:id="@+id/contrastecouleurplusHSV"
+                    android:title="Contraste + (HSV)" />
+
+            </menu>
+
+        </item>
+
+        <item android:id="@+id/egalisation"
+            android:title="Egalisation"
+            app:showAsAction="never" >
+
+            <menu>
+
+                <item android:id="@+id/egalisationNB"
+                    android:title="Egalisation N/B" />
+                <item android:id="@+id/egalisationcouleur"
+                    android:title="Egalisation Couleur" />
+
+            </menu>
+
+        </item>
+
+        <item android:id="@+id/convolution"
+            android:title="Convolution"
+            app:showAsAction="never" >
+
+            <menu>
+
+                <item android:id="@+id/average_convulve"
+                    android:title="Filtre moyenneur" />
+
+            </menu>
+
+        </item>
+</menu>
