@@ -16,7 +16,7 @@
 
 /*
  * This file is auto-generated. DO NOT MODIFY!
- * The source Renderscript file: C:\\Users\\kamel\\Desktop\\Android Dernier\\Projet tech new\\app\\src\\main\\rs\\findMinMax.rs
+ * The source Renderscript file: /autofs/unitytravail/travail/khouchat/Licence 3/Projet tec android/groupe/projettec/app/src/main/rs/findMinMax.rs
  */
 
 package com.android.rssample;

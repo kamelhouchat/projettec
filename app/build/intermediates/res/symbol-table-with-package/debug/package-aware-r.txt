@@ -636,6 +636,7 @@ drawable chateaux
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_refresh
+drawable icon
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
