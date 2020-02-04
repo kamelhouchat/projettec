@@ -92,6 +92,7 @@
             android:layout_marginRight="50dp"
             android:gravity="center"
             android:orientation="vertical"
+            android:onClick="TakeImage"
             tools:ignore="MissingConstraints">
 
 
@@ -116,6 +117,7 @@
             android:layout_marginRight="50dp"
             android:gravity="center"
             android:orientation="vertical"
+            android:onClick="LoadImage"
             tools:ignore="MissingConstraints">
 
 

@@ -1,5 +1,6 @@
 package com.example.projettech.Controller;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -32,6 +33,9 @@ public class StudioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_studio);
 
+        Intent intent = getIntent();
+        Bitmap captImage = (Bitmap) intent.getExtras().get("data");
+
         final ImageView img1 = findViewById(R.id.image1);
         TextView texte1 = findViewById(R.id.texte1);
 
@@ -41,7 +45,7 @@ public class StudioActivity extends AppCompatActivity {
 
         final Bitmap imagebitmap = BitmapFactory.decodeResource(getResources(), R.drawable.tig, o);
         final Bitmap imagebitmap_copy = Bitmap.createBitmap(imagebitmap);
-        img1.setImageBitmap(imagebitmap_copy);
+        img1.setImageBitmap(captImage);
 
         int height = imagebitmap.getHeight();
         int width = imagebitmap.getWidth();

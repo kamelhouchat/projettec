@@ -13,6 +13,8 @@ anim abc_tooltip_enter
 anim abc_tooltip_exit
 anim frombuttom
 anim logoanimation
+anim slidein
+anim slideout
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
