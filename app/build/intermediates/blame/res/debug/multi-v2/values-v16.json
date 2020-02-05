@@ -4,6 +4,25 @@
             "outputFile": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\d9z\\.gradle\\caches\\transforms-2\\files-2.1\\82420777da2d7c0b48da25aded616ce4\\jetified-alerter-2.0.4\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "238"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "304"
+                    }
+                },
+                {
                     "source": "C:\\Users\\d9z\\.gradle\\caches\\transforms-2\\files-2.1\\8f8ab13dc8f4e84e14a8bb3d9ac92bc4\\core-1.0.1\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
@@ -24,12 +43,12 @@
                         "endOffsets": "223"
                     },
                     "to": {
-                        "startLines": "3",
+                        "startLines": "7",
                         "startColumns": "4",
-                        "startOffsets": "121",
-                        "endLines": "6",
+                        "startOffsets": "309",
+                        "endLines": "10",
                         "endColumns": "12",
-                        "endOffsets": "289"
+                        "endOffsets": "477"
                     }
                 }
             ]

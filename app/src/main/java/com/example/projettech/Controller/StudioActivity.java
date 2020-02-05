@@ -3,7 +3,10 @@ package com.example.projettech.Controller;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,23 +21,47 @@ import com.example.projettech.Model.DynamicExtension;
 import com.example.projettech.Model.Equalization;
 import com.example.projettech.Model.Filter;
 import com.example.projettech.R;
+import com.tapadoo.alerter.Alerter;
 
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-import static android.graphics.Color.HSVToColor;
+import java.io.IOException;
 
 
 public class StudioActivity extends AppCompatActivity {
 
+    Toolbar toolbar ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_studio);
 
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        /**
+         * Load a Bitmap Image (Passed by mainactivity)
+         */
         Intent intent = getIntent();
-        Bitmap captImage = (Bitmap) intent.getExtras().get("data");
+        String image_path = intent.getStringExtra("imagePath");
+        Uri image_uri = Uri.parse(image_path);
+        Bitmap captImage = null;
+        try {
+            captImage = MediaStore.Images.Media.getBitmap(
+                    getContentResolver(), image_uri);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Alerter.create(this)
+                .setText("Chargement terminé")
+                .setBackgroundColorInt(Color.parseColor("#233ED8"))
+                .show();
+
+        int height = captImage.getHeight();
+        int width = captImage.getWidth();
+
 
         final ImageView img1 = findViewById(R.id.image1);
         TextView texte1 = findViewById(R.id.texte1);
@@ -47,8 +74,7 @@ public class StudioActivity extends AppCompatActivity {
         final Bitmap imagebitmap_copy = Bitmap.createBitmap(imagebitmap);
         img1.setImageBitmap(captImage);
 
-        int height = imagebitmap.getHeight();
-        int width = imagebitmap.getWidth();
+
 
         texte1.setTextSize(20);
         texte1.setText(height+" Px , "+width+" Px");

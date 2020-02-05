@@ -11,7 +11,12 @@ anim abc_slide_out_bottom
 anim abc_slide_out_top
 anim abc_tooltip_enter
 anim abc_tooltip_exit
+anim alerter_pulse
+anim alerter_slide_in_from_top
+anim alerter_slide_out_to_top
 anim frombuttom
+anim interpolator_slight_anticipate
+anim interpolator_slight_overshoot
 anim logoanimation
 anim slidein
 anim slideout
@@ -49,10 +54,15 @@ attr actionOverflowMenuStyle
 attr actionProviderClass
 attr actionViewClass
 attr activityChooserViewStyle
+attr alertBackgroundColor
 attr alertDialogButtonGroupStyle
 attr alertDialogCenterButtons
 attr alertDialogStyle
 attr alertDialogTheme
+attr alertIcon
+attr alertStyle
+attr alertText
+attr alertTitle
 attr allowStacking
 attr alpha
 attr alphabeticModifiers
@@ -373,6 +383,10 @@ color abc_tint_spinner
 color abc_tint_switch_track
 color accent_material_dark
 color accent_material_light
+color alert_default_error_background
+color alert_default_icon_color
+color alert_default_text_color
+color alerter_default_success_background
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
@@ -388,16 +402,19 @@ color button_material_light
 color colorAccent
 color colorPrimary
 color colorPrimaryDark
+color defaultTextColor
 color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
 color dim_foreground_material_light
+color errorColor
 color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color infoColor
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -410,6 +427,7 @@ color material_grey_600
 color material_grey_800
 color material_grey_850
 color material_grey_900
+color normalColor
 color notification_action_color_filter
 color notification_icon_bg_color
 color primary_dark_material_dark
@@ -426,6 +444,7 @@ color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
 color secondary_text_disabled_material_light
+color successColor
 color switch_thumb_disabled_material_dark
 color switch_thumb_disabled_material_light
 color switch_thumb_material_dark
@@ -434,6 +453,7 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color tooltip_background_dark
 color tooltip_background_light
+color warningColor
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -509,6 +529,19 @@ dimen abc_text_size_subhead_material
 dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
+dimen alerter_activity_horizontal_margin
+dimen alerter_activity_vertical_margin
+dimen alerter_alert_icn_size
+dimen alerter_alert_max_height
+dimen alerter_alert_min_height
+dimen alerter_alert_negative_margin_top
+dimen alerter_alert_padding
+dimen alerter_padding_default
+dimen alerter_padding_half
+dimen alerter_padding_small
+dimen alerter_progress_bar_size
+dimen alerter_text_medium
+dimen alerter_text_small
 dimen compat_button_inset_horizontal_material
 dimen compat_button_inset_vertical_material
 dimen compat_button_padding_horizontal_material
@@ -632,6 +665,8 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable alerter_ic_face
+drawable alerter_ic_notifications
 drawable background
 drawable background_color
 drawable background_gray
@@ -641,6 +676,10 @@ drawable camera
 drawable chateaux
 drawable clover
 drawable gallery
+drawable ic_check_white_24dp
+drawable ic_clear_white_24dp
+drawable ic_error_outline_white_24dp
+drawable ic_info_outline_white_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_refresh
@@ -661,6 +700,7 @@ drawable notify_panel_notification_icon_bg
 drawable pipimage
 drawable plage
 drawable tig
+drawable toast_frame
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -688,6 +728,7 @@ id action_mode_close_button
 id action_text
 id actions
 id activity_chooser_view_content
+id activity_mock
 id add
 id alertTitle
 id all
@@ -738,6 +779,8 @@ id expanded_menu
 id fill
 id fill_horizontal
 id fill_vertical
+id flAlertBackground
+id flClickShield
 id forever
 id gallery
 id gone
@@ -754,12 +797,14 @@ id image1
 id info
 id invisible
 id italic
+id ivIcon
 id keepcolor
 id left
 id line1
 id line3
 id listMode
 id list_item
+id llAlertTextContainer
 id logo
 id menus
 id message
@@ -774,6 +819,7 @@ id notification_main_column_container
 id packed
 id parent
 id parentPanel
+id pbProgress
 id percent
 id progress_circular
 id progress_horizontal
@@ -782,6 +828,7 @@ id refresh
 id right
 id right_icon
 id right_side
+id rlContainer
 id screen
 id scrollIndicatorDown
 id scrollIndicatorUp
@@ -825,9 +872,15 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toast_icon
+id toast_root
+id toast_text
 id togray
+id toolbar
 id top
 id topPanel
+id tvText
+id tvTitle
 id uniform
 id universite
 id up
@@ -869,7 +922,9 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout activity_mock
 layout activity_studio
+layout alerter_alert_view
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
@@ -880,6 +935,8 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout toast_layout
+layout toolbar
 menu action_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
@@ -923,10 +980,19 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string app_name
+string lib_name
+string msg_alert_cleared
+string msg_no_alert_showing
 string search_menu_title
 string status_bar_notification_info_overflow
+string toast_message
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
+style AlertStyle
+style AlertTextAppearance
+style AlertTextAppearance_Text
+style AlertTextAppearance_Title
+style AlertTheme
 style Animation_AppCompat_Dialog
 style Animation_AppCompat_DropDownUp
 style Animation_AppCompat_Tooltip
@@ -1278,7 +1344,9 @@ styleable ActionMenuItemView android_minWidth
 styleable ActionMenuView
 styleable ActionMode background backgroundSplit closeItemLayout height subtitleTextStyle titleTextStyle
 styleable ActivityChooserView expandActivityOverflowButtonDrawable initialActivityCount
+styleable Alert alertBackgroundColor alertIcon alertText alertTitle
 styleable AlertDialog android_layout buttonIconDimen buttonPanelSideLayout listItemLayout listLayout multiChoiceItemLayout showTitle singleChoiceItemLayout
+styleable Alerter alertStyle
 styleable AnimatedStateListDrawableCompat android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable AnimatedStateListDrawableItem android_id android_drawable
 styleable AnimatedStateListDrawableTransition android_drawable android_toId android_fromId android_reversible
