@@ -30,7 +30,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.projettech.Controller.StudioActivity" />
-        <!-- This is just an Activity for Testing from within src/androidTest -->
+        <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
+        <activity android:name="com.zhihu.matisse.internal.ui.AlbumPreviewActivity" />
+        <activity android:name="com.zhihu.matisse.internal.ui.SelectedPreviewActivity" /> <!-- This is just an Activity for Testing from within src/androidTest -->
         <activity
             android:name="com.tapadoo.alerter.MockActivity"
             android:theme="@style/Theme.AppCompat" />

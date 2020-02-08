@@ -11,12 +11,14 @@ import android.Manifest;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -25,7 +27,12 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.projettech.R;
+import com.zhihu.matisse.Matisse;
+import com.zhihu.matisse.MimeType;
+import com.zhihu.matisse.filter.Filter;
 
+
+import java.util.List;
 
 import es.dmoral.toasty.Toasty;
 
@@ -36,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
     Animation frombuttom ,logoAnimation;
 
     Uri image_uri ;
+
+    // Random code that identifies the result of the picker
+    static final int PICKER_REQUEST_CODE = 1;
+
+    // List that will contain the selected files/videos
+    List<Uri> mSelected;
 
     static final int REQUEST_CODE = 123 ;
     static final int REQUEST_CAMERA = 100;
@@ -67,46 +80,45 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == 100){
-            //Bitmap captImage = (Bitmap) data.getExtras().get("data");
-            /*int height = captImage.getHeight();
-            int width = captImage.getWidth();
-            int[] pixels = new int[width*height];
-            captImage.getPixels(pixels,0,width,0,0,width,height);*/
-            Intent studioIntent = new Intent(this,StudioActivity.class);
-            //studioIntent.putExtras(data);
-            //studioIntent.putExtra("pixels",pixels);
-            //.putExtra("height",height);
-            //studioIntent.putExtra("width",width);
-            if (resultCode == RESULT_OK){
-                try {
-                    studioIntent.putExtra("imagePath", image_uri.toString());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100 && resultCode == RESULT_OK) {
+            Intent studioIntent = new Intent(this, StudioActivity.class);
+            try {
+                studioIntent.putExtra("imagePath", image_uri.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
             startActivity(studioIntent);
-            overridePendingTransition(R.anim.slidein,R.anim.slideout);
+            overridePendingTransition(R.anim.slidein, R.anim.slideout);
+        }
+        if (requestCode == PICKER_REQUEST_CODE && resultCode == RESULT_OK) {
+            mSelected = Matisse.obtainResult(data);
+            Intent studioIntent = new Intent(this, StudioActivity.class);
+            try {
+                studioIntent.putExtra("imagePath", mSelected.get(0).toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            startActivity(studioIntent);
+            overridePendingTransition(R.anim.slidein, R.anim.slideout);
         }
     }
 
-    public String getRealPathFromURI(Uri contentUri) {
-        String[] proj = { MediaStore.Images.Media.DATA };
-        Cursor cursor = managedQuery(contentUri, proj, null, null, null);
-        int column_index = cursor
-                .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        return cursor.getString(column_index);
-    }
-
     public void LoadImage(View view){
-        this.finish();
+        Matisse.from(MainActivity.this)
+                .choose(MimeType.ofImage())
+                .countable(false)
+                .maxSelectable(1)
+                .showSingleMediaType(true)
+                .gridExpectedSize(getResources().getDimensionPixelSize(R.dimen.grid_expected_size))
+                .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
+                .thumbnailScale(0.85f)
+                .maxOriginalSize(4)
+                .autoHideToolbarOnSingleTap(true)
+                .forResult(PICKER_REQUEST_CODE);
     }
 
     public void TakeImage(View view){
-        /*Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(cameraIntent,100);*/
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, "New Picture");
         values.put(MediaStore.Images.Media.DESCRIPTION, "From the Camera");
