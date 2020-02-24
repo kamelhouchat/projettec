@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -11,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,26 +24,40 @@ import com.example.projettech.Model.DynamicExtension;
 import com.example.projettech.Model.Equalization;
 import com.example.projettech.Model.Filter;
 import com.example.projettech.R;
+import com.gauravk.bubblebarsample.adapters.ScreenSlidePagerAdapter;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.tapadoo.alerter.Alerter;
 
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import com.example.projettech.Controller.Utilities.Fragment.ScreenSlidePageFragment;
+import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
+import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
+
 
 
 public class StudioActivity extends AppCompatActivity {
 
+    ImageView image ;
     Toolbar toolbar ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_studio);
+        setContentView(R.layout.studio_final_test);
+        /**
+         * Implement toolbar layout after including it in studio_activity layout
+         */
 
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        /*toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);*/
+
         /**
          * Load a Bitmap Image (Passed by mainactivity)
          */
@@ -62,8 +79,52 @@ public class StudioActivity extends AppCompatActivity {
         int height = captImage.getHeight();
         int width = captImage.getWidth();
 
+        ArrayList<ScreenSlidePageFragment> fragList = new ArrayList<>();
+        fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.home), R.color.blue_grey_inactive));
+        fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.search), R.color.blue_inactive));
+        ScreenSlidePagerAdapter pagerAdapter = new ScreenSlidePagerAdapter(fragList, getSupportFragmentManager());
 
-        final ImageView img1 = findViewById(R.id.image1);
+        final BubbleNavigationLinearView bubbleNavigationLinearView = findViewById(R.id.bottom_navigation_view_linear);
+        bubbleNavigationLinearView.setTypeface(Typeface.createFromAsset(getAssets(), "rubik.ttf"));
+
+        final ViewPager viewPager = findViewById(R.id.view_pager);
+        viewPager.setAdapter(pagerAdapter);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+                bubbleNavigationLinearView.setCurrentActiveItem(i);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
+
+        bubbleNavigationLinearView.setNavigationChangeListener(new BubbleNavigationChangeListener() {
+            @Override
+            public void onNavigationChanged(View view, int position) {
+                viewPager.setCurrentItem(position, true);
+            }
+        });
+
+        image = findViewById(R.id.imageView);
+        image.setImageBitmap(captImage);
+
+        /*BottomNavigationViewEx bnve = (BottomNavigationViewEx) findViewById(R.id.bnve);
+
+        bnve.enableAnimation(true);
+        bnve.enableItemShiftingMode(true);
+        bnve.enableShiftingMode(true);*/
+
+
+    }//Remove this to restore last version
+
+        /*final ImageView img1 = findViewById(R.id.image1);
         TextView texte1 = findViewById(R.id.texte1);
 
         BitmapFactory.Options o = new BitmapFactory.Options();
@@ -169,6 +230,6 @@ public class StudioActivity extends AppCompatActivity {
                 Toast.makeText(this,"Filtre moyenneur ...", Toast.LENGTH_LONG).show();
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }
 

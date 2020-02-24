@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 29
@@ -39,7 +41,28 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'com.zhihu.android:matisse:0.5.3-beta3'
 
+
+    implementation 'com.google.android.material:material:1.0.0'
+
+    implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
+    //noinspection GradleCompatible
+    implementation 'com.google.android.material:material:1.0.0'
+
+
+    implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'androidx.core:core-ktx:+'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+
+}
+repositories {
+    mavenCentral()
 }

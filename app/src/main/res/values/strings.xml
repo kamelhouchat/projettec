@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Projet Tech</string>
+    <string name="home">Studio</string>
+    <string name="search">Plus</string>
 </resources>

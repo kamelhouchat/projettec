@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/studio_bt_navigation"
+        android:title="Studio"
+        android:icon="@drawable/ic_studio"
+        />
+    <item
+        android:id="@+id/plus_bt_navigation"
+        android:title="Plus"
+        android:icon="@drawable/ic_plus"
+        />
+
+</menu>
