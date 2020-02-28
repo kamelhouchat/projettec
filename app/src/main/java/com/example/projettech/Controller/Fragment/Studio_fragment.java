@@ -12,8 +12,10 @@ import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.example.projettech.Controller.StudioActivity;
 import com.example.projettech.R;
+import com.github.chrisbanes.photoview.PhotoView;
 
 import java.io.IOException;
 
@@ -34,8 +36,13 @@ public class Studio_fragment extends Fragment{
             e.printStackTrace();
         }
 
+        int height = captImage.getHeight();
+        int width = captImage.getWidth();
+
         ImageView image_view = (ImageView) v.findViewById(R.id.image_view);
-        image_view.setImageBitmap(captImage);
+        Glide.with(applicationContext).load(captImage).override(width,height).into(image_view);
+
+        //image_view.setImageBitmap(captImage);
 
         return v;
     }

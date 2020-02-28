@@ -1483,6 +1483,7 @@ id parentPanel
 id parent_matrix
 id pbProgress
 id percent
+id photo_view
 id pin
 id plus_bt_navigation
 id progress_circular
