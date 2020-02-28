@@ -1,43 +1,31 @@
 package com.example.projettech.Controller;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.projettech.Model.AuxiliaryFunction;
-import com.example.projettech.Model.Convolution;
-import com.example.projettech.Model.DynamicExtension;
-import com.example.projettech.Model.Equalization;
-import com.example.projettech.Model.Filter;
+import com.example.projettech.Controller.Fragment.Studio_fragment;
+import com.example.projettech.Controller.Fragment.Plus_fragment;
 import com.example.projettech.R;
-import com.gauravk.bubblebarsample.adapters.ScreenSlidePagerAdapter;
-import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.tapadoo.alerter.Alerter;
 
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-import com.example.projettech.Controller.Utilities.Fragment.ScreenSlidePageFragment;
 import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 
@@ -47,10 +35,14 @@ public class StudioActivity extends AppCompatActivity {
 
     ImageView image ;
     Toolbar toolbar ;
+    String image_path;
+    Uri image_uri ;
+    Bitmap captImage ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.studio_final_test);
+        contextOfApplication = getApplicationContext();
         /**
          * Implement toolbar layout after including it in studio_activity layout
          */
@@ -62,9 +54,9 @@ public class StudioActivity extends AppCompatActivity {
          * Load a Bitmap Image (Passed by mainactivity)
          */
         Intent intent = getIntent();
-        String image_path = intent.getStringExtra("imagePath");
-        Uri image_uri = Uri.parse(image_path);
-        Bitmap captImage = null;
+        image_path = intent.getStringExtra("imagePath");
+        image_uri = Uri.parse(image_path);
+        captImage = null;
         try {
             captImage = MediaStore.Images.Media.getBitmap(
                     getContentResolver(), image_uri);
@@ -79,17 +71,13 @@ public class StudioActivity extends AppCompatActivity {
         int height = captImage.getHeight();
         int width = captImage.getWidth();
 
-        ArrayList<ScreenSlidePageFragment> fragList = new ArrayList<>();
-        fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.home), R.color.blue_grey_inactive));
-        fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.search), R.color.blue_inactive));
-        ScreenSlidePagerAdapter pagerAdapter = new ScreenSlidePagerAdapter(fragList, getSupportFragmentManager());
-
         final BubbleNavigationLinearView bubbleNavigationLinearView = findViewById(R.id.bottom_navigation_view_linear);
         bubbleNavigationLinearView.setTypeface(Typeface.createFromAsset(getAssets(), "rubik.ttf"));
 
-        final ViewPager viewPager = findViewById(R.id.view_pager);
-        viewPager.setAdapter(pagerAdapter);
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        final ViewPager pager = (ViewPager) findViewById(R.id.view_pager);
+        pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+
+        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
             }
@@ -108,21 +96,39 @@ public class StudioActivity extends AppCompatActivity {
         bubbleNavigationLinearView.setNavigationChangeListener(new BubbleNavigationChangeListener() {
             @Override
             public void onNavigationChanged(View view, int position) {
-                viewPager.setCurrentItem(position, true);
+                pager.setCurrentItem(position, true);
             }
         });
 
-        image = findViewById(R.id.imageView);
-        image.setImageBitmap(captImage);
-
-        /*BottomNavigationViewEx bnve = (BottomNavigationViewEx) findViewById(R.id.bnve);
-
-        bnve.enableAnimation(true);
-        bnve.enableItemShiftingMode(true);
-        bnve.enableShiftingMode(true);*/
-
 
     }//Remove this to restore last version
+
+    private class MyPagerAdapter extends FragmentPagerAdapter {
+
+        public MyPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int pos) {
+            switch(pos) {
+                case 0: return Studio_fragment.newInstance(image_path);
+                case 1: return Plus_fragment.newInstance("SecondFragment, Instance 1");
+            }
+            return null;
+        }
+
+        @Override
+        public int getCount() {
+            return 2;
+        }
+    }
+
+    public static Context contextOfApplication;
+    public static Context getContextOfApplication()
+    {
+        return contextOfApplication;
+    }
 
         /*final ImageView img1 = findViewById(R.id.image1);
         TextView texte1 = findViewById(R.id.texte1);

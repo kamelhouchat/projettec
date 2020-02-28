@@ -4,7 +4,17 @@
             "outputFile": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\d9z\\.gradle\\caches\\transforms-2\\files-2.1\\946093075d78eb9f74f58a48d61f96ab\\material-1.0.0\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\d9z\\.gradle\\caches\\transforms-2\\files-2.1\\bd192a2c68f5624737262d91d2f648ac\\appcompat-1.1.0\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\d9z\\.gradle\\caches\\transforms-2\\files-2.1\\37c9da2984b4e5e8f8d35249ba778711\\material-1.0.0\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -20,16 +30,6 @@
                         "endLines": "8",
                         "endColumns": "10",
                         "endOffsets": "431"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\d9z\\.gradle\\caches\\transforms-2\\files-2.1\\93bc303e0edf41378a70a682ebb74605\\appcompat-1.1.0\\res\\values-land\\values-land.xml",
-                    "from": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,125,196",
-                        "endColumns": "69,70,67",
-                        "endOffsets": "120,191,259"
                     }
                 }
             ]

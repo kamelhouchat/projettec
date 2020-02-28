@@ -1435,7 +1435,6 @@ id icon_group
 id ifRoom
 id image
 id image1
-id imageView
 id image_view
 id info
 id inside
@@ -1763,6 +1762,7 @@ string error_type_conflict
 string error_under_quality
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string home
 string lib_name

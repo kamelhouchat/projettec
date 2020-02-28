@@ -57,7 +57,7 @@ dependencies {
 
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'androidx.core:core-ktx:+'
+    implementation 'androidx.core:core-ktx:+'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
