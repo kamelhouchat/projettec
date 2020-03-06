@@ -37,5 +37,6 @@
     <color name="grey_bg_light">#fafafa</color>
 
     <color name="white">#ffffff</color>
+    <color name="blue_grey_inactive_cle">#C1CED5</color>
 
 </resources>

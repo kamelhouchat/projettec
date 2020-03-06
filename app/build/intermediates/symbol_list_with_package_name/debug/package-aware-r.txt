@@ -203,6 +203,10 @@ attr chipStartPadding
 attr chipStrokeColor
 attr chipStrokeWidth
 attr chipStyle
+attr civ_border_color
+attr civ_border_overlay
+attr civ_border_width
+attr civ_circle_background_color
 attr closeIcon
 attr closeIconEnabled
 attr closeIconEndPadding
@@ -678,6 +682,7 @@ color blue_bg_light
 color blue_grey_active
 color blue_grey_bg_light
 color blue_grey_inactive
+color blue_grey_inactive_cle
 color blue_inactive
 color bottomNavigation
 color bright_foreground_disabled_material_dark
@@ -1435,6 +1440,7 @@ id ifRoom
 id image
 id image1
 id image_view
+id image_view_filter
 id info
 id inside
 id invisible
@@ -1557,6 +1563,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id text_input_password_toggle
+id text_view_filter
 id texte1
 id textinput_counter
 id textinput_error
@@ -1672,6 +1679,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout filter_row
 layout fragment_media_selection
 layout fragment_plus
 layout fragment_preview_item
@@ -2322,6 +2330,7 @@ styleable ButtonBarLayout allowStacking
 styleable CardView android_minWidth android_minHeight cardBackgroundColor cardCornerRadius cardElevation cardMaxElevation cardPreventCornerOverlap cardUseCompatPadding contentPadding contentPaddingBottom contentPaddingLeft contentPaddingRight contentPaddingTop
 styleable Chip android_textAppearance android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipStartPadding chipStrokeColor chipStrokeWidth closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible hideMotionSpec iconEndPadding iconStartPadding rippleColor showMotionSpec textEndPadding textStartPadding
 styleable ChipGroup checkedChip chipSpacing chipSpacingHorizontal chipSpacingVertical singleLine singleSelection
+styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_circle_background_color
 styleable CollapsingToolbarLayout collapsedTitleGravity collapsedTitleTextAppearance contentScrim expandedTitleGravity expandedTitleMargin expandedTitleMarginBottom expandedTitleMarginEnd expandedTitleMarginStart expandedTitleMarginTop expandedTitleTextAppearance scrimAnimationDuration scrimVisibleHeightTrigger statusBarScrim title titleEnabled toolbarId
 styleable CollapsingToolbarLayout_Layout layout_collapseMode layout_collapseParallaxMultiplier
 styleable ColorStateListItem android_color android_alpha alpha

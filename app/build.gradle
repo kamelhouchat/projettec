@@ -34,24 +34,32 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
+    //Toast
     implementation 'com.github.GrenderG:Toasty:1.4.2'
+
+    //Alerter
     implementation 'com.tapadoo.android:alerter:2.0.4'
 
+    //Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
-    implementation 'com.zhihu.android:matisse:0.5.3-beta3'
 
+    //Matisse (import image)
+    implementation 'com.zhihu.android:matisse:0.5.3-beta3'
 
     implementation 'com.google.android.material:material:1.0.0'
 
     //noinspection GradleCompatible
     implementation 'com.google.android.material:material:1.0.0'
 
-
+    //Navigation bar
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
 
+    //Photo View
     implementation 'com.github.chrisbanes:PhotoView:2.0.0'
 
+    //Circle imageview
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
@@ -59,7 +67,6 @@ dependencies {
 
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.core:core-ktx:+'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 

@@ -8,12 +8,12 @@
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\src\\main\\res\\anim\\logoanimation.xml"
     },
     {
-        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_camera.png.flat",
-        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\src\\main\\res\\drawable\\camera.png"
-    },
-    {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_camera.png.flat",
+        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\src\\main\\res\\drawable\\camera.png"
     },
     {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_gallery.png.flat",
@@ -40,16 +40,16 @@
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\src\\main\\res\\drawable\\tig.jpg"
     },
     {
-        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\layout_studio_final_test.xml.flat",
-        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\src\\main\\res\\layout\\studio_final_test.xml"
+        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_color.jpg.flat",
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\src\\main\\res\\drawable\\background_color.jpg"
     },
     {
-        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\layout_studio_final_test.xml.flat",
+        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\src\\main\\res\\layout\\studio_final_test.xml"
     },
     {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -174,6 +174,10 @@
     {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_clover.png.flat",
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\src\\main\\res\\drawable\\clover.png"
+    },
+    {
+        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\layout_filter_row.xml.flat",
+        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\src\\main\\res\\layout\\filter_row.xml"
     },
     {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_search_background_oval.xml.flat",
