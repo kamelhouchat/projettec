@@ -25,7 +25,7 @@
 16        android:allowBackup="true"
 16-->C:\Users\d9z\Desktop\projet tec\version combin\projettec\app\src\main\AndroidManifest.xml:11:9-35
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-17-->[androidx.core:core:1.1.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\bc18944030a4c342cf6d4ba1e75a6928\core-1.1.0\AndroidManifest.xml:24:18-86
+17-->[androidx.core:core:1.1.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\da099017a6de8e2dd996f1d4e4106af1\core-1.1.0\AndroidManifest.xml:24:18-86
 18        android:debuggable="true"
 19        android:extractNativeLibs="false"
 20        android:icon="@drawable/icon"
@@ -57,20 +57,20 @@
 33-->C:\Users\d9z\Desktop\projet tec\version combin\projettec\app\src\main\AndroidManifest.xml:24:9-97
 33-->C:\Users\d9z\Desktop\projet tec\version combin\projettec\app\src\main\AndroidManifest.xml:24:19-85
 34        <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
-34-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\86a50b911263a1806b6a0fd0d1ac810d\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:28:9-73
-34-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\86a50b911263a1806b6a0fd0d1ac810d\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:28:19-70
+34-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:28:9-73
+34-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:28:19-70
 35        <activity android:name="com.zhihu.matisse.internal.ui.AlbumPreviewActivity" />
-35-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\86a50b911263a1806b6a0fd0d1ac810d\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:29:9-87
-35-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\86a50b911263a1806b6a0fd0d1ac810d\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:29:19-84
+35-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:29:9-87
+35-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:29:19-84
 36        <activity android:name="com.zhihu.matisse.internal.ui.SelectedPreviewActivity" /> <!-- This is just an Activity for Testing from within src/androidTest -->
-36-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\86a50b911263a1806b6a0fd0d1ac810d\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:30:9-90
-36-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\86a50b911263a1806b6a0fd0d1ac810d\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:30:19-87
+36-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:30:9-90
+36-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:30:19-87
 37        <activity
-37-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\021364454ccdd33fb634d83d9fe396bb\jetified-alerter-2.0.4\AndroidManifest.xml:15:9-17:54
+37-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\b8c9bbfde865c8df49bf82a09a744b7f\jetified-alerter-2.0.4\AndroidManifest.xml:15:9-17:54
 38            android:name="com.tapadoo.alerter.MockActivity"
-38-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\021364454ccdd33fb634d83d9fe396bb\jetified-alerter-2.0.4\AndroidManifest.xml:16:13-60
+38-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\b8c9bbfde865c8df49bf82a09a744b7f\jetified-alerter-2.0.4\AndroidManifest.xml:16:13-60
 39            android:theme="@style/Theme.AppCompat" />
-39-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\021364454ccdd33fb634d83d9fe396bb\jetified-alerter-2.0.4\AndroidManifest.xml:17:13-51
+39-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\b8c9bbfde865c8df49bf82a09a744b7f\jetified-alerter-2.0.4\AndroidManifest.xml:17:13-51
 40    </application>
 41
 42</manifest>

@@ -20,6 +20,8 @@ import com.github.chrisbanes.photoview.PhotoView;
 import com.github.chrisbanes.photoview.PhotoViewAttacher;
 import com.projettec.imageStudio.Controller.Adapter.RecyvlerViewAdapter;
 import com.projettec.imageStudio.Controller.StudioActivity;
+import com.projettec.imageStudio.Model.DynamicExtension;
+import com.projettec.imageStudio.Model.Equalization;
 import com.projettec.imageStudio.Model.Filter;
 import com.projettec.imageStudio.R;
 
@@ -31,6 +33,9 @@ public class Studio_fragment extends Fragment{
     Context applicationContext ;
     View v ;
     Bitmap captImage ;
+    Filter filter ;
+    DynamicExtension dynamicExtension ;
+    Equalization equalization ;
     PhotoViewAttacher photoView;
     PhotoView photo_view ;
     ArrayList<String> filterName = new ArrayList<String>();
@@ -51,7 +56,12 @@ public class Studio_fragment extends Fragment{
             e.printStackTrace();
         }
 
-        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.pipimage);
+        //Load filters
+        filter = new Filter(captImage, applicationContext);
+        dynamicExtension = new DynamicExtension(captImage, applicationContext);
+        equalization = new Equalization(captImage, applicationContext);
+
+        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.background_org);
 
         int height = captImage.getHeight();
         int width = captImage.getWidth();
@@ -101,7 +111,12 @@ public class Studio_fragment extends Fragment{
         LinearLayoutManager layoutManager = new LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false);
         RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(layoutManager);
-        RecyvlerViewAdapter adapter = new RecyvlerViewAdapter(filterName, captImage ,applicationContext);
+        RecyvlerViewAdapter adapter = new RecyvlerViewAdapter(filterName, captImage, applicationContext, photo_view);
         recyclerView.setAdapter(adapter);
     }
+
+    public PhotoView getPhoto_view() {
+        return photo_view;
+    }
+
 }
