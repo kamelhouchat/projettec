@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
+    <array name="colors">
+        <item>#3F51B5</item>
+        <item>#303F9F</item>
+        <item>#FF4081</item>
+    </array>
+    <array name="material_colors">
+        <item>#F44336</item>
+        <item>#9C27B0</item>
+        <item>#3F51B5</item>
+        <item>#03A9F4</item>
+        <item>#009688</item>
+        <item>#8BC34A</item>
+        <item>#FFEB3B</item>
+        <item>#FF9800</item>
+        <item>#795548</item>
+        <item>#607D8B</item>
+    </array>
     <attr format="reference|color" name="album.dropdown.count.color"/>
     <attr format="reference|color" name="album.dropdown.title.color"/>
     <attr format="reference|color" name="album.element.color"/>
@@ -4108,6 +4125,21 @@
       
       <enum name="parallax" value="2"/>
     </attr><attr format="float" name="layout_collapseParallaxMultiplier"/></declare-styleable>
+    <declare-styleable name="ColorSeekBar">
+        <attr format="reference" name="colorSeeds"/>
+        <attr format="dimension" name="barHeight"/>
+        <attr format="dimension" name="thumbHeight"/>
+        <attr format="boolean" name="showAlphaBar"/>
+        <attr format="integer" name="alphaBarPosition"/>
+        <attr format="integer" name="colorBarPosition"/>
+        <attr format="color" name="bgColor"/>
+        <attr format="dimension" name="barRadius"/>
+        <attr format="dimension" name="barMargin"/>
+        <attr format="integer" name="maxPosition"/>
+        <attr format="boolean" name="isVertical"/>
+        <attr format="color" name="disabledColor"/>
+        <attr format="boolean" name="showThumb"/>
+    </declare-styleable>
     <declare-styleable name="ColorStateListItem">
         <!-- Base color for this state. -->
         <attr name="android:color"/>

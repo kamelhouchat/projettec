@@ -4,7 +4,7 @@
 #include "rs_debug.rsh"
 #include "colorize.rs"
 
-#define Radius 40
+#define Radius 15
 
 float color_to_keep ;
 

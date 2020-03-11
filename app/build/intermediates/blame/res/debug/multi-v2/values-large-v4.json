@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
+            "outputFile": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-large-v4/values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\d9z\\.gradle\\caches\\transforms-2\\files-2.1\\a8776343fdac874fa977e09d507079eb\\appcompat-1.1.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/values-large-v4/values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\d9z\\.gradle\\caches\\transforms-2\\files-2.1\\16255df71047b2a53a0200f409a9520f\\material-1.0.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bc119e3725abb138a6dd2083cf8b82fc/material-1.0.0/res/values-large-v4/values-large-v4.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

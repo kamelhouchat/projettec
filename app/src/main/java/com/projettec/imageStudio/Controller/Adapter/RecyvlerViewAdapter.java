@@ -3,6 +3,8 @@ package com.projettec.imageStudio.Controller.Adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +17,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.projettec.imageStudio.Controller.Fragment.Studio_fragment;
+import com.projettec.imageStudio.Model.AuxiliaryFunction;
 import com.projettec.imageStudio.Model.DynamicExtension;
 import com.projettec.imageStudio.Model.Equalization;
 import com.projettec.imageStudio.Model.Filter;
 import com.projettec.imageStudio.R;
+import com.rtugeek.android.colorseekbar.ColorSeekBar;
 
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import com.projettec.imageStudio.Model.Conversion;
 
 
 public class RecyvlerViewAdapter extends RecyclerView.Adapter<RecyvlerViewAdapter.ViewHolder>{
@@ -35,8 +41,10 @@ public class RecyvlerViewAdapter extends RecyclerView.Adapter<RecyvlerViewAdapte
     private Filter filter ;
     private DynamicExtension dynamicExtension ;
     private Equalization equalization ;
+    private ColorSeekBar colorSeekBar;
+    private static final String TAG = "RecyvlerViewAdapter";
 
-    public RecyvlerViewAdapter(ArrayList<String> filterName, Bitmap loadedImage, Context mContext, PhotoView photoView) {
+    public RecyvlerViewAdapter(ArrayList<String> filterName, Bitmap loadedImage, Context mContext, PhotoView photoView, ColorSeekBar colorSeekBar) {
         this.filterName = filterName;
         this.loadedImage = loadedImage;
         this.loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
@@ -48,6 +56,7 @@ public class RecyvlerViewAdapter extends RecyclerView.Adapter<RecyvlerViewAdapte
         this.filter = new Filter(loadedImage, mContext);
         this.dynamicExtension = new DynamicExtension(loadedImage, mContext);
         this.equalization = new Equalization(loadedImage, mContext);
+        this.colorSeekBar = colorSeekBar;
     }
 
     @NonNull
@@ -135,16 +144,56 @@ public class RecyvlerViewAdapter extends RecyclerView.Adapter<RecyvlerViewAdapte
 
     public void applyChanges(int position){
         //Bitmap loadedToChange = Bitmap.createBitmap(this.loadedImage);
-        Bitmap loadedToChange = this.loadedImage.copy(this.loadedImage.getConfig(), true);
+        /*final Bitmap loadedToChange = Bitmap.createScaledBitmap(this.loadedImage,
+                50,
+                50,
+                true);*/
+        final Bitmap loadedToChange = this.loadedImage.copy(this.loadedImage.getConfig(), true);
+
         switch (position){
             case 0:
                 filter.tograyRS(loadedToChange);
                 break ;
             case 1:
-                filter.colorizeRS(loadedToChange, 200);
+                /*colorSeekBar.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
+                    int color ; float hue;
+                    @Override
+                    public void onColorChangeListener(int colorBarPosition, int alphaBarPosition, int color) {
+                        float hsv[] = new float[3];
+                        color = colorSeekBar.getColor();
+                        Conversion.RGBToHSV_new(Color.red(color), Color.green(color), Color.blue(color), hsv);
+                        //hue = hsv[0];
+                        //if (!AuxiliaryFunction.Is_like(hue, hsv[0], 5)){
+                            filter.colorizeRS(loadedToChange, hsv[0]);
+                            photoView.setImageBitmap(loadedToChange);
+                            hue = hsv[0];
+                        //}
+                    }
+                });*/
                 break ;
             case 2:
-                filter.KeepColorRS(loadedToChange, 90);
+                //filter.KeepColorRS(loadedToChange, 90);
+                colorSeekBar.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
+                    int color ; float hue;
+                    @Override
+                    public void onColorChangeListener(int colorBarPosition, int alphaBarPosition, int color) {
+                        float hsv[] = new float[3];
+                        final Bitmap loadedToChange = loadedImage.copy(loadedImage.getConfig(), true);
+
+                        color = colorSeekBar.getColor();
+                        Log.i("Color ----------->" , color +" ");
+                        Conversion.RGBToHSV_new(Color.red(color), Color.green(color), Color.blue(color), hsv);
+                        Log.i(TAG, "onColorChangeListener:  ------> "+ hsv[0]);
+                        //hue = hsv[0];
+                        //if (!AuxiliaryFunction.Is_like(hue, hsv[0], 5)){
+                        //filter.KeepColorRS(loadedToChange, hsv[0]);
+                        //filter.keepcolor(loadedToChange, color, 15);
+                        filter.saveColors(loadedToChange,color);
+                        photoView.setImageBitmap(loadedToChange);
+                        //hue = hsv[0];
+                        //}
+                    }
+                });
                 break ;
             case 3:
                 dynamicExtension.contrastePlusGrayRS(loadedToChange);
@@ -168,5 +217,7 @@ public class RecyvlerViewAdapter extends RecyclerView.Adapter<RecyvlerViewAdapte
         //Glide.with(mContext).load(this.loadedImage).into(photoView);
         photoView.setImageBitmap(loadedToChange);
     }
+
+
 
 }

@@ -203,4 +203,37 @@ public class Filter {
         KeepColorScript.destroy();
         rs.destroy();
     }
+
+    public void saveColors(Bitmap bmp, int color){
+        int width  = bmp.getWidth();
+        int height = bmp.getHeight();
+        int mycolor , r , g , b;
+        int [] pixel = new int[width * height];
+        float[]  hsv = new float[3];
+
+        float inf = (float) (color -10) + 360, sup = (float) ((color + 10) + 360) % 360;
+
+        bmp.getPixels(pixel,0, width , 0, 0,width ,height);
+        for (int i = 0; i < height * width -1; i ++){
+
+            mycolor = pixel[i];
+
+            r = Color.red(mycolor);
+            g = Color.green(mycolor);
+            b = Color.blue(mycolor);
+
+            //Color.RGBToHSV(r,g,b,hsv);
+            Conversion.RGBToHSV_new(r,g,b,hsv);
+
+
+            if (hsv[0] < inf  && hsv[0] > sup){
+                hsv[1] = 0;
+            }
+
+            //pixel[i] = Color.HSVToColor(hsv);
+            pixel[i] = Conversion.HSVToColor_new(hsv);
+
+        }
+        bmp.setPixels(pixel,0, width , 0, 0,width ,height);
+    }
 }

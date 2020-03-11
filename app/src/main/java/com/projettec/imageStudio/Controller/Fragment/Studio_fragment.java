@@ -3,6 +3,7 @@ package com.projettec.imageStudio.Controller.Fragment;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +26,7 @@ import com.projettec.imageStudio.Model.DynamicExtension;
 import com.projettec.imageStudio.Model.Equalization;
 import com.projettec.imageStudio.Model.Filter;
 import com.projettec.imageStudio.R;
+import com.rtugeek.android.colorseekbar.ColorSeekBar;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,10 +42,13 @@ public class Studio_fragment extends Fragment{
     PhotoViewAttacher photoView;
     PhotoView photo_view ;
     ArrayList<String> filterName = new ArrayList<String>();
+    ColorSeekBar colorSeekBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_studio, container, false);
+
+        colorSeekBar = (ColorSeekBar) v.findViewById(R.id.seek);
 
         applicationContext = StudioActivity.getContextOfApplication();
 
@@ -61,7 +67,7 @@ public class Studio_fragment extends Fragment{
         dynamicExtension = new DynamicExtension(captImage, applicationContext);
         equalization = new Equalization(captImage, applicationContext);
 
-        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.background_org);
+        captImage = BitmapFactory.decodeResource(getResources(), R.drawable.background_org);
 
         int height = captImage.getHeight();
         int width = captImage.getWidth();
@@ -111,12 +117,13 @@ public class Studio_fragment extends Fragment{
         LinearLayoutManager layoutManager = new LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false);
         RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(layoutManager);
-        RecyvlerViewAdapter adapter = new RecyvlerViewAdapter(filterName, captImage, applicationContext, photo_view);
+        RecyvlerViewAdapter adapter = new RecyvlerViewAdapter(filterName, captImage, applicationContext, photo_view, colorSeekBar);
         recyclerView.setAdapter(adapter);
     }
 
     public PhotoView getPhoto_view() {
         return photo_view;
     }
+    public ColorSeekBar getColorSeekBar() { return colorSeekBar; }
 
 }

@@ -16,7 +16,7 @@
 
 /*
  * This file is auto-generated. DO NOT MODIFY!
- * The source Renderscript file: C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\src\\main\\rs\\togray.rs
+ * The source Renderscript file: /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/rs/togray.rs
  */
 
 package com.android.rssample;

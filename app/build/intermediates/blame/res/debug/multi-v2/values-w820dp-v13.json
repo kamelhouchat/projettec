@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+            "outputFile": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w820dp-v13/values-w820dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\d9z\\.gradle\\caches\\transforms-2\\files-2.1\\b8c9bbfde865c8df49bf82a09a744b7f\\jetified-alerter-2.0.4\\res\\values-w820dp-v13\\values-w820dp-v13.xml",
+                    "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/values-w820dp-v13/values-w820dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -1,7 +1,7 @@
-#Sat Mar 07 23:30:00 CET 2020
-base.0=C\:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+#Wed Mar 11 17:23:03 CET 2020
+base.0=/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\d9z\\Desktop\\projet tec\\version combin\\projettec\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.1=/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex

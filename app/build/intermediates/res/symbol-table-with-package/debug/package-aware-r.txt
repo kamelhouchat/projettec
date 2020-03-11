@@ -46,6 +46,8 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array colors
+array material_colors
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -97,6 +99,7 @@ attr alertText
 attr alertTitle
 attr allowStacking
 attr alpha
+attr alphaBarPosition
 attr alphabeticModifiers
 attr arrowHeadLength
 attr arrowShaftLength
@@ -111,7 +114,10 @@ attr backgroundSplit
 attr backgroundStacked
 attr backgroundTint
 attr backgroundTintMode
+attr barHeight
 attr barLength
+attr barMargin
+attr barRadius
 attr barrierAllowsGoneWidgets
 attr barrierDirection
 attr behavior_autoHide
@@ -120,6 +126,7 @@ attr behavior_hideable
 attr behavior_overlapTop
 attr behavior_peekHeight
 attr behavior_skipCollapsed
+attr bgColor
 attr bnc_mode
 attr borderWidth
 attr borderlessButtonStyle
@@ -203,6 +210,10 @@ attr chipStartPadding
 attr chipStrokeColor
 attr chipStrokeWidth
 attr chipStyle
+attr civ_border_color
+attr civ_border_overlay
+attr civ_border_width
+attr civ_circle_background_color
 attr closeIcon
 attr closeIconEnabled
 attr closeIconEndPadding
@@ -218,6 +229,7 @@ attr collapsedTitleTextAppearance
 attr color
 attr colorAccent
 attr colorBackgroundFloating
+attr colorBarPosition
 attr colorButtonNormal
 attr colorControlActivated
 attr colorControlHighlight
@@ -226,6 +238,7 @@ attr colorError
 attr colorPrimary
 attr colorPrimaryDark
 attr colorSecondary
+attr colorSeeds
 attr colorSwitchThumbNormal
 attr commitIcon
 attr constraintSet
@@ -256,6 +269,7 @@ attr defaultQueryHint
 attr dialogCornerRadius
 attr dialogPreferredPadding
 attr dialogTheme
+attr disabledColor
 attr displayOptions
 attr divider
 attr dividerHorizontal
@@ -346,6 +360,7 @@ attr indeterminateProgressStyle
 attr initialActivityCount
 attr insetForeground
 attr isLightTheme
+attr isVertical
 attr item_checkCircle_backgroundColor
 attr item_checkCircle_borderColor
 attr item_placeholder
@@ -451,6 +466,7 @@ attr materialCardViewStyle
 attr maxActionInlineWidth
 attr maxButtonHeight
 attr maxImageSize
+attr maxPosition
 attr measureWithLargestChild
 attr menu
 attr multiChoiceItemLayout
@@ -499,10 +515,12 @@ attr searchViewStyle
 attr seekBarStyle
 attr selectableItemBackground
 attr selectableItemBackgroundBorderless
+attr showAlphaBar
 attr showAsAction
 attr showDividers
 attr showMotionSpec
 attr showText
+attr showThumb
 attr showTitle
 attr singleChoiceItemLayout
 attr singleLine
@@ -592,6 +610,7 @@ attr textLocale
 attr textStartPadding
 attr theme
 attr thickness
+attr thumbHeight
 attr thumbTextPadding
 attr thumbTint
 attr thumbTintMode
@@ -678,6 +697,7 @@ color blue_bg_light
 color blue_grey_active
 color blue_grey_bg_light
 color blue_grey_inactive
+color blue_grey_inactive_cle
 color blue_inactive
 color bottomNavigation
 color bright_foreground_disabled_material_dark
@@ -1352,7 +1372,6 @@ id barrier
 id beginning
 id blocking
 id bottom
-id bottom_navigation
 id bottom_navigation_view_linear
 id bottom_toolbar
 id buttonPanel
@@ -1436,6 +1455,7 @@ id ifRoom
 id image
 id image1
 id image_view
+id image_view_filter
 id info
 id inside
 id invisible
@@ -1484,6 +1504,7 @@ id parentPanel
 id parent_matrix
 id pbProgress
 id percent
+id photo_view
 id pin
 id plus_bt_navigation
 id progress_circular
@@ -1500,7 +1521,6 @@ id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
 id screen
-id screen_slide_title
 id scroll
 id scrollIndicatorDown
 id scrollIndicatorUp
@@ -1516,6 +1536,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id seek
 id select_dialog_listview
 id selected
 id selected_album
@@ -1557,8 +1578,8 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id textView
 id text_input_password_toggle
+id text_view_filter
 id texte1
 id textinput_counter
 id textinput_error
@@ -1581,6 +1602,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id tvFragSecond
 id tvText
 id tvTitle
 id unchecked
@@ -1658,7 +1680,6 @@ layout activity_mock
 layout activity_studio
 layout album_list_item
 layout alerter_alert_view
-layout another
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1674,9 +1695,11 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout filter_row
 layout fragment_media_selection
+layout fragment_plus
 layout fragment_preview_item
-layout fragment_screen_slide_page
+layout fragment_studio
 layout media_grid_content
 layout media_grid_item
 layout mtrl_layout_snackbar
@@ -1702,7 +1725,6 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout studio_final_test
 layout support_simple_spinner_dropdown_item
-layout teste_studion_activity
 layout toast_layout
 layout toolbar
 menu action_menu
@@ -2324,8 +2346,10 @@ styleable ButtonBarLayout allowStacking
 styleable CardView android_minWidth android_minHeight cardBackgroundColor cardCornerRadius cardElevation cardMaxElevation cardPreventCornerOverlap cardUseCompatPadding contentPadding contentPaddingBottom contentPaddingLeft contentPaddingRight contentPaddingTop
 styleable Chip android_textAppearance android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipStartPadding chipStrokeColor chipStrokeWidth closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible hideMotionSpec iconEndPadding iconStartPadding rippleColor showMotionSpec textEndPadding textStartPadding
 styleable ChipGroup checkedChip chipSpacing chipSpacingHorizontal chipSpacingVertical singleLine singleSelection
+styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_circle_background_color
 styleable CollapsingToolbarLayout collapsedTitleGravity collapsedTitleTextAppearance contentScrim expandedTitleGravity expandedTitleMargin expandedTitleMarginBottom expandedTitleMarginEnd expandedTitleMarginStart expandedTitleMarginTop expandedTitleTextAppearance scrimAnimationDuration scrimVisibleHeightTrigger statusBarScrim title titleEnabled toolbarId
 styleable CollapsingToolbarLayout_Layout layout_collapseMode layout_collapseParallaxMultiplier
+styleable ColorSeekBar alphaBarPosition barHeight barMargin barRadius bgColor colorBarPosition colorSeeds disabledColor isVertical maxPosition showAlphaBar showThumb thumbHeight
 styleable ColorStateListItem android_color android_alpha alpha
 styleable CompoundButton android_button buttonCompat buttonTint buttonTintMode
 styleable ConstraintLayout_Layout android_orientation android_maxWidth android_maxHeight android_minWidth android_minHeight barrierAllowsGoneWidgets barrierDirection chainUseRtl constraintSet constraint_referenced_ids layout_constrainedHeight layout_constrainedWidth layout_constraintBaseline_creator layout_constraintBaseline_toBaselineOf layout_constraintBottom_creator layout_constraintBottom_toBottomOf layout_constraintBottom_toTopOf layout_constraintCircle layout_constraintCircleAngle layout_constraintCircleRadius layout_constraintDimensionRatio layout_constraintEnd_toEndOf layout_constraintEnd_toStartOf layout_constraintGuide_begin layout_constraintGuide_end layout_constraintGuide_percent layout_constraintHeight_default layout_constraintHeight_max layout_constraintHeight_min layout_constraintHeight_percent layout_constraintHorizontal_bias layout_constraintHorizontal_chainStyle layout_constraintHorizontal_weight layout_constraintLeft_creator layout_constraintLeft_toLeftOf layout_constraintLeft_toRightOf layout_constraintRight_creator layout_constraintRight_toLeftOf layout_constraintRight_toRightOf layout_constraintStart_toEndOf layout_constraintStart_toStartOf layout_constraintTop_creator layout_constraintTop_toBottomOf layout_constraintTop_toTopOf layout_constraintVertical_bias layout_constraintVertical_chainStyle layout_constraintVertical_weight layout_constraintWidth_default layout_constraintWidth_max layout_constraintWidth_min layout_constraintWidth_percent layout_editor_absoluteX layout_editor_absoluteY layout_goneMarginBottom layout_goneMarginEnd layout_goneMarginLeft layout_goneMarginRight layout_goneMarginStart layout_goneMarginTop layout_optimizationLevel
