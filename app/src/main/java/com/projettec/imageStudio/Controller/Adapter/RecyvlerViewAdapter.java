@@ -152,10 +152,12 @@ public class RecyvlerViewAdapter extends RecyclerView.Adapter<RecyvlerViewAdapte
 
         switch (position){
             case 0:
+                colorSeekBar.setVisibility(View.INVISIBLE);
                 filter.tograyRS(loadedToChange);
                 break ;
             case 1:
-                /*colorSeekBar.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
+                colorSeekBar.setVisibility(View.VISIBLE);
+                colorSeekBar.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
                     int color ; float hue;
                     @Override
                     public void onColorChangeListener(int colorBarPosition, int alphaBarPosition, int color) {
@@ -169,48 +171,34 @@ public class RecyvlerViewAdapter extends RecyclerView.Adapter<RecyvlerViewAdapte
                             hue = hsv[0];
                         //}
                     }
-                });*/
-                break ;
-            case 2:
-                //filter.KeepColorRS(loadedToChange, 90);
-                colorSeekBar.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
-                    int color ; float hue;
-                    @Override
-                    public void onColorChangeListener(int colorBarPosition, int alphaBarPosition, int color) {
-                        float hsv[] = new float[3];
-                        final Bitmap loadedToChange = loadedImage.copy(loadedImage.getConfig(), true);
-
-                        color = colorSeekBar.getColor();
-                        Log.i("Color ----------->" , color +" ");
-                        Conversion.RGBToHSV_new(Color.red(color), Color.green(color), Color.blue(color), hsv);
-                        Log.i(TAG, "onColorChangeListener:  ------> "+ hsv[0]);
-                        //hue = hsv[0];
-                        //if (!AuxiliaryFunction.Is_like(hue, hsv[0], 5)){
-                        //filter.KeepColorRS(loadedToChange, hsv[0]);
-                        //filter.keepcolor(loadedToChange, color, 15);
-                        filter.saveColors(loadedToChange,color);
-                        photoView.setImageBitmap(loadedToChange);
-                        //hue = hsv[0];
-                        //}
-                    }
                 });
                 break ;
+            case 2:
+                colorSeekBar.setVisibility(View.INVISIBLE);
+                filter.KeepColorRS(loadedToChange, 90);
+                break ;
             case 3:
+                colorSeekBar.setVisibility(View.INVISIBLE);
                 dynamicExtension.contrastePlusGrayRS(loadedToChange);
                 break ;
             case 4:
+                colorSeekBar.setVisibility(View.INVISIBLE);
                 dynamicExtension.contrastePlusRGB_RS(loadedToChange);
                 break ;
             case 5:
+                colorSeekBar.setVisibility(View.INVISIBLE);
                 dynamicExtension.contrastePlusHSV_RS(loadedToChange);
                 break ;
             case 6:
+                colorSeekBar.setVisibility(View.INVISIBLE);
                 dynamicExtension.contrasteFewerGrayRS(loadedToChange);
                 break ;
             case 7:
+                colorSeekBar.setVisibility(View.INVISIBLE);
                 equalization.egalisationGrayRS(loadedToChange);
                 break ;
             case 8:
+                colorSeekBar.setVisibility(View.INVISIBLE);
                 equalization.egalisationRGBRS(loadedToChange);
                 break ;
         }

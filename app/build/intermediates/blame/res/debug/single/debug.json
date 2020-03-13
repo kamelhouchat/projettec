@@ -17,7 +17,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_alerter_ic_face.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/drawable-xxxhdpi-v4/alerter_ic_face.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/drawable-xxxhdpi-v4/alerter_ic_face.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-ldrtl-hdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -68,32 +68,32 @@
         "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/drawable/abc_ic_clear_material.xml"
     },
     {
-        "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-v21_notification_action_background.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/4a2e878b05969d2ed625e4d2f2f4a071/core-1.1.0/res/drawable-v21/notification_action_background.xml"
-    },
-    {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_abc_btn_check_material.xml.flat",
         "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-v21_notification_action_background.xml.flat",
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/4a2e878b05969d2ed625e4d2f2f4a071/core-1.1.0/res/drawable-v21/notification_action_background.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/interpolator_btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml.flat",
         "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml"
     },
     {
-        "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_black_48dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_ic_star_black_48dp.png"
-    },
-    {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
         "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/drawable-hdpi-v4/abc_text_select_handle_left_mtrl_dark.png"
     },
     {
-        "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/color_mtrl_chip_ripple_color.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bc119e3725abb138a6dd2083cf8b82fc/material-1.0.0/res/color/mtrl_chip_ripple_color.xml"
+        "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_black_48dp.png.flat",
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_ic_star_black_48dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_studio_final_test.xml.flat",
         "source": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/res/layout/studio_final_test.xml"
+    },
+    {
+        "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/color_mtrl_chip_ripple_color.xml.flat",
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bc119e3725abb138a6dd2083cf8b82fc/material-1.0.0/res/color/mtrl_chip_ripple_color.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_chateaux.jpg.flat",
@@ -173,19 +173,19 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_ic_info_outline_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-xxxhdpi-v4/ic_info_outline_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-xxxhdpi-v4/ic_info_outline_white_24dp.png"
     },
     {
-        "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_abc_ic_ab_back_material.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/drawable/abc_ic_ab_back_material.xml"
+        "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/drawable-hdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
         "source": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/drawable-hdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
+        "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_abc_ic_ab_back_material.xml.flat",
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/drawable/abc_ic_ab_back_material.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_navigation_empty_icon.xml.flat",
@@ -212,12 +212,12 @@
         "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/drawable-v21/abc_dialog_material_background.xml"
     },
     {
-        "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
-    },
-    {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout-watch-v20_abc_alert_dialog_title_material.xml.flat",
         "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/layout-watch-v20/abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_background_gray.jpg.flat",
@@ -241,7 +241,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_ic_error_outline_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-xxxhdpi-v4/ic_error_outline_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-xxxhdpi-v4/ic_error_outline_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_black_48dp.png.flat",
@@ -265,7 +265,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-ldpi-v4_default_icon.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c4ee522ea7e1448d04a6a6442814d09f/jetified-bubblenavigation-1.0.7/res/drawable-ldpi-v4/default_icon.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/03406d61a772843eb3b250667b18e30a/jetified-bubblenavigation-1.0.7/res/drawable-ldpi-v4/default_icon.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
@@ -313,7 +313,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_check_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-xxhdpi-v4/ic_check_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-xxhdpi-v4/ic_check_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_design_ic_visibility.png.flat",
@@ -321,7 +321,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_alerter_ic_face.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/drawable-anydpi-v21/alerter_ic_face.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/drawable-anydpi-v21/alerter_ic_face.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
@@ -401,7 +401,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_default_icon.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c4ee522ea7e1448d04a6a6442814d09f/jetified-bubblenavigation-1.0.7/res/drawable-hdpi-v4/default_icon.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/03406d61a772843eb3b250667b18e30a/jetified-bubblenavigation-1.0.7/res/drawable-hdpi-v4/default_icon.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_abc_list_selector_holo_dark.xml.flat",
@@ -417,7 +417,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_ic_check_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-xxxhdpi-v4/ic_check_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-xxxhdpi-v4/ic_check_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/interpolator_mtrl_linear.xml.flat",
@@ -457,7 +457,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_toast_frame.9.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-xxhdpi-v4/toast_frame.9.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-xxhdpi-v4/toast_frame.9.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
@@ -509,7 +509,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-ldpi-v4_ic_error_outline_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-ldpi-v4/ic_error_outline_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-ldpi-v4/ic_error_outline_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
@@ -561,7 +561,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_alerter_ic_notifications.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/drawable-xxxhdpi-v4/alerter_ic_notifications.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/drawable-xxxhdpi-v4/alerter_ic_notifications.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_arrow_drop_down_white_24dp.png.flat",
@@ -665,7 +665,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-ldpi-v4_alerter_ic_notifications.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/drawable-ldpi-v4/alerter_ic_notifications.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/drawable-ldpi-v4/alerter_ic_notifications.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
@@ -673,7 +673,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_alerter_ic_notifications.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/drawable-hdpi-v4/alerter_ic_notifications.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/drawable-hdpi-v4/alerter_ic_notifications.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_abc_popup_menu_item_layout.xml.flat",
@@ -689,7 +689,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-ldpi-v4_ic_info_outline_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-ldpi-v4/ic_info_outline_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-ldpi-v4/ic_info_outline_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_abc_screen_simple.xml.flat",
@@ -781,7 +781,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_alerter_ic_face.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/drawable-xhdpi-v4/alerter_ic_face.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/drawable-xhdpi-v4/alerter_ic_face.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
@@ -805,7 +805,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_check_white_24dp.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-anydpi-v21/ic_check_white_24dp.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-anydpi-v21/ic_check_white_24dp.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/menu_action_menu.xml.flat",
@@ -829,7 +829,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_default_icon.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c4ee522ea7e1448d04a6a6442814d09f/jetified-bubblenavigation-1.0.7/res/drawable-xhdpi-v4/default_icon.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/03406d61a772843eb3b250667b18e30a/jetified-bubblenavigation-1.0.7/res/drawable-xhdpi-v4/default_icon.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_select_dialog_item_material.xml.flat",
@@ -853,7 +853,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_default_icon.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c4ee522ea7e1448d04a6a6442814d09f/jetified-bubblenavigation-1.0.7/res/drawable-mdpi-v4/default_icon.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/03406d61a772843eb3b250667b18e30a/jetified-bubblenavigation-1.0.7/res/drawable-mdpi-v4/default_icon.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ic_gif.png.flat",
@@ -921,7 +921,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_check_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-xhdpi-v4/ic_check_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-xhdpi-v4/ic_check_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -941,7 +941,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_info_outline_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-xhdpi-v4/ic_info_outline_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-xhdpi-v4/ic_info_outline_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_fragment_media_selection.xml.flat",
@@ -953,7 +953,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_error_outline_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-xhdpi-v4/ic_error_outline_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-xhdpi-v4/ic_error_outline_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_black_36dp.png.flat",
@@ -969,7 +969,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_toast_frame.9.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-mdpi-v4/toast_frame.9.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-mdpi-v4/toast_frame.9.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_abc_tab_indicator_material.xml.flat",
@@ -1009,11 +1009,11 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_ic_error_outline_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-mdpi-v4/ic_error_outline_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-mdpi-v4/ic_error_outline_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_alerter_ic_notifications.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/drawable-xxhdpi-v4/alerter_ic_notifications.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/drawable-xxhdpi-v4/alerter_ic_notifications.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-v21_abc_action_bar_item_background_material.xml.flat",
@@ -1033,7 +1033,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_transition_background_drawable.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c4ee522ea7e1448d04a6a6442814d09f/jetified-bubblenavigation-1.0.7/res/drawable/transition_background_drawable.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/03406d61a772843eb3b250667b18e30a/jetified-bubblenavigation-1.0.7/res/drawable/transition_background_drawable.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_btn_radio_off_mtrl.xml.flat",
@@ -1105,7 +1105,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_info_outline_white_24dp.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-anydpi-v21/ic_info_outline_white_24dp.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-anydpi-v21/ic_info_outline_white_24dp.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
@@ -1125,11 +1125,11 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_alerter_ic_notifications.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/drawable-xhdpi-v4/alerter_ic_notifications.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/drawable-xhdpi-v4/alerter_ic_notifications.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_alerter_ic_face.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/drawable-xxhdpi-v4/alerter_ic_face.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/drawable-xxhdpi-v4/alerter_ic_face.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
@@ -1149,7 +1149,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-ldpi-v4_alerter_ic_face.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/drawable-ldpi-v4/alerter_ic_face.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/drawable-ldpi-v4/alerter_ic_face.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -1169,7 +1169,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_rounded_rect.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c4ee522ea7e1448d04a6a6442814d09f/jetified-bubblenavigation-1.0.7/res/drawable/rounded_rect.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/03406d61a772843eb3b250667b18e30a/jetified-bubblenavigation-1.0.7/res/drawable/rounded_rect.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-v21_design_password_eye.xml.flat",
@@ -1209,7 +1209,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_ic_check_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-mdpi-v4/ic_check_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-mdpi-v4/ic_check_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_abc_cascading_menu_item_layout.xml.flat",
@@ -1249,7 +1249,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_error_outline_white_24dp.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-anydpi-v21/ic_error_outline_white_24dp.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-anydpi-v21/ic_error_outline_white_24dp.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
@@ -1289,7 +1289,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_default_icon.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c4ee522ea7e1448d04a6a6442814d09f/jetified-bubblenavigation-1.0.7/res/drawable-xxxhdpi-v4/default_icon.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/03406d61a772843eb3b250667b18e30a/jetified-bubblenavigation-1.0.7/res/drawable-xxxhdpi-v4/default_icon.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -1297,7 +1297,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/anim_alerter_slide_in_from_top.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/anim/alerter_slide_in_from_top.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/anim/alerter_slide_in_from_top.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
@@ -1317,7 +1317,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ic_info_outline_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-hdpi-v4/ic_info_outline_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-hdpi-v4/ic_info_outline_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_notification_template_big_media_narrow_custom.xml.flat",
@@ -1337,7 +1337,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ic_check_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-hdpi-v4/ic_check_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-hdpi-v4/ic_check_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
@@ -1353,7 +1353,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_toast_layout.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/layout/toast_layout.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/layout/toast_layout.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -1361,11 +1361,11 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-ldpi-v4_toast_frame.9.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-ldpi-v4/toast_frame.9.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-ldpi-v4/toast_frame.9.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_toast_frame.9.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-xhdpi-v4/toast_frame.9.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-xhdpi-v4/toast_frame.9.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
@@ -1401,7 +1401,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_alerter_ic_face.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/drawable-hdpi-v4/alerter_ic_face.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/drawable-hdpi-v4/alerter_ic_face.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_arrow_drop_down_white_24dp.png.flat",
@@ -1453,7 +1453,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/anim_interpolator_slight_overshoot.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/anim/interpolator_slight_overshoot.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/anim/interpolator_slight_overshoot.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/color_mtrl_tabs_colored_ripple_color.xml.flat",
@@ -1497,7 +1497,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_ic_info_outline_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-mdpi-v4/ic_info_outline_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-mdpi-v4/ic_info_outline_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
@@ -1537,7 +1537,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_default_icon.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c4ee522ea7e1448d04a6a6442814d09f/jetified-bubblenavigation-1.0.7/res/drawable-anydpi-v21/default_icon.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/03406d61a772843eb3b250667b18e30a/jetified-bubblenavigation-1.0.7/res/drawable-anydpi-v21/default_icon.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
@@ -1549,7 +1549,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_error_outline_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-xxhdpi-v4/ic_error_outline_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-xxhdpi-v4/ic_error_outline_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/color-v23_abc_tint_seek_thumb.xml.flat",
@@ -1581,7 +1581,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_clear_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-xxhdpi-v4/ic_clear_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-xxhdpi-v4/ic_clear_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/color_dracula_bottom_toolbar_preview.xml.flat",
@@ -1677,7 +1677,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_default_icon.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c4ee522ea7e1448d04a6a6442814d09f/jetified-bubblenavigation-1.0.7/res/drawable-xxhdpi-v4/default_icon.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/03406d61a772843eb3b250667b18e30a/jetified-bubblenavigation-1.0.7/res/drawable-xxhdpi-v4/default_icon.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
@@ -1748,6 +1748,10 @@
         "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/res/drawable-mdpi-v4/ic_arrow_drop_down_white_24dp.png"
     },
     {
+        "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_activity_barchart.xml.flat",
+        "source": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/res/layout/activity_barchart.xml"
+    },
+    {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/res/drawable-hdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
     },
@@ -1769,7 +1773,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_ic_clear_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-xxxhdpi-v4/ic_clear_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-xxxhdpi-v4/ic_clear_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_ic_studio.xml.flat",
@@ -1781,7 +1785,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/anim_alerter_pulse.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/anim/alerter_pulse.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/anim/alerter_pulse.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/animator_mtrl_fab_transformation_sheet_expand_spec.xml.flat",
@@ -1793,7 +1797,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-ldpi-v4_ic_check_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-ldpi-v4/ic_check_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-ldpi-v4/ic_check_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_toolbar.xml.flat",
@@ -1801,7 +1805,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_alerter_ic_notifications.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/drawable-anydpi-v21/alerter_ic_notifications.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/drawable-anydpi-v21/alerter_ic_notifications.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_black_16dp.png.flat",
@@ -1869,7 +1873,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_alerter_alert_view.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/layout/alerter_alert_view.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/layout/alerter_alert_view.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
@@ -2021,7 +2025,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_alerter_ic_face.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/drawable-mdpi-v4/alerter_ic_face.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/drawable-mdpi-v4/alerter_ic_face.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_abc_activity_chooser_view_list_item.xml.flat",
@@ -2069,7 +2073,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_info_outline_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-xxhdpi-v4/ic_info_outline_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-xxhdpi-v4/ic_info_outline_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_abc_ic_search_api_material.xml.flat",
@@ -2101,7 +2105,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ic_error_outline_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-hdpi-v4/ic_error_outline_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-hdpi-v4/ic_error_outline_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_tig.jpg.flat",
@@ -2117,7 +2121,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_ic_clear_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-mdpi-v4/ic_clear_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-mdpi-v4/ic_clear_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
@@ -2137,7 +2141,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-ldpi-v4_ic_clear_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-ldpi-v4/ic_clear_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-ldpi-v4/ic_clear_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ic_arrow_drop_down_white_24dp.png.flat",
@@ -2149,7 +2153,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_clear_white_24dp.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-anydpi-v21/ic_clear_white_24dp.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-anydpi-v21/ic_clear_white_24dp.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/anim_abc_slide_in_top.xml.flat",
@@ -2169,7 +2173,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_alerter_ic_notifications.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/drawable-mdpi-v4/alerter_ic_notifications.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/drawable-mdpi-v4/alerter_ic_notifications.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_ic_preview_radio_off.webp.flat",
@@ -2185,7 +2189,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_toast_frame.9.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-hdpi-v4/toast_frame.9.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-hdpi-v4/toast_frame.9.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/anim_abc_slide_in_bottom.xml.flat",
@@ -2193,7 +2197,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_clear_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-xhdpi-v4/ic_clear_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-xhdpi-v4/ic_clear_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_notification_media_cancel_action.xml.flat",
@@ -2257,7 +2261,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_activity_mock.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/layout/activity_mock.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/layout/activity_mock.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/color_mtrl_bottom_nav_colored_item_tint.xml.flat",
@@ -2297,7 +2301,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/anim_interpolator_slight_anticipate.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/anim/interpolator_slight_anticipate.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/anim/interpolator_slight_anticipate.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
@@ -2333,7 +2337,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/anim_alerter_slide_out_to_top.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/res/anim/alerter_slide_out_to_top.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/res/anim/alerter_slide_out_to_top.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_abc_btn_radio_material_anim.xml.flat",
@@ -2453,7 +2457,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable_badge_background_white.xml.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c4ee522ea7e1448d04a6a6442814d09f/jetified-bubblenavigation-1.0.7/res/drawable/badge_background_white.xml"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/03406d61a772843eb3b250667b18e30a/jetified-bubblenavigation-1.0.7/res/drawable/badge_background_white.xml"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/layout_abc_search_view.xml.flat",
@@ -2533,7 +2537,7 @@
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_ic_clear_white_24dp.png.flat",
-        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/res/drawable-hdpi-v4/ic_clear_white_24dp.png"
+        "source": "/tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/res/drawable-hdpi-v4/ic_clear_white_24dp.png"
     },
     {
         "merged": "/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_black_48dp.png.flat",

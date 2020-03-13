@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 
+import androidx.annotation.IntDef;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,6 +50,7 @@ public class Studio_fragment extends Fragment{
         v = inflater.inflate(R.layout.fragment_studio, container, false);
 
         colorSeekBar = (ColorSeekBar) v.findViewById(R.id.seek);
+        colorSeekBar.setVisibility(View.INVISIBLE);
 
         applicationContext = StudioActivity.getContextOfApplication();
 
@@ -67,7 +69,7 @@ public class Studio_fragment extends Fragment{
         dynamicExtension = new DynamicExtension(captImage, applicationContext);
         equalization = new Equalization(captImage, applicationContext);
 
-        captImage = BitmapFactory.decodeResource(getResources(), R.drawable.background_org);
+        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.background_org);
 
         int height = captImage.getHeight();
         int width = captImage.getWidth();

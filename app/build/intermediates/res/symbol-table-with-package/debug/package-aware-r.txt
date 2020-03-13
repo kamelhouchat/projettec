@@ -1368,6 +1368,8 @@ id async
 id auto
 id average_convulve
 id background_main
+id barchart
+id barchart_botton
 id barrier
 id beginning
 id blocking
@@ -1673,6 +1675,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_barchart
 layout activity_main
 layout activity_matisse
 layout activity_media_preview

@@ -63,6 +63,9 @@ dependencies {
     //Color seek bar
     implementation 'com.github.rtugeek:colorseekbar:1.7.5'
 
+    //Android chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v2.2.4'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'

@@ -114,7 +114,7 @@ public class StudioActivity extends AppCompatActivity {
         public Fragment getItem(int pos) {
             switch(pos) {
                 case 0: return Studio_fragment.newInstance(image_path);
-                case 1: return Plus_fragment.newInstance("SecondFragment, Instance 1");
+                case 1: return Plus_fragment.newInstance("SecondFragment, Instance 1",image_path);
             }
             return null;
         }

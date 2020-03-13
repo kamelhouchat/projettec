@@ -21,7 +21,7 @@
 13-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:8:22-78
 14
 15    <application
-15-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:10:5-25:19
+15-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:10:5-26:19
 16        android:allowBackup="true"
 16-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:11:9-35
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -55,21 +55,24 @@
 32        <activity android:name="com.projettec.imageStudio.Controller.StudioActivity" />
 32-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:24:9-97
 32-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:24:19-85
-33        <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
-33-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:28:9-73
-33-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:28:19-70
-34        <activity android:name="com.zhihu.matisse.internal.ui.AlbumPreviewActivity" />
-34-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:29:9-87
-34-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:29:19-84
-35        <activity android:name="com.zhihu.matisse.internal.ui.SelectedPreviewActivity" /> <!-- This is just an Activity for Testing from within src/androidTest -->
-35-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:30:9-90
-35-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:30:19-87
-36        <activity
-36-->[com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/AndroidManifest.xml:15:9-17:54
-37            android:name="com.tapadoo.alerter.MockActivity"
-37-->[com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/AndroidManifest.xml:16:13-60
-38            android:theme="@style/Theme.AppCompat" />
-38-->[com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/AndroidManifest.xml:17:13-51
-39    </application>
-40
-41</manifest>
+33        <activity android:name="com.projettec.imageStudio.Controller.BarChart" />
+33-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:25:9-91
+33-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:25:19-79
+34        <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
+34-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:28:9-73
+34-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:28:19-70
+35        <activity android:name="com.zhihu.matisse.internal.ui.AlbumPreviewActivity" />
+35-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:29:9-87
+35-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:29:19-84
+36        <activity android:name="com.zhihu.matisse.internal.ui.SelectedPreviewActivity" /> <!-- This is just an Activity for Testing from within src/androidTest -->
+36-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:30:9-90
+36-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:30:19-87
+37        <activity
+37-->[com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:15:9-17:54
+38            android:name="com.tapadoo.alerter.MockActivity"
+38-->[com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:16:13-60
+39            android:theme="@style/Theme.AppCompat" />
+39-->[com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:17:13-51
+40    </application>
+41
+42</manifest>

@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-27:12
-MERGED from [com.github.GrenderG:Toasty:1.4.2] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/AndroidManifest.xml:2:1-11:12
+ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-28:12
+MERGED from [com.github.GrenderG:Toasty:1.4.2] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/AndroidManifest.xml:2:1-11:12
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:17:1-33:12
 MERGED from [com.google.android.material:material:1.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bc119e3725abb138a6dd2083cf8b82fc/material-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/a06e1a87017edb8936deb2651af7757e/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
-MERGED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/AndroidManifest.xml:2:1-20:12
+MERGED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:2:1-20:12
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/4f9432900d351ffab8e9069503fe8854/glide-4.11.0/AndroidManifest.xml:2:1-12:12
-MERGED from [com.gauravk.bubblenavigation:bubblenavigation:1.0.7] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c4ee522ea7e1448d04a6a6442814d09f/jetified-bubblenavigation-1.0.7/AndroidManifest.xml:2:1-11:12
-MERGED from [com.github.chrisbanes:PhotoView:2.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/d34b5ee4c010732b213aaa94e0608b50/jetified-PhotoView-2.0.0/AndroidManifest.xml:2:1-12:12
+MERGED from [com.gauravk.bubblenavigation:bubblenavigation:1.0.7] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/03406d61a772843eb3b250667b18e30a/jetified-bubblenavigation-1.0.7/AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.chrisbanes:PhotoView:2.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/b495ac501ab6e66c06f14eb421e01363/jetified-PhotoView-2.0.0/AndroidManifest.xml:2:1-12:12
 MERGED from [de.hdodenhof:circleimageview:3.1.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/32d25a5d6d9e1f10a65b46dd7df65fef/circleimageview-3.1.0/AndroidManifest.xml:2:1-11:12
-MERGED from [com.github.rtugeek:colorseekbar:1.7.5] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/0e65dd78c1fbfa60faca5017e1a6e739/jetified-colorseekbar-1.7.5/AndroidManifest.xml:2:1-17:12
+MERGED from [com.github.rtugeek:colorseekbar:1.7.5] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/7e504184d77ea32adad9128ba3889825/jetified-colorseekbar-1.7.5/AndroidManifest.xml:2:1-17:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/72b4d95a0e8b43ee4215c0c4e8b0fb72/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/0d890d76b529559e355bae2251e9c8c5/recyclerview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/3a2f8d614676183a411d5d0a5ccffd59/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -52,20 +52,20 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /tmp/android-ibrdiall
 MERGED from [androidx.savedstate:savedstate:1.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bfe07fb09b8c31788950d560b7c4be09/savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [it.sephiroth.android.library.imagezoom:library:1.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/235af835b28b035d5da75ad80ee0e151/library-1.0.4/AndroidManifest.xml:1:106-7:12
 MERGED from [it.sephiroth.android.library.easing:library:1.0.2] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/66c42ef0328f9c89ab8c852b142c9e51/library-1.0.2/AndroidManifest.xml:1:116-8:12
-INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-28:12
 	package
 		ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:3:5-40
 		INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml
 		INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml
-		ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-27:12
+		ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-28:12
 		INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml
-		ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-27:12
+		ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:1-28:12
 		INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:2:11-69
@@ -86,21 +86,21 @@ MERGED from [com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.grad
 	android:name
 		ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:8:22-78
 application
-ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:10:5-25:19
+ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:10:5-26:19
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:27:5-31:19
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:27:5-31:19
 MERGED from [com.google.android.material:material:1.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bc119e3725abb138a6dd2083cf8b82fc/material-1.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bc119e3725abb138a6dd2083cf8b82fc/material-1.0.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/a06e1a87017edb8936deb2651af7757e/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/a06e1a87017edb8936deb2651af7757e/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
-MERGED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/AndroidManifest.xml:12:5-18:19
-MERGED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/AndroidManifest.xml:12:5-18:19
+MERGED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:12:5-18:19
+MERGED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:12:5-18:19
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/4f9432900d351ffab8e9069503fe8854/glide-4.11.0/AndroidManifest.xml:10:5-20
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/4f9432900d351ffab8e9069503fe8854/glide-4.11.0/AndroidManifest.xml:10:5-20
 MERGED from [de.hdodenhof:circleimageview:3.1.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/32d25a5d6d9e1f10a65b46dd7df65fef/circleimageview-3.1.0/AndroidManifest.xml:9:5-20
 MERGED from [de.hdodenhof:circleimageview:3.1.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/32d25a5d6d9e1f10a65b46dd7df65fef/circleimageview-3.1.0/AndroidManifest.xml:9:5-20
-MERGED from [com.github.rtugeek:colorseekbar:1.7.5] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/0e65dd78c1fbfa60faca5017e1a6e739/jetified-colorseekbar-1.7.5/AndroidManifest.xml:11:5-15:19
-MERGED from [com.github.rtugeek:colorseekbar:1.7.5] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/0e65dd78c1fbfa60faca5017e1a6e739/jetified-colorseekbar-1.7.5/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.rtugeek:colorseekbar:1.7.5] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/7e504184d77ea32adad9128ba3889825/jetified-colorseekbar-1.7.5/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.rtugeek:colorseekbar:1.7.5] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/7e504184d77ea32adad9128ba3889825/jetified-colorseekbar-1.7.5/AndroidManifest.xml:11:5-15:19
 MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/d38d30bc89dd661d7a4de36292d0062a/gifdecoder-4.11.0/AndroidManifest.xml:9:5-20
 MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/d38d30bc89dd661d7a4de36292d0062a/gifdecoder-4.11.0/AndroidManifest.xml:9:5-20
 MERGED from [androidx.core:core:1.1.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/4a2e878b05969d2ed625e4d2f2f4a071/core-1.1.0/AndroidManifest.xml:24:5-89
@@ -143,12 +143,16 @@ activity#com.projettec.imageStudio.Controller.StudioActivity
 ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:24:9-97
 	android:name
 		ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:24:19-85
+activity#com.projettec.imageStudio.Controller.BarChart
+ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:25:9-91
+	android:name
+		ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:25:19-79
 uses-sdk
 INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml
 INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml
-MERGED from [com.github.GrenderG:Toasty:1.4.2] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.GrenderG:Toasty:1.4.2] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/e453b1ecb5c48216b68a530012b9d3f7/jetified-Toasty-1.4.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.GrenderG:Toasty:1.4.2] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.GrenderG:Toasty:1.4.2] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/2cfbfc7bfa18df7d54983b7ad09eaf14/jetified-Toasty-1.4.2/AndroidManifest.xml:7:5-9:41
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:20:5-22:41
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.material:material:1.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bc119e3725abb138a6dd2083cf8b82fc/material-1.0.0/AndroidManifest.xml:20:5-44
@@ -157,18 +161,18 @@ MERGED from [androidx.appcompat:appcompat:1.1.0] /tmp/android-ibrdiallo/.gradle/
 MERGED from [androidx.appcompat:appcompat:1.1.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/70ee6daa73720f73f1c131a251c19163/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/a06e1a87017edb8936deb2651af7757e/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/a06e1a87017edb8936deb2651af7757e/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
-MERGED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/AndroidManifest.xml:7:5-10:72
-MERGED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/AndroidManifest.xml:7:5-10:72
+MERGED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:7:5-10:72
+MERGED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:7:5-10:72
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/4f9432900d351ffab8e9069503fe8854/glide-4.11.0/AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/4f9432900d351ffab8e9069503fe8854/glide-4.11.0/AndroidManifest.xml:6:5-8:41
-MERGED from [com.gauravk.bubblenavigation:bubblenavigation:1.0.7] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c4ee522ea7e1448d04a6a6442814d09f/jetified-bubblenavigation-1.0.7/AndroidManifest.xml:7:5-9:41
-MERGED from [com.gauravk.bubblenavigation:bubblenavigation:1.0.7] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c4ee522ea7e1448d04a6a6442814d09f/jetified-bubblenavigation-1.0.7/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.chrisbanes:PhotoView:2.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/d34b5ee4c010732b213aaa94e0608b50/jetified-PhotoView-2.0.0/AndroidManifest.xml:8:5-10:41
-MERGED from [com.github.chrisbanes:PhotoView:2.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/d34b5ee4c010732b213aaa94e0608b50/jetified-PhotoView-2.0.0/AndroidManifest.xml:8:5-10:41
+MERGED from [com.gauravk.bubblenavigation:bubblenavigation:1.0.7] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/03406d61a772843eb3b250667b18e30a/jetified-bubblenavigation-1.0.7/AndroidManifest.xml:7:5-9:41
+MERGED from [com.gauravk.bubblenavigation:bubblenavigation:1.0.7] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/03406d61a772843eb3b250667b18e30a/jetified-bubblenavigation-1.0.7/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.chrisbanes:PhotoView:2.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/b495ac501ab6e66c06f14eb421e01363/jetified-PhotoView-2.0.0/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.chrisbanes:PhotoView:2.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/b495ac501ab6e66c06f14eb421e01363/jetified-PhotoView-2.0.0/AndroidManifest.xml:8:5-10:41
 MERGED from [de.hdodenhof:circleimageview:3.1.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/32d25a5d6d9e1f10a65b46dd7df65fef/circleimageview-3.1.0/AndroidManifest.xml:5:5-7:41
 MERGED from [de.hdodenhof:circleimageview:3.1.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/32d25a5d6d9e1f10a65b46dd7df65fef/circleimageview-3.1.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.github.rtugeek:colorseekbar:1.7.5] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/0e65dd78c1fbfa60faca5017e1a6e739/jetified-colorseekbar-1.7.5/AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.rtugeek:colorseekbar:1.7.5] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/0e65dd78c1fbfa60faca5017e1a6e739/jetified-colorseekbar-1.7.5/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.rtugeek:colorseekbar:1.7.5] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/7e504184d77ea32adad9128ba3889825/jetified-colorseekbar-1.7.5/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.rtugeek:colorseekbar:1.7.5] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/7e504184d77ea32adad9128ba3889825/jetified-colorseekbar-1.7.5/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/72b4d95a0e8b43ee4215c0c4e8b0fb72/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/72b4d95a0e8b43ee4215c0c4e8b0fb72/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/0d890d76b529559e355bae2251e9c8c5/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
@@ -246,7 +250,7 @@ MERGED from [it.sephiroth.android.library.easing:library:1.0.2] /tmp/android-ibr
 INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml
 INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml
 	tools:overrideLibrary
-		ADDED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/AndroidManifest.xml:10:9-69
+		ADDED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:10:9-69
 	android:targetSdkVersion
 		INJECTED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml
 		ADDED from /autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml
@@ -268,8 +272,8 @@ ADDED from [com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradl
 	android:name
 		ADDED from [com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:30:19-87
 activity#com.tapadoo.alerter.MockActivity
-ADDED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/AndroidManifest.xml:15:9-17:54
+ADDED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:15:9-17:54
 	android:theme
-		ADDED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/AndroidManifest.xml:17:13-51
+		ADDED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:17:13-51
 	android:name
-		ADDED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/67dcc7b068b621667886eee79c1342a3/jetified-alerter-2.0.4/AndroidManifest.xml:16:13-60
+		ADDED from [com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:16:13-60
