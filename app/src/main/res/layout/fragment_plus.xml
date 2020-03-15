@@ -15,12 +15,19 @@
             android:layout_width="match_parent"
             android:layout_height="280dp"
             android:orientation="vertical">
-            <ImageView
+            <!--<ImageView
                 android:layout_marginTop="15dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@drawable/ic_play_circle_outline_white_48dp"/>
+                android:id="@+id/fragment_plus_image"
+                android:src="@drawable/ic_play_circle_outline_white_48dp"/>-->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/fragment_plus_image"/>
             <TextView
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
@@ -56,7 +63,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="125"
+                        android:id="@+id/fragment_plus_image_width"
                         android:textStyle="bold"
                         android:textSize="20sp"
                         android:paddingTop="10dp"
@@ -78,7 +85,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1205"
+                        android:id="@+id/fragment_plus_image_height"
                         android:textStyle="bold"
                         android:textSize="20sp"
                         android:paddingTop="10dp"
@@ -96,8 +103,10 @@
                         android:layout_height="wrap_content"
                         android:text="Histog"
                         android:textSize="20sp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="2dp"
                         />
-                    <TextView
+                    <!--<TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/barchart_button"
@@ -105,7 +114,18 @@
                         android:textStyle="bold"
                         android:textSize="20sp"
                         android:paddingTop="10dp"
-                        android:textColor="@color/blue_active"/>
+                        android:textColor="@color/blue_active"/>-->
+                    <!--<Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:background="@drawable/barchart_buttonstyle"
+                        android:text="Show"
+                        />-->
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:src="@drawable/ic_graphic_eq_black_24dp"
+                        android:id="@+id/barchart_button"/>
 
                 </LinearLayout>
             </LinearLayout>

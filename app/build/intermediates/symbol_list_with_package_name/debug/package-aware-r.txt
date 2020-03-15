@@ -1228,6 +1228,7 @@ drawable background_color
 drawable background_gray
 drawable background_org
 drawable badge_background_white
+drawable barchart_buttonstyle
 drawable bgapp
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -1260,6 +1261,7 @@ drawable ic_empty_dracula
 drawable ic_empty_zhihu
 drawable ic_error_outline_white_24dp
 drawable ic_gif
+drawable ic_graphic_eq_black_24dp
 drawable ic_info_outline_white_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -1445,6 +1447,9 @@ id fixed
 id flAlertBackground
 id flClickShield
 id forever
+id fragment_plus_image
+id fragment_plus_image_height
+id fragment_plus_image_width
 id gallery
 id ghost_view
 id gif

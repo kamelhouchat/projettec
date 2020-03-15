@@ -1,11 +1,14 @@
 package com.projettec.imageStudio.controller.fragment;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -17,14 +20,35 @@ import com.projettec.imageStudio.R;
 
 public class Plus_fragment extends Fragment {
 
-    private TextView button_barchart;
+    private ImageView buttonBarchart;
+    private TextView imageWidth;
+    private TextView imageHeight;
+
+    private Bitmap editedImage;
+
+    private SpannableString spannableStrings;
+    private StyleSpan boldItalic;
+    private String text_barchart;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_plus, container, false);
         final String image_path = getArguments().getString("image_path");
 
-        button_barchart = v.findViewById(R.id.barchart_button);
-        button_barchart.setOnClickListener(new View.OnClickListener() {
+        //editedImage = Studio_fragment.getCaptImage().copy(Studio_fragment.getCaptImage().getConfig(), false);
+
+        buttonBarchart = v.findViewById(R.id.barchart_button);
+        imageWidth = v.findViewById(R.id.fragment_plus_image_width);
+        imageHeight = v.findViewById(R.id.fragment_plus_image_height);
+        imageWidth.setText(String.valueOf(Studio_fragment.getCaptImage().getWidth()));
+        imageHeight.setText(String.valueOf(Studio_fragment.getCaptImage().getHeight()));
+
+        /*text_barchart = (String) button_barchart.getText();
+        spannableStrings = new SpannableString(text_barchart);
+        boldItalic = new StyleSpan(Typeface.BOLD_ITALIC);
+        spannableStrings.setSpan(boldItalic, 0, text_barchart.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        button_barchart.setText(spannableStrings);*/
+        buttonBarchart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StudioActivity.getContextOfApplication(), BarChart.class);
@@ -32,6 +56,12 @@ public class Plus_fragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        ImageView Image_edited = v.findViewById(R.id.fragment_plus_image);
+        Image_edited.setImageBitmap(Studio_fragment.getCaptImage());
+
+
+
         /*TextView tv = (TextView) v.findViewById(R.id.tvFragSecond);
         tv.setText(getArguments().getString("msg"));
 
