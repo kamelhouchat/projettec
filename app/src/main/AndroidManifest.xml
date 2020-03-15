@@ -14,15 +14,15 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.projettec.imageStudio.Controller.MainActivity">
+        <activity android:name="com.projettec.imageStudio.controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.projettec.imageStudio.Controller.StudioActivity"></activity>
-        <activity android:name="com.projettec.imageStudio.Controller.BarChart"></activity>
+        <activity android:name="com.projettec.imageStudio.controller.StudioActivity" />
+        <activity android:name="com.projettec.imageStudio.controller.BarChart" />
     </application>
 
 </manifest>

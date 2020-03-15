@@ -6,73 +6,74 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="26"
-8-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml
+8-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml
+9-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.CAMERA" />
-11-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:6:5-64
-11-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:6:22-62
+11-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:6:5-64
+11-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:6:22-62
 12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-12-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:7:5-79
-12-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:7:22-77
+12-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:7:5-79
+12-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:7:22-77
 13    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-13-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:8:5-80
-13-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:8:22-78
+13-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:8:5-80
+13-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:8:22-78
 14
 15    <application
-15-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:10:5-26:19
+15-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:10:5-26:19
 16        android:allowBackup="true"
-16-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:11:9-35
+16-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:11:9-35
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-17-->[androidx.core:core:1.1.0] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/4a2e878b05969d2ed625e4d2f2f4a071/core-1.1.0/AndroidManifest.xml:24:18-86
+17-->[androidx.core:core:1.1.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\da099017a6de8e2dd996f1d4e4106af1\core-1.1.0\AndroidManifest.xml:24:18-86
 18        android:debuggable="true"
-19        android:icon="@drawable/icon"
-19-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:12:9-38
-20        android:label="@string/app_name"
-20-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:13:9-41
-21        android:roundIcon="@drawable/icon"
-21-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:14:9-43
-22        android:supportsRtl="true"
-22-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:15:9-35
-23        android:testOnly="true"
-24        android:theme="@style/AppTheme" >
-24-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:16:9-40
-25        <activity android:name="com.projettec.imageStudio.Controller.MainActivity" >
-25-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:17:9-23:20
-25-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:17:19-83
-26            <intent-filter>
-26-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:18:13-22:29
-27                <action android:name="android.intent.action.MAIN" />
-27-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:19:17-69
-27-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:19:25-66
-28
-29                <category android:name="android.intent.category.LAUNCHER" />
-29-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:21:17-77
-29-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:21:27-74
-30            </intent-filter>
-31        </activity>
-32        <activity android:name="com.projettec.imageStudio.Controller.StudioActivity" />
-32-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:24:9-97
-32-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:24:19-85
-33        <activity android:name="com.projettec.imageStudio.Controller.BarChart" />
-33-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:25:9-91
-33-->/autofs/unitytravail/travail/ibrdiallo/Licence 3/ProjetTech/projet/projettec/app/src/main/AndroidManifest.xml:25:19-79
-34        <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
-34-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:28:9-73
-34-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:28:19-70
-35        <activity android:name="com.zhihu.matisse.internal.ui.AlbumPreviewActivity" />
-35-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:29:9-87
-35-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:29:19-84
-36        <activity android:name="com.zhihu.matisse.internal.ui.SelectedPreviewActivity" /> <!-- This is just an Activity for Testing from within src/androidTest -->
-36-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:30:9-90
-36-->[com.zhihu.android:matisse:0.5.3-beta3] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/c891392b329abb6d501fe2d3b6875a27/matisse-0.5.3-beta3/AndroidManifest.xml:30:19-87
-37        <activity
-37-->[com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:15:9-17:54
-38            android:name="com.tapadoo.alerter.MockActivity"
-38-->[com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:16:13-60
-39            android:theme="@style/Theme.AppCompat" />
-39-->[com.tapadoo.android:alerter:2.0.4] /tmp/android-ibrdiallo/.gradle/caches/transforms-2/files-2.1/bf3a1b236680c71f42e5d20c478a6213/jetified-alerter-2.0.4/AndroidManifest.xml:17:13-51
-40    </application>
-41
-42</manifest>
+19        android:extractNativeLibs="false"
+20        android:icon="@drawable/icon"
+20-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:12:9-38
+21        android:label="@string/app_name"
+21-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:13:9-41
+22        android:roundIcon="@drawable/icon"
+22-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:14:9-43
+23        android:supportsRtl="true"
+23-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:15:9-35
+24        android:testOnly="true"
+25        android:theme="@style/AppTheme" >
+25-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:16:9-40
+26        <activity android:name="com.projettec.imageStudio.controller.MainActivity" >
+26-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:17:9-23:20
+26-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:17:19-83
+27            <intent-filter>
+27-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:18:13-22:29
+28                <action android:name="android.intent.action.MAIN" />
+28-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:19:17-69
+28-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:19:25-66
+29
+30                <category android:name="android.intent.category.LAUNCHER" />
+30-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:21:17-77
+30-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:21:27-74
+31            </intent-filter>
+32        </activity>
+33        <activity android:name="com.projettec.imageStudio.controller.StudioActivity" />
+33-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:24:9-88
+33-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:24:19-85
+34        <activity android:name="com.projettec.imageStudio.controller.BarChart" />
+34-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:25:9-82
+34-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:25:19-79
+35        <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
+35-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:28:9-73
+35-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:28:19-70
+36        <activity android:name="com.zhihu.matisse.internal.ui.AlbumPreviewActivity" />
+36-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:29:9-87
+36-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:29:19-84
+37        <activity android:name="com.zhihu.matisse.internal.ui.SelectedPreviewActivity" /> <!-- This is just an Activity for Testing from within src/androidTest -->
+37-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:30:9-90
+37-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:30:19-87
+38        <activity
+38-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\b8c9bbfde865c8df49bf82a09a744b7f\jetified-alerter-2.0.4\AndroidManifest.xml:15:9-17:54
+39            android:name="com.tapadoo.alerter.MockActivity"
+39-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\b8c9bbfde865c8df49bf82a09a744b7f\jetified-alerter-2.0.4\AndroidManifest.xml:16:13-60
+40            android:theme="@style/Theme.AppCompat" />
+40-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\b8c9bbfde865c8df49bf82a09a744b7f\jetified-alerter-2.0.4\AndroidManifest.xml:17:13-51
+41    </application>
+42
+43</manifest>
