@@ -11,8 +11,8 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.projettec.imageStudio.controller.fragment.Studio_fragment;
-import com.projettec.imageStudio.controller.fragment.Plus_fragment;
+import com.projettec.imageStudio.controller.fragments.Studio_fragment;
+import com.projettec.imageStudio.controller.fragments.Plus_fragment;
 import com.projettec.imageStudio.R;
 import com.tapadoo.alerter.Alerter;
 

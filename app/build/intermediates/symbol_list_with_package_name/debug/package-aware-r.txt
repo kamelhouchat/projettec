@@ -1040,6 +1040,7 @@ dimen design_tab_text_size_2line
 dimen design_textinput_caption_translate_y
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
+dimen editor_size
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
 dimen fastscroll_minimum_range
@@ -1260,6 +1261,7 @@ drawable ic_email_black_24dp
 drawable ic_empty_dracula
 drawable ic_empty_zhihu
 drawable ic_error_outline_white_24dp
+drawable ic_filter_black_24dp
 drawable ic_gif
 drawable ic_graphic_eq_black_24dp
 drawable ic_info_outline_white_24dp
@@ -1469,6 +1471,7 @@ id image
 id image1
 id image_view
 id image_view_filter
+id imgToolIcon
 id info
 id inside
 id invisible
@@ -1617,6 +1620,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id tvText
 id tvTitle
+id txtTool
 id unchecked
 id uniform
 id universite
@@ -1708,6 +1712,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout editing_tool_row
 layout filter_row
 layout fragment_media_selection
 layout fragment_plus
