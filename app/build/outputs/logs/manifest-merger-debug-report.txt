@@ -143,10 +143,10 @@ activity#com.projettec.imageStudio.controller.StudioActivity
 ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:24:9-88
 	android:name
 		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:24:19-85
-activity#com.projettec.imageStudio.controller.BarChart
-ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:25:9-82
+activity#com.projettec.imageStudio.controller.BarChartActivity
+ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:25:9-90
 	android:name
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:25:19-79
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:25:19-87
 uses-sdk
 INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml

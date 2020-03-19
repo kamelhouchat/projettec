@@ -56,9 +56,9 @@
 33        <activity android:name="com.projettec.imageStudio.controller.StudioActivity" />
 33-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:24:9-88
 33-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:24:19-85
-34        <activity android:name="com.projettec.imageStudio.controller.BarChart" />
-34-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:25:9-82
-34-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:25:19-79
+34        <activity android:name="com.projettec.imageStudio.controller.BarChartActivity" />
+34-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:25:9-90
+34-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:25:19-87
 35        <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
 35-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:28:9-73
 35-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:28:19-70

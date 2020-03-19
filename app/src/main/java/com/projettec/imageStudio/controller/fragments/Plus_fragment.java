@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.projettec.imageStudio.controller.BarChart;
+import com.projettec.imageStudio.controller.BarChartActivity;
 import com.projettec.imageStudio.controller.StudioActivity;
 import com.projettec.imageStudio.R;
 
@@ -51,7 +51,7 @@ public class Plus_fragment extends Fragment {
         buttonBarchart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(StudioActivity.getContextOfApplication(), BarChart.class);
+                Intent intent = new Intent(StudioActivity.getContextOfApplication(), BarChartActivity.class);
                 intent.putExtra("image_path", image_path);
                 startActivity(intent);
             }

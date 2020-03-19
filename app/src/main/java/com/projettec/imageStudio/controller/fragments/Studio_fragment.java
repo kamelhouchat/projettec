@@ -6,9 +6,11 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,19 +19,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.github.chrisbanes.photoview.PhotoViewAttacher;
+import com.projettec.imageStudio.controller.adapters.EditingToolRecyclerViewAdapter;
+import com.projettec.imageStudio.controller.adapters.EditingToolRecyclerViewAdapter.OnItemSelected;
 import com.projettec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
 import com.projettec.imageStudio.controller.StudioActivity;
-import com.projettec.imageStudio.model.Conversion;
-import com.projettec.imageStudio.model.DynamicExtension;
-import com.projettec.imageStudio.model.Equalization;
-import com.projettec.imageStudio.model.Filter;
+import com.projettec.imageStudio.model.editingImage.Conversion;
+import com.projettec.imageStudio.model.editingImage.DynamicExtension;
+import com.projettec.imageStudio.model.editingImage.Equalization;
+import com.projettec.imageStudio.model.editingImage.Filter;
 import com.projettec.imageStudio.R;
+import com.projettec.imageStudio.model.other.ToolType;
 import com.rtugeek.android.colorseekbar.ColorSeekBar;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Studio_fragment extends Fragment{
+public class Studio_fragment extends Fragment implements OnItemSelected {
 
     public static Bitmap captImage ;
     public static Filter filter ;
@@ -42,6 +47,8 @@ public class Studio_fragment extends Fragment{
     private View v ;
     private PhotoViewAttacher photoView;
     private ArrayList<String> filterName = new ArrayList<String>();
+    private static final String TAG = "Studio_fragment";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -82,6 +89,7 @@ public class Studio_fragment extends Fragment{
         //image_view.setImageBitmap(captImage);
 
         initFilterName();
+        initEditingToolRecyvlerView();
 
         return v;
     }
@@ -115,13 +123,20 @@ public class Studio_fragment extends Fragment{
 
     private void initFilterRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false);
-        RecyclerView filterRecyclerView = (RecyclerView) v.findViewById(R.id.recyclerview);
+        RecyclerView filterRecyclerView = (RecyclerView) v.findViewById(R.id.filter_recyclerview);
         filterRecyclerView.setLayoutManager(layoutManager);
         FilterRecyclerViewAdapter adapter = new FilterRecyclerViewAdapter(filterName, captImage, applicationContext);
         filterRecyclerView.setAdapter(adapter);
         filterRecyclerView.setVisibility(View.INVISIBLE);
     }
 
+    private void initEditingToolRecyvlerView(){
+        LinearLayoutManager layoutManager = new LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView editingToolRecyclerView = (RecyclerView) v.findViewById(R.id.editing_tool_recyclerview);
+        editingToolRecyclerView.setLayoutManager(layoutManager);
+        EditingToolRecyclerViewAdapter adapter = new EditingToolRecyclerViewAdapter(this);
+        editingToolRecyclerView.setAdapter(adapter);
+    }
 
     public static void applyChanges(int position){
         //Bitmap loadedToChange = Bitmap.createBitmap(this.loadedImage);
@@ -189,5 +204,16 @@ public class Studio_fragment extends Fragment{
 
     public static Bitmap getCaptImage() {
         return captImage;
+    }
+
+    @Override
+    public void onToolSelected(ToolType toolType) {
+        switch (toolType) {
+            case FILTER:
+                //showFilter(true);
+                Toast.makeText(applicationContext, "Filter Selected", Toast.LENGTH_LONG);
+                Log.i(TAG, "onToolSelected: Filter Selected hhhhhhhhhhhhhhhhh");
+                break;
+        }
     }
 }

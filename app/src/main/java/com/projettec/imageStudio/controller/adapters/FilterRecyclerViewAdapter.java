@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.projettec.imageStudio.controller.fragments.Studio_fragment;
-import com.projettec.imageStudio.model.DynamicExtension;
-import com.projettec.imageStudio.model.Equalization;
-import com.projettec.imageStudio.model.Filter;
+import com.projettec.imageStudio.model.editingImage.DynamicExtension;
+import com.projettec.imageStudio.model.editingImage.Equalization;
+import com.projettec.imageStudio.model.editingImage.Filter;
 import com.projettec.imageStudio.R;
 
 import java.util.ArrayList;

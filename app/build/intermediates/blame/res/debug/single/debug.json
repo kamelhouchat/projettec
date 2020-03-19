@@ -20,12 +20,12 @@
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\drawable\\home_background_oval.xml"
     },
     {
-        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_studio.xml.flat",
-        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\layout\\activity_studio.xml"
-    },
-    {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_chateaux.jpg.flat",
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\drawable\\chateaux.jpg"
+    },
+    {
+        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_studio.xml.flat",
+        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\layout\\activity_studio.xml"
     },
     {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\menu_bottom_navigation.xml.flat",
@@ -104,6 +104,10 @@
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\drawable\\ic_save_black_24dp.xml"
     },
     {
+        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_text_fields_black_24dp.xml.flat",
+        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\drawable\\ic_text_fields_black_24dp.xml"
+    },
+    {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_org.jpg.flat",
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\drawable\\background_org.jpg"
     },
@@ -118,6 +122,10 @@
     {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_eraser.xml.flat",
+        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\drawable-v24\\ic_eraser.xml"
     },
     {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_graphic_eq_black_24dp.xml.flat",
@@ -152,6 +160,10 @@
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_sticker.xml.flat",
+        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\drawable-v24\\ic_sticker.xml"
+    },
+    {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_gray.jpg.flat",
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\drawable\\background_gray.jpg"
     },
@@ -162,6 +174,14 @@
     {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_studio.xml.flat",
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\layout\\fragment_studio.xml"
+    },
+    {
+        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_insert_emoticon_black_24dp.xml.flat",
+        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\drawable\\ic_insert_emoticon_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_brush_black_24dp.xml.flat",
+        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\res\\drawable\\ic_brush_black_24dp.xml"
     },
     {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_camera.png.flat",
