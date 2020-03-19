@@ -1,4 +1,4 @@
-package com.projettec.imageStudio.model.other;
+package com.projettec.imageStudio.model.tools;
 
 public enum ToolType {
 

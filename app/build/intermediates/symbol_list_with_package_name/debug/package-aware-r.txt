@@ -696,6 +696,7 @@ color blue_active
 color blue_bg_light
 color blue_grey_active
 color blue_grey_bg_light
+color blue_grey_bg_light_cle
 color blue_grey_inactive
 color blue_grey_inactive_cle
 color blue_inactive

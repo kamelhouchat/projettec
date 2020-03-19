@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,8 @@ import com.projettec.imageStudio.model.editingImage.DynamicExtension;
 import com.projettec.imageStudio.model.editingImage.Equalization;
 import com.projettec.imageStudio.model.editingImage.Filter;
 import com.projettec.imageStudio.R;
+import com.projettec.imageStudio.model.filters.FilterModel;
+import com.projettec.imageStudio.model.filters.FilterType;
 
 import java.util.ArrayList;
 
@@ -27,6 +30,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecyclerViewAdapter.ViewHolder>{
 
     private ArrayList<String> filterName = new ArrayList<String>();
+    private ArrayList<FilterModel> filterModels = new ArrayList<FilterModel>();
     private Bitmap loadedImage ;
     private Bitmap loadedToRecycle ;
     private Context mContext ;
@@ -36,8 +40,8 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
 
     private static final String TAG = "RecyvlerViewAdapter";
 
-    public FilterRecyclerViewAdapter(ArrayList<String> filterName, Bitmap loadedImage, Context mContext) {
-        this.filterName = filterName;
+    public FilterRecyclerViewAdapter(ArrayList<FilterModel> filterModels, Bitmap loadedImage, Context mContext) {
+        this.filterModels = filterModels;
         this.loadedImage = loadedImage;
         this.loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
                 100,
@@ -58,18 +62,20 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        Bitmap loadedToRecycle = Bitmap.createBitmap(chargeImage(position));
+        FilterModel filterModel = filterModels.get(position);
+
+        Bitmap loadedToRecycle = Bitmap.createBitmap(chargeImage(filterModel.getFilterType()));
 
         Glide.with(mContext)
                 .load(loadedToRecycle)
                 .into(holder.filter_image);
 
-        holder.filter_name.setText(filterName.get(position));
+        holder.filter_name.setText(filterModel.getFilterName());
 
         holder.filter_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, filterName.get(position), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, filterName.get(position), Toast.LENGTH_SHORT).show();
                 Studio_fragment.applyChanges(position);
             }
         });
@@ -77,13 +83,13 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
 
     @Override
     public int getItemCount() {
-        return filterName.size();
+        return filterModels.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         CircleImageView filter_image ;
-        TextView filter_name ;
+        TextView filter_name;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -93,38 +99,38 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
         }
     }
 
-    public Bitmap chargeImage(int position){
+    public Bitmap chargeImage(FilterType filterType){
         /*Bitmap loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
                 100,
                 100,
                 true);*/
         Bitmap loadedToRecycle = Bitmap.createBitmap(this.loadedToRecycle);
-        switch (position){
-            case 0:
+        switch (filterType){
+            case TOGRAY:
                 filter.tograyRS(loadedToRecycle);
                 break ;
-            case 1:
+            case COLORIZE:
                 filter.colorizeRS(loadedToRecycle, 200);
                 break ;
-            case 2:
+            case KEEPCOLOR:
                 filter.KeepColorRS(loadedToRecycle, 90);
                 break ;
-            case 3:
+            case CONTRASTPLUSGRAY:
                 dynamicExtension.contrastePlusGrayRS(loadedToRecycle);
                 break ;
-            case 4:
+            case CONTRASTPLUSRGB:
                 dynamicExtension.contrastePlusRGB_RS(loadedToRecycle);
                 break ;
-            case 5:
+            case CONTRASTPLUSHSV:
                 dynamicExtension.contrastePlusHSV_RS(loadedToRecycle);
                 break ;
-            case 6:
+            case CONTRASTFEWERGRAY:
                 dynamicExtension.contrasteFewerGrayRS(loadedToRecycle);
                 break ;
-            case 7:
+            case EQUALIZATIONGRAY:
                 equalization.egalisationGrayRS(loadedToRecycle);
                 break ;
-            case 8:
+            case EQUALIZATIONRGB:
                 equalization.egalisationRGBRS(loadedToRecycle);
                 break ;
         }

@@ -11,22 +11,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.projettec.imageStudio.R;
-import com.projettec.imageStudio.model.other.ToolModel;
-import com.projettec.imageStudio.model.other.ToolType;
+import com.projettec.imageStudio.model.tools.OnItemToolSelected;
+import com.projettec.imageStudio.model.tools.ToolModel;
+import com.projettec.imageStudio.model.tools.ToolType;
 
 import java.util.ArrayList;
 
 public class EditingToolRecyclerViewAdapter extends RecyclerView.Adapter<EditingToolRecyclerViewAdapter.ViewHolder>{
 
     private ArrayList<ToolModel> toolList = new ArrayList<ToolModel>();
-    private OnItemSelected onItemSelected ;
+    private OnItemToolSelected onItemToolSelected;
 
-    public interface OnItemSelected {
+/*    public interface OnItemSelected {
         void onToolSelected(ToolType toolType);
-    }
+    }*/
 
-    public EditingToolRecyclerViewAdapter(OnItemSelected onItemSelected) {
-        this.onItemSelected = onItemSelected;
+    public EditingToolRecyclerViewAdapter(OnItemToolSelected onItemToolSelected) {
+        this.onItemToolSelected = onItemToolSelected;
         toolList.add(new ToolModel("Filtre", R.drawable.ic_filter_black_24dp, ToolType.FILTER));
         toolList.add(new ToolModel("Texte", R.drawable.ic_text_fields_black_24dp, ToolType.TEXT));
         toolList.add(new ToolModel("Pinceau", R.drawable.ic_brush_black_24dp, ToolType.BRUSH));
@@ -66,7 +67,7 @@ public class EditingToolRecyclerViewAdapter extends RecyclerView.Adapter<Editing
 
                 @Override
                 public void onClick(View v) {
-                    onItemSelected.onToolSelected(toolList.get(getLayoutPosition()).getToolType());
+                    onItemToolSelected.onToolSelected(toolList.get(getLayoutPosition()).getToolType());
                 }
 
             });

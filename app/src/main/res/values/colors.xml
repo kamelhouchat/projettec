@@ -38,6 +38,7 @@
 
     <color name="white">#ffffff</color>
     <color name="blue_grey_inactive_cle">#C1CED5</color>
+    <color name="blue_grey_bg_light_cle">#E0E4E6</color>
     
     <color name="startblue">#09c6df</color>
     <color name="endblue">#0bcce6</color>

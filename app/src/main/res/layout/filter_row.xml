@@ -16,7 +16,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/blue_grey_inactive_cle">
+            android:background="@color/blue_grey_bg_light_cle">
             
             <!--<ImageView
                 android:layout_width="90dp"
@@ -24,8 +24,7 @@
                 android:scaleType="centerCrop"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/image_view_filter"
-                android:src="@drawable/background_gray"/>
-            -->
+                android:src="@drawable/background_gray"/>-->
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="90dp"

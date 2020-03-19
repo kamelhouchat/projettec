@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,7 +19,7 @@ import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.github.chrisbanes.photoview.PhotoViewAttacher;
 import com.projettec.imageStudio.controller.adapters.EditingToolRecyclerViewAdapter;
-import com.projettec.imageStudio.controller.adapters.EditingToolRecyclerViewAdapter.OnItemSelected;
+
 import com.projettec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
 import com.projettec.imageStudio.controller.StudioActivity;
 import com.projettec.imageStudio.model.editingImage.Conversion;
@@ -28,13 +27,16 @@ import com.projettec.imageStudio.model.editingImage.DynamicExtension;
 import com.projettec.imageStudio.model.editingImage.Equalization;
 import com.projettec.imageStudio.model.editingImage.Filter;
 import com.projettec.imageStudio.R;
-import com.projettec.imageStudio.model.other.ToolType;
+import com.projettec.imageStudio.model.filters.FilterModel;
+import com.projettec.imageStudio.model.filters.FilterType;
+import com.projettec.imageStudio.model.tools.OnItemToolSelected;
+import com.projettec.imageStudio.model.tools.ToolType;
 import com.rtugeek.android.colorseekbar.ColorSeekBar;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Studio_fragment extends Fragment implements OnItemSelected {
+public class Studio_fragment extends Fragment implements OnItemToolSelected {
 
     public static Bitmap captImage ;
     public static Filter filter ;
@@ -46,7 +48,10 @@ public class Studio_fragment extends Fragment implements OnItemSelected {
     private Context applicationContext ;
     private View v ;
     private PhotoViewAttacher photoView;
-    private ArrayList<String> filterName = new ArrayList<String>();
+    //private ArrayList<FilterModel> filterModels = new ArrayList<FilterModel>();
+    private ArrayList<FilterModel> filterModels = new ArrayList<FilterModel>();
+    private RecyclerView filterRecyclerView, editingToolRecyclerView ;
+
     private static final String TAG = "Studio_fragment";
 
 
@@ -107,15 +112,15 @@ public class Studio_fragment extends Fragment implements OnItemSelected {
     }
 
     public void initFilterName(){
-        filterName.add("Gray");
-        filterName.add("Colorize");
-        filterName.add("KeepColor");
-        filterName.add("Cont + Gray");
-        filterName.add("Cont + RGB");
-        filterName.add("Cont + HSV");
-        filterName.add("Cont - Gray");
-        filterName.add("Equa Gray");
-        filterName.add("Equa RGB");
+        filterModels.add(new FilterModel("Gray", FilterType.TOGRAY));
+        filterModels.add(new FilterModel("Colorize", FilterType.COLORIZE));
+        filterModels.add(new FilterModel("KeepColor", FilterType.KEEPCOLOR));
+        filterModels.add(new FilterModel("Cont + Gray", FilterType.CONTRASTPLUSGRAY));
+        filterModels.add(new FilterModel("Cont + RGB", FilterType.CONTRASTPLUSRGB));
+        filterModels.add(new FilterModel("Cont + HSV", FilterType.CONTRASTPLUSHSV));
+        filterModels.add(new FilterModel("Cont - Gray", FilterType.CONTRASTFEWERGRAY));
+        filterModels.add(new FilterModel("Equa Gray", FilterType.EQUALIZATIONGRAY));
+        filterModels.add(new FilterModel("Equa RGB", FilterType.EQUALIZATIONRGB));
 
 
         initFilterRecyclerView();
@@ -123,16 +128,16 @@ public class Studio_fragment extends Fragment implements OnItemSelected {
 
     private void initFilterRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false);
-        RecyclerView filterRecyclerView = (RecyclerView) v.findViewById(R.id.filter_recyclerview);
+        filterRecyclerView = (RecyclerView) v.findViewById(R.id.filter_recyclerview);
         filterRecyclerView.setLayoutManager(layoutManager);
-        FilterRecyclerViewAdapter adapter = new FilterRecyclerViewAdapter(filterName, captImage, applicationContext);
+        FilterRecyclerViewAdapter adapter = new FilterRecyclerViewAdapter(filterModels, captImage, applicationContext);
         filterRecyclerView.setAdapter(adapter);
         filterRecyclerView.setVisibility(View.INVISIBLE);
     }
 
     private void initEditingToolRecyvlerView(){
         LinearLayoutManager layoutManager = new LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false);
-        RecyclerView editingToolRecyclerView = (RecyclerView) v.findViewById(R.id.editing_tool_recyclerview);
+        editingToolRecyclerView = (RecyclerView) v.findViewById(R.id.editing_tool_recyclerview);
         editingToolRecyclerView.setLayoutManager(layoutManager);
         EditingToolRecyclerViewAdapter adapter = new EditingToolRecyclerViewAdapter(this);
         editingToolRecyclerView.setAdapter(adapter);
@@ -211,8 +216,9 @@ public class Studio_fragment extends Fragment implements OnItemSelected {
         switch (toolType) {
             case FILTER:
                 //showFilter(true);
-                Toast.makeText(applicationContext, "Filter Selected", Toast.LENGTH_LONG);
                 Log.i(TAG, "onToolSelected: Filter Selected hhhhhhhhhhhhhhhhh");
+                editingToolRecyclerView.setVisibility(View.INVISIBLE);
+                filterRecyclerView.setVisibility(View.VISIBLE);
                 break;
         }
     }
