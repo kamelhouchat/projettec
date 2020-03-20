@@ -33,6 +33,7 @@ import com.projettec.imageStudio.model.filters.OnItemFilterSelected;
 import com.projettec.imageStudio.model.tools.OnItemToolSelected;
 import com.projettec.imageStudio.model.tools.ToolType;
 import com.rtugeek.android.colorseekbar.ColorSeekBar;
+import com.tapadoo.alerter.Alerter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -49,7 +50,6 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private Context applicationContext ;
     private View v ;
     private PhotoViewAttacher photoView;
-    //private ArrayList<FilterModel> filterModels = new ArrayList<FilterModel>();
     private ArrayList<FilterModel> filterModels = new ArrayList<FilterModel>();
     private RecyclerView filterRecyclerView, editingToolRecyclerView ;
 
@@ -143,70 +143,6 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         EditingToolRecyclerViewAdapter adapter = new EditingToolRecyclerViewAdapter(this);
         editingToolRecyclerView.setAdapter(adapter);
     }
-
-    /*public static void applyChanges(int position){
-        //Bitmap loadedToChange = Bitmap.createBitmap(this.loadedImage);
-        *//*final Bitmap loadedToChange = Bitmap.createScaledBitmap(this.loadedImage,
-                50,
-                50,
-                true);*//*
-        final Bitmap loadedToChange = captImage.copy(captImage.getConfig(), true);
-
-        switch (position){
-            case 0:
-                colorSeekBar.setVisibility(View.INVISIBLE);
-                filter.tograyRS(loadedToChange);
-                break ;
-            case 1:
-                colorSeekBar.setVisibility(View.VISIBLE);
-                colorSeekBar.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
-                    int color ; float hue;
-                    @Override
-                    public void onColorChangeListener(int colorBarPosition, int alphaBarPosition, int color) {
-                        float hsv[] = new float[3];
-                        color = colorSeekBar.getColor();
-                        Conversion.RGBToHSV_new(Color.red(color), Color.green(color), Color.blue(color), hsv);
-                        //hue = hsv[0];
-                        //if (!AuxiliaryFunction.Is_like(hue, hsv[0], 5)){
-                        filter.colorizeRS(loadedToChange, hsv[0]);
-                        photo_view.setImageBitmap(loadedToChange);
-                        hue = hsv[0];
-                        //}
-                    }
-                });
-                break ;
-            case 2:
-                colorSeekBar.setVisibility(View.INVISIBLE);
-                filter.KeepColorRS(loadedToChange, 90);
-                break ;
-            case 3:
-                colorSeekBar.setVisibility(View.INVISIBLE);
-                dynamicExtension.contrastePlusGrayRS(loadedToChange);
-                break ;
-            case 4:
-                colorSeekBar.setVisibility(View.INVISIBLE);
-                dynamicExtension.contrastePlusRGB_RS(loadedToChange);
-                break ;
-            case 5:
-                colorSeekBar.setVisibility(View.INVISIBLE);
-                dynamicExtension.contrastePlusHSV_RS(loadedToChange);
-                break ;
-            case 6:
-                colorSeekBar.setVisibility(View.INVISIBLE);
-                dynamicExtension.contrasteFewerGrayRS(loadedToChange);
-                break ;
-            case 7:
-                colorSeekBar.setVisibility(View.INVISIBLE);
-                equalization.egalisationGrayRS(loadedToChange);
-                break ;
-            case 8:
-                colorSeekBar.setVisibility(View.INVISIBLE);
-                equalization.egalisationRGBRS(loadedToChange);
-                break ;
-        }
-        //Glide.with(mContext).load(this.loadedImage).into(photoView);
-        photo_view.setImageBitmap(loadedToChange);
-    }*/
 
     public static Bitmap getCaptImage() {
         return captImage;

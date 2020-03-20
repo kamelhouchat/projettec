@@ -16,12 +16,49 @@
          />
     -->
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_keyboard_arrow_left_black_24dp"/>
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:textColor="@color/blue_grey_active"
+            android:textSize="25dp"
+            android:text="Filter"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:elegantTextHeight="true"
+            android:layout_marginLeft="110dp"
+            android:layout_marginTop="4dp" />
+
+        <ImageView
+            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:src="@drawable/ic_save_black_24dp"
+            android:layout_marginLeft="57dp"/>
+
+        <ImageView
+            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:src="@drawable/ic_restore_black_24dp"
+            android:layout_marginLeft="10dp"/>
+
+
+    </LinearLayout>
+
     <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/photo_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="194dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="140dp"
         app:layout_constraintBottom_toTopOf="@+id/editing_tool_recyclerview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,8 +75,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/photo_view"
-        app:layout_constraintVertical_bias="0.283"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.283" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/editing_tool_recyclerview"
