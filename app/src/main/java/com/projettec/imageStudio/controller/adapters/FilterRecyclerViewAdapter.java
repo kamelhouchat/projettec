@@ -21,6 +21,7 @@ import com.projettec.imageStudio.model.editingImage.Filter;
 import com.projettec.imageStudio.R;
 import com.projettec.imageStudio.model.filters.FilterModel;
 import com.projettec.imageStudio.model.filters.FilterType;
+import com.projettec.imageStudio.model.filters.OnItemFilterSelected;
 
 import java.util.ArrayList;
 
@@ -29,18 +30,18 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecyclerViewAdapter.ViewHolder>{
 
-    private ArrayList<String> filterName = new ArrayList<String>();
     private ArrayList<FilterModel> filterModels = new ArrayList<FilterModel>();
     private Bitmap loadedImage ;
     private Bitmap loadedToRecycle ;
-    private Context mContext ;
+    private Context mContext;
+    private OnItemFilterSelected onItemFilterSelected ;
     private Filter filter ;
     private DynamicExtension dynamicExtension ;
     private Equalization equalization ;
 
     private static final String TAG = "RecyvlerViewAdapter";
 
-    public FilterRecyclerViewAdapter(ArrayList<FilterModel> filterModels, Bitmap loadedImage, Context mContext) {
+    public FilterRecyclerViewAdapter(ArrayList<FilterModel> filterModels, Bitmap loadedImage, Context mContext, OnItemFilterSelected onItemFilterSelected) {
         this.filterModels = filterModels;
         this.loadedImage = loadedImage;
         this.loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
@@ -48,6 +49,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 100,
                 true);
         this.mContext = mContext;
+        this.onItemFilterSelected = onItemFilterSelected;
         this.filter = new Filter(loadedImage, mContext);
         this.dynamicExtension = new DynamicExtension(loadedImage, mContext);
         this.equalization = new Equalization(loadedImage, mContext);
@@ -71,14 +73,6 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 .into(holder.filter_image);
 
         holder.filter_name.setText(filterModel.getFilterName());
-
-        holder.filter_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Toast.makeText(mContext, filterName.get(position), Toast.LENGTH_SHORT).show();
-                Studio_fragment.applyChanges(position);
-            }
-        });
     }
 
     @Override
@@ -96,6 +90,12 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
             //filter_image = (ImageView) itemView.findViewById(R.id.image_view_filter);
             filter_image = (CircleImageView) itemView.findViewById(R.id.image_view_filter);
             filter_name = (TextView) itemView.findViewById(R.id.text_view_filter);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemFilterSelected.onFilterSelected(filterModels.get(getLayoutPosition()).getFilterType());
+                }
+            });
         }
     }
 

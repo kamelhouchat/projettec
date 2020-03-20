@@ -29,6 +29,7 @@ import com.projettec.imageStudio.model.editingImage.Filter;
 import com.projettec.imageStudio.R;
 import com.projettec.imageStudio.model.filters.FilterModel;
 import com.projettec.imageStudio.model.filters.FilterType;
+import com.projettec.imageStudio.model.filters.OnItemFilterSelected;
 import com.projettec.imageStudio.model.tools.OnItemToolSelected;
 import com.projettec.imageStudio.model.tools.ToolType;
 import com.rtugeek.android.colorseekbar.ColorSeekBar;
@@ -36,15 +37,15 @@ import com.rtugeek.android.colorseekbar.ColorSeekBar;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Studio_fragment extends Fragment implements OnItemToolSelected {
+public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected {
 
     public static Bitmap captImage ;
-    public static Filter filter ;
-    public static DynamicExtension dynamicExtension ;
-    public static Equalization equalization ;
-    public static PhotoView photo_view ;
-    public static ColorSeekBar colorSeekBar;
 
+    private Filter filter ;
+    private DynamicExtension dynamicExtension ;
+    private Equalization equalization ;
+    private PhotoView photo_view ;
+    private ColorSeekBar colorSeekBar;
     private Context applicationContext ;
     private View v ;
     private PhotoViewAttacher photoView;
@@ -94,7 +95,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected {
         //image_view.setImageBitmap(captImage);
 
         initFilterName();
-        initEditingToolRecyvlerView();
+        initEditingToolRecyclerView();
 
         return v;
     }
@@ -130,12 +131,12 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected {
         LinearLayoutManager layoutManager = new LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false);
         filterRecyclerView = (RecyclerView) v.findViewById(R.id.filter_recyclerview);
         filterRecyclerView.setLayoutManager(layoutManager);
-        FilterRecyclerViewAdapter adapter = new FilterRecyclerViewAdapter(filterModels, captImage, applicationContext);
+        FilterRecyclerViewAdapter adapter = new FilterRecyclerViewAdapter(filterModels, captImage, applicationContext, this);
         filterRecyclerView.setAdapter(adapter);
         filterRecyclerView.setVisibility(View.INVISIBLE);
     }
 
-    private void initEditingToolRecyvlerView(){
+    private void initEditingToolRecyclerView(){
         LinearLayoutManager layoutManager = new LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false);
         editingToolRecyclerView = (RecyclerView) v.findViewById(R.id.editing_tool_recyclerview);
         editingToolRecyclerView.setLayoutManager(layoutManager);
@@ -143,12 +144,12 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected {
         editingToolRecyclerView.setAdapter(adapter);
     }
 
-    public static void applyChanges(int position){
+    /*public static void applyChanges(int position){
         //Bitmap loadedToChange = Bitmap.createBitmap(this.loadedImage);
-        /*final Bitmap loadedToChange = Bitmap.createScaledBitmap(this.loadedImage,
+        *//*final Bitmap loadedToChange = Bitmap.createScaledBitmap(this.loadedImage,
                 50,
                 50,
-                true);*/
+                true);*//*
         final Bitmap loadedToChange = captImage.copy(captImage.getConfig(), true);
 
         switch (position){
@@ -205,7 +206,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected {
         }
         //Glide.with(mContext).load(this.loadedImage).into(photoView);
         photo_view.setImageBitmap(loadedToChange);
-    }
+    }*/
 
     public static Bitmap getCaptImage() {
         return captImage;
@@ -216,10 +217,75 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected {
         switch (toolType) {
             case FILTER:
                 //showFilter(true);
-                Log.i(TAG, "onToolSelected: Filter Selected hhhhhhhhhhhhhhhhh");
+                Log.i(TAG, "onToolSelected: Filter Selected");
                 editingToolRecyclerView.setVisibility(View.INVISIBLE);
                 filterRecyclerView.setVisibility(View.VISIBLE);
                 break;
         }
+    }
+
+    @Override
+    public void onFilterSelected(FilterType filterType) {
+        //Bitmap loadedToChange = Bitmap.createBitmap(this.loadedImage);
+        /*final Bitmap loadedToChange = Bitmap.createScaledBitmap(this.loadedImage,
+                50,
+                50,
+                true);*/
+        final Bitmap loadedToChange = captImage.copy(captImage.getConfig(), true);
+
+        switch (filterType){
+            case TOGRAY:
+                colorSeekBar.setVisibility(View.INVISIBLE);
+                filter.tograyRS(loadedToChange);
+                break ;
+            case COLORIZE:
+                colorSeekBar.setVisibility(View.VISIBLE);
+                colorSeekBar.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
+                    int color ; float hue;
+                    @Override
+                    public void onColorChangeListener(int colorBarPosition, int alphaBarPosition, int color) {
+                        float hsv[] = new float[3];
+                        color = colorSeekBar.getColor();
+                        Conversion.RGBToHSV_new(Color.red(color), Color.green(color), Color.blue(color), hsv);
+                        //hue = hsv[0];
+                        //if (!AuxiliaryFunction.Is_like(hue, hsv[0], 5)){
+                        filter.colorizeRS(loadedToChange, hsv[0]);
+                        photo_view.setImageBitmap(loadedToChange);
+                        hue = hsv[0];
+                        //}
+                    }
+                });
+                break ;
+            case KEEPCOLOR:
+                colorSeekBar.setVisibility(View.INVISIBLE);
+                filter.KeepColorRS(loadedToChange, 90);
+                break ;
+            case CONTRASTPLUSGRAY:
+                colorSeekBar.setVisibility(View.INVISIBLE);
+                dynamicExtension.contrastePlusGrayRS(loadedToChange);
+                break ;
+            case CONTRASTPLUSRGB:
+                colorSeekBar.setVisibility(View.INVISIBLE);
+                dynamicExtension.contrastePlusRGB_RS(loadedToChange);
+                break ;
+            case CONTRASTPLUSHSV:
+                colorSeekBar.setVisibility(View.INVISIBLE);
+                dynamicExtension.contrastePlusHSV_RS(loadedToChange);
+                break ;
+            case CONTRASTFEWERGRAY:
+                colorSeekBar.setVisibility(View.INVISIBLE);
+                dynamicExtension.contrasteFewerGrayRS(loadedToChange);
+                break ;
+            case EQUALIZATIONGRAY:
+                colorSeekBar.setVisibility(View.INVISIBLE);
+                equalization.egalisationGrayRS(loadedToChange);
+                break ;
+            case EQUALIZATIONRGB:
+                colorSeekBar.setVisibility(View.INVISIBLE);
+                equalization.egalisationRGBRS(loadedToChange);
+                break ;
+        }
+        //Glide.with(mContext).load(this.loadedImage).into(photoView);
+        photo_view.setImageBitmap(loadedToChange);
     }
 }
