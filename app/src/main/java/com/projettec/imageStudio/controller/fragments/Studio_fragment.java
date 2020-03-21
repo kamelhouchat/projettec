@@ -1,12 +1,15 @@
 package com.projettec.imageStudio.controller.fragments;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.SweepGradient;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -18,6 +21,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,8 +46,11 @@ import com.projettec.imageStudio.model.tools.ToolType;
 import com.rtugeek.android.colorseekbar.ColorSeekBar;
 import com.tapadoo.alerter.Alerter;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Timer;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -69,6 +76,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private ColorSeekBar colorSeekBar;
 
     private boolean isFilter = false ;
+
+    private ProgressDialog progressDialog;
 
     private static final String TAG = "Studio_fragment";
 
@@ -102,7 +111,6 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         int height = captImage.getHeight();
         int width = captImage.getWidth();
-
 
         Glide.with(applicationContext).load(captImage).override(width,height).into(photo_view);
         //photo_view.setImageBitmap(captImage);
@@ -281,7 +289,18 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 goBack();
                 break;
             case R.id.fragment_studio_save:
-                Log.i(TAG, "onClick: Save selected");
+                showProgressDialog("Sauvgarde ...");
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        saveImage(loadedToChange);
+                        hideLoading();
+                        new SweetAlertDialog(getActivity())
+                                .setTitleText("Sauvegardé avec succès!")
+                                .show();
+                    }
+                }, 1000);
                 break;
             case R.id.fragment_studio_restore :
                 loadedToChange = captImage.copy(captImage.getConfig(), true);
@@ -304,7 +323,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             else {
                 new SweetAlertDialog(getContext(), SweetAlertDialog.WARNING_TYPE)
                         .setTitleText("Êtes-vous sûr?")
-                        .setContentText("Vous perdrez vos modifications!")
+                        .setContentText("Vous perdrez vos modifications! Sauvgardez avant")
                         .setConfirmText("Oui, je suis sûr!")
                         .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                             @Override
@@ -328,4 +347,39 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         }
     }
 
+    public void saveImage(Bitmap finalBitmap) {
+        String root = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES).toString();
+        File myDir = new File(root + "/Image_Studio");
+        myDir.mkdirs();
+
+        String fname = "Image-"+ System.currentTimeMillis() +".jpg";
+        File file = new File (myDir, fname);
+        if (file.exists ()) file.delete ();
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            out.flush();
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // Tell the media scanner about the new file so that it is
+        // immediately available to the user.
+        MediaScannerConnection.scanFile(applicationContext, new String[]{file.toString()}, null, null);
+    }
+
+    public void showProgressDialog(@NonNull String message) {
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage(message);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+    }
+
+    public void hideLoading() {
+        if (progressDialog != null) {
+            progressDialog.dismiss();
+        }
+    }
 }
