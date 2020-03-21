@@ -279,7 +279,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 equalization.egalisationRGBRS(loadedToChange);
                 break ;
-            case CONVOLUTION:
+            case CONVOLUTIONMOY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 int size = 3;
                 int filter[][] = new int[size][size];
@@ -289,6 +289,14 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                     }
                 }
                 convolution.convolutions(loadedToChange,filter);
+                break;
+            case CONVOLUTIONGAUS:
+                int filterGaus[][] = {{1,2,3,2,1},
+                        {2,6,8,6,2},
+                        {3,8,10,8,3},
+                        {2,6,8,6,2},
+                        {1,2,3,2,1}};
+                convolution.convolutions(loadedToChange,filterGaus);
                 break;
         }
         //Glide.with(mContext).load(this.loadedImage).into(photoView);
