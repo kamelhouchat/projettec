@@ -34,6 +34,7 @@ import com.projettec.imageStudio.controller.adapters.EditingToolRecyclerViewAdap
 import com.projettec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
 import com.projettec.imageStudio.controller.StudioActivity;
 import com.projettec.imageStudio.model.editingImage.Conversion;
+import com.projettec.imageStudio.model.editingImage.Convolution;
 import com.projettec.imageStudio.model.editingImage.DynamicExtension;
 import com.projettec.imageStudio.model.editingImage.Equalization;
 import com.projettec.imageStudio.model.editingImage.Filter;
@@ -65,6 +66,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private Filter filter ;
     private DynamicExtension dynamicExtension ;
     private Equalization equalization ;
+    private Convolution convolution;
 
     private Context applicationContext ;
     private View v ;
@@ -277,6 +279,17 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 equalization.egalisationRGBRS(loadedToChange);
                 break ;
+            case CONVOLUTION:
+                colorSeekBar.setVisibility(View.INVISIBLE);
+                int size = 3;
+                int filter[][] = new int[size][size];
+                for(int i = 0; i < size; i++){
+                    for(int j = 0; j < size; j++){
+                        filter[i][j] = 1;
+                    }
+                }
+                convolution.convolutions(loadedToChange,filter);
+                break;
         }
         //Glide.with(mContext).load(this.loadedImage).into(photoView);
         photo_view.setImageBitmap(loadedToChange);

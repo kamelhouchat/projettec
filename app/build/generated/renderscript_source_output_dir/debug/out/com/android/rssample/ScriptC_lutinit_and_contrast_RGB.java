@@ -16,7 +16,7 @@
 
 /*
  * This file is auto-generated. DO NOT MODIFY!
- * The source Renderscript file: C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\src\\main\\rs\\lutinit_and_contrast_RGB.rs
+ * The source Renderscript file: C:\\Users\\IBRAHIMA\\projettec\\app\\src\\main\\rs\\lutinit_and_contrast_RGB.rs
  */
 
 package com.android.rssample;

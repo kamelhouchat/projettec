@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.projettec.imageStudio.controller.fragments.Studio_fragment;
+import com.projettec.imageStudio.model.editingImage.Convolution;
 import com.projettec.imageStudio.model.editingImage.DynamicExtension;
 import com.projettec.imageStudio.model.editingImage.Equalization;
 import com.projettec.imageStudio.model.editingImage.Filter;
@@ -38,6 +39,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
     private Filter filter ;
     private DynamicExtension dynamicExtension ;
     private Equalization equalization ;
+    private Convolution convolution;
 
     private static final String TAG = "RecyvlerViewAdapter";
 
@@ -52,6 +54,8 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
         filterModels.add(new FilterModel("Cont - Gray", FilterType.CONTRASTFEWERGRAY));
         filterModels.add(new FilterModel("Equa Gray", FilterType.EQUALIZATIONGRAY));
         filterModels.add(new FilterModel("Equa RGB", FilterType.EQUALIZATIONRGB));
+        filterModels.add(new FilterModel("Moyenneur", FilterType.CONVOLUTIONMOY));
+        filterModels.add(new FilterModel("Gaussian", FilterType.CONVOLUTIONGAUS));
 
         this.loadedImage = loadedImage;
         this.loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
@@ -143,6 +147,24 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
             case EQUALIZATIONRGB:
                 equalization.egalisationRGBRS(loadedToRecycle);
                 break ;
+            case CONVOLUTIONMOY:
+                int size = 7;
+                int filterMoy[][] = new int[size][size];
+                for(int i = 0; i < size; i++){
+                    for(int j = 0; j < size; j++){
+                        filterMoy[i][j] = 1;
+                    }
+                }
+                convolution.convolutions(loadedToRecycle,filterMoy);
+                break ;
+            case CONVOLUTIONGAUS:
+                int filterGaus[][] = {{1,2,3,2,1},
+                        {2,6,8,6,2},
+                        {3,8,10,8,3},
+                        {2,6,8,6,2},
+                        {1,2,3,2,1}};
+                convolution.convolutions(loadedToRecycle,filterGaus);
+                break;
         }
         return loadedToRecycle;
     }
