@@ -1,4 +1,4 @@
-#Sat Mar 21 01:43:03 CET 2020
+#Sat Mar 21 15:09:24 CET 2020
 base.0=C\:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\projettec\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex

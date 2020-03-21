@@ -30,6 +30,7 @@ import com.zhihu.matisse.MimeType;
 
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import es.dmoral.toasty.Toasty;
 
 public class MainActivity extends AppCompatActivity {

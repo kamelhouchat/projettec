@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.SweepGradient;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,6 +44,10 @@ import com.tapadoo.alerter.Alerter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Timer;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import android.graphics.Color;
 
 public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected, View.OnClickListener {
 
@@ -273,20 +278,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.fragment_studio_undo_parent :
-                if (isFilter){
-                    editingToolRecyclerView.setVisibility(View.VISIBLE);
-                    filterRecyclerView.setVisibility(View.INVISIBLE);
-                    imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
-                    centerText.setText("Studio");
-                    isFilter = false ;
-                }
-                else {
-                    if (captImage.sameAs(loadedToChange))
-                        getActivity().finish();
-                    else {
-
-                    }
-                }
+                goBack();
                 break;
             case R.id.fragment_studio_save:
                 Log.i(TAG, "onClick: Save selected");
@@ -295,6 +287,44 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 loadedToChange = captImage.copy(captImage.getConfig(), true);
                 Glide.with(applicationContext).load(captImage).override(captImage.getWidth(), captImage.getHeight()).into(photo_view);
                 break;
+        }
+    }
+
+    public void goBack(){
+        if (isFilter){
+            editingToolRecyclerView.setVisibility(View.VISIBLE);
+            filterRecyclerView.setVisibility(View.INVISIBLE);
+            imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
+            centerText.setText("Studio");
+            isFilter = false ;
+        }
+        else {
+            if (captImage.sameAs(loadedToChange))
+                getActivity().finish();
+            else {
+                new SweetAlertDialog(getContext(), SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("Êtes-vous sûr?")
+                        .setContentText("Vous perdrez vos modifications!")
+                        .setConfirmText("Oui, je suis sûr!")
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                sDialog
+                                        .setTitleText("Retour!")
+                                        .setContentText("Retour a la page principal!")
+                                        .hideConfirmButton()
+                                        .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+                                final Handler handler = new Handler();
+                                handler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        getActivity().finish();
+                                    }
+                                }, 1000);
+                            }
+                        })
+                        .show();
+            }
         }
     }
 
