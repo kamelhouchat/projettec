@@ -56,13 +56,15 @@ INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version co
 INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:2:1-28:12
 INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:2:1-28:12
 	package
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:3:5-40
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:4:5-40
 		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml
 		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:2:1-28:12
 		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml
 		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\projettec\app\src\main\AndroidManifest.xml:2:1-28:12

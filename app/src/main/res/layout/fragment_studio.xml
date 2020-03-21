@@ -23,15 +23,18 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/fragment_studio_undo_parent"
             android:layout_width="40dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_keyboard_arrow_left_black_24dp"/>
+            android:src="@drawable/ic_keyboard_arrow_left_black_24dp" />
+
         <TextView
+            android:id="@+id/fragment_studio_center_text"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:textColor="@color/blue_grey_active"
             android:textSize="25dp"
-            android:text="Filter"
+            android:text="Studio"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:elegantTextHeight="true"
@@ -39,12 +42,14 @@
             android:layout_marginTop="4dp" />
 
         <ImageView
+            android:id="@+id/fragment_studio_save"
             android:layout_height="50dp"
             android:layout_width="40dp"
             android:src="@drawable/ic_save_black_24dp"
             android:layout_marginLeft="57dp"/>
 
         <ImageView
+            android:id="@+id/fragment_studio_restore"
             android:layout_height="50dp"
             android:layout_width="40dp"
             android:src="@drawable/ic_restore_black_24dp"

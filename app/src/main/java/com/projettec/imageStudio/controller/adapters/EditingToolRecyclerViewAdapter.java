@@ -22,10 +22,6 @@ public class EditingToolRecyclerViewAdapter extends RecyclerView.Adapter<Editing
     private ArrayList<ToolModel> toolList = new ArrayList<ToolModel>();
     private OnItemToolSelected onItemToolSelected;
 
-/*    public interface OnItemSelected {
-        void onToolSelected(ToolType toolType);
-    }*/
-
     public EditingToolRecyclerViewAdapter(OnItemToolSelected onItemToolSelected) {
         this.onItemToolSelected = onItemToolSelected;
         toolList.add(new ToolModel("Filtre", R.drawable.ic_filter_black_24dp, ToolType.FILTER));

@@ -1,8 +1,10 @@
 package com.projettec.imageStudio.controller.fragments;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.SweepGradient;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -10,6 +12,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -38,20 +44,26 @@ import com.tapadoo.alerter.Alerter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected {
+public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected, View.OnClickListener {
 
     public static Bitmap captImage ;
+
+    private Bitmap loadedToChange ;
 
     private Filter filter ;
     private DynamicExtension dynamicExtension ;
     private Equalization equalization ;
-    private PhotoView photo_view ;
-    private ColorSeekBar colorSeekBar;
+
     private Context applicationContext ;
     private View v ;
-    private PhotoViewAttacher photoView;
-    private ArrayList<FilterModel> filterModels = new ArrayList<FilterModel>();
+
     private RecyclerView filterRecyclerView, editingToolRecyclerView ;
+    private PhotoView photo_view ;
+    private ImageView undoImage, saveImage, restoreImage;
+    private TextView centerText;
+    private ColorSeekBar colorSeekBar;
+
+    private boolean isFilter = false ;
 
     private static final String TAG = "Studio_fragment";
 
@@ -60,8 +72,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_studio, container, false);
 
-        colorSeekBar = (ColorSeekBar) v.findViewById(R.id.seek);
-        colorSeekBar.setVisibility(View.INVISIBLE);
+        initView();
 
         applicationContext = StudioActivity.getContextOfApplication();
 
@@ -75,6 +86,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             e.printStackTrace();
         }
 
+        loadedToChange = captImage.copy(captImage.getConfig(), true);
+
         //Load filters
         filter = new Filter(captImage, applicationContext);
         dynamicExtension = new DynamicExtension(captImage, applicationContext);
@@ -85,16 +98,13 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         int height = captImage.getHeight();
         int width = captImage.getWidth();
 
-        photo_view = (PhotoView) v.findViewById(R.id.photo_view);
+
         Glide.with(applicationContext).load(captImage).override(width,height).into(photo_view);
         //photo_view.setImageBitmap(captImage);
-        //ImageView image_view = (ImageView) v.findViewById(R.id.image_view);
         //Glide.with(applicationContext).load(captImage).override(width,height).into(image_view);
 
 
-        //image_view.setImageBitmap(captImage);
-
-        initFilterName();
+        initFilterRecyclerView();
         initEditingToolRecyclerView();
 
         return v;
@@ -112,26 +122,47 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         return f;
     }
 
-    public void initFilterName(){
-        filterModels.add(new FilterModel("Gray", FilterType.TOGRAY));
-        filterModels.add(new FilterModel("Colorize", FilterType.COLORIZE));
-        filterModels.add(new FilterModel("KeepColor", FilterType.KEEPCOLOR));
-        filterModels.add(new FilterModel("Cont + Gray", FilterType.CONTRASTPLUSGRAY));
-        filterModels.add(new FilterModel("Cont + RGB", FilterType.CONTRASTPLUSRGB));
-        filterModels.add(new FilterModel("Cont + HSV", FilterType.CONTRASTPLUSHSV));
-        filterModels.add(new FilterModel("Cont - Gray", FilterType.CONTRASTFEWERGRAY));
-        filterModels.add(new FilterModel("Equa Gray", FilterType.EQUALIZATIONGRAY));
-        filterModels.add(new FilterModel("Equa RGB", FilterType.EQUALIZATIONRGB));
+    public void initView() {
+        colorSeekBar = (ColorSeekBar) v.findViewById(R.id.seek);
+        colorSeekBar.setVisibility(View.INVISIBLE);
 
+        undoImage = (ImageView) v.findViewById(R.id.fragment_studio_undo_parent);
+        undoImage.setOnClickListener(this);
 
-        initFilterRecyclerView();
+        saveImage = (ImageView) v.findViewById(R.id.fragment_studio_save);
+        saveImage.setOnClickListener(this);
+
+        restoreImage = (ImageView) v.findViewById(R.id.fragment_studio_restore);
+        restoreImage.setOnClickListener(this);
+
+        centerText = (TextView) v.findViewById(R.id.fragment_studio_center_text);
+
+        photo_view = (PhotoView) v.findViewById(R.id.photo_view);
+    }
+
+    public void imageViewAnimatedChange(Context c, final ImageView v, final int new_image) {
+        final Animation anim_out = AnimationUtils.loadAnimation(c, android.R.anim.fade_out);
+        final Animation anim_in  = AnimationUtils.loadAnimation(c, android.R.anim.fade_in);
+        anim_out.setDuration(200);
+        anim_in.setDuration(200);
+        anim_out.setAnimationListener(new Animation.AnimationListener()
+        {
+            @Override public void onAnimationStart(Animation animation) {}
+            @Override public void onAnimationRepeat(Animation animation) {}
+            @Override public void onAnimationEnd(Animation animation)
+            {
+                v.setImageResource(new_image);
+                v.startAnimation(anim_in);
+            }
+        });
+        v.startAnimation(anim_out);
     }
 
     private void initFilterRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false);
         filterRecyclerView = (RecyclerView) v.findViewById(R.id.filter_recyclerview);
         filterRecyclerView.setLayoutManager(layoutManager);
-        FilterRecyclerViewAdapter adapter = new FilterRecyclerViewAdapter(filterModels, captImage, applicationContext, this);
+        FilterRecyclerViewAdapter adapter = new FilterRecyclerViewAdapter(captImage, applicationContext, this);
         filterRecyclerView.setAdapter(adapter);
         filterRecyclerView.setVisibility(View.INVISIBLE);
     }
@@ -152,10 +183,26 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     public void onToolSelected(ToolType toolType) {
         switch (toolType) {
             case FILTER:
-                //showFilter(true);
-                Log.i(TAG, "onToolSelected: Filter Selected");
                 editingToolRecyclerView.setVisibility(View.INVISIBLE);
                 filterRecyclerView.setVisibility(View.VISIBLE);
+                imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
+                centerText.setText("Filtre");
+                isFilter = true;
+                break;
+            case TEXT:
+                centerText.setText("Texte");
+                break;
+            case BRUSH:
+                centerText.setText("Pinceau");
+                break;
+            case ERASER:
+                centerText.setText("Gomme");
+                break;
+            case EMOJI:
+                centerText.setText("Emoji");
+                break;
+            case STICKER:
+                centerText.setText("Sticker");
                 break;
         }
     }
@@ -167,7 +214,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 50,
                 50,
                 true);*/
-        final Bitmap loadedToChange = captImage.copy(captImage.getConfig(), true);
+
+        //final Bitmap loadedToChange = captImage.copy(captImage.getConfig(), true);
+
+        loadedToChange = captImage.copy(captImage.getConfig(), true);
 
         switch (filterType){
             case TOGRAY:
@@ -177,18 +227,12 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             case COLORIZE:
                 colorSeekBar.setVisibility(View.VISIBLE);
                 colorSeekBar.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
-                    int color ; float hue;
                     @Override
                     public void onColorChangeListener(int colorBarPosition, int alphaBarPosition, int color) {
                         float hsv[] = new float[3];
-                        color = colorSeekBar.getColor();
                         Conversion.RGBToHSV_new(Color.red(color), Color.green(color), Color.blue(color), hsv);
-                        //hue = hsv[0];
-                        //if (!AuxiliaryFunction.Is_like(hue, hsv[0], 5)){
                         filter.colorizeRS(loadedToChange, hsv[0]);
                         photo_view.setImageBitmap(loadedToChange);
-                        hue = hsv[0];
-                        //}
                     }
                 });
                 break ;
@@ -224,4 +268,34 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         //Glide.with(mContext).load(this.loadedImage).into(photoView);
         photo_view.setImageBitmap(loadedToChange);
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.fragment_studio_undo_parent :
+                if (isFilter){
+                    editingToolRecyclerView.setVisibility(View.VISIBLE);
+                    filterRecyclerView.setVisibility(View.INVISIBLE);
+                    imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
+                    centerText.setText("Studio");
+                    isFilter = false ;
+                }
+                else {
+                    if (captImage.sameAs(loadedToChange))
+                        getActivity().finish();
+                    else {
+
+                    }
+                }
+                break;
+            case R.id.fragment_studio_save:
+                Log.i(TAG, "onClick: Save selected");
+                break;
+            case R.id.fragment_studio_restore :
+                loadedToChange = captImage.copy(captImage.getConfig(), true);
+                Glide.with(applicationContext).load(captImage).override(captImage.getWidth(), captImage.getHeight()).into(photo_view);
+                break;
+        }
+    }
+
 }

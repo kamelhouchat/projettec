@@ -1259,6 +1259,7 @@ drawable ic_brush_black_24dp
 drawable ic_check_white_18dp
 drawable ic_check_white_24dp
 drawable ic_clear_white_24dp
+drawable ic_close_black_24dp
 drawable ic_email_black_24dp
 drawable ic_empty_dracula
 drawable ic_empty_zhihu
@@ -1463,6 +1464,10 @@ id forever
 id fragment_plus_image
 id fragment_plus_image_height
 id fragment_plus_image_width
+id fragment_studio_center_text
+id fragment_studio_restore
+id fragment_studio_save
+id fragment_studio_undo_parent
 id gallery
 id ghost_view
 id gif
@@ -1812,7 +1817,6 @@ string error_type_conflict
 string error_under_quality
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
-string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string home
 string lib_name

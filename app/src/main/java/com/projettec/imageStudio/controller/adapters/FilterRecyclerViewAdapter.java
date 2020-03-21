@@ -41,8 +41,18 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
 
     private static final String TAG = "RecyvlerViewAdapter";
 
-    public FilterRecyclerViewAdapter(ArrayList<FilterModel> filterModels, Bitmap loadedImage, Context mContext, OnItemFilterSelected onItemFilterSelected) {
-        this.filterModels = filterModels;
+    public FilterRecyclerViewAdapter(Bitmap loadedImage, Context mContext, OnItemFilterSelected onItemFilterSelected) {
+
+        filterModels.add(new FilterModel("Gray", FilterType.TOGRAY));
+        filterModels.add(new FilterModel("Colorize", FilterType.COLORIZE));
+        filterModels.add(new FilterModel("KeepColor", FilterType.KEEPCOLOR));
+        filterModels.add(new FilterModel("Cont + Gray", FilterType.CONTRASTPLUSGRAY));
+        filterModels.add(new FilterModel("Cont + RGB", FilterType.CONTRASTPLUSRGB));
+        filterModels.add(new FilterModel("Cont + HSV", FilterType.CONTRASTPLUSHSV));
+        filterModels.add(new FilterModel("Cont - Gray", FilterType.CONTRASTFEWERGRAY));
+        filterModels.add(new FilterModel("Equa Gray", FilterType.EQUALIZATIONGRAY));
+        filterModels.add(new FilterModel("Equa RGB", FilterType.EQUALIZATIONRGB));
+
         this.loadedImage = loadedImage;
         this.loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
                 100,
