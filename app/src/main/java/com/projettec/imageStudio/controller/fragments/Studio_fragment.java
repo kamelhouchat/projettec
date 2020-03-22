@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +34,7 @@ import com.projettec.imageStudio.controller.adapters.EditingToolRecyclerViewAdap
 
 import com.projettec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
 import com.projettec.imageStudio.controller.StudioActivity;
+import com.projettec.imageStudio.model.animation.ViewAnimation;
 import com.projettec.imageStudio.model.editingImage.Conversion;
 import com.projettec.imageStudio.model.editingImage.Convolution;
 import com.projettec.imageStudio.model.editingImage.DynamicExtension;
@@ -66,7 +68,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private Filter filter ;
     private DynamicExtension dynamicExtension ;
     private Equalization equalization ;
-    private Convolution convolution;
+    private Convolution convolution ;
 
     private Context applicationContext ;
     private View v ;
@@ -79,7 +81,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
     private boolean isFilter = false ;
 
-    private ProgressDialog progressDialog;
+    private ConstraintSet mConstraintSet = new ConstraintSet();
 
     private static final String TAG = "Studio_fragment";
 
@@ -115,6 +117,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         int width = captImage.getWidth();
 
         Glide.with(applicationContext).load(captImage).override(width,height).into(photo_view);
+        //Glide.with(applicationContext).load(captImage).centerInside().into(photo_view);
         //photo_view.setImageBitmap(captImage);
         //Glide.with(applicationContext).load(captImage).override(width,height).into(image_view);
 
@@ -155,24 +158,6 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         photo_view = (PhotoView) v.findViewById(R.id.photo_view);
     }
 
-    public void imageViewAnimatedChange(Context c, final ImageView v, final int new_image) {
-        final Animation anim_out = AnimationUtils.loadAnimation(c, android.R.anim.fade_out);
-        final Animation anim_in  = AnimationUtils.loadAnimation(c, android.R.anim.fade_in);
-        anim_out.setDuration(200);
-        anim_in.setDuration(200);
-        anim_out.setAnimationListener(new Animation.AnimationListener()
-        {
-            @Override public void onAnimationStart(Animation animation) {}
-            @Override public void onAnimationRepeat(Animation animation) {}
-            @Override public void onAnimationEnd(Animation animation)
-            {
-                v.setImageResource(new_image);
-                v.startAnimation(anim_in);
-            }
-        });
-        v.startAnimation(anim_out);
-    }
-
     private void initFilterRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false);
         filterRecyclerView = (RecyclerView) v.findViewById(R.id.filter_recyclerview);
@@ -198,9 +183,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     public void onToolSelected(ToolType toolType) {
         switch (toolType) {
             case FILTER:
-                editingToolRecyclerView.setVisibility(View.INVISIBLE);
-                filterRecyclerView.setVisibility(View.VISIBLE);
-                imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
+                ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, editingToolRecyclerView, filterRecyclerView,
+                        0, 200, 200);
+
+                ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
                 centerText.setText("Filtre");
                 isFilter = true;
                 break;
@@ -310,31 +296,41 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 goBack();
                 break;
             case R.id.fragment_studio_save:
-                showProgressDialog("Sauvgarde ...");
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
+                final SweetAlertDialog saveAlerter = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
+                saveAlerter.setTitleText("Sauvgarde ...").show();
+                final Handler saveHandler = new Handler();
+                saveHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         saveImage(loadedToChange);
-                        hideLoading();
-                        new SweetAlertDialog(getActivity())
+                        saveAlerter.hide();
+                        new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("Sauvegardé avec succès!")
                                 .show();
                     }
                 }, 1000);
                 break;
             case R.id.fragment_studio_restore :
-                loadedToChange = captImage.copy(captImage.getConfig(), true);
-                Glide.with(applicationContext).load(captImage).override(captImage.getWidth(), captImage.getHeight()).into(photo_view);
+                final SweetAlertDialog restoreAlerter = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
+                restoreAlerter.setTitleText("Réstauration...").show();
+                final Handler restoreHandler = new Handler();
+                restoreHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadedToChange = captImage.copy(captImage.getConfig(), true);
+                        Glide.with(applicationContext).load(captImage).override(captImage.getWidth(), captImage.getHeight()).into(photo_view);
+                        restoreAlerter.hide();
+                    }
+                }, 1000);
                 break;
         }
     }
 
     public void goBack(){
         if (isFilter){
-            editingToolRecyclerView.setVisibility(View.VISIBLE);
-            filterRecyclerView.setVisibility(View.INVISIBLE);
-            imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
+            ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, filterRecyclerView, editingToolRecyclerView,
+                    0, 200, 200);
+            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
             centerText.setText("Studio");
             isFilter = false ;
         }
@@ -385,22 +381,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         } catch (Exception e) {
             e.printStackTrace();
         }
-        // Tell the media scanner about the new file so that it is
-        // immediately available to the user.
+        // Tell the media scanner about the new file so that it is immediately available to the user.
         MediaScannerConnection.scanFile(applicationContext, new String[]{file.toString()}, null, null);
     }
 
-    public void showProgressDialog(@NonNull String message) {
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage(message);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-    }
-
-    public void hideLoading() {
-        if (progressDialog != null) {
-            progressDialog.dismiss();
-        }
-    }
 }

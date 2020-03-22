@@ -41,6 +41,7 @@ int anim slidein 0x7f010027
 int anim slideout 0x7f010028
 int anim success_bow_roate 0x7f010029
 int anim success_mask_layout 0x7f01002a
+int anim tobuttom 0x7f01002b
 int animator design_appbar_state_list_animator 0x7f020000
 int animator design_fab_hide_motion_spec 0x7f020001
 int animator design_fab_show_motion_spec 0x7f020002
