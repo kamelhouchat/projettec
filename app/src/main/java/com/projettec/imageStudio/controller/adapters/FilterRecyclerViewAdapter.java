@@ -67,6 +67,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
         this.filter = new Filter(loadedImage, mContext);
         this.dynamicExtension = new DynamicExtension(loadedImage, mContext);
         this.equalization = new Equalization(loadedImage, mContext);
+        this.convolution = new Convolution(loadedImage, mContext);
     }
 
     @NonNull

@@ -75,12 +75,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:colorSeeds="@array/material_colors"
-        app:layout_constraintBottom_toTopOf="@+id/filter_recyclerview"
+        app:layout_constraintBottom_toTopOf="@+id/editing_tool_recyclerview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/photo_view"
-        app:layout_constraintVertical_bias="0.283" />
+        app:layout_constraintVertical_bias="1.3" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/editing_tool_recyclerview"

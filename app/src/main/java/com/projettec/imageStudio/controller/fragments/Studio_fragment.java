@@ -80,6 +80,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private ColorSeekBar colorSeekBar;
 
     private boolean isFilter = false ;
+    private boolean isColorize = false ;
 
     private ConstraintSet mConstraintSet = new ConstraintSet();
 
@@ -110,6 +111,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         filter = new Filter(captImage, applicationContext);
         dynamicExtension = new DynamicExtension(captImage, applicationContext);
         equalization = new Equalization(captImage, applicationContext);
+        convolution = new Convolution(captImage, applicationContext);
 
         //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.background_org);
 
@@ -226,7 +228,11 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 filter.tograyRS(loadedToChange);
                 break ;
             case COLORIZE:
-                colorSeekBar.setVisibility(View.VISIBLE);
+                //colorSeekBar.setVisibility(View.VISIBLE);
+                ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, filterRecyclerView, colorSeekBar,
+                        0, 200, 200);
+                isColorize = true ;
+                isFilter = false ;
                 colorSeekBar.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
                     @Override
                     public void onColorChangeListener(int colorBarPosition, int alphaBarPosition, int color) {
@@ -333,6 +339,12 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
             centerText.setText("Studio");
             isFilter = false ;
+        }
+        else if (isColorize){
+            ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, colorSeekBar, filterRecyclerView,
+                    0, 200, 200);
+            isColorize = false ;
+            isFilter = true ;
         }
         else {
             if (captImage.sameAs(loadedToChange))
