@@ -23,6 +23,7 @@
         </activity>
         <activity android:name="com.projettec.imageStudio.controller.StudioActivity" />
         <activity android:name="com.projettec.imageStudio.controller.BarChartActivity" />
+
     </application>
 
 </manifest>

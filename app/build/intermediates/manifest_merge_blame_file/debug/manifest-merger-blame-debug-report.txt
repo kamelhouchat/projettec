@@ -21,7 +21,7 @@
 13-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:8:22-78
 14
 15    <application
-15-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:10:5-26:19
+15-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:10:5-27:19
 16        android:allowBackup="true"
 16-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:11:9-35
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"

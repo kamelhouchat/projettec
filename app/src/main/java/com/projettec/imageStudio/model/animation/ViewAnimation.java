@@ -8,10 +8,10 @@ import android.widget.ImageView;
 
 public class ViewAnimation {
 
-    public static void viewAnimatedChange(Context context, int inAnimation, int outAnimation, final View toHide,
+    public static void viewAnimatedChange(Context c, int inAnimation, int outAnimation, final View toHide,
                                           final View toShow, long startOffset, long inDuration, long outDuration) {
-        final Animation anim_out = AnimationUtils.loadAnimation(context, outAnimation);
-        final Animation anim_in  = AnimationUtils.loadAnimation(context, inAnimation);
+        final Animation anim_out = AnimationUtils.loadAnimation(c, outAnimation);
+        final Animation anim_in  = AnimationUtils.loadAnimation(c, inAnimation);
         anim_in.setStartOffset(startOffset);
         anim_out.setDuration(outDuration);
         anim_in.setDuration(inDuration);
@@ -45,6 +45,23 @@ public class ViewAnimation {
             }
         });
         v.startAnimation(anim_out);
+    }
+
+    public static void viewAnimatedHideOrShow(Context c, int animation, final View toHide, long startOffset, long duration, final boolean isShow){
+        final Animation anim = AnimationUtils.loadAnimation(c, animation);
+        anim.setStartOffset(startOffset);
+        anim.setDuration(duration);
+        anim.setAnimationListener(new Animation.AnimationListener()
+        {
+            @Override public void onAnimationStart(Animation animation) {}
+            @Override public void onAnimationRepeat(Animation animation) {}
+            @Override public void onAnimationEnd(Animation animation)
+            {
+                if (isShow) toHide.setVisibility(View.VISIBLE);
+                else toHide.setVisibility(View.INVISIBLE);
+            }
+        });
+        toHide.startAnimation(anim);
     }
 
 }

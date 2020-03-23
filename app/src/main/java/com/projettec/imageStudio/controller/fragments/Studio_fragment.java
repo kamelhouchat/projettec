@@ -1,35 +1,26 @@
 package com.projettec.imageStudio.controller.fragments;
 
-import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.SweepGradient;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
-import com.github.chrisbanes.photoview.PhotoViewAttacher;
 import com.projettec.imageStudio.controller.adapters.EditingToolRecyclerViewAdapter;
 
 import com.projettec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
@@ -41,28 +32,29 @@ import com.projettec.imageStudio.model.editingImage.DynamicExtension;
 import com.projettec.imageStudio.model.editingImage.Equalization;
 import com.projettec.imageStudio.model.editingImage.Filter;
 import com.projettec.imageStudio.R;
-import com.projettec.imageStudio.model.filters.FilterModel;
 import com.projettec.imageStudio.model.filters.FilterType;
 import com.projettec.imageStudio.model.filters.OnItemFilterSelected;
 import com.projettec.imageStudio.model.tools.OnItemToolSelected;
 import com.projettec.imageStudio.model.tools.ToolType;
 import com.rtugeek.android.colorseekbar.ColorSeekBar;
-import com.tapadoo.alerter.Alerter;
+import com.takusemba.cropme.CropLayout;
+import com.takusemba.cropme.OnCropListener;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Timer;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
-import android.graphics.Color;
+
+import android.widget.Toast;
+
+import org.jetbrains.annotations.NotNull;
 
 public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected, View.OnClickListener {
 
     public static Bitmap captImage ;
 
+    private Bitmap loadedToRestore ;
     private Bitmap loadedToChange ;
 
     private Filter filter ;
@@ -74,6 +66,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private View v ;
 
     private RecyclerView filterRecyclerView, editingToolRecyclerView ;
+
+    private CropLayout cropLayout ;
+
     private PhotoView photo_view ;
     private ImageView undoImage, saveImage, restoreImage;
     private TextView centerText;
@@ -81,11 +76,12 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
     private boolean isFilter = false ;
     private boolean isColorize = false ;
-
-    private ConstraintSet mConstraintSet = new ConstraintSet();
+    private boolean isCropImage = false ;
 
     private static final String TAG = "Studio_fragment";
 
+    private String image_path ;
+    private Uri image_uri ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -95,8 +91,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         applicationContext = StudioActivity.getContextOfApplication();
 
-        String image_path = getArguments().getString("image");
-        Uri image_uri = Uri.parse(image_path);
+        image_path = getArguments().getString("image");
+        image_uri = Uri.parse(image_path);
         captImage = null;
         try {
             captImage = MediaStore.Images.Media.getBitmap(
@@ -105,6 +101,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             e.printStackTrace();
         }
 
+        loadedToRestore = captImage.copy(captImage.getConfig(), true);
         loadedToChange = captImage.copy(captImage.getConfig(), true);
 
         //Load filters
@@ -118,7 +115,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         int height = captImage.getHeight();
         int width = captImage.getWidth();
 
-        Glide.with(applicationContext).load(captImage).override(width,height).into(photo_view);
+        Glide.with(applicationContext).load(captImage).override(width, height).into(photo_view);
+
+
         //Glide.with(applicationContext).load(captImage).centerInside().into(photo_view);
         //photo_view.setImageBitmap(captImage);
         //Glide.with(applicationContext).load(captImage).override(width,height).into(image_view);
@@ -158,6 +157,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         centerText = (TextView) v.findViewById(R.id.fragment_studio_center_text);
 
         photo_view = (PhotoView) v.findViewById(R.id.photo_view);
+
+        cropLayout = (CropLayout) v.findViewById(R.id.crop_view);
+        cropLayout.setVisibility(View.INVISIBLE);
     }
 
     private void initFilterRecyclerView() {
@@ -184,6 +186,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     @Override
     public void onToolSelected(ToolType toolType) {
         switch (toolType) {
+            case EDIT:
+                centerText.setText("Recadrer");
+                cropImage();
+                break;
             case FILTER:
                 ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, editingToolRecyclerView, filterRecyclerView,
                         0, 200, 200);
@@ -220,7 +226,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         //final Bitmap loadedToChange = captImage.copy(captImage.getConfig(), true);
 
-        loadedToChange = captImage.copy(captImage.getConfig(), true);
+        loadedToChange = loadedToRestore.copy(loadedToRestore.getConfig(), true);
 
         switch (filterType){
             case TOGRAY:
@@ -332,19 +338,32 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         }
     }
 
-    public void goBack(){
-        if (isFilter){
+    public void goBack() {
+        if (isCropImage){
+            cropLayout.isOffFrame();
+            cropLayout.crop();
+            if (isCropImage) {
+                ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.frombuttom, editingToolRecyclerView, 0, 200, true);
+                ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, saveImage, 0, 200, true);
+                ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, restoreImage, 0, 200, true);
+                ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, cropLayout, photo_view,
+                        0, 200, 200);
+                photo_view.setImageBitmap(loadedToRestore);
+                isCropImage = false ;
+            }
+        }
+        else if (isFilter) {
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, filterRecyclerView, editingToolRecyclerView,
                     0, 200, 200);
             ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
             centerText.setText("Studio");
-            isFilter = false ;
+            isFilter = false;
         }
-        else if (isColorize){
+        else if (isColorize) {
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, colorSeekBar, filterRecyclerView,
                     0, 200, 200);
-            isColorize = false ;
-            isFilter = true ;
+            isColorize = false;
+            isFilter = true;
         }
         else {
             if (captImage.sameAs(loadedToChange))
@@ -395,6 +414,35 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         }
         // Tell the media scanner about the new file so that it is immediately available to the user.
         MediaScannerConnection.scanFile(applicationContext, new String[]{file.toString()}, null, null);
+    }
+
+    public void cropImage() {
+        ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);
+        ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_out, saveImage, 0, 200, false);
+        ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_out, restoreImage, 0, 200, false);
+        ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photo_view, cropLayout,
+                0, 200, 200);
+        cropLayout.addOnCropListener(new OnCropListener() {
+            @Override
+            public void onSuccess(@NotNull Bitmap bitmap) {
+                ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.frombuttom, editingToolRecyclerView, 0, 200, true);
+                ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, saveImage, 0, 200, true);
+                ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, restoreImage, 0, 200, true);
+                ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, cropLayout, photo_view,
+                        0, 200, 200);
+                loadedToRestore = bitmap.copy(bitmap.getConfig(), true);
+                photo_view.setImageBitmap(loadedToRestore);
+                isCropImage = false ;
+            }
+
+            @Override
+            public void onFailure(@NotNull Exception e) {
+                Toast.makeText(applicationContext, "NOOOOOO", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        cropLayout.setBitmap(loadedToChange);
+        isCropImage = true ;
     }
 
 }

@@ -1,12 +1,13 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
 MERGED from [com.github.GrenderG:Toasty:1.4.2] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\aa218bae2e0f64c847dc0dbcacf57a6d\jetified-Toasty-1.4.2\AndroidManifest.xml:2:1-11:12
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:17:1-33:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\16255df71047b2a53a0200f409a9520f\material-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.takusemba:cropme:2.0.5] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\4d54b6b4ee6bff2441cd10c433e9c536\jetified-cropme-2.0.5\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\a8776343fdac874fa977e09d507079eb\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\d38c63deeca963c558fe516b1169310c\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
 MERGED from [com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\b8c9bbfde865c8df49bf82a09a744b7f\jetified-alerter-2.0.4\AndroidManifest.xml:2:1-20:12
@@ -19,6 +20,7 @@ MERGED from [com.github.f0ris.sweetalert:library:1.5.6] C:\Users\d9z\.gradle\cac
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\56455dcad8b7ce97853c9aa8ab965576\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\07ce05dae3053cb7355babf5ee350288\recyclerview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8a66819fa60dccc15ec8a899bee9a083\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\e07f10145e664025fa6474f08560f351\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\c8249cbdf32b79a34ee05a98d232259c\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\232fb346b6593e8efea0b275bd00885f\jetified-gifdecoder-4.11.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\f68bb48e67730d35de87e7353bd60f38\exifinterface-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -54,22 +56,22 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\d9z\.gradle\caches\t
 MERGED from [it.sephiroth.android.library.imagezoom:library:1.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\5fef7ce9e485cdfd7a29ba8560634ab2\jetified-library-1.0.4\AndroidManifest.xml:1:106-7:12
 MERGED from [com.pnikosis:materialish-progress:1.7] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\1d4205c1db00a308f6b46090c3107048\jetified-materialish-progress-1.7\AndroidManifest.xml:2:1-13:12
 MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8a7a827a374edd873306fe20f0ee69e8\jetified-library-1.0.2\AndroidManifest.xml:1:116-8:12
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
 	package
 		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:4:5-40
 		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
 		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
 		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:11-69
@@ -90,7 +92,7 @@ MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\
 	android:name
 		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:8:22-78
 application
-ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:10:5-26:19
+ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:10:5-27:19
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:27:5-31:19
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:27:5-31:19
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\16255df71047b2a53a0200f409a9520f\material-1.0.0\AndroidManifest.xml:22:5-20
@@ -165,6 +167,8 @@ MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\82c63d16a3cd87c4e54eda6048236bd5\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\16255df71047b2a53a0200f409a9520f\material-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\16255df71047b2a53a0200f409a9520f\material-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.github.takusemba:cropme:2.0.5] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\4d54b6b4ee6bff2441cd10c433e9c536\jetified-cropme-2.0.5\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.takusemba:cropme:2.0.5] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\4d54b6b4ee6bff2441cd10c433e9c536\jetified-cropme-2.0.5\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\a8776343fdac874fa977e09d507079eb\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\a8776343fdac874fa977e09d507079eb\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\d38c63deeca963c558fe516b1169310c\constraintlayout-1.1.3\AndroidManifest.xml:5:5-7:41
@@ -189,6 +193,8 @@ MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\d9z\.gradle\cach
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\07ce05dae3053cb7355babf5ee350288\recyclerview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8a66819fa60dccc15ec8a899bee9a083\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8a66819fa60dccc15ec8a899bee9a083\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\e07f10145e664025fa6474f08560f351\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\e07f10145e664025fa6474f08560f351\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\c8249cbdf32b79a34ee05a98d232259c\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\c8249cbdf32b79a34ee05a98d232259c\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\232fb346b6593e8efea0b275bd00885f\jetified-gifdecoder-4.11.0\AndroidManifest.xml:5:5-7:41
