@@ -8,6 +8,7 @@ public enum ToolType {
     FILTER,
     EMOJI,
     STICKER,
-    EDIT
+    EDIT,
+    ROTATE
 
 }

@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.projettec.imageStudio.controller.StudioActivity" />
-        <activity android:name="com.projettec.imageStudio.controller.BarChartActivity" />
+        <activity android:name="com.projettec.imageStudio.controller.HistogramActivity" />
         <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
         <activity android:name="com.zhihu.matisse.internal.ui.AlbumPreviewActivity" />
         <activity android:name="com.zhihu.matisse.internal.ui.SelectedPreviewActivity" /> <!-- This is just an Activity for Testing from within src/androidTest -->

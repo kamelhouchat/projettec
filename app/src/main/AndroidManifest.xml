@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.projettec.imageStudio.controller.StudioActivity" />
-        <activity android:name="com.projettec.imageStudio.controller.BarChartActivity" />
+        <activity android:name="com.projettec.imageStudio.controller.HistogramActivity" />
 
     </application>
 

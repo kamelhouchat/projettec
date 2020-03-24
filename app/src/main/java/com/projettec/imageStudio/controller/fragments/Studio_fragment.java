@@ -3,8 +3,11 @@ package com.projettec.imageStudio.controller.fragments;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -15,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -190,6 +194,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 centerText.setText("Recadrer");
                 cropImage();
                 break;
+            case ROTATE:
+                centerText.setText("Rotation");
+                rotateImage(90);
+                break;
             case FILTER:
                 ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, editingToolRecyclerView, filterRecyclerView,
                         0, 200, 200);
@@ -330,6 +338,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                     @Override
                     public void run() {
                         loadedToChange = captImage.copy(captImage.getConfig(), true);
+                        loadedToRestore = captImage.copy(captImage.getConfig(), true);
                         Glide.with(applicationContext).load(captImage).override(captImage.getWidth(), captImage.getHeight()).into(photo_view);
                         restoreAlerter.hide();
                     }
@@ -443,6 +452,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         cropLayout.setBitmap(loadedToChange);
         isCropImage = true ;
+    }
+
+    private void rotateImage(float degree) {
+
     }
 
 }
