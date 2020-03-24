@@ -4,10 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Matrix;
-import android.media.ExifInterface;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -16,9 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -74,10 +72,11 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private CropLayout cropLayout ;
 
     private PhotoView photo_view ;
-    private ImageView undoImage, saveImage, restoreImage;
+    private ImageView undoImage, saveImage, restoreImage, rotateLeft, rotateRight;
     private TextView centerText;
     private ColorSeekBar colorSeekBar;
-
+    private LinearLayout rotationButtonLayout;
+    //private ArcSeekBar arcSeekBar;
 
     private boolean isFilter = false ;
     private boolean isColorize = false ;
@@ -167,7 +166,14 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         cropLayout = (CropLayout) v.findViewById(R.id.crop_view);
         cropLayout.setVisibility(View.INVISIBLE);
 
+        rotationButtonLayout = (LinearLayout) v.findViewById(R.id.degree_seekbar);
+        rotationButtonLayout.setVisibility(View.INVISIBLE);
 
+        rotateLeft = (ImageView) v.findViewById(R.id.rotate_left);
+        rotateLeft.setOnClickListener(this);
+
+        rotateRight = (ImageView) v.findViewById(R.id.rotate_right);
+        rotateRight.setOnClickListener(this);
     }
 
     private void initFilterRecyclerView() {
@@ -200,7 +206,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 break;
             case ROTATE:
                 centerText.setText("Rotation");
-                rotateImage();
+                isRotate = true ;
+                ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
+                ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, editingToolRecyclerView, rotationButtonLayout,
+                        0, 200, 200);
                 break;
             case FILTER:
                 ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, editingToolRecyclerView, filterRecyclerView,
@@ -348,6 +357,12 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                     }
                 }, 1000);
                 break;
+            case R.id.rotate_left:
+                rotateImage(270);
+                break;
+            case R.id.rotate_right:
+                rotateImage(90);
+                break;
         }
     }
 
@@ -355,15 +370,17 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         if (isCropImage){
             cropLayout.isOffFrame();
             cropLayout.crop();
+            centerText.setText("Studio");
             if (isCropImage) {
                 ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.frombuttom, editingToolRecyclerView, 0, 200, true);
                 ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, saveImage, 0, 200, true);
                 ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, restoreImage, 0, 200, true);
                 ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, cropLayout, photo_view,
                         0, 200, 200);
-                photo_view.setImageBitmap(loadedToRestore);
+                photo_view.setImageBitmap(loadedToChange);
                 isCropImage = false ;
             }
+            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
         }
         else if (isFilter) {
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, filterRecyclerView, editingToolRecyclerView,
@@ -377,6 +394,13 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                     0, 200, 200);
             isColorize = false;
             isFilter = true;
+        }
+        else if (isRotate) {
+            isRotate = false ;
+            centerText.setText("Studio");
+            ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, rotationButtonLayout, editingToolRecyclerView,
+                    0, 200, 200);
+            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
         }
         else {
             if (captImage.sameAs(loadedToChange))
@@ -430,6 +454,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     }
 
     public void cropImage() {
+        ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_out, saveImage, 0, 200, false);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_out, restoreImage, 0, 200, false);
@@ -444,7 +469,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, cropLayout, photo_view,
                         0, 200, 200);
                 loadedToRestore = bitmap.copy(bitmap.getConfig(), true);
-                photo_view.setImageBitmap(loadedToRestore);
+                loadedToChange = bitmap.copy(bitmap.getConfig(), true);
+                photo_view.setImageBitmap(loadedToChange);
                 isCropImage = false ;
             }
 
@@ -458,8 +484,13 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         isCropImage = true ;
     }
 
-    public void rotateImage() {
-
+    public void rotateImage(float degree) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(degree);
+        Bitmap rotatedBitmapLadedToRestore = Bitmap.createBitmap(loadedToRestore, 0, 0, loadedToRestore.getWidth(), loadedToRestore.getHeight(), matrix, true);
+        Bitmap rotatedBitmapLoadedToChange = Bitmap.createBitmap(loadedToChange, 0, 0, loadedToChange.getWidth(), loadedToChange.getHeight(), matrix, true);
+        loadedToRestore = rotatedBitmapLadedToRestore.copy(rotatedBitmapLadedToRestore.getConfig(), true);
+        loadedToChange = rotatedBitmapLoadedToChange.copy(rotatedBitmapLoadedToChange.getConfig(), true);
+        photo_view.setImageBitmap(loadedToChange);
     }
-
 }

@@ -108,11 +108,6 @@ attr allowStacking
 attr alpha
 attr alphaBarPosition
 attr alphabeticModifiers
-attr angle
-attr angleTextSize
-attr arcColor
-attr arcProgressColor
-attr arcWidth
 attr arrowHeadLength
 attr arrowShaftLength
 attr autoCompleteTextViewStyle
@@ -311,7 +306,6 @@ attr editTextColor
 attr editTextStyle
 attr elevation
 attr emptyVisibility
-attr enabled
 attr enforceMaterialTheme
 attr enforceTextAppearance
 attr errorEnabled
@@ -531,8 +525,6 @@ attr preview_bottomToolbar_apply_textColor
 attr preview_bottomToolbar_back_textColor
 attr progressBarPadding
 attr progressBarStyle
-attr progressWidth
-attr protractorViewStyle
 attr queryBackground
 attr queryHint
 attr radioButtonStyle
@@ -542,7 +534,6 @@ attr ratingBarStyleSmall
 attr reverseLayout
 attr rippleColor
 attr rollType
-attr roundEdges
 attr scrimAnimationDuration
 attr scrimBackground
 attr scrimVisibleHeightTrigger
@@ -642,30 +633,21 @@ attr textAppearanceSearchResultTitle
 attr textAppearanceSmallPopupMenu
 attr textAppearanceSubtitle1
 attr textAppearanceSubtitle2
-attr textColor
 attr textColorAlertDialogListItem
 attr textColorSearchUrl
 attr textEndPadding
 attr textInputStyle
 attr textLocale
-attr textProgressColor
 attr textStartPadding
 attr theme
 attr thickness
-attr thumb
 attr thumbHeight
 attr thumbTextPadding
 attr thumbTint
 attr thumbTintMode
-attr tickColor
-attr tickIntervals
-attr tickLength
 attr tickMark
 attr tickMarkTint
 attr tickMarkTintMode
-attr tickOffset
-attr tickProgressColor
-attr ticksBetweenLabel
 attr tint
 attr tintMode
 attr title
@@ -687,7 +669,6 @@ attr toolbarStyle
 attr tooltipForegroundColor
 attr tooltipFrameBackground
 attr tooltipText
-attr touchInside
 attr track
 attr trackTint
 attr trackTintMode
@@ -775,8 +756,6 @@ color custom_float_bg
 color defaultTextColor
 color default_badge_background_color
 color default_badge_text_color
-color default_blue_light
-color default_blue_light_teans
 color default_inactive
 color default_inactive_color
 color default_inactive_shape_color
@@ -915,10 +894,6 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
-color progress_gray
-color progress_gray_dark
-color progress_gray_dark_teans
-color progress_gray_trans
 color purple_active
 color purple_bg_light
 color purple_inactive
@@ -1394,6 +1369,8 @@ drawable ic_preview_radio_on
 drawable ic_refresh
 drawable ic_restore_black_24dp
 drawable ic_rotate_90_degrees_ccw_black_24dp
+drawable ic_rotate_left_black_24dp
+drawable ic_rotate_right_black_24dp
 drawable ic_save_black_24dp
 drawable ic_sticker
 drawable ic_studio
@@ -1423,11 +1400,6 @@ drawable search_background_oval
 drawable selector
 drawable success_bow
 drawable success_circle
-drawable thumb_disabled
-drawable thumb_focused
-drawable thumb_normal
-drawable thumb_pressed
-drawable thumb_selector
 drawable tig
 drawable toast_frame
 drawable tooltip_frame_dark
@@ -1662,7 +1634,6 @@ id notification_main_column
 id notification_main_column_container
 id off
 id on
-id one
 id original
 id originalLayout
 id outline
@@ -1690,6 +1661,8 @@ id right_icon
 id right_side
 id rlContainer
 id root
+id rotate_left
+id rotate_right
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1759,7 +1732,6 @@ id texte1
 id textinput_counter
 id textinput_error
 id textinput_helper_text
-id three
 id time
 id title
 id titleDividerNoCustom
@@ -1781,7 +1753,6 @@ id transition_scene_layoutid_cache
 id transition_transform
 id tvText
 id tvTitle
-id two
 id txtTool
 id unchecked
 id uniform
@@ -1801,7 +1772,6 @@ id wrap_content
 id x
 id y
 id z
-id zero
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration
@@ -2577,8 +2547,6 @@ styleable NavigationView android_background android_fitsSystemWindows android_ma
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
 styleable ProgressWheel matProg_barColor matProg_barSpinCycleTime matProg_barWidth matProg_circleRadius matProg_fillRadius matProg_linearProgress matProg_progressIndeterminate matProg_rimColor matProg_rimWidth matProg_spinSpeed
-styleable ProtractorView angle angleTextSize arcColor arcProgressColor arcWidth enabled progressWidth roundEdges textColor textProgressColor thumb tickColor tickIntervals tickLength tickOffset tickProgressColor ticksBetweenLabel touchInside
-styleable ProtractorViewTheme protractorViewStyle
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
 styleable RecyclerView android_orientation android_descendantFocusability fastScrollEnabled fastScrollHorizontalThumbDrawable fastScrollHorizontalTrackDrawable fastScrollVerticalThumbDrawable fastScrollVerticalTrackDrawable layoutManager reverseLayout spanCount stackFromEnd
 styleable Rotate3dAnimation fromDeg pivotX pivotY rollType toDeg
