@@ -78,9 +78,11 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private TextView centerText;
     private ColorSeekBar colorSeekBar;
 
+
     private boolean isFilter = false ;
     private boolean isColorize = false ;
     private boolean isCropImage = false ;
+    private boolean isRotate = false ;
 
     private static final String TAG = "Studio_fragment";
 
@@ -164,6 +166,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         cropLayout = (CropLayout) v.findViewById(R.id.crop_view);
         cropLayout.setVisibility(View.INVISIBLE);
+
+
     }
 
     private void initFilterRecyclerView() {
@@ -196,7 +200,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 break;
             case ROTATE:
                 centerText.setText("Rotation");
-                rotateImage(90);
+                rotateImage();
                 break;
             case FILTER:
                 ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, editingToolRecyclerView, filterRecyclerView,
@@ -454,7 +458,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         isCropImage = true ;
     }
 
-    private void rotateImage(float degree) {
+    public void rotateImage() {
 
     }
 

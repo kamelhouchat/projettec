@@ -162,5 +162,6 @@
     <orderEntry type="library" name="Gradle: com.github.rtugeek:colorseekbar:1.7.5@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.f0ris.sweetalert:library:1.5.6@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.pnikosis:materialish-progress:1.7@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.marcinmoskala:ArcSeekBar:0.31@aar" level="project" />
   </component>
 </module>
