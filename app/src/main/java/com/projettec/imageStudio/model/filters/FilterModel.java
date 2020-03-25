@@ -11,6 +11,8 @@ package com.projettec.imageStudio.model.filters;
  *
  * @see FilterType
  * @see com.projettec.imageStudio.controller.adapters.FilterRecyclerViewAdapter
+ *
+ * @author Kamel.H
  */
 
 public class FilterModel {

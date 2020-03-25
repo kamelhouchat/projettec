@@ -12,6 +12,8 @@ package com.projettec.imageStudio.model.tools;
  *
  * @see ToolType
  * @see com.projettec.imageStudio.controller.adapters.EditingToolRecyclerViewAdapter
+ *
+ * @author Kamel.H
  */
 
 public class ToolModel {
