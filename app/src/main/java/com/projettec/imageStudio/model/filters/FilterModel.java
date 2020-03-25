@@ -2,17 +2,16 @@ package com.projettec.imageStudio.model.filters;
 
 /**
  * <p>
- *     FilterModel is a type of filter that contains :
+ * FilterModel is a type of filter that contains :
  *     <ul>
  *         <li>Filter name</li>
  *         <li>Filter type</li>
  *     </ul>
  * </p>
  *
+ * @author Kamel.H
  * @see FilterType
  * @see com.projettec.imageStudio.controller.adapters.FilterRecyclerViewAdapter
- *
- * @author Kamel.H
  */
 
 public class FilterModel {
@@ -21,13 +20,13 @@ public class FilterModel {
     private String filterName;
 
     //The type of the filter which will be essential for the management of listener and adapter
-    private FilterType filterType ;
+    private FilterType filterType;
 
     /**
      * <p>The FilterModel constructor which takes the name and the filter type as parameters</p>
+     *
      * @param filterName The name of the filter
      * @param filterType The type of the filter
-     *
      * @see FilterType
      */
     public FilterModel(String filterName, FilterType filterType) {
@@ -37,6 +36,7 @@ public class FilterModel {
 
     /**
      * return the filter name
+     *
      * @return FilterName -- the name of the filter
      */
     public String getFilterName() {
@@ -45,8 +45,8 @@ public class FilterModel {
 
     /**
      * return the filter type
-     * @return FilterTpe -- the type of the filter
      *
+     * @return FilterTpe -- the type of the filter
      * @see FilterType
      */
     public FilterType getFilterType() {

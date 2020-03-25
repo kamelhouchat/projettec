@@ -14,10 +14,10 @@ public interface OnItemFilterSelected {
 
     /**
      * <p>
-     *     The method in which the listener will be placed according to the {@link FilterType}
+     * The method in which the listener will be placed according to the {@link FilterType}
      * </p>
-     * @param filterType The filter Type
      *
+     * @param filterType The filter Type
      * @see FilterType
      * @see FilterModel
      */

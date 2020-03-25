@@ -18,6 +18,6 @@ public enum ToolType {
     EMOJI,
     STICKER,
     EDIT,
-    ROTATE
+    ROTATE,
 
 }

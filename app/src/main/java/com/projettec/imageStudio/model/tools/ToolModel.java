@@ -2,7 +2,7 @@ package com.projettec.imageStudio.model.tools;
 
 /**
  * <p>
- *     ToolModel is a type of tool that contains :
+ * ToolModel is a type of tool that contains :
  *     <ul>
  *         <li>Tool name</li>
  *         <li>Tool icon</li>
@@ -10,10 +10,9 @@ package com.projettec.imageStudio.model.tools;
  *     </ul>
  * </p>
  *
+ * @author Kamel.H
  * @see ToolType
  * @see com.projettec.imageStudio.controller.adapters.EditingToolRecyclerViewAdapter
- *
- * @author Kamel.H
  */
 
 public class ToolModel {
@@ -29,10 +28,10 @@ public class ToolModel {
 
     /**
      * <p>The ToolModel constructor which takes the name, icon and type as parameters</p>
+     *
      * @param ToolName The name of the tool
      * @param ToolIcon The icon of the tool
      * @param ToolType The type of the tool
-     *
      * @see ToolType
      */
     public ToolModel(String ToolName, int ToolIcon, ToolType ToolType) {
@@ -43,8 +42,8 @@ public class ToolModel {
 
     /**
      * return the tool type
-     * @return ToolTpe -- the type of the tool
      *
+     * @return ToolTpe -- the type of the tool
      * @see ToolType
      */
     public ToolType getToolType() {
@@ -53,6 +52,7 @@ public class ToolModel {
 
     /**
      * return the tool name
+     *
      * @return ToolName -- the name of the tool
      */
     public String getToolName() {
@@ -61,6 +61,7 @@ public class ToolModel {
 
     /**
      * return the tool icon
+     *
      * @return ToolIcon -- the icon of the tool
      */
     public int getToolIcon() {
