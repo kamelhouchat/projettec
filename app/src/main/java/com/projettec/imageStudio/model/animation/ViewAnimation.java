@@ -6,6 +6,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+
 public class ViewAnimation {
 
     public static void viewAnimatedChange(Context c, int inAnimation, int outAnimation, final View toHide,
