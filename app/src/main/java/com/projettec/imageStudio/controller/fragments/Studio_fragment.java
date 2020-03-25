@@ -2,6 +2,7 @@ package com.projettec.imageStudio.controller.fragments;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.media.MediaScannerConnection;
@@ -52,41 +53,95 @@ import android.widget.Toast;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * <p>
+ * Studio fragment is a class that extends from {@link Fragment}, it is used for the management and display of the layout studio_fragment.
+ * Studio Fragment is the main fragment and it manages:
+ *     <ul>
+ *         <li>Initialization and the display of all views</li>
+ *         <li>Initialization of the filter recycle view</li>
+ *         <li>Initialization of the tool recycle view</li>
+ *         <li>Listeners of tools</li>
+ *         <li>Listeners of filters</li>
+ *         <li>Listeners of filters</li>
+ *         <li>Listeners of all views in studio fragment</li>
+ *         <li>Save image</li>
+ *         <li>Rotate image</li>
+ *         <li>Crop image</li>
+ *         <li>Animation management and display of views corresponding to the selected action</li>
+ *     </ul>
+ * </p>
+ *
+ * @author Kamel.H
+ * @see Fragment
+ * @see Filter
+ * @see DynamicExtension
+ * @see Equalization
+ * @see Convolution
+ * @see FilterRecyclerViewAdapter
+ * @see EditingToolRecyclerViewAdapter
+ * @see OnItemFilterSelected
+ * @see OnItemToolSelected
+ * @see ViewAnimation
+ */
+
 public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected, View.OnClickListener {
 
-    public static Bitmap captImage ;
+    //The bitmap passed by MainActivity, used to reset to main state
+    public static Bitmap captImage;
 
-    private Bitmap loadedToRestore ;
-    private Bitmap loadedToChange ;
+    //Used to reset before applying filter
+    private Bitmap loadedToRestore;
 
-    private Filter filter ;
-    private DynamicExtension dynamicExtension ;
-    private Equalization equalization ;
-    private Convolution convolution ;
+    //Used for applying changes
+    private Bitmap loadedToChange;
 
-    private Context applicationContext ;
-    private View v ;
+    //Class instances that contain filters
+    private Filter filter;
+    private DynamicExtension dynamicExtension;
+    private Equalization equalization;
+    private Convolution convolution;
 
-    private RecyclerView filterRecyclerView, editingToolRecyclerView ;
+    //The activity context
+    private Context applicationContext;
 
-    private CropLayout cropLayout ;
+    //The view if layout
+    private View v;
 
-    private PhotoView photo_view ;
+    //Filter an tool recyclers views
+    private RecyclerView filterRecyclerView, editingToolRecyclerView;
+
+    //The Crop image layout
+    private CropLayout cropLayout;
+
+    //The photo view layout (Support zoom)
+    private PhotoView photo_view;
+
+    //The images present in the layout
     private ImageView undoImage, saveImage, restoreImage, rotateLeft, rotateRight;
-    private TextView centerText;
-    private ColorSeekBar colorSeekBar;
-    private LinearLayout rotationButtonLayout;
-    //private ArcSeekBar arcSeekBar;
 
-    private boolean isFilter = false ;
-    private boolean isColorize = false ;
-    private boolean isCropImage = false ;
-    private boolean isRotate = false ;
+    //The top center text
+    private TextView centerText;
+
+    //The colored seek bar (User to apply colorize filter)
+    private ColorSeekBar colorSeekBar;
+
+    //The rotation linear layout (It contain two button 'Left and Right')
+    private LinearLayout rotationButtonLayout;
+
+    //Booleans to find out which action is selected at a given time
+    private boolean isFilter = false;
+    private boolean isColorize = false;
+    private boolean isCropImage = false;
+    private boolean isRotate = false;
+
+    //The image path
+    private String image_path;
+
+    //The image's uri
+    private Uri image_uri;
 
     private static final String TAG = "Studio_fragment";
-
-    private String image_path ;
-    private Uri image_uri ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -106,6 +161,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             e.printStackTrace();
         }
 
+        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.chateaux);
         loadedToRestore = captImage.copy(captImage.getConfig(), true);
         loadedToChange = captImage.copy(captImage.getConfig(), true);
 
@@ -114,8 +170,6 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         dynamicExtension = new DynamicExtension(captImage, applicationContext);
         equalization = new Equalization(captImage, applicationContext);
         convolution = new Convolution(captImage, applicationContext);
-
-        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.background_org);
 
         int height = captImage.getHeight();
         int width = captImage.getWidth();
@@ -134,6 +188,17 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         return v;
     }
 
+    /**
+     * <p>
+     * A static method which allows you to instantiate an object of the studio_fragment class without going through a constructor.
+     * The elements necessary for the functioning of Plus_fragment are passed by a Bundle.
+     * </p>
+     *
+     * @param image_path The path of the image
+     * @return An instance of the Studio_fragment class
+     * @see Studio_fragment
+     * @see Bundle
+     */
     public static Studio_fragment newInstance(String image_path) {
 
         Studio_fragment f = new Studio_fragment();
@@ -146,6 +211,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         return f;
     }
 
+    /**
+     * <p>Method that initializes views.
+     */
     public void initView() {
         colorSeekBar = (ColorSeekBar) v.findViewById(R.id.seek);
         colorSeekBar.setVisibility(View.INVISIBLE);
@@ -176,6 +244,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         rotateRight.setOnClickListener(this);
     }
 
+    /**
+     * <p>Method which initializes the filter recycler view.
+     */
     private void initFilterRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false);
         filterRecyclerView = (RecyclerView) v.findViewById(R.id.filter_recyclerview);
@@ -185,7 +256,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         filterRecyclerView.setVisibility(View.INVISIBLE);
     }
 
-    private void initEditingToolRecyclerView(){
+    /**
+     * <p>Method which initializes the filter recycler view.
+     */
+    private void initEditingToolRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false);
         editingToolRecyclerView = (RecyclerView) v.findViewById(R.id.editing_tool_recyclerview);
         editingToolRecyclerView.setLayoutManager(layoutManager);
@@ -193,10 +267,23 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         editingToolRecyclerView.setAdapter(adapter);
     }
 
+    /**
+     * <p>Bitmap getter passed by main activity.
+     *
+     * @return The bitmap passed by MainActivity
+     */
     public static Bitmap getCaptImage() {
         return captImage;
     }
 
+    /**
+     * <p>Method for managing listeners of modification tools (Editing tool recycler view).
+     *
+     * @param toolType The tool Type
+     * @see EditingToolRecyclerViewAdapter
+     * @see ToolType
+     * @see com.projettec.imageStudio.model.tools.ToolModel
+     */
     @Override
     public void onToolSelected(ToolType toolType) {
         switch (toolType) {
@@ -206,7 +293,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 break;
             case ROTATE:
                 centerText.setText("Rotation");
-                isRotate = true ;
+                isRotate = true;
                 ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
                 ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, editingToolRecyclerView, rotationButtonLayout,
                         0, 200, 200);
@@ -237,6 +324,14 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         }
     }
 
+    /**
+     * <p>Method for managing listeners of filters (Filter recycler view).
+     *
+     * @param filterType The filter Type
+     * @see FilterRecyclerViewAdapter
+     * @see FilterType
+     * @see com.projettec.imageStudio.model.filters.FilterModel
+     */
     @Override
     public void onFilterSelected(FilterType filterType) {
         //Bitmap loadedToChange = Bitmap.createBitmap(this.loadedImage);
@@ -249,17 +344,17 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         loadedToChange = loadedToRestore.copy(loadedToRestore.getConfig(), true);
 
-        switch (filterType){
+        switch (filterType) {
             case TOGRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 filter.tograyRS(loadedToChange);
-                break ;
+                break;
             case COLORIZE:
                 //colorSeekBar.setVisibility(View.VISIBLE);
                 ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, filterRecyclerView, colorSeekBar,
                         0, 200, 200);
-                isColorize = true ;
-                isFilter = false ;
+                isColorize = true;
+                isFilter = false;
                 colorSeekBar.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
                     @Override
                     public void onColorChangeListener(int colorBarPosition, int alphaBarPosition, int color) {
@@ -269,63 +364,69 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                         photo_view.setImageBitmap(loadedToChange);
                     }
                 });
-                break ;
+                break;
             case KEEPCOLOR:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 filter.KeepColorRS(loadedToChange, 90);
-                break ;
+                break;
             case CONTRASTPLUSGRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 dynamicExtension.contrastePlusGrayRS(loadedToChange);
-                break ;
+                break;
             case CONTRASTPLUSRGB:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 dynamicExtension.contrastePlusRGB_RS(loadedToChange);
-                break ;
+                break;
             case CONTRASTPLUSHSV:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 dynamicExtension.contrastePlusHSV_RS(loadedToChange);
-                break ;
+                break;
             case CONTRASTFEWERGRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 dynamicExtension.contrasteFewerGrayRS(loadedToChange);
-                break ;
+                break;
             case EQUALIZATIONGRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 equalization.egalisationGrayRS(loadedToChange);
-                break ;
+                break;
             case EQUALIZATIONRGB:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 equalization.egalisationRGBRS(loadedToChange);
-                break ;
+                break;
             case CONVOLUTIONMOY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-                int size = 3;
+                int size = 15;
                 int filter[][] = new int[size][size];
-                for(int i = 0; i < size; i++){
-                    for(int j = 0; j < size; j++){
+                for (int i = 0; i < size; i++) {
+                    for (int j = 0; j < size; j++) {
                         filter[i][j] = 1;
                     }
                 }
-                convolution.convolutions(loadedToChange,filter);
+                convolution.convolutions(loadedToChange, filter);
                 break;
             case CONVOLUTIONGAUS:
-                int filterGaus[][] = {{1,2,3,2,1},
-                        {2,6,8,6,2},
-                        {3,8,10,8,3},
-                        {2,6,8,6,2},
-                        {1,2,3,2,1}};
-                convolution.convolutions(loadedToChange,filterGaus);
+                int filterGaus[][] = {{1, 2, 3, 2, 1},
+                        {2, 6, 8, 6, 2},
+                        {3, 8, 10, 8, 3},
+                        {2, 6, 8, 6, 2},
+                        {1, 2, 3, 2, 1}};
+                convolution.convolutions(loadedToChange, filterGaus);
                 break;
         }
         //Glide.with(mContext).load(this.loadedImage).into(photoView);
         photo_view.setImageBitmap(loadedToChange);
     }
 
+    /**
+     * <p>Method for managing listener of other view of the studio_fragment layout.
+     *
+     * @param v The view we just clicked on
+     * @see ViewAnimation
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.fragment_studio_undo_parent :
+            case R.id.fragment_studio_undo_parent:
                 goBack();
                 break;
             case R.id.fragment_studio_save:
@@ -343,7 +444,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                     }
                 }, 1000);
                 break;
-            case R.id.fragment_studio_restore :
+            case R.id.fragment_studio_restore:
                 final SweetAlertDialog restoreAlerter = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
                 restoreAlerter.setTitleText("Réstauration...").show();
                 final Handler restoreHandler = new Handler();
@@ -366,8 +467,13 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         }
     }
 
+    /**
+     * <p>Method which manages the back button, which takes a defined role for each context.
+     *
+     * @see ViewAnimation
+     */
     public void goBack() {
-        if (isCropImage){
+        if (isCropImage) {
             cropLayout.isOffFrame();
             cropLayout.crop();
             centerText.setText("Studio");
@@ -378,31 +484,27 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, cropLayout, photo_view,
                         0, 200, 200);
                 photo_view.setImageBitmap(loadedToChange);
-                isCropImage = false ;
+                isCropImage = false;
             }
             ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
-        }
-        else if (isFilter) {
+        } else if (isFilter) {
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, filterRecyclerView, editingToolRecyclerView,
                     0, 200, 200);
             ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
             centerText.setText("Studio");
             isFilter = false;
-        }
-        else if (isColorize) {
+        } else if (isColorize) {
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, colorSeekBar, filterRecyclerView,
                     0, 200, 200);
             isColorize = false;
             isFilter = true;
-        }
-        else if (isRotate) {
-            isRotate = false ;
+        } else if (isRotate) {
+            isRotate = false;
             centerText.setText("Studio");
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, rotationButtonLayout, editingToolRecyclerView,
                     0, 200, 200);
             ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
-        }
-        else {
+        } else {
             if (captImage.sameAs(loadedToChange))
                 getActivity().finish();
             else {
@@ -432,15 +534,23 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         }
     }
 
+    /**
+     * <p>Method which allows you to save an image (bitmap) in the gallery and to refresh it.
+     *
+     * @param finalBitmap The bitmap we want to save
+     * @see File
+     * @see FileOutputStream
+     * @see MediaScannerConnection
+     */
     public void saveImage(Bitmap finalBitmap) {
         String root = Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES).toString();
         File myDir = new File(root + "/Image_Studio");
         myDir.mkdirs();
 
-        String fname = "Image-"+ System.currentTimeMillis() +".jpg";
-        File file = new File (myDir, fname);
-        if (file.exists ()) file.delete ();
+        String fname = "Image-" + System.currentTimeMillis() + ".jpg";
+        File file = new File(myDir, fname);
+        if (file.exists()) file.delete();
         try {
             FileOutputStream out = new FileOutputStream(file);
             finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
@@ -453,6 +563,12 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         MediaScannerConnection.scanFile(applicationContext, new String[]{file.toString()}, null, null);
     }
 
+    /**
+     * <p>Method which allows to use a {@link CropLayout} in order to crop an image and save the result in a Bitmap.
+     *
+     * @see CropLayout
+     * @see ViewAnimation
+     */
     public void cropImage() {
         ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);
@@ -471,7 +587,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 loadedToRestore = bitmap.copy(bitmap.getConfig(), true);
                 loadedToChange = bitmap.copy(bitmap.getConfig(), true);
                 photo_view.setImageBitmap(loadedToChange);
-                isCropImage = false ;
+                isCropImage = false;
             }
 
             @Override
@@ -481,9 +597,15 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         });
 
         cropLayout.setBitmap(loadedToChange);
-        isCropImage = true ;
+        isCropImage = true;
     }
 
+    /**
+     * <p>Method which allows to rotate the image to a degree passed in parameter.
+     *
+     * @param degree The degree of rotation
+     * @see Matrix
+     */
     public void rotateImage(float degree) {
         Matrix matrix = new Matrix();
         matrix.postRotate(degree);

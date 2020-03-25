@@ -130,7 +130,7 @@ public class StudioActivity extends AppCompatActivity {
                 case 0:
                     return Studio_fragment.newInstance(image_path);
                 case 1:
-                    return Plus_fragment.newInstance("SecondFragment, Instance 1", image_path);
+                    return Plus_fragment.newInstance(image_path);
             }
             return null;
         }

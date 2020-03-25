@@ -167,7 +167,7 @@ public class Convolution {
 
     /*--------------------------------------Render Sctipt---------------------------------------*/
 
-    /*public void ConvulveAverageFilterRS(Bitmap imagebitmap){
+/*    public void ConvulveAverageFilterRS(Bitmap imagebitmap){
         RenderScript rs = RenderScript.create(this);
         ScriptC_average_convulve ConvulveScript = new ScriptC_average_convulve(rs);
 
