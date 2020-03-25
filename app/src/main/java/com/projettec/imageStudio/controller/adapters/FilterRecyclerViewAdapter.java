@@ -28,23 +28,63 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+/**
+ * <p>
+ * the class is an adapter of the FilterRecyclerView, it allows you to generate
+ * all the filters that will be applied to the images by specifying the name and the type of
+ * the filter, it allows to classify them side by side and create more copied from a filter copy
+ * </p>
+ *
+ * @author Kamel.H
+ * @see FilterModel
+ * @see FilterType
+ * @see OnItemFilterSelected
+ */
 
-public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecyclerViewAdapter.ViewHolder>{
+public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecyclerViewAdapter.ViewHolder> {
 
+    //ArrayList which contains the FilterModels
     private ArrayList<FilterModel> filterModels = new ArrayList<FilterModel>();
-    private Bitmap loadedImage ;
-    private Bitmap loadedToRecycle ;
+
+    //The loaded image, which will be used for initializing the filters, and applying the filters to small images to get a glimpse of the filter
+    private Bitmap loadedImage;
+
+    //The image after compression which will be used for applying the filters in recyclerView
+    private Bitmap loadedToRecycle;
+
+    //The activity context
     private Context mContext;
-    private OnItemFilterSelected onItemFilterSelected ;
-    private Filter filter ;
-    private DynamicExtension dynamicExtension ;
-    private Equalization equalization ;
+
+    //The onItemFilterSelected method which facilitates the management of listener
+    private OnItemFilterSelected onItemFilterSelected;
+
+    //Class instances that contain filters
+    private Filter filter;
+    private DynamicExtension dynamicExtension;
+    private Equalization equalization;
     private Convolution convolution;
 
-    private static final String TAG = "RecyvlerViewAdapter";
+    private static final String TAG = "FilterRecyclerViewAdapt";
 
+    /**
+     * <p>
+     * The constructor of the class which takes in parameter :
+     * <ul>
+     *     <li>The method which manages the listeners which will be override in the class where an object of this class will be instantiated.</li>
+     *     <li>The context</li>
+     *     <li>The loaded image</li>
+     * </ul>
+     * <p>
+     * In this constructor, we add all the filters that will be applied to the images and that we want to see in the recyclerView to the ArrayList
+     * </p>
+     *
+     * @param loadedImage          The loaded image, which will be used for initializing the filters, and applying the filters to small images to get a glimpse of the filter
+     * @param mContext             The activity context
+     * @param onItemFilterSelected The method that manages listeners which will be override in the class where an object of this class will be instantiated
+     * @see FilterType
+     * @see FilterModel
+     */
     public FilterRecyclerViewAdapter(Bitmap loadedImage, Context mContext, OnItemFilterSelected onItemFilterSelected) {
-
         filterModels.add(new FilterModel("Gray", FilterType.TOGRAY));
         filterModels.add(new FilterModel("Colorize", FilterType.COLORIZE));
         filterModels.add(new FilterModel("KeepColor", FilterType.KEEPCOLOR));
@@ -95,11 +135,26 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
         return filterModels.size();
     }
 
+
+    /**
+     * <p>The class allows us to extract the elements of the exemplary layout</p>
+     *
+     * @author Kamel.h
+     * @see OnItemFilterSelected
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        CircleImageView filter_image ;
+        //ImageView on which we put an overview of the filter each time
+        CircleImageView filter_image;
+
+        //TextView on which we put the filter name each time
         TextView filter_name;
 
+        /**
+         * <p>Constructor in which the views and listener were initialized
+         *
+         * @param itemView The layout view
+         */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             //filter_image = (ImageView) itemView.findViewById(R.id.image_view_filter);
@@ -114,57 +169,68 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
         }
     }
 
-    public Bitmap chargeImage(FilterType filterType){
+    /**
+     * <p>
+     * method which applies a type of filter to a bitmap in order to have a preview in the recycler view.
+     * The bitmap size is 100px by 100px.
+     * </p>
+     *
+     * @param filterType The type of the filter
+     * @return A new bitmap on which the filter was applied
+     * @see FilterType
+     * @see FilterModel
+     */
+    public Bitmap chargeImage(FilterType filterType) {
         /*Bitmap loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
                 100,
                 100,
                 true);*/
         Bitmap loadedToRecycle = Bitmap.createBitmap(this.loadedToRecycle);
-        switch (filterType){
+        switch (filterType) {
             case TOGRAY:
                 filter.tograyRS(loadedToRecycle);
-                break ;
+                break;
             case COLORIZE:
                 filter.colorizeRS(loadedToRecycle, 200);
-                break ;
+                break;
             case KEEPCOLOR:
                 filter.KeepColorRS(loadedToRecycle, 90);
-                break ;
+                break;
             case CONTRASTPLUSGRAY:
                 dynamicExtension.contrastePlusGrayRS(loadedToRecycle);
-                break ;
+                break;
             case CONTRASTPLUSRGB:
                 dynamicExtension.contrastePlusRGB_RS(loadedToRecycle);
-                break ;
+                break;
             case CONTRASTPLUSHSV:
                 dynamicExtension.contrastePlusHSV_RS(loadedToRecycle);
-                break ;
+                break;
             case CONTRASTFEWERGRAY:
                 dynamicExtension.contrasteFewerGrayRS(loadedToRecycle);
-                break ;
+                break;
             case EQUALIZATIONGRAY:
                 equalization.egalisationGrayRS(loadedToRecycle);
-                break ;
+                break;
             case EQUALIZATIONRGB:
                 equalization.egalisationRGBRS(loadedToRecycle);
-                break ;
+                break;
             case CONVOLUTIONMOY:
                 int size = 7;
                 int filterMoy[][] = new int[size][size];
-                for(int i = 0; i < size; i++){
-                    for(int j = 0; j < size; j++){
+                for (int i = 0; i < size; i++) {
+                    for (int j = 0; j < size; j++) {
                         filterMoy[i][j] = 1;
                     }
                 }
-                convolution.convolutions(loadedToRecycle,filterMoy);
-                break ;
+                convolution.convolutions(loadedToRecycle, filterMoy);
+                break;
             case CONVOLUTIONGAUS:
-                int filterGaus[][] = {{1,2,3,2,1},
-                        {2,6,8,6,2},
-                        {3,8,10,8,3},
-                        {2,6,8,6,2},
-                        {1,2,3,2,1}};
-                convolution.convolutions(loadedToRecycle,filterGaus);
+                int filterGaus[][] = {{1, 2, 3, 2, 1},
+                        {2, 6, 8, 6, 2},
+                        {3, 8, 10, 8, 3},
+                        {2, 6, 8, 6, 2},
+                        {1, 2, 3, 2, 1}};
+                convolution.convolutions(loadedToRecycle, filterGaus);
                 break;
         }
         return loadedToRecycle;

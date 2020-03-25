@@ -33,37 +33,53 @@ import java.util.List;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import es.dmoral.toasty.Toasty;
 
+/**
+ * <p>
+ * This is the base activity, the activity manages:
+ *     <ol>
+ *         <li>Application launch animations</li>
+ *         <li>Granting access permissions</li>
+ *         <li>Loading the image from the gallery and the camera</li>
+ *     </ol>
+ * </p>
+ *
+ * @author Kamel.H
+ * @see StudioActivity
+ * @see R.anim
+ */
+
 public class MainActivity extends AppCompatActivity {
 
-    ImageView background , clover , logoUniversite;
-    LinearLayout logo , hometext , menus ;
-    Animation frombuttom ,logoAnimation;
+    //ImageView loaded from the layout
+    ImageView background, clover, logoUniversite;
 
-    Uri image_uri ;
+    //LinearLayout loaded from the layout
+    LinearLayout logo, hometext, menus;
 
-    // Random code that identifies the result of the picker
+    //Animation loaded from R.anim
+    Animation frombuttom, logoAnimation;
+
+    //The uri of the loaded image from camera
+    Uri image_uri;
+
+    //Random code that identifies the result of the picker
     static final int PICKER_REQUEST_CODE = 1;
+    static final int REQUEST_CODE = 123;
+    static final int REQUEST_CAMERA = 100;
 
-    // List that will contain the selected files/videos
+    //List that will contain the selected photos
     List<Uri> mSelected;
 
-    static final int REQUEST_CODE = 123 ;
-    static final int REQUEST_CAMERA = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        frombuttom = AnimationUtils.loadAnimation(this,R.anim.frombuttom);
-        logoAnimation = AnimationUtils.loadAnimation(this,R.anim.logoanimation);
+        frombuttom = AnimationUtils.loadAnimation(this, R.anim.frombuttom);
+        logoAnimation = AnimationUtils.loadAnimation(this, R.anim.logoanimation);
 
-        background = (ImageView) findViewById(R.id.background_main);
-        clover = (ImageView) findViewById(R.id.clover);
-        logoUniversite = (ImageView) findViewById(R.id.universite);
-        logo = (LinearLayout) findViewById(R.id.logo);
-        hometext = (LinearLayout) findViewById(R.id.hometext);
-        menus = (LinearLayout) findViewById(R.id.menus);
+        initView();
 
         background.animate().translationY(-1900).setDuration(800).setStartDelay(1000);
         clover.animate().alpha(0).setDuration(800).setStartDelay(700);
@@ -73,6 +89,21 @@ public class MainActivity extends AppCompatActivity {
         logoUniversite.startAnimation(logoAnimation);
 
         checkPermission();
+    }
+
+    /**
+     * The method that initializes all views
+     *
+     * @see LinearLayout
+     * @see ImageView
+     */
+    public void initView() {
+        background = (ImageView) findViewById(R.id.background_main);
+        clover = (ImageView) findViewById(R.id.clover);
+        logoUniversite = (ImageView) findViewById(R.id.universite);
+        logo = (LinearLayout) findViewById(R.id.logo);
+        hometext = (LinearLayout) findViewById(R.id.hometext);
+        menus = (LinearLayout) findViewById(R.id.menus);
     }
 
     @Override
@@ -101,7 +132,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void LoadImage(View view){
+    /**
+     * Method using the matisse library to load the image from the gallery
+     *
+     * @param view The view that corresponds to the gallery button
+     */
+    public void LoadImage(View view) {
         Matisse.from(MainActivity.this)
                 .choose(MimeType.ofImage())
                 .countable(false)
@@ -115,25 +151,38 @@ public class MainActivity extends AppCompatActivity {
                 .forResult(PICKER_REQUEST_CODE);
     }
 
-    public void TakeImage(View view){
+    /**
+     * Method that opens the camera intent and take new picture
+     *
+     * @param view the view that corresponds to the camera button
+     */
+    public void TakeImage(View view) {
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, "New Picture");
         values.put(MediaStore.Images.Media.DESCRIPTION, "From the Camera");
         image_uri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, image_uri);
-        startActivityForResult(cameraIntent,REQUEST_CAMERA);
+        startActivityForResult(cameraIntent, REQUEST_CAMERA);
     }
 
-    public boolean isGranted(){
+    /**
+     * Method that checks if permissions are granted
+     *
+     * @return true if yes, false if not
+     */
+    public boolean isGranted() {
         return (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) +
                 ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) +
                 ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 == PackageManager.PERMISSION_GRANTED);
     }
 
-    public void checkPermission(){
-        if (!isGranted()){
+    /**
+     * Method that asks the user to grant permissions if they are not granted
+     */
+    public void checkPermission() {
+        if (!isGranted()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Permission d'accès");
             builder.setMessage("Nous avons besoin de votre permission pour accéder a la caméra et la galerie");
@@ -158,16 +207,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
+        switch (requestCode) {
             case REQUEST_CODE:
                 if (grantResults.length >= 3 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED
-                    && grantResults[2] == PackageManager.PERMISSION_GRANTED){
-                    Toasty.success(this,"Autorisation Accordée !",Toast.LENGTH_LONG).show();
-                }
-                else
-                    Toasty.error(this,"Veuillez autoriser l'accès",Toast.LENGTH_LONG).show();
-                    checkPermission();
-                break ;
+                        && grantResults[2] == PackageManager.PERMISSION_GRANTED) {
+                    Toasty.success(this, "Autorisation Accordée !", Toast.LENGTH_LONG).show();
+                } else
+                    Toasty.error(this, "Veuillez autoriser l'accès", Toast.LENGTH_LONG).show();
+                checkPermission();
+                break;
         }
     }
 

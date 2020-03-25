@@ -28,12 +28,33 @@ import androidx.viewpager.widget.ViewPager;
 import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 
-
+/**
+ * <p>
+ * The activity manages:
+ *     <ol>
+ *         <li>Loading the image sent by activity main</li>
+ *         <li>Loading the navigation bar</li>
+ *         <li>Management of the navigation bar using ViewPager</li>
+ *         <li>Hide system bars</li>
+ *     </ol>
+ * </p>
+ *
+ * @author Kamel.H
+ * @see Studio_fragment
+ * @see Plus_fragment
+ * @see com.gauravk.bubblenavigation.IBubbleNavigation
+ * @see ViewPager
+ */
 
 public class StudioActivity extends AppCompatActivity {
 
+    //The context of the activity
     public static Context contextOfApplication;
+
+    //The image path
     private String image_path;
+
+    //The activity decor view
     private View decorView;
 
     @Override
@@ -42,7 +63,6 @@ public class StudioActivity extends AppCompatActivity {
         setContentView(R.layout.studio_final_test);
 
         contextOfApplication = getApplicationContext();
-//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         decorView = getWindow().getDecorView();
         decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
@@ -52,9 +72,7 @@ public class StudioActivity extends AppCompatActivity {
             }
         });
 
-        /**
-         * Load a Bitmap Image (Passed by mainactivity)
-         */
+        //Load a Bitmap Image (Passed by MainActivity)
         Intent intent = getIntent();
         image_path = intent.getStringExtra("imagePath");
 
@@ -72,8 +90,7 @@ public class StudioActivity extends AppCompatActivity {
 
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int i, float v, int i1) {
-            }
+            public void onPageScrolled(int i, float v, int i1) { }
 
             @Override
             public void onPageSelected(int i) {
@@ -81,9 +98,7 @@ public class StudioActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onPageScrollStateChanged(int i) {
-
-            }
+            public void onPageScrollStateChanged(int i) {}
         });
 
         bubbleNavigationLinearView.setNavigationChangeListener(new BubbleNavigationChangeListener() {
@@ -95,6 +110,14 @@ public class StudioActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * <p>The class is an adapter of the view pager
+     *
+     * @author Kamel.H
+     * @see Studio_fragment
+     * @see Plus_fragment
+     * @see FragmentPagerAdapter
+     */
     private class MyPagerAdapter extends FragmentPagerAdapter {
 
         public MyPagerAdapter(FragmentManager fm) {
@@ -103,9 +126,11 @@ public class StudioActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int pos) {
-            switch(pos) {
-                case 0: return Studio_fragment.newInstance(image_path);
-                case 1: return Plus_fragment.newInstance("SecondFragment, Instance 1",image_path);
+            switch (pos) {
+                case 0:
+                    return Studio_fragment.newInstance(image_path);
+                case 1:
+                    return Plus_fragment.newInstance("SecondFragment, Instance 1", image_path);
             }
             return null;
         }
@@ -116,6 +141,10 @@ public class StudioActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * <p>Static method which returns the context of the activity
+     * @return
+     */
     public static Context getContextOfApplication() {
         return contextOfApplication;
     }
@@ -123,18 +152,24 @@ public class StudioActivity extends AppCompatActivity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        if (hasFocus){
+        if (hasFocus) {
             decorView.setSystemUiVisibility(hideSystemBars());
         }
     }
 
+    /**
+     * <p>Method which hide system bars
+     *
+     * @return a single flag combination
+     * @see View
+     */
     private int hideSystemBars() {
         return View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION ;
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
     }
 
 }

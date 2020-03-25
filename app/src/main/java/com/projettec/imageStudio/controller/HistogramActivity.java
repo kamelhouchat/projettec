@@ -20,6 +20,10 @@ import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * @author Fall.E-P
+ */
+
 public class HistogramActivity extends AppCompatActivity {
 
     private ArrayList ColorG;

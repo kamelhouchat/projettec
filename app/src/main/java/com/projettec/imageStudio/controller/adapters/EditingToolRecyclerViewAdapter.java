@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 public class EditingToolRecyclerViewAdapter extends RecyclerView.Adapter<EditingToolRecyclerViewAdapter.ViewHolder> {
 
-    //ArrayList which contains the ToolModel
+    //ArrayList which contains the ToolModels
     private ArrayList<ToolModel> toolList = new ArrayList<ToolModel>();
 
     //The onItemToolSelected method which facilitates the management of listener
@@ -81,7 +81,7 @@ public class EditingToolRecyclerViewAdapter extends RecyclerView.Adapter<Editing
     }
 
     /**
-     * <p>the class allows us to extract the elements of the exemplary layout</p>
+     * <p>The class allows us to extract the elements of the exemplary layout</p>
      *
      * @author Kamel.h
      * @see OnItemToolSelected
@@ -96,6 +96,7 @@ public class EditingToolRecyclerViewAdapter extends RecyclerView.Adapter<Editing
 
         /**
          * <p>Constructor in which the views and listener were initialized
+         *
          * @param itemView The layout view
          */
         public ViewHolder(@NonNull View itemView) {

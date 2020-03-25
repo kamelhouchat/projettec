@@ -8,11 +8,12 @@ import android.widget.ImageView;
 
 /**
  * <p>
- *     View Animation is a class that contains methods that allow you to apply
- *     different animation to the views for different targets.
+ * View Animation is a class that contains methods that allow you to apply
+ * different animation to the views for different targets.
  * </p>
  *
  * @author Kamel.H
+ * @see com.projettec.imageStudio.R.anim
  */
 
 public class ViewAnimation {
