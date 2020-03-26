@@ -109,6 +109,7 @@
         android:id="@+id/brightness_seekbar"
         android:progress="256"
         android:max="511"
+
         app:layout_constraintBottom_toTopOf="@+id/editing_tool_recyclerview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

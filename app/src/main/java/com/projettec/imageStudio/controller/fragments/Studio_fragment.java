@@ -138,6 +138,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private boolean isCropImage = false;
     private boolean isRotate = false;
     private boolean isBrightness = false;
+    private boolean isSaturation = false;
 
     //The image path
     private String image_path;
@@ -308,6 +309,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             case BRIGHTNESS:
                 centerText.setText("Lumino");
                 brightness();
+                break;
+            case SATURATION:
+                centerText.setText("Satura");
+                saturation();
                 break;
             case FILTER:
                 centerText.setText("Filtre");
@@ -528,6 +533,12 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
           ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
           ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, seekBar, editingToolRecyclerView,
                   0, 200, 200);
+        }
+        else if (isSaturation) {
+            isSaturation = false ;
+            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
+            ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, seekBar, editingToolRecyclerView,
+                    0, 200, 200);
         } else {
             if (captImage.sameAs(loadedToChange))
                 getActivity().finish();
@@ -655,10 +666,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                int progressValue = seekBar.getProgress() - 256;
-                float val = (float) progressValue / 256;
-                Bitmap returnBitmap = filter.brightnessRS(loadedToChange, val);
-                photo_view.setImageBitmap(returnBitmap);
+
             }
 
             @Override
@@ -668,9 +676,39 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                int progressValue = seekBar.getProgress() - 256;
+                float val = (float) progressValue / 256;
+                Bitmap returnBitmap = filter.brightnessRS(loadedToChange, val);
+//                Bitmap returnBitmap = filter.brightness(loadedToChange, val);
+                photo_view.setImageBitmap(returnBitmap);
             }
         });
     }
 
+    private void saturation() {
+        isSaturation = true;
+        ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
+        ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, editingToolRecyclerView, seekBar,
+                0, 200, 200);
+        seekBar.setProgress(256);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                int progressValue = seekBar.getProgress() - 256;
+                float val = (float) progressValue / 256;
+                Bitmap returnBitmap = filter.brightnessAndSaturation(loadedToChange, val, false);
+                photo_view.setImageBitmap(returnBitmap);
+            }
+        });
+    }
 }

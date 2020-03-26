@@ -19,5 +19,6 @@ public enum ToolType {
     STICKER,
     EDIT,
     ROTATE,
-    BRIGHTNESS
+    BRIGHTNESS,
+    SATURATION
 }

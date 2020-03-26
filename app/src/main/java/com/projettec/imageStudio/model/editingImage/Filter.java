@@ -3,6 +3,7 @@ package com.projettec.imageStudio.model.editingImage;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.util.Log;
 
 import com.android.rssample.ScriptC_brightness;
 import com.android.rssample.ScriptC_colorize;
@@ -12,10 +13,13 @@ import com.android.rssample.ScriptC_togray;
 import androidx.renderscript.Allocation;
 import androidx.renderscript.RenderScript;
 
+
 import static android.graphics.Color.HSVToColor;
 
 public class Filter {
 
+    private static final String TAG = "Filter";
+    
     private Bitmap imagebitmap ;
     private Context context;
     public Filter(Bitmap imagebitmap, Context context) {
@@ -129,12 +133,13 @@ public class Filter {
     }
 
     /**
-     * <p>Method which allows to change the value of all the pixels of a bitmap image passed in parameter.
+     * <p>Method which allows to change the value or the saturation of all the pixels of a bitmap image passed in parameter.
      *
-     * @param imagebitmap A Bitmap image
-     * @param newValue    The new value we want to put
+     * @param imagebitmap  A Bitmap image
+     * @param newValue     The new value we want to put
+     * @param isBrightness Brightness if true, saturation if false
      */
-    public void brightness(Bitmap imagebitmap, float newValue) {
+    public Bitmap brightnessAndSaturation(Bitmap imagebitmap, float newValue, boolean isBrightness) {
         int height = imagebitmap.getHeight();
         int width = imagebitmap.getWidth();
         float[] h = new float[3];
@@ -145,11 +150,23 @@ public class Filter {
         for (int i = 0; i < height * width - 1; i++) {
             r_g_b = AuxiliaryFunction.RGBtoR_G_B(pixels[i]);
             Conversion.RGBToHSV_new(r_g_b[0], r_g_b[1], r_g_b[2], h);
-            h[2] = newValue;
+
+            if (isBrightness) {
+                h[2] = h[2] + newValue;
+                if (h[2] < 0.0f) h[2] = 0.0f;
+                else if (h[2] > 1.0f) h[2] = 1.0f;
+            }
+            else {
+                h[1] = h[1] + newValue;
+                if (h[1] < 0.0f) h[1] = 0.0f;
+                else if (h[1] > 1.0f) h[1] = 1.0f;
+            }
+
             pixels[i] = HSVToColor(h);
         }
 
-        imagebitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+        //imagebitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+        return Bitmap.createBitmap(pixels, width, height, Bitmap.Config.ARGB_8888);
     }
 
     /*######################################"Render Script#########################################*/
@@ -244,9 +261,9 @@ public class Filter {
 
         brightnessScript.set_new_value(newValue);
 
-        brightnessScript.forEach_Brightness(input,output);
+        brightnessScript.forEach_Brightness(input, output);
 
-        Bitmap returnBitmap = imagebitmap.copy(imagebitmap.getConfig(), true) ;
+        Bitmap returnBitmap = imagebitmap.copy(imagebitmap.getConfig(), true);
         output.copyTo(returnBitmap);
 
         input.destroy();

@@ -16,7 +16,7 @@
 
 /*
  * This file is auto-generated. DO NOT MODIFY!
- * The source Renderscript file: C:\\Users\\IBRAHIMA\\projettec\\app\\src\\main\\rs\\brightness.rs
+ * The source Renderscript file: C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\projettec\\app\\src\\main\\rs\\brightness.rs
  */
 
 package com.android.rssample;
@@ -108,7 +108,7 @@ public class ScriptC_brightness extends ScriptC {
 
     private final static int mExportForEachIdx_Brightness = 2;
     public Script.KernelID getKernelID_Brightness() {
-        return createKernelID(mExportForEachIdx_Brightness, 35, null, null);
+        return createKernelID(mExportForEachIdx_Brightness, 59, null, null);
     }
 
     public void forEach_Brightness(Allocation ain, Allocation aout) {
