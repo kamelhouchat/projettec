@@ -96,6 +96,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
         filterModels.add(new FilterModel("Equa RGB", FilterType.EQUALIZATIONRGB));
         filterModels.add(new FilterModel("Moyenneur", FilterType.CONVOLUTIONMOY));
         filterModels.add(new FilterModel("Gaussian", FilterType.CONVOLUTIONGAUS));
+        filterModels.add(new FilterModel("Contours", FilterType.CONTOUR));
 
         this.loadedImage = loadedImage;
         this.loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
@@ -232,6 +233,14 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                         {1, 2, 3, 2, 1}};
                 convolution.convolutions(loadedToRecycle, filterGaus);
                 break;
+            case CONTOUR:
+                //utilisation du contours
+                int gx[][] =  {{1,0,1},{-2,0,2},{-1,0,1}};
+                int gy[][] =  {{-1,-2,-1},{0,0,0},{1,2,1}};
+                filter.tograyRS(loadedToRecycle);
+                Convolution.contours(loadedToRecycle,gx,gy);
+                break;
+
         }
         return loadedToRecycle;
     }

@@ -11,8 +11,120 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="348609e1-c07d-4f8b-bd7f-279e89ba6bd6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/ScriptC_brightness.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/ScriptC_colorize.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/ScriptC_findMinMax.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/ScriptC_findMinMaxHSV.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/ScriptC_findMinMaxRGB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/ScriptC_histogramme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/ScriptC_keepcolor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/ScriptC_lutinit_and_contrast_HSV.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/ScriptC_lutinit_and_contrast_RGB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/ScriptC_lutinit_and_contrast_gray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/ScriptC_lutinit_and_equalize_RGB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/ScriptC_lutinit_and_equalize_gray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/ScriptC_togray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/brightnessBitCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/colorizeBitCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/findMinMaxBitCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/findMinMaxHSVBitCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/findMinMaxRGBBitCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/histogrammeBitCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/keepcolorBitCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/lutinit_and_contrast_HSVBitCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/lutinit_and_contrast_RGBBitCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/lutinit_and_contrast_grayBitCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/lutinit_and_equalize_RGBBitCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/lutinit_and_equalize_grayBitCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/renderscript_source_output_dir/debug/out/com/android/rssample/tograyBitCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc32/findminmax.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc32/findminmaxhsv.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc32/findminmaxrgb.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc32/histogramme.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc32/keepcolor.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc32/lutinit_and_contrast_gray.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc32/lutinit_and_contrast_hsv.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc32/lutinit_and_contrast_rgb.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc32/lutinit_and_equalize_gray.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc32/lutinit_and_equalize_rgb.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc32/togray.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc64/brightness.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc64/colorize.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc64/findminmax.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc64/findminmaxhsv.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc64/findminmaxrgb.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc64/histogramme.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc64/keepcolor.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc64/lutinit_and_contrast_gray.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc64/lutinit_and_contrast_hsv.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc64/lutinit_and_contrast_rgb.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc64/lutinit_and_equalize_gray.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc64/lutinit_and_equalize_rgb.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/res/rs/debug/raw/bc64/togray.bc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/armeabi-v7a/librs.brightness.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/armeabi-v7a/librs.colorize.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/armeabi-v7a/librs.findminmax.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/armeabi-v7a/librs.findminmaxhsv.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/armeabi-v7a/librs.findminmaxrgb.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/armeabi-v7a/librs.histogramme.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/armeabi-v7a/librs.keepcolor.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/armeabi-v7a/librs.lutinit_and_contrast_gray.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/armeabi-v7a/librs.lutinit_and_contrast_hsv.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/armeabi-v7a/librs.lutinit_and_contrast_rgb.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/armeabi-v7a/librs.lutinit_and_equalize_gray.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/armeabi-v7a/librs.lutinit_and_equalize_rgb.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/armeabi-v7a/librs.togray.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/x86/librs.brightness.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/x86/librs.colorize.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/x86/librs.findminmax.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/x86/librs.findminmaxhsv.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/x86/librs.findminmaxrgb.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/x86/librs.histogramme.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/x86/librs.keepcolor.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/x86/librs.lutinit_and_contrast_gray.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/x86/librs.lutinit_and_contrast_hsv.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/x86/librs.lutinit_and_contrast_rgb.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/x86/librs.lutinit_and_equalize_gray.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/x86/librs.lutinit_and_equalize_rgb.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/renderscript_lib/debug/lib/x86/librs.togray.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/armeabi-v7a/brightness.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/armeabi-v7a/colorize.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/armeabi-v7a/findminmax.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/armeabi-v7a/findminmaxhsv.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/armeabi-v7a/findminmaxrgb.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/armeabi-v7a/histogramme.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/armeabi-v7a/keepcolor.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/armeabi-v7a/lutinit_and_contrast_gray.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/armeabi-v7a/lutinit_and_contrast_hsv.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/armeabi-v7a/lutinit_and_contrast_rgb.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/armeabi-v7a/lutinit_and_equalize_gray.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/armeabi-v7a/lutinit_and_equalize_rgb.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/armeabi-v7a/togray.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/x86/brightness.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/x86/colorize.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/x86/findminmax.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/x86/findminmaxhsv.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/x86/findminmaxrgb.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/x86/histogramme.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/x86/keepcolor.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/x86/lutinit_and_contrast_gray.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/x86/lutinit_and_contrast_hsv.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/x86/lutinit_and_contrast_rgb.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/x86/lutinit_and_equalize_gray.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/x86/lutinit_and_equalize_rgb.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/rs/debug/obj/x86/togray.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/projettec/imageStudio/controller/adapters/FilterRecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/projettec/imageStudio/controller/adapters/FilterRecyclerViewAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/projettec/imageStudio/controller/fragments/Studio_fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/projettec/imageStudio/controller/fragments/Studio_fragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/projettec/imageStudio/model/editingImage/Convolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/projettec/imageStudio/model/editingImage/Convolution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/projettec/imageStudio/model/filters/FilterType.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/projettec/imageStudio/model/filters/FilterType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/rs/convolution.rs" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/rs/convolution.rs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

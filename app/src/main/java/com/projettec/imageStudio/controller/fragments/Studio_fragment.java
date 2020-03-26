@@ -407,13 +407,13 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             case CONVOLUTIONMOY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 int size = 15;
-                int filter[][] = new int[size][size];
+                int filterMoy[][] = new int[size][size];
                 for (int i = 0; i < size; i++) {
                     for (int j = 0; j < size; j++) {
-                        filter[i][j] = 1;
+                        filterMoy[i][j] = 1;
                     }
                 }
-                convolution.convolutions(loadedToChange, filter);
+                convolution.convolutions(loadedToChange, filterMoy);
                 break;
             case CONVOLUTIONGAUS:
                 int filterGaus[][] = {{1, 2, 3, 2, 1},
@@ -422,6 +422,13 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                         {2, 6, 8, 6, 2},
                         {1, 2, 3, 2, 1}};
                 convolution.convolutions(loadedToChange, filterGaus);
+                break;
+            case CONTOUR:
+                //utilisation du contours
+                int gx[][] =  {{1,0,1},{-2,0,2},{-1,0,1}};
+                int gy[][] =  {{-1,-2,-1},{0,0,0},{1,2,1}};
+                filter.tograyRS(loadedToChange);
+                Convolution.contours(loadedToChange,gx,gy);
                 break;
         }
         //Glide.with(mContext).load(this.loadedImage).into(photoView);

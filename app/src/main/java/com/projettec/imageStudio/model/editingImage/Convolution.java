@@ -3,7 +3,7 @@ package com.projettec.imageStudio.model.editingImage;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import com.projettec.imageStudio.model.editingImage.Filter;
+//import com.projettec.imageStudio.model.editingImage.Filter;
 
 public class Convolution {
 
@@ -110,17 +110,14 @@ public class Convolution {
         return som;
     }
 
-    //utilisation du contours
-    int gx[][] =  {{1,0,1},{-2,0,2},{-1,0,1}};
-    int gy[][] =  {{-1,-2,-1},{0,0,0},{1,2,1}};
     /**
      *
      * @param bmp
      * @param gx
      * @param gy
      */
-    public void contours(Bitmap bmp, int gx[][] ,int gy[][]) {
-        Filter filter = new Filter(bmp,context);
+    public static void contours(Bitmap bmp, int gx[][] ,int gy[][]) {
+        //Filter filter = new Filter(bmp,context);
         int width = bmp.getWidth();
         int height = bmp.getHeight();
         int[] pixels = new int[width * height];
@@ -130,7 +127,7 @@ public class Convolution {
 
         int n = sizeGx / 2;
 
-        filter.tograyRS(bmp);
+        //filter.tograyRS(bmp);
         bmp.getPixels(pixels,0, width , 0, 0,width ,height);
 
         for (int y = n; y < height - n; y++) {

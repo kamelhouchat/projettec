@@ -22,5 +22,6 @@ public enum FilterType {
     EQUALIZATIONRGB,
     CONVOLUTIONMOY,
     CONVOLUTIONGAUS,
+    CONTOUR,
 
 }
