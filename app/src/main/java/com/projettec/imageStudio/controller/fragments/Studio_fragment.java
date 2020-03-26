@@ -518,7 +518,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         }
         else if (isBrightness) {
           isBrightness = false ;
-          ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_drop_down_white_24dp);
+          ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
           ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, seekBar, editingToolRecyclerView,
                   0, 200, 200);
         } else {
@@ -648,7 +648,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                int progressValue = progress - 256;
+                int progressValue = seekBar.getProgress() - 256;
                 float val = (float) progressValue / 256;
                 Bitmap returnBitmap = filter.brightnessRS(loadedToChange, val);
                 photo_view.setImageBitmap(returnBitmap);
