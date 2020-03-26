@@ -179,7 +179,7 @@ public class DynamicExtension {
         imagebitmap.setPixels(pixels,0,width,0,0,width,height);
     }
 
-    /*--------------------------------------Render Sctipt---------------------------------------*/
+    /*--------------------------------------Render Script---------------------------------------*/
 
     /**
      * Function that increases the contrast of a gray image

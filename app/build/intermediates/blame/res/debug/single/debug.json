@@ -164,6 +164,10 @@
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\projettec\\app\\src\\main\\res\\drawable\\plage.jpg"
     },
     {
+        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_brightness_6_black_24dp.xml.flat",
+        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\projettec\\app\\src\\main\\res\\drawable\\ic_brightness_6_black_24dp.xml"
+    },
+    {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_barchart_buttonstyle.xml.flat",
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\projettec\\app\\src\\main\\res\\drawable\\barchart_buttonstyle.xml"
     },

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 
+import com.android.rssample.ScriptC_brightness;
 import com.android.rssample.ScriptC_colorize;
 import com.android.rssample.ScriptC_keepcolor;
 import com.android.rssample.ScriptC_togray;
@@ -103,7 +104,7 @@ public class Filter {
      * @param rgb the RGB color we want to keep
      * @param radius the margin that we will accept
      */
-    public void keepcolor(Bitmap imagebitmap , int rgb, int radius){
+    public void keepColor(Bitmap imagebitmap , int rgb, int radius){
         int height = imagebitmap.getHeight();
         int width = imagebitmap.getWidth();
         float[] h = new float[3];
@@ -127,8 +128,31 @@ public class Filter {
         imagebitmap.setPixels(pixels,0,width,0,0,width,height);
     }
 
+    /**
+     * <p>Method which allows to change the value of all the pixels of a bitmap image passed in parameter.
+     *
+     * @param imagebitmap A Bitmap image
+     * @param newValue    The new value we want to put
+     */
+    public void brightness(Bitmap imagebitmap, float newValue) {
+        int height = imagebitmap.getHeight();
+        int width = imagebitmap.getWidth();
+        float[] h = new float[3];
+        int[] pixels = new int[height * width];
 
-    /*######################################"Render Sctipt#########################################*/
+        int[] r_g_b = new int[3];
+        imagebitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+        for (int i = 0; i < height * width - 1; i++) {
+            r_g_b = AuxiliaryFunction.RGBtoR_G_B(pixels[i]);
+            Conversion.RGBToHSV_new(r_g_b[0], r_g_b[1], r_g_b[2], h);
+            h[2] = newValue;
+            pixels[i] = HSVToColor(h);
+        }
+
+        imagebitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+    }
+
+    /*######################################"Render Script#########################################*/
 
     /**
      * Function which converts the image pass into parameter in gray
@@ -158,7 +182,7 @@ public class Filter {
      * (Using RenderScript)
      * @param imagebitmap a Bitmap image
      */
-    public void colorizeRS(Bitmap imagebitmap, float new_hue){
+    public void colorizeRS(Bitmap imagebitmap, float newHue){
         RenderScript rs = RenderScript.create(context);
 
         Allocation input = Allocation.createFromBitmap(rs,imagebitmap);
@@ -166,7 +190,7 @@ public class Filter {
 
         ScriptC_colorize ColorizeScript = new ScriptC_colorize(rs);
 
-        ColorizeScript.set_new_hue(new_hue);
+        ColorizeScript.set_new_hue(newHue);
 
         ColorizeScript.forEach_Colorize(input,output);
 
@@ -182,9 +206,9 @@ public class Filter {
      * Function which allows to keep only one color in the image passed in parameter
      * (Using RenderScript)
      * @param imagebitmap a Bitmap image
-     * @param color_to_keep the color we want to keep (Hue)
+     * @param colorToKeep the color we want to keep (Hue)
      */
-    public void KeepColorRS(Bitmap imagebitmap, float color_to_keep){
+    public void KeepColorRS(Bitmap imagebitmap, float colorToKeep){
         RenderScript rs = RenderScript.create(context);
 
         Allocation input = Allocation.createFromBitmap(rs,imagebitmap);
@@ -192,7 +216,7 @@ public class Filter {
 
         ScriptC_keepcolor KeepColorScript = new ScriptC_keepcolor(rs);
 
-        KeepColorScript.set_color_to_keep(color_to_keep);
+        KeepColorScript.set_color_to_keep(colorToKeep);
 
         KeepColorScript.forEach_KeepColor(input,output);
 
@@ -203,37 +227,33 @@ public class Filter {
         KeepColorScript.destroy();
         rs.destroy();
     }
+    /**
+     * <p>Method which allows to change the value of all the pixels of a bitmap image passed in parameter.
+     * (Using RenderScript)
+     *
+     * @param imagebitmap A Bitmap image
+     * @param newValue    The new value we want to put
+     */
+    public Bitmap brightnessRS(Bitmap imagebitmap, float newValue){
+        RenderScript rs = RenderScript.create(context);
 
-    public void saveColors(Bitmap bmp, int color){
-        int width  = bmp.getWidth();
-        int height = bmp.getHeight();
-        int mycolor , r , g , b;
-        int [] pixel = new int[width * height];
-        float[]  hsv = new float[3];
+        Allocation input = Allocation.createFromBitmap(rs,imagebitmap);
+        Allocation output = Allocation.createTyped(rs,input.getType());
 
-        float inf = (float) (color -10) + 360, sup = (float) ((color + 10) + 360) % 360;
+        ScriptC_brightness brightnessScript = new ScriptC_brightness(rs);
 
-        bmp.getPixels(pixel,0, width , 0, 0,width ,height);
-        for (int i = 0; i < height * width -1; i ++){
+        brightnessScript.set_new_value(newValue);
 
-            mycolor = pixel[i];
+        brightnessScript.forEach_Brightness(input,output);
 
-            r = Color.red(mycolor);
-            g = Color.green(mycolor);
-            b = Color.blue(mycolor);
+        Bitmap returnBitmap = imagebitmap.copy(imagebitmap.getConfig(), true) ;
+        output.copyTo(returnBitmap);
 
-            //Color.RGBToHSV(r,g,b,hsv);
-            Conversion.RGBToHSV_new(r,g,b,hsv);
-
-
-            if (hsv[0] < inf  && hsv[0] > sup){
-                hsv[1] = 0;
-            }
-
-            //pixel[i] = Color.HSVToColor(hsv);
-            pixel[i] = Conversion.HSVToColor_new(hsv);
-
-        }
-        bmp.setPixels(pixel,0, width , 0, 0,width ,height);
+        input.destroy();
+        output.destroy();
+        brightnessScript.destroy();
+        rs.destroy();
+        return returnBitmap ;
     }
+
 }

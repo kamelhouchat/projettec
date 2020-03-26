@@ -1338,6 +1338,7 @@ drawable gray_button_background
 drawable green_button_background
 drawable home_background_oval
 drawable ic_arrow_drop_down_white_24dp
+drawable ic_brightness_6_black_24dp
 drawable ic_brush_black_24dp
 drawable ic_check_white_18dp
 drawable ic_check_white_24dp
@@ -1488,6 +1489,7 @@ id blocking
 id bottom
 id bottom_navigation_view_linear
 id bottom_toolbar
+id brightness_seekbar
 id buttonPanel
 id button_apply
 id button_back

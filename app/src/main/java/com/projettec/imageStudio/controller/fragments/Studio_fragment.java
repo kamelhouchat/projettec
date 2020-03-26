@@ -2,7 +2,6 @@ package com.projettec.imageStudio.controller.fragments;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.media.MediaScannerConnection;
@@ -16,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -123,8 +123,11 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     //The top center text
     private TextView centerText;
 
-    //The colored seek bar (User to apply colorize filter)
+    //The colored seek bar (Used to apply colorize filter)
     private ColorSeekBar colorSeekBar;
+
+    //The seek bar is used to apply brightness filter
+    private SeekBar seekBar;
 
     //The rotation linear layout (It contain two button 'Left and Right')
     private LinearLayout rotationButtonLayout;
@@ -134,6 +137,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private boolean isColorize = false;
     private boolean isCropImage = false;
     private boolean isRotate = false;
+    private boolean isBrightness = false;
 
     //The image path
     private String image_path;
@@ -242,6 +246,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         rotateRight = (ImageView) v.findViewById(R.id.rotate_right);
         rotateRight.setOnClickListener(this);
+
+        seekBar = (SeekBar) v.findViewById(R.id.brightness_seekbar);
+        seekBar.setVisibility(View.INVISIBLE);
     }
 
     /**
@@ -298,13 +305,17 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, editingToolRecyclerView, rotationButtonLayout,
                         0, 200, 200);
                 break;
+            case BRIGHTNESS:
+                centerText.setText("Lumino");
+                brightness();
+                break;
             case FILTER:
+                centerText.setText("Filtre");
+                isFilter = true;
                 ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, editingToolRecyclerView, filterRecyclerView,
                         0, 200, 200);
 
                 ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
-                centerText.setText("Filtre");
-                isFilter = true;
                 break;
             case TEXT:
                 centerText.setText("Texte");
@@ -504,6 +515,12 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, rotationButtonLayout, editingToolRecyclerView,
                     0, 200, 200);
             ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
+        }
+        else if (isBrightness) {
+          isBrightness = false ;
+          ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_drop_down_white_24dp);
+          ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, seekBar, editingToolRecyclerView,
+                  0, 200, 200);
         } else {
             if (captImage.sameAs(loadedToChange))
                 getActivity().finish();
@@ -615,4 +632,38 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         loadedToChange = rotatedBitmapLoadedToChange.copy(rotatedBitmapLoadedToChange.getConfig(), true);
         photo_view.setImageBitmap(loadedToChange);
     }
+
+    /**
+     * <p>Method which increases or decreases the brightness of a bitmap.
+     *
+     * @see ViewAnimation
+     * @see Filter
+     */
+    private void brightness() {
+        isBrightness = true;
+        ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
+        ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, editingToolRecyclerView, seekBar,
+                0, 200, 200);
+        seekBar.setProgress(256);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                int progressValue = progress - 256;
+                float val = (float) progressValue / 256;
+                Bitmap returnBitmap = filter.brightnessRS(loadedToChange, val);
+                photo_view.setImageBitmap(returnBitmap);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
 }

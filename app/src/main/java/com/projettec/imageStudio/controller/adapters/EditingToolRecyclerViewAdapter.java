@@ -53,6 +53,7 @@ public class EditingToolRecyclerViewAdapter extends RecyclerView.Adapter<Editing
         this.onItemToolSelected = onItemToolSelected;
         toolList.add(new ToolModel("Recadrer", R.drawable.ic_crop_black_24dp, ToolType.EDIT));
         toolList.add(new ToolModel("Rotation", R.drawable.ic_rotate_90_degrees_ccw_black_24dp, ToolType.ROTATE));
+        toolList.add(new ToolModel("Luminosité", R.drawable.ic_brightness_6_black_24dp, ToolType.BRIGHTNESS));
         toolList.add(new ToolModel("Filtre", R.drawable.ic_filter_black_24dp, ToolType.FILTER));
         toolList.add(new ToolModel("Texte", R.drawable.ic_text_fields_black_24dp, ToolType.TEXT));
         toolList.add(new ToolModel("Pinceau", R.drawable.ic_brush_black_24dp, ToolType.BRUSH));

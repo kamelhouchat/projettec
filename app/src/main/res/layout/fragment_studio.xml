@@ -101,6 +101,20 @@
         app:layout_constraintTop_toBottomOf="@+id/photo_view"
         app:layout_constraintVertical_bias="3.5" />
 
+    <SeekBar
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/brightness_seekbar"
+        android:progress="256"
+        android:max="511"
+        app:layout_constraintBottom_toTopOf="@+id/editing_tool_recyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photo_view"
+        app:layout_constraintVertical_bias="1.3"
+        />
+
 
 
     <LinearLayout

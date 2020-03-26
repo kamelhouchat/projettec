@@ -165,7 +165,7 @@ public class Convolution {
         bmp.setPixels(pixel,0, width , 0, 0,width ,height);
     }
 
-    /*--------------------------------------Render Sctipt---------------------------------------*/
+    /*--------------------------------------Render Script---------------------------------------*/
 
 /*    public void ConvulveAverageFilterRS(Bitmap imagebitmap){
         RenderScript rs = RenderScript.create(this);

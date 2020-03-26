@@ -91,7 +91,7 @@ public class Equalization {
         imagebitmap.setPixels(pixels,0,width,0,0,width,height);
     }
 
-    /*--------------------------------------Render Sctipt---------------------------------------*/
+    /*--------------------------------------Render Script---------------------------------------*/
 
     /**
      * Function to apply histogram equalization to a gray image
