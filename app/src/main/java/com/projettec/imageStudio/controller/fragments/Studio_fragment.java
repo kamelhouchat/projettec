@@ -495,7 +495,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             case CONTOUR:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 //utilisation du contours
-                int gx[][] = {{1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
+                int gx[][] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
                 int gy[][] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
                 filter.tograyRS(loadedToChange);
                 Convolution.contours(loadedToChange, gx, gy);

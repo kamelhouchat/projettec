@@ -235,7 +235,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 break;
             case CONTOUR:
                 //utilisation du contours
-                int gx[][] =  {{1,0,1},{-2,0,2},{-1,0,1}};
+                int gx[][] =  {{-1,0,1},{-2,0,2},{-1,0,1}};
                 int gy[][] =  {{-1,-2,-1},{0,0,0},{1,2,1}};
                 filter.tograyRS(loadedToRecycle);
                 Convolution.contours(loadedToRecycle,gx,gy);

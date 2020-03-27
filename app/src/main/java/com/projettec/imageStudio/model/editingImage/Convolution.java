@@ -126,31 +126,30 @@ public class Convolution {
         int height = bmp.getHeight();
         int[] pixels = new int[width * height];
         int[] newpixels = new int[width * height];
-        int red = 0, red1 = 0;
+        int grayX = 0, grayY = 0;
         int sizeGx = gx.length;
 
         int n = sizeGx / 2;
 
-        //filter.tograyRS(bmp);
         bmp.getPixels(pixels,0, width , 0, 0,width ,height);
 
         for (int y = n; y < height - n; y++) {
             for (int x = n; x < width - n; x++) {
-                red = 0;
-                red1 = 0;
+                grayX = 0;
+                grayY = 0;
                 for (int u = -n; u <= n; u++) {
                     for (int v = -n; v <= n; v++) {
                         int color = pixels[((y + u) * width + (x + v))];
-                        int r = Color.red(color);
+                        int g = Color.red(color);
 
-                        red = red + (r * gx[u + n][v + n]);
-                        red1 = red1 + (r * gy[u + n][v + n]);
+                        grayX = grayX + (g * gx[u + n][v + n]);
+                        grayY = grayY + (g * gy[u + n][v + n]);
                     }
                 }
-                int modR = (int) Math.sqrt((red * red) + (red1 * red1));
-                if (modR > 255) modR = 255;
+                int modGrad = (int) Math.sqrt((grayX * grayX) + (grayY * grayY));
+                if (modGrad > 255) modGrad = 255;
 
-                newpixels[(width * y) + x ] = Color.rgb(modR, modR, modR);
+                newpixels[(width * y) + x ] = Color.rgb(modGrad, modGrad, modGrad);
             }
         }
         bmp.setPixels(newpixels,0, width , 0, 0,width ,height);
