@@ -3,6 +3,7 @@ package com.projettec.imageStudio.controller.fragments;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Icon;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -51,6 +52,9 @@ public class Plus_fragment extends Fragment implements View.OnClickListener{
 
     //The toggle which allows you to choose between java and renderscript
     private IconSwitch iconSwitchRenderscriptJava;
+
+    //The toggle which allows you to choose between brightness_RGB and brightness_HSV
+    private IconSwitch iconSwitchBrightnessRGB_HSV;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -122,6 +126,21 @@ public class Plus_fragment extends Fragment implements View.OnClickListener{
                         break;
                     case RIGHT:
                         Studio_fragment.setIsRenderScript(false);
+                        break;
+                }
+            }
+        });
+
+        iconSwitchBrightnessRGB_HSV = (IconSwitch) v.findViewById(R.id.toggle_brightness_hsv_rgb);
+        iconSwitchBrightnessRGB_HSV.setCheckedChangeListener(new IconSwitch.CheckedChangeListener() {
+            @Override
+            public void onCheckChanged(IconSwitch.Checked current) {
+                switch (current){
+                    case LEFT:
+                        Studio_fragment.setIsBrightnessRGB(true);
+                        break;
+                    case RIGHT:
+                        Studio_fragment.setIsBrightnessRGB(false);
                         break;
                 }
             }

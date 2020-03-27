@@ -165,25 +165,37 @@
                     app:isw_background_color="#BEE2F4"
                     />
             </LinearLayout>
+
             <LinearLayout
-                android:layout_marginTop="25dp"
                 android:orientation="horizontal"
+                android:layout_marginTop="25dp"
                 android:paddingLeft="25dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/ic_save_black_24dp"/>
+                    android:src="@drawable/ic_brightness"/>
                 <TextView
                     android:textStyle="bold"
-
                     android:layout_gravity="center_vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="20dp"
-                    android:text="Save"/>
+                    android:text="Luminosité en HSV ou pas"/>
+
+                <com.polyak.iconswitch.IconSwitch
+                    android:id="@+id/toggle_brightness_hsv_rgb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+
+                    app:isw_icon_left="@drawable/ic_render_black_24dp"
+                    app:isw_icon_right="@drawable/ic_no_render_black_24dp"
+                    app:isw_background_color="#BEE2F4"
+                    />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_marginTop="25dp"
                 android:orientation="horizontal"

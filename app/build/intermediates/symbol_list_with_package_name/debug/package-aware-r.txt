@@ -1350,6 +1350,7 @@ drawable gray_button_background
 drawable green_button_background
 drawable home_background_oval
 drawable ic_arrow_drop_down_white_24dp
+drawable ic_brightness
 drawable ic_brightness_6_black_24dp
 drawable ic_brush_black_24dp
 drawable ic_check_white_18dp
@@ -1760,6 +1761,7 @@ id title_text
 id toast_icon
 id toast_root
 id toast_text
+id toggle_brightness_hsv_rgb
 id toggle_renderscript_java
 id togray
 id toolbar
