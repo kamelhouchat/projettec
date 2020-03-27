@@ -1,6 +1,10 @@
 package com.projettec.imageStudio.controller.fragments;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,11 +12,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.polyak.iconswitch.IconSwitch;
 import com.projettec.imageStudio.controller.HistogramActivity;
 import com.projettec.imageStudio.controller.StudioActivity;
 import com.projettec.imageStudio.R;
+
+import java.sql.Struct;
 
 /**
  * <p>
@@ -24,7 +32,7 @@ import com.projettec.imageStudio.R;
  * @see Fragment
  */
 
-public class Plus_fragment extends Fragment {
+public class Plus_fragment extends Fragment implements View.OnClickListener{
 
     // The layout view
     private View v;
@@ -32,11 +40,17 @@ public class Plus_fragment extends Fragment {
     //The button which will display the histogram
     private ImageView buttonHistog;
 
-    //the TextView on which the width of the image will be displayed
+    //The TextView on which the width of the image will be displayed
     private TextView imageWidth;
 
-    //the TextView on which the height of the image will be displayed
+    //The TextView on which the height of the image will be displayed
     private TextView imageHeight;
+
+    //The button which redirects to the GITHUB repository
+    private TextView githubButton;
+
+    //The toggle which allows you to choose between java and renderscript
+    private IconSwitch iconSwitchRenderscriptJava;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,7 +104,42 @@ public class Plus_fragment extends Fragment {
      */
     public void initView() {
         buttonHistog = v.findViewById(R.id.barchart_button);
+
         imageWidth = v.findViewById(R.id.fragment_plus_image_width);
+
         imageHeight = v.findViewById(R.id.fragment_plus_image_height);
+
+        githubButton = (TextView) v.findViewById(R.id.fragment_plus_github_button);
+        githubButton.setOnClickListener(this);
+
+        iconSwitchRenderscriptJava = (IconSwitch) v.findViewById(R.id.toggle_renderscript_java);
+        iconSwitchRenderscriptJava.setCheckedChangeListener(new IconSwitch.CheckedChangeListener() {
+            @Override
+            public void onCheckChanged(IconSwitch.Checked current) {
+                switch (current){
+                    case LEFT:
+                        Studio_fragment.setIsRenderScript(true);
+                        break;
+                    case RIGHT:
+                        Studio_fragment.setIsRenderScript(false);
+                        break;
+                }
+            }
+        });
+    }
+
+    /**
+     * <p>Method for managing listener of other view of the plus_fragment layout.
+     *
+     * @param v The view we just clicked on
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.fragment_plus_github_button:
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/kamelhouchat/projettec"));
+                startActivity(browserIntent);
+                break;
+        }
     }
 }

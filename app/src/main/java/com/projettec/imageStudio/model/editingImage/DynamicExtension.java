@@ -21,9 +21,13 @@ public class DynamicExtension {
     private Bitmap imagebitmap;
     private Context context;
 
+    Filter filter;
+
     public DynamicExtension(Bitmap imagebitmap, Context context) {
         this.imagebitmap = imagebitmap;
         this.context = context;
+
+        this.filter = new Filter(imagebitmap,context);
     }
 
     public Bitmap getImagebitmap() {
@@ -33,15 +37,13 @@ public class DynamicExtension {
         this.imagebitmap = imagebitmap;
     }
 
-    Filter filter = new Filter(imagebitmap,context);
-
     /**
      * Function that increases the contrast of a gray image (without using the lut table)
      * (In JAVA)
      * @param imagebitmap a Bitmap image
      */
     public void  contrasteplus(Bitmap imagebitmap){
-        filter.tograyRS(imagebitmap);
+        filter.toGrays(imagebitmap);
         int height = imagebitmap.getHeight();
         int width = imagebitmap.getWidth();
         int[] pixels = new int[height*width];
@@ -61,7 +63,7 @@ public class DynamicExtension {
      * @param imagebitmap a Bitmap image
      */
     public void contrastePlusGrayLut(Bitmap imagebitmap) {
-        filter.tograyRS(imagebitmap);
+        filter.toGrays(imagebitmap);
         int height = imagebitmap.getHeight();
         int width = imagebitmap.getWidth();
         int[] pixels = new int[height * width];
@@ -85,7 +87,7 @@ public class DynamicExtension {
      * @param imagebitmap a Bitmap image
      */
     public void contrasteFewerGray(Bitmap imagebitmap){
-        filter.tograyRS(imagebitmap);
+        filter.toGrays(imagebitmap);
         int height = imagebitmap.getHeight();
         int width = imagebitmap.getWidth();
         int[] pixels = new int[height*width];

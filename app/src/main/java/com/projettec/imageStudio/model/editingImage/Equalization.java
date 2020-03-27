@@ -16,9 +16,13 @@ public class Equalization {
     private Bitmap imagebitmap;
     private Context context;
 
+    Filter filter ;
+
     public Equalization(Bitmap imagebitmap, Context context) {
         this.imagebitmap = imagebitmap;
         this.context = context;
+
+        filter = new Filter(imagebitmap,context);
     }
 
     public Bitmap getImagebitmap() {
@@ -28,33 +32,33 @@ public class Equalization {
         this.imagebitmap = imagebitmap;
     }
 
-    Filter filter = new Filter(imagebitmap,context);
 
     /**
      * Function to apply histogram equalization to a gray image
      * (In JAVA)
+     *
      * @param imagebitmap a Bitmap image
      */
-    public void egalisationNB(Bitmap imagebitmap){
-        filter.tograyRS(imagebitmap);
+    public void egalisationNB(Bitmap imagebitmap) {
+        filter.toGrays(imagebitmap);
         int height = imagebitmap.getHeight();
         int width = imagebitmap.getWidth();
         int accumulator = 0;
-        int[] pixels = new int[height*width];
-        imagebitmap.getPixels(pixels,0,width,0,0,width,height);
+        int[] pixels = new int[height * width];
+        imagebitmap.getPixels(pixels, 0, width, 0, 0, width, height);
         int[] histo = AuxiliaryFunction.histogramme(pixels);
         int[] histo_cum = new int[256];
         int[] LUT = new int[256];
         for (int i = 0; i < 256; i++) {
             accumulator += histo[i];
-            LUT[i] = ((accumulator * 255) / ((width * height) )) ;
+            LUT[i] = ((accumulator * 255) / ((width * height)));
         }
-        for (int i = 0 ; i < height*width ; i++){
+        for (int i = 0; i < height * width; i++) {
             int R = Color.red(pixels[i]);
             int new_color = LUT[R];
-            pixels[i] = Color.rgb(new_color,new_color,new_color);
+            pixels[i] = Color.rgb(new_color, new_color, new_color);
         }
-        imagebitmap.setPixels(pixels,0,width,0,0,width,height);
+        imagebitmap.setPixels(pixels, 0, width, 0, 0, width, height);
     }
 
     /**

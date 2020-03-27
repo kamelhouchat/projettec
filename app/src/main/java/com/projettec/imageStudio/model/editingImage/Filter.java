@@ -83,11 +83,10 @@ public class Filter {
      * (In JAVA)
      * @param imagebitmap a Bitmap image
      */
-    public void colorize(Bitmap imagebitmap){
+    public void colorize(Bitmap imagebitmap, float newHue){
         int height = imagebitmap.getHeight();
         int width = imagebitmap.getWidth();
         float[] h = new float[3];
-        int nbr_random = (int) (Math.random() * 360) ;
         int[] pixels = new int[height * width];
 
         int[] r_g_b = new int[3];
@@ -95,7 +94,7 @@ public class Filter {
         for (int i = 0 ; i < height*width-1 ; i++){
             r_g_b = AuxiliaryFunction.RGBtoR_G_B(pixels[i]);
             Conversion.RGBToHSV_new(r_g_b[0],r_g_b[1],r_g_b[2],h);
-            h[0] =  (float) nbr_random  ;
+            h[0] =  newHue  ;
             pixels[i] = HSVToColor(h);
         }
 
