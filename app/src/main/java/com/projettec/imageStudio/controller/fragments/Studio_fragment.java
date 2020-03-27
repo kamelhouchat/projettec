@@ -530,12 +530,14 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         }
         else if (isBrightness) {
           isBrightness = false ;
+          centerText.setText("Studio");
           ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
           ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, seekBar, editingToolRecyclerView,
                   0, 200, 200);
           loadedToChange = loadedToRestore.copy(loadedToRestore.getConfig(), true);
         } else if (isSaturation) {
             isSaturation = false ;
+            centerText.setText("Studio");
             ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, seekBar, editingToolRecyclerView,
                     0, 200, 200);
@@ -678,9 +680,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int progressValue = seekBar.getProgress() - 256;
-                float val = (float) progressValue / 256;
+//                float val = (float) progressValue / 256;
 //                Bitmap returnBitmap = filter.brightnessRS(loadedToChange, val);
-                loadedToRestore = filter.brightnessAndSaturation(loadedToChange, val, true);
+//                loadedToRestore = filter.brightnessAndSaturationHSV(loadedToChange, val, true);
+                loadedToRestore = filter.brightnessRGB(loadedToChange, progressValue);
                 photo_view.setImageBitmap(loadedToRestore);
             }
         });
@@ -705,9 +708,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                int progressValue = seekBar.getProgress() - 256;
-                float val = (float) progressValue / 256;
-                loadedToRestore = filter.brightnessAndSaturation(loadedToChange, val, false);
+                int progressSaturation = seekBar.getProgress() - 256;
+                float val = (float) progressSaturation / 256;
+                loadedToRestore = filter.brightnessAndSaturationHSV(loadedToChange, val, false);
                 photo_view.setImageBitmap(loadedToRestore);
             }
         });

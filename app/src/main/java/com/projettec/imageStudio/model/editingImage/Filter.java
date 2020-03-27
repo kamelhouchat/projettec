@@ -134,12 +134,13 @@ public class Filter {
 
     /**
      * <p>Method which allows to change the value or the saturation of all the pixels of a bitmap image passed in parameter.
+     * <p>(HSV)
      *
      * @param imagebitmap  A Bitmap image
      * @param newValue     The new value we want to put
      * @param isBrightness Brightness if true, saturation if false
      */
-    public Bitmap brightnessAndSaturation(Bitmap imagebitmap, float newValue, boolean isBrightness) {
+    public Bitmap brightnessAndSaturationHSV(Bitmap imagebitmap, float newValue, boolean isBrightness) {
         int height = imagebitmap.getHeight();
         int width = imagebitmap.getWidth();
         float[] h = new float[3];
@@ -163,6 +164,36 @@ public class Filter {
             }
 
             pixels[i] = HSVToColor(h);
+        }
+
+        //imagebitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+        return Bitmap.createBitmap(pixels, width, height, Bitmap.Config.ARGB_8888);
+    }
+
+    public Bitmap brightnessRGB(Bitmap imagebitmap, int newValue) {
+        int height = imagebitmap.getHeight();
+        int width = imagebitmap.getWidth();
+        int[] pixels = new int[height * width];
+
+        int[] r_g_b = new int[3];
+        imagebitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+        for (int i = 0; i < height * width - 1; i++) {
+            r_g_b = AuxiliaryFunction.RGBtoR_G_B(pixels[i]);
+
+            r_g_b[0] = r_g_b[0] + newValue ;
+            r_g_b[1] = r_g_b[1] + newValue ;
+            r_g_b[2] = r_g_b[2] + newValue ;
+
+            if (r_g_b[0] < 0) r_g_b[0] = 0;
+            else if (r_g_b[0] > 255) r_g_b[0] = 255;
+
+            if (r_g_b[1] < 0) r_g_b[1] = 0;
+            else if (r_g_b[1] > 255) r_g_b[1] = 255;
+
+            if (r_g_b[2] < 0) r_g_b[2] = 0;
+            else if (r_g_b[2] > 255) r_g_b[2] = 255;
+
+            pixels[i] = Color.rgb(r_g_b[0], r_g_b[1], r_g_b[2]);
         }
 
         //imagebitmap.setPixels(pixels, 0, width, 0, 0, width, height);
