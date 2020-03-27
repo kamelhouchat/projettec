@@ -110,6 +110,7 @@ public class Convolution {
         return som;
     }
 
+
     /**
      *
      * @param bmp
@@ -151,7 +152,6 @@ public class Convolution {
         }
         bmp.setPixels(newpixels,0, width , 0, 0,width ,height);
     }
-
 
     /*--------------------------------------RenderScript---------------------------------------*/
 
