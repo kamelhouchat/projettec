@@ -681,8 +681,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int progressValue = seekBar.getProgress() - 256;
 //                float val = (float) progressValue / 256;
-//                Bitmap returnBitmap = filter.brightnessRS(loadedToChange, val);
+//                Bitmap returnBitmap = filter.brightnessAndSaturationHSV_RS(loadedToChange, val);
 //                loadedToRestore = filter.brightnessAndSaturationHSV(loadedToChange, val, true);
+
+
                 loadedToRestore = filter.brightnessRGB(loadedToChange, progressValue);
                 photo_view.setImageBitmap(loadedToRestore);
             }

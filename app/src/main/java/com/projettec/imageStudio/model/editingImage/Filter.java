@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.util.Log;
 
 import com.android.rssample.ScriptC_brightness;
+import com.android.rssample.ScriptC_brightnessRGB;
 import com.android.rssample.ScriptC_colorize;
 import com.android.rssample.ScriptC_keepcolor;
 import com.android.rssample.ScriptC_togray;
@@ -139,6 +140,7 @@ public class Filter {
      * @param imagebitmap  A Bitmap image
      * @param newValue     The new value we want to put
      * @param isBrightness Brightness if true, saturation if false
+     * @return A bitmap to which the changes have been applied
      */
     public Bitmap brightnessAndSaturationHSV(Bitmap imagebitmap, float newValue, boolean isBrightness) {
         int height = imagebitmap.getHeight();
@@ -156,8 +158,7 @@ public class Filter {
                 h[2] = h[2] + newValue;
                 if (h[2] < 0.0f) h[2] = 0.0f;
                 else if (h[2] > 1.0f) h[2] = 1.0f;
-            }
-            else {
+            } else {
                 h[1] = h[1] + newValue;
                 if (h[1] < 0.0f) h[1] = 0.0f;
                 else if (h[1] > 1.0f) h[1] = 1.0f;
@@ -170,6 +171,13 @@ public class Filter {
         return Bitmap.createBitmap(pixels, width, height, Bitmap.Config.ARGB_8888);
     }
 
+    /**
+     * <p>Method which allows the value passed in parameter to be added to the three channels R, G and B.
+     *
+     * @param imagebitmap A Bitmap image
+     * @param newValue    The value we want to add to the old
+     * @return A bitmap to which the changes have been applied
+     */
     public Bitmap brightnessRGB(Bitmap imagebitmap, int newValue) {
         int height = imagebitmap.getHeight();
         int width = imagebitmap.getWidth();
@@ -180,9 +188,9 @@ public class Filter {
         for (int i = 0; i < height * width - 1; i++) {
             r_g_b = AuxiliaryFunction.RGBtoR_G_B(pixels[i]);
 
-            r_g_b[0] = r_g_b[0] + newValue ;
-            r_g_b[1] = r_g_b[1] + newValue ;
-            r_g_b[2] = r_g_b[2] + newValue ;
+            r_g_b[0] = r_g_b[0] + newValue;
+            r_g_b[1] = r_g_b[1] + newValue;
+            r_g_b[2] = r_g_b[2] + newValue;
 
             if (r_g_b[0] < 0) r_g_b[0] = 0;
             else if (r_g_b[0] > 255) r_g_b[0] = 255;
@@ -275,18 +283,20 @@ public class Filter {
         KeepColorScript.destroy();
         rs.destroy();
     }
+
     /**
      * <p>Method which allows to change the value of all the pixels of a bitmap image passed in parameter.
      * (Using RenderScript)
      *
      * @param imagebitmap A Bitmap image
-     * @param newValue    The new value we want to put
+     * @param newValue    The value we want to add to the old
+     * @return A bitmap to which the changes have been applied
      */
-    public Bitmap brightnessRS(Bitmap imagebitmap, float newValue){
+    public Bitmap brightnessAndSaturationHSV_RS(Bitmap imagebitmap, float newValue) {
         RenderScript rs = RenderScript.create(context);
 
-        Allocation input = Allocation.createFromBitmap(rs,imagebitmap);
-        Allocation output = Allocation.createTyped(rs,input.getType());
+        Allocation input = Allocation.createFromBitmap(rs, imagebitmap);
+        Allocation output = Allocation.createTyped(rs, input.getType());
 
         ScriptC_brightness brightnessScript = new ScriptC_brightness(rs);
 
@@ -301,7 +311,39 @@ public class Filter {
         output.destroy();
         brightnessScript.destroy();
         rs.destroy();
-        return returnBitmap ;
+        return returnBitmap;
+    }
+
+    /**
+     * <p>
+     * Method which allows the value passed in parameter to be added to the three channels R, G and B.
+     * (Using Render Script)
+     * </p>
+     *
+     * @param imagebitmap A Bitmap image
+     * @param newValue    The value we want to add to the old
+     * @return A bitmap to which the changes have been applied
+     */
+    public Bitmap brightnessRGB_RS(Bitmap imagebitmap, int newValue) {
+        RenderScript rs = RenderScript.create(context);
+
+        Allocation input = Allocation.createFromBitmap(rs, imagebitmap);
+        Allocation output = Allocation.createTyped(rs, input.getType());
+
+        ScriptC_brightnessRGB scriptC_brightnessRGB = new ScriptC_brightnessRGB(rs);
+
+        scriptC_brightnessRGB.set_new_value(newValue);
+
+        scriptC_brightnessRGB.forEach_Brightness(input, output);
+
+        Bitmap returnBitmap = imagebitmap.copy(imagebitmap.getConfig(), true);
+        output.copyTo(returnBitmap);
+
+        input.destroy();
+        output.destroy();
+        scriptC_brightnessRGB.destroy();
+        rs.destroy();
+        return returnBitmap;
     }
 
 }
