@@ -146,6 +146,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     //Boolean to choose if we want to execute the methods in java or render script
     private static boolean isRenderScript = true;
 
+    //Boolean to choose if we want to execute the brightness method using HSV or RGB
+    private static boolean isBrightnessRGB = true;
+
     //The image path
     private String image_path;
 
@@ -159,6 +162,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         v = inflater.inflate(R.layout.fragment_studio, container, false);
 
         initView();
+
+        isBrightnessRGB = true;
+        isRenderScript = true;
 
         applicationContext = StudioActivity.getContextOfApplication();
 
@@ -291,7 +297,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     }
 
     /**
-     * <p>Setter for isRenderScript boolean
+     * <p>Setter for isRenderScript boolean.
      *
      * @param isRenderScript true if in render script, else false
      * @see Filter
@@ -301,6 +307,16 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      */
     public static void setIsRenderScript(boolean isRenderScript) {
         Studio_fragment.isRenderScript = isRenderScript;
+    }
+
+    /**
+     * <p>Setter for isBrightnessRGB boolean.
+     *
+     * @param isBrightnessRGB true if in RGB, else false
+     * @see Filter
+     */
+    public static void setIsBrightnessRGB(boolean isBrightnessRGB) {
+        Studio_fragment.isBrightnessRGB = isBrightnessRGB;
     }
 
     /**
@@ -423,7 +439,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             case KEEPCOLOR:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 if (isRenderScript) filter.KeepColorRS(loadedToChange, 90);
-                else if (!isRenderScript) filter.keepColor(loadedToChange, Color.rgb(0, 0, 255), 15);
+                else if (!isRenderScript)
+                    filter.keepColor(loadedToChange, Color.rgb(0, 0, 255), 15);
                 break;
             case CONTRASTPLUSGRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
@@ -478,10 +495,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             case CONTOUR:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 //utilisation du contours
-                int gx[][] =  {{1,0,1},{-2,0,2},{-1,0,1}};
-                int gy[][] =  {{-1,-2,-1},{0,0,0},{1,2,1}};
+                int gx[][] = {{1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
+                int gy[][] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
                 filter.tograyRS(loadedToChange);
-                Convolution.contours(loadedToChange,gx,gy);
+                Convolution.contours(loadedToChange, gx, gy);
                 break;
         }
         //Glide.with(mContext).load(this.loadedImage).into(photoView);
@@ -575,16 +592,15 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, rotationButtonLayout, editingToolRecyclerView,
                     0, 200, 200);
             ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
-        }
-        else if (isBrightness) {
-          isBrightness = false ;
-          centerText.setText("Studio");
-          ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
-          ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, seekBar, editingToolRecyclerView,
-                  0, 200, 200);
-          loadedToChange = loadedToRestore.copy(loadedToRestore.getConfig(), true);
+        } else if (isBrightness) {
+            isBrightness = false;
+            centerText.setText("Studio");
+            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
+            ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, seekBar, editingToolRecyclerView,
+                    0, 200, 200);
+            loadedToChange = loadedToRestore.copy(loadedToRestore.getConfig(), true);
         } else if (isSaturation) {
-            isSaturation = false ;
+            isSaturation = false;
             centerText.setText("Studio");
             ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, seekBar, editingToolRecyclerView,
@@ -732,13 +748,19 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 //                Bitmap returnBitmap = filter.brightnessAndSaturationHSV_RS(loadedToChange, val);
 //                loadedToRestore = filter.brightnessAndSaturationHSV(loadedToChange, val, true);
 
-
-                loadedToRestore = filter.brightnessRGB(loadedToChange, progressValue);
+                if (isBrightnessRGB) loadedToRestore = filter.brightnessRGB(loadedToChange, progressValue);
+                else if (!isBrightnessRGB) loadedToRestore = filter.brightnessAndSaturationHSV(loadedToChange, (float) progressValue / 256, true);
                 photo_view.setImageBitmap(loadedToRestore);
             }
         });
     }
 
+    /**
+     * <p>Method which increases or decreases saturation of a bitmap.
+     *
+     * @see ViewAnimation
+     * @see Filter
+     */
     private void saturation() {
         isSaturation = true;
         ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
