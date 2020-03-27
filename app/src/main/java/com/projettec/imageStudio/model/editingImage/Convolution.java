@@ -24,35 +24,36 @@ public class Convolution {
 
     /**
      * Allows to convolve the values of the image
-     * @param bmp image to convolve
+     *
+     * @param bmp    image to convolve
      * @param filter filter to apply on the image
      */
-    public void convolution(Bitmap bmp, int [][] filter){
+    public void convolution(Bitmap bmp, int[][] filter) {
         int width = bmp.getWidth();
         int height = bmp.getHeight();
-        int [] pixel = new int[width * height];
+        int[] pixel = new int[width * height];
         int red = 0, green = 0, bleu = 0;
         int sizeFilter = filter.length;
-        int n = sizeFilter /2;
+        int n = sizeFilter / 2;
 
-        bmp.getPixels(pixel,0, width , 0, 0,width ,height);
+        bmp.getPixels(pixel, 0, width, 0, 0, width, height);
         int som = somme(filter);
-        for (int y = n; y < height-n; y++){
-            for (int x = n ; x < width - n; x++){
+        for (int y = n; y < height - n; y++) {
+            for (int x = n; x < width - n; x++) {
                 red = green = bleu = 0;
-                for(int u = -n; u <= n; u++){
-                    for (int v = -n; v <= n; v++ ){
-                        int color = bmp.getPixel(x + u,  y + v);
+                for (int u = -n; u <= n; u++) {
+                    for (int v = -n; v <= n; v++) {
+                        int color = bmp.getPixel(x + u, y + v);
                         int r = Color.red(color);
                         int g = Color.green(color);
                         int b = Color.blue(color);
 
-                        red = red + (r * filter[u +n][v +n]);
-                        green = green + (g * filter[u +n][v +n]);
-                        bleu = bleu + (b * filter[u +n][v +n]);
+                        red = red + (r * filter[u + n][v + n]);
+                        green = green + (g * filter[u + n][v + n]);
+                        bleu = bleu + (b * filter[u + n][v + n]);
                     }
                 }
-                bmp.setPixel(x,y, Color.rgb(red / som, green / som, bleu / som ));
+                bmp.setPixel(x, y, Color.rgb(red / som, green / som, bleu / som));
             }
         }
 
@@ -60,51 +61,53 @@ public class Convolution {
 
     /**
      * Permet de convoluer les valeurs de l'image
-     * @param bmp image à convoluer
+     *
+     * @param bmp    image à convoluer
      * @param filter filtre à appliquer sur l'image
      */
-    public static void convolutions(Bitmap bmp, int [][] filter){
+    public static void convolutions(Bitmap bmp, int[][] filter) {
         int width = bmp.getWidth();
         int height = bmp.getHeight();
-        int [] pixel = new int[width * height];
+        int[] pixel = new int[width * height];
         int red = 0, green = 0, bleu = 0;
         int sizeFilter = filter.length;
-        int n = sizeFilter /2;
+        int n = sizeFilter / 2;
 
         int som = somme(filter);
 
-        bmp.getPixels(pixel,0, width , 0, 0,width ,height);
-        for (int y = n; y < height-n; y++){
-            for (int x = n ; x < width - n; x++){
+        bmp.getPixels(pixel, 0, width, 0, 0, width, height);
+        for (int y = n; y < height - n; y++) {
+            for (int x = n; x < width - n; x++) {
                 red = green = bleu = 0;
-                for(int u = -n; u <= n; u++){
-                    for (int v = -n; v <= n; v++ ){
-                        int color= pixel[((y + u) * width + (x + v))];
+                for (int u = -n; u <= n; u++) {
+                    for (int v = -n; v <= n; v++) {
+                        int color = pixel[((y + u) * width + (x + v))];
                         int r = Color.red(color);
                         int g = Color.green(color);
                         int b = Color.blue(color);
 
-                        red = red + (r * filter[u +n][v +n]);
-                        green = green + (g * filter[u +n][v +n]);
-                        bleu = bleu + (b * filter[u +n][v +n]);
+                        red = red + (r * filter[u + n][v + n]);
+                        green = green + (g * filter[u + n][v + n]);
+                        bleu = bleu + (b * filter[u + n][v + n]);
                     }
                 }
-                pixel[(width * y) + x] = Color.rgb(red / som, green / som, bleu / som );
+                pixel[(width * y) + x] = Color.rgb(red / som, green / som, bleu / som);
             }
         }
-        bmp.setPixels(pixel,0, width , 0, 0,width ,height);
+        bmp.setPixels(pixel, 0, width, 0, 0, width, height);
     }
 
     /**
-     * This function calculates the weighted average of a filter
+     * <p>This function calculates the weighted average of a filter
+     *
      * @param pixel the table containing the weighted average
      * @return sum of the values in the array
      */
-    public static int somme(int [][]pixel) {
+    public static int somme(int[][] pixel) {
         int som = 0;
         int n = pixel.length;
-        for (int i = 0; i < n; i++){
-            for (int j = 0 ; j < pixel[i].length; j++)
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < pixel[i].length; j++)
                 som += pixel[i][j];
         }
         return som;

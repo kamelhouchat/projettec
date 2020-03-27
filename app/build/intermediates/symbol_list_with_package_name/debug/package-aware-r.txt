@@ -376,6 +376,17 @@ attr initialActivityCount
 attr insetForeground
 attr isLightTheme
 attr isVertical
+attr isw_active_tint_icon_left
+attr isw_active_tint_icon_right
+attr isw_background_color
+attr isw_default_selection
+attr isw_icon_left
+attr isw_icon_right
+attr isw_icon_size
+attr isw_inactive_tint_icon_left
+attr isw_inactive_tint_icon_right
+attr isw_thumb_color_left
+attr isw_thumb_color_right
 attr item_checkCircle_backgroundColor
 attr item_checkCircle_borderColor
 attr item_placeholder
@@ -819,6 +830,7 @@ color grey_bg_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color infoColor
+color isw_defaultBg
 color light_white
 color main_blue_color
 color main_blue_stroke_color
@@ -1362,16 +1374,20 @@ drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_new_rs
+drawable ic_no_render_black_24dp
 drawable ic_photo_camera_white_24dp
 drawable ic_play_circle_outline_white_48dp
 drawable ic_plus
 drawable ic_preview_radio_off
 drawable ic_preview_radio_on
 drawable ic_refresh
+drawable ic_render_black_24dp
 drawable ic_restore_black_24dp
 drawable ic_rotate_90_degrees_ccw_black_24dp
 drawable ic_rotate_left_black_24dp
 drawable ic_rotate_right_black_24dp
+drawable ic_saturation_black_24dp
 drawable ic_save_black_24dp
 drawable ic_sticker
 drawable ic_studio
@@ -1397,6 +1413,7 @@ drawable pipimage
 drawable plage
 drawable red_button_background
 drawable rounded_rect
+drawable rs
 drawable search_background_oval
 drawable selector
 drawable success_bow
@@ -1569,6 +1586,7 @@ id fixed
 id flAlertBackground
 id flClickShield
 id forever
+id fragment_plus_github_button
 id fragment_plus_image
 id fragment_plus_image_height
 id fragment_plus_image_width
@@ -1742,6 +1760,7 @@ id title_text
 id toast_icon
 id toast_root
 id toast_text
+id toggle_renderscript_java
 id togray
 id toolbar
 id top
@@ -2535,6 +2554,7 @@ styleable FontFamilyFont android_font android_fontWeight android_fontStyle andro
 styleable ForegroundLinearLayout android_foreground android_foregroundGravity foregroundInsidePadding
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
+styleable IconSwitch isw_active_tint_icon_left isw_active_tint_icon_right isw_background_color isw_default_selection isw_icon_left isw_icon_right isw_icon_size isw_inactive_tint_icon_left isw_inactive_tint_icon_right isw_thumb_color_left isw_thumb_color_right
 styleable LinearConstraintLayout android_orientation
 styleable LinearLayoutCompat android_gravity android_orientation android_baselineAligned android_baselineAlignedChildIndex android_weightSum divider dividerPadding measureWithLargestChild showDividers
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight
