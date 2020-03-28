@@ -20,6 +20,7 @@ import com.polyak.iconswitch.IconSwitch;
 import com.projettec.imageStudio.controller.HistogramActivity;
 import com.projettec.imageStudio.controller.StudioActivity;
 import com.projettec.imageStudio.R;
+import com.tapadoo.alerter.Alerter;
 
 import java.sql.Struct;
 
@@ -123,9 +124,11 @@ public class Plus_fragment extends Fragment implements View.OnClickListener{
                 switch (current){
                     case LEFT:
                         Studio_fragment.setIsRenderScript(true);
+                        showAlerter("Choix : Render script");
                         break;
                     case RIGHT:
                         Studio_fragment.setIsRenderScript(false);
+                        showAlerter("Choix : Java");
                         break;
                 }
             }
@@ -138,9 +141,11 @@ public class Plus_fragment extends Fragment implements View.OnClickListener{
                 switch (current){
                     case LEFT:
                         Studio_fragment.setIsBrightnessRGB(true);
+                        showAlerter("Choix : RGB");
                         break;
                     case RIGHT:
                         Studio_fragment.setIsBrightnessRGB(false);
+                        showAlerter("Choix : HSV");
                         break;
                 }
             }
@@ -160,5 +165,18 @@ public class Plus_fragment extends Fragment implements View.OnClickListener{
                 startActivity(browserIntent);
                 break;
         }
+    }
+
+    /**
+     * <p>Method for showing alerter
+     *
+     * @param string Text to show
+     */
+    public void showAlerter(String string) {
+        Alerter.create(getActivity())
+                .setText(string)
+                .setBackgroundColorRes(R.color.blue_active)
+                .setDuration(300)
+                .show();
     }
 }
