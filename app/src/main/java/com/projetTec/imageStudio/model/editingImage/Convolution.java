@@ -156,9 +156,9 @@ public class Convolution {
 
     /*--------------------------------------RenderScript---------------------------------------*/
 
-    /*public void ConvulveAverageFilterRS(Bitmap imageBitmap){
+    /*public void convolutionAverageFilterRS(Bitmap imageBitmap){
         RenderScript rs = RenderScript.create(this);
-        ScriptC_average_convulve ConvulveScript = new ScriptC_average_convulve(rs);
+        ScriptC_average_convolution convolutionScript = new ScriptC_average_convolution(rs);
 
         int width = imageBitmap.getWidth();
         int height = imageBitmap.getHeight();
@@ -167,7 +167,7 @@ public class Convolution {
 
         Allocation pixels_rs = Allocation.createSized(rs, Element.I32(rs),pixels.length);
         pixels_rs.copyFrom(pixels);
-        ConvulveScript.bind_pixels(pixels_rs);
+        convolutionScript.bind_pixels(pixels_rs);
 
     }*/
 

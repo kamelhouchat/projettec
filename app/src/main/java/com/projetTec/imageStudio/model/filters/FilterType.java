@@ -24,4 +24,10 @@ public enum FilterType {
     CONVOLUTION_GAUS,
     CONTOUR,
 
+    //Additional Filters
+    SNOW_EFFECT,
+    BLACK_EFFECT,
+    NOISE_EFFECT,
+    INVERT_EFFECT
+
 }

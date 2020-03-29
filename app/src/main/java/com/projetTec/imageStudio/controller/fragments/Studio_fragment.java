@@ -30,11 +30,12 @@ import com.projetTec.imageStudio.controller.adapters.EditingToolRecyclerViewAdap
 import com.projetTec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
 import com.projetTec.imageStudio.controller.StudioActivity;
 import com.projetTec.imageStudio.model.animation.ViewAnimation;
+import com.projetTec.imageStudio.model.editingImage.AdditionalFilters;
 import com.projetTec.imageStudio.model.editingImage.Conversion;
 import com.projetTec.imageStudio.model.editingImage.Convolution;
 import com.projetTec.imageStudio.model.editingImage.DynamicExtension;
 import com.projetTec.imageStudio.model.editingImage.Equalization;
-import com.projetTec.imageStudio.model.editingImage.Filter;
+import com.projetTec.imageStudio.model.editingImage.Filters;
 import com.projetTec.imageStudio.R;
 import com.projetTec.imageStudio.model.filters.FilterType;
 import com.projetTec.imageStudio.model.filters.OnItemFilterSelected;
@@ -75,7 +76,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Kamel.H
  * @see Fragment
- * @see Filter
+ * @see Filters
  * @see DynamicExtension
  * @see Equalization
  * @see Convolution
@@ -98,10 +99,11 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private Bitmap loadedToChange;
 
     //Class instances that contain filters
-    private Filter filter;
+    private Filters filters;
     private DynamicExtension dynamicExtension;
     private Equalization equalization;
     private Convolution convolution;
+    private AdditionalFilters additionalFilters;
 
     //The activity context
     private Context applicationContext;
@@ -181,10 +183,11 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         loadedToChange = captImage.copy(captImage.getConfig(), true);
 
         //Load filters
-        filter = new Filter(captImage, applicationContext);
+        filters = new Filters(captImage, applicationContext);
         dynamicExtension = new DynamicExtension(captImage, applicationContext);
         equalization = new Equalization(captImage, applicationContext);
         convolution = new Convolution(captImage, applicationContext);
+        additionalFilters = new AdditionalFilters(captImage, applicationContext);
 
         int height = captImage.getHeight();
         int width = captImage.getWidth();
@@ -298,7 +301,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      * <p>Setter for isRenderScript boolean.
      *
      * @param isRenderScript true if in render script, else false
-     * @see Filter
+     * @see Filters
      * @see DynamicExtension
      * @see Equalization
      * @see Convolution
@@ -311,7 +314,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      * <p>Setter for isBrightnessRGB boolean.
      *
      * @param isBrightnessRGB true if in RGB, else false
-     * @see Filter
+     * @see Filters
      */
     public static void setIsBrightnessRGB(boolean isBrightnessRGB) {
         Studio_fragment.isBrightnessRGB = isBrightnessRGB;
@@ -416,8 +419,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         switch (filterType) {
             case TO_GRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-                if (isRenderScript) filter.tograyRS(loadedToChange);
-                else if (!isRenderScript) filter.toGrays(loadedToChange);
+                if (isRenderScript)
+                    filters.tograyRS(loadedToChange);
+                else if (!isRenderScript)
+                    filters.toGrays(loadedToChange);
                 break;
             case COLORIZE:
                 //colorSeekBar.setVisibility(View.VISIBLE);
@@ -430,47 +435,62 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                     public void onColorChangeListener(int colorBarPosition, int alphaBarPosition, int color) {
                         float[] hsv = new float[3];
                         Conversion.RGBToHSV_new(Color.red(color), Color.green(color), Color.blue(color), hsv);
-                        if (isRenderScript) filter.colorizeRS(loadedToChange, hsv[0]);
-                        else if (!isRenderScript) filter.colorize(loadedToChange, hsv[0]);
+                        if (isRenderScript)
+                            filters.colorizeRS(loadedToChange, hsv[0]);
+                        else if (!isRenderScript)
+                            filters.colorize(loadedToChange, hsv[0]);
                         photo_view.setImageBitmap(loadedToChange);
                     }
                 });
                 break;
             case KEEP_COLOR:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-                if (isRenderScript) filter.KeepColorRS(loadedToChange, 90);
+                if (isRenderScript)
+                    filters.KeepColorRS(loadedToChange, 90);
                 else if (!isRenderScript)
-                    filter.keepColor(loadedToChange, Color.rgb(0, 0, 255), 15);
+                    filters.keepColor(loadedToChange, Color.rgb(0, 0, 255), 15);
                 break;
             case CONTRAST_PLUS_GRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-                if (isRenderScript) dynamicExtension.contrastPlusGrayRS(loadedToChange);
-                else if (!isRenderScript) dynamicExtension.contrastPlusGrayLut(loadedToChange);
+                if (isRenderScript)
+                    dynamicExtension.contrastPlusGrayRS(loadedToChange);
+                else if (!isRenderScript)
+                    dynamicExtension.contrastPlusGrayLut(loadedToChange);
                 break;
             case CONTRAST_PLUS_RGB:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-                if (isRenderScript) dynamicExtension.contrastPlusRGB_RS(loadedToChange);
-                else if (!isRenderScript) dynamicExtension.contrastPlusCouleurRGB(loadedToChange);
+                if (isRenderScript)
+                    dynamicExtension.contrastPlusRGB_RS(loadedToChange);
+                else if (!isRenderScript)
+                    dynamicExtension.contrastPlusCouleurRGB(loadedToChange);
                 break;
             case CONTRAST_PLUS_HSV:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-                if (isRenderScript) dynamicExtension.contrastPlusHSV_RS(loadedToChange);
-                else if (!isRenderScript) dynamicExtension.contrastPlusCouleurHSV(loadedToChange);
+                if (isRenderScript)
+                    dynamicExtension.contrastPlusHSV_RS(loadedToChange);
+                else if (!isRenderScript)
+                    dynamicExtension.contrastPlusCouleurHSV(loadedToChange);
                 break;
             case CONTRAST_FEWER_GRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-                if (isRenderScript) dynamicExtension.contrastFewerGrayRS(loadedToChange);
-                else if (!isRenderScript) dynamicExtension.contrastFewerGray(loadedToChange);
+                if (isRenderScript)
+                    dynamicExtension.contrastFewerGrayRS(loadedToChange);
+                else if (!isRenderScript)
+                    dynamicExtension.contrastFewerGray(loadedToChange);
                 break;
             case EQUALIZATION_GRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-                if (isRenderScript) equalization.equalizationGrayRS(loadedToChange);
-                else if (!isRenderScript) equalization.equalizationGray(loadedToChange);
+                if (isRenderScript)
+                    equalization.equalizationGrayRS(loadedToChange);
+                else if (!isRenderScript)
+                    equalization.equalizationGray(loadedToChange);
                 break;
             case EQUALIZATION_RGB:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-                if (isRenderScript) equalization.equalizationRGB_RS(loadedToChange);
-                else if (!isRenderScript) equalization.equalizationCouleur(loadedToChange);
+                if (isRenderScript)
+                    equalization.equalizationRGB_RS(loadedToChange);
+                else if (!isRenderScript)
+                    equalization.equalizationCouleur(loadedToChange);
                 break;
             case CONVOLUTION_MOY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
@@ -497,9 +517,33 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 //utilisation du contours
                 int[][] gx = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
                 int[][] gy = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
-                filter.tograyRS(loadedToChange);
+                filters.tograyRS(loadedToChange);
                 Convolution.contours(loadedToChange, gx, gy);
                 break;
+            case SNOW_EFFECT:
+                if (isRenderScript)
+                    additionalFilters.snowAndBlackEffectRS(loadedToChange, true);
+                else if (!isRenderScript)
+                    additionalFilters.snowAndBlackEffect(loadedToChange, true);
+                break;
+            case BLACK_EFFECT:
+                if (isRenderScript)
+                    additionalFilters.snowAndBlackEffectRS(loadedToChange, false);
+                else if (!isRenderScript)
+                    additionalFilters.snowAndBlackEffect(loadedToChange, false);
+                break;
+            case NOISE_EFFECT:
+                if (isRenderScript)
+                    additionalFilters.noiseEffectRS(loadedToChange);
+                else if (!isRenderScript)
+                    additionalFilters.noiseEffect(loadedToChange);
+                break;
+            case INVERT_EFFECT:
+                if (isRenderScript)
+                    additionalFilters.invertEffectRS(loadedToChange);
+                else if (!isRenderScript) {
+                    additionalFilters.invertEffect(loadedToChange);
+                }
         }
         //Glide.with(mContext).load(this.loadedImage).into(photoView);
         photo_view.setImageBitmap(loadedToChange);
@@ -724,7 +768,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      * <p>Method which increases or decreases the brightness of a bitmap.
      *
      * @see ViewAnimation
-     * @see Filter
+     * @see Filters
      */
     private void brightness() {
         isBrightness = true;
@@ -751,8 +795,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 //                Bitmap returnBitmap = filter.brightnessAndSaturationHSV_RS(loadedToChange, val);
 //                loadedToRestore = filter.brightnessAndSaturationHSV(loadedToChange, val, true);
 
-                if (isBrightnessRGB) loadedToRestore = filter.brightnessRGB(loadedToChange, progressValue);
-                else if (!isBrightnessRGB) loadedToRestore = filter.brightnessAndSaturationHSV(loadedToChange, (float) progressValue / 256, true);
+                if (isBrightnessRGB) loadedToRestore = filters.brightnessRGB(loadedToChange, progressValue);
+                else if (!isBrightnessRGB) loadedToRestore = filters.brightnessAndSaturationHSV(loadedToChange, (float) progressValue / 256, true);
                 photo_view.setImageBitmap(loadedToRestore);
             }
         });
@@ -762,7 +806,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      * <p>Method which increases or decreases saturation of a bitmap.
      *
      * @see ViewAnimation
-     * @see Filter
+     * @see Filters
      */
     private void saturation() {
         isSaturation = true;
@@ -785,7 +829,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int progressSaturation = seekBar.getProgress() - 256;
                 float val = (float) progressSaturation / 256;
-                loadedToRestore = filter.brightnessAndSaturationHSV(loadedToChange, val, false);
+                loadedToRestore = filters.brightnessAndSaturationHSV(loadedToChange, val, false);
                 photo_view.setImageBitmap(loadedToRestore);
             }
         });

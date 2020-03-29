@@ -21,13 +21,13 @@ public class DynamicExtension {
     private Bitmap imageBitmap;
     private final Context context;
 
-    private final Filter filter;
+    private final Filters filters;
 
     public DynamicExtension(Bitmap imageBitmap, Context context) {
         this.imageBitmap = imageBitmap;
         this.context = context;
 
-        this.filter = new Filter(imageBitmap,context);
+        this.filters = new Filters(imageBitmap,context);
     }
 
     public Bitmap getImageBitmap() {
@@ -43,7 +43,7 @@ public class DynamicExtension {
      * @param imageBitmap a Bitmap image
      */
     public void contrastPlus(Bitmap imageBitmap){
-        filter.toGrays(imageBitmap);
+        filters.toGrays(imageBitmap);
         int height = imageBitmap.getHeight();
         int width = imageBitmap.getWidth();
         int[] pixels = new int[height*width];
@@ -63,7 +63,7 @@ public class DynamicExtension {
      * @param imageBitmap a Bitmap image
      */
     public void contrastPlusGrayLut(Bitmap imageBitmap) {
-        filter.toGrays(imageBitmap);
+        filters.toGrays(imageBitmap);
         int height = imageBitmap.getHeight();
         int width = imageBitmap.getWidth();
         int[] pixels = new int[height * width];
@@ -87,7 +87,7 @@ public class DynamicExtension {
      * @param imageBitmap a Bitmap image
      */
     public void contrastFewerGray(Bitmap imageBitmap){
-        filter.toGrays(imageBitmap);
+        filters.toGrays(imageBitmap);
         int height = imageBitmap.getHeight();
         int width = imageBitmap.getWidth();
         int[] pixels = new int[height*width];

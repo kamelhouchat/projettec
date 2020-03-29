@@ -16,13 +16,13 @@ public class Equalization {
     private Bitmap imageBitmap;
     private final Context context;
 
-    private final Filter filter ;
+    private final Filters filters;
 
     public Equalization(Bitmap imageBitmap, Context context) {
         this.imageBitmap = imageBitmap;
         this.context = context;
 
-        filter = new Filter(imageBitmap,context);
+        filters = new Filters(imageBitmap,context);
     }
 
     public Bitmap getImageBitmap() {
@@ -40,7 +40,7 @@ public class Equalization {
      * @param imageBitmap a Bitmap image
      */
     public void equalizationGray(Bitmap imageBitmap) {
-        filter.toGrays(imageBitmap);
+        filters.toGrays(imageBitmap);
         int height = imageBitmap.getHeight();
         int width = imageBitmap.getWidth();
         int accumulator = 0;

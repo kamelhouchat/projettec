@@ -12,10 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.projetTec.imageStudio.model.editingImage.AdditionalFilters;
 import com.projetTec.imageStudio.model.editingImage.Convolution;
 import com.projetTec.imageStudio.model.editingImage.DynamicExtension;
 import com.projetTec.imageStudio.model.editingImage.Equalization;
-import com.projetTec.imageStudio.model.editingImage.Filter;
+import com.projetTec.imageStudio.model.editingImage.Filters;
 import com.projetTec.imageStudio.R;
 import com.projetTec.imageStudio.model.filters.FilterModel;
 import com.projetTec.imageStudio.model.filters.FilterType;
@@ -56,10 +57,11 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
     private final OnItemFilterSelected onItemFilterSelected;
 
     //Class instances that contain filters
-    private final Filter filter;
+    private final Filters filters;
     private final DynamicExtension dynamicExtension;
     private final Equalization equalization;
     private final Convolution convolution;
+    private final AdditionalFilters additionalFilters;
 
     private static final String TAG = "FilterRecyclerViewAdapt";
 
@@ -94,6 +96,11 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
         filterModels.add(new FilterModel("Moyenneur", FilterType.CONVOLUTION_MOY));
         filterModels.add(new FilterModel("Gaussian", FilterType.CONVOLUTION_GAUS));
         filterModels.add(new FilterModel("Contours", FilterType.CONTOUR));
+        //Additional filters
+        filterModels.add(new FilterModel("Neige", FilterType.SNOW_EFFECT));
+        filterModels.add(new FilterModel("Noire", FilterType.BLACK_EFFECT));
+        filterModels.add(new FilterModel("Bruit", FilterType.NOISE_EFFECT));
+        filterModels.add(new FilterModel("Inverser", FilterType.INVERT_EFFECT));
 
         this.loadedImage = loadedImage;
         this.loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
@@ -102,10 +109,11 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 true);
         this.mContext = mContext;
         this.onItemFilterSelected = onItemFilterSelected;
-        this.filter = new Filter(loadedImage, mContext);
+        this.filters = new Filters(loadedImage, mContext);
         this.dynamicExtension = new DynamicExtension(loadedImage, mContext);
         this.equalization = new Equalization(loadedImage, mContext);
         this.convolution = new Convolution(loadedImage, mContext);
+        this.additionalFilters = new AdditionalFilters(loadedImage, mContext);
     }
 
     @NonNull
@@ -187,13 +195,13 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
         Bitmap loadedToRecycle = Bitmap.createBitmap(this.loadedToRecycle);
         switch (filterType) {
             case TO_GRAY:
-                filter.tograyRS(loadedToRecycle);
+                filters.tograyRS(loadedToRecycle);
                 break;
             case COLORIZE:
-                filter.colorizeRS(loadedToRecycle, 200);
+                filters.colorizeRS(loadedToRecycle, 200);
                 break;
             case KEEP_COLOR:
-                filter.KeepColorRS(loadedToRecycle, 90);
+                filters.KeepColorRS(loadedToRecycle, 90);
                 break;
             case CONTRAST_PLUS_GRAY:
                 dynamicExtension.contrastPlusGrayRS(loadedToRecycle);
@@ -235,10 +243,20 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 //utilisation du contours
                 int[][] gx =  {{-1,0,1},{-2,0,2},{-1,0,1}};
                 int[][] gy =  {{-1,-2,-1},{0,0,0},{1,2,1}};
-                filter.tograyRS(loadedToRecycle);
+                filters.tograyRS(loadedToRecycle);
                 Convolution.contours(loadedToRecycle,gx,gy);
                 break;
-
+            case SNOW_EFFECT:
+                additionalFilters.snowAndBlackEffectRS(loadedToRecycle, true);
+                break;
+            case BLACK_EFFECT:
+                additionalFilters.snowAndBlackEffectRS(loadedToRecycle, false);
+                break;
+            case NOISE_EFFECT:
+                additionalFilters.noiseEffectRS(loadedToRecycle);
+                break;
+            case INVERT_EFFECT:
+                additionalFilters.invertEffectRS(loadedToRecycle);
         }
         return loadedToRecycle;
     }
