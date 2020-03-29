@@ -968,7 +968,7 @@ color dracula_preview_bottom_toolbar_apply_text_disable
 color dracula_preview_bottom_toolbar_back_text
 color dracula_primary
 color dracula_primary_dark
-color endblue
+color end_blue
 color errorColor
 color error_color_material_dark
 color error_color_material_light
@@ -1112,7 +1112,7 @@ color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
 color secondary_text_disabled_material_light
-color startblue
+color start_blue
 color successColor
 color success_stroke_color
 color sweet_dialog_bg_color
@@ -1618,7 +1618,7 @@ drawable background_color
 drawable background_gray
 drawable background_org
 drawable badge_background_white
-drawable bgapp
+drawable bg_app
 drawable blue_button_background
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -1696,7 +1696,7 @@ drawable ic_sticker
 drawable ic_studio
 drawable ic_text_fields_black_24dp
 drawable icon
-drawable logolast
+drawable logo_last
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
 drawable mtrl_ic_arrow_drop_down
@@ -1810,7 +1810,7 @@ id always
 id async
 id auto
 id background_main
-id barchart
+id bar_chart
 id barrier
 id beginning
 id blocking
@@ -1916,7 +1916,7 @@ id hint
 id histogram_button
 id home
 id homeAsUp
-id hometext
+id home_text
 id icon
 id icon_group
 id ifRoom
@@ -2117,7 +2117,7 @@ id tvTitle
 id txtTool
 id unchecked
 id uniform
-id universite
+id university
 id unlabeled
 id up
 id useLogo

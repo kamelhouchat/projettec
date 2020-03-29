@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.projettec.imageStudio">
+    package="com.projetTec.imageStudio">
 
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -14,15 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:fullBackupContent="@xml/backup_descriptor">
-        <activity android:name="com.projettec.imageStudio.controller.MainActivity">
+        <activity android:name="com.projetTec.imageStudio.controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.projettec.imageStudio.controller.StudioActivity" />
-        <activity android:name="com.projettec.imageStudio.controller.HistogramActivity" />
+        <activity android:name="com.projetTec.imageStudio.controller.StudioActivity" />
+        <activity android:name="com.projetTec.imageStudio.controller.HistogramActivity" />
 
     </application>
 

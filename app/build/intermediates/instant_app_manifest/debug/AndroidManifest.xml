@@ -25,15 +25,15 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.projettec.imageStudio.controller.MainActivity" >
+        <activity android:name="com.projetTec.imageStudio.controller.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.projettec.imageStudio.controller.StudioActivity" />
-        <activity android:name="com.projettec.imageStudio.controller.HistogramActivity" />
+        <activity android:name="com.projetTec.imageStudio.controller.StudioActivity" />
+        <activity android:name="com.projetTec.imageStudio.controller.HistogramActivity" />
         <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
         <activity android:name="com.zhihu.matisse.internal.ui.AlbumPreviewActivity" />
         <activity android:name="com.zhihu.matisse.internal.ui.SelectedPreviewActivity" /> <!-- This is just an Activity for Testing from within src/androidTest -->

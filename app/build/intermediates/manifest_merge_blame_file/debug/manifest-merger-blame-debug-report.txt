@@ -41,7 +41,7 @@
 25        android:testOnly="true"
 26        android:theme="@style/AppTheme" >
 26-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:15:9-40
-27        <activity android:name="com.projettec.imageStudio.controller.MainActivity" >
+27        <activity android:name="com.projetTec.imageStudio.controller.MainActivity" >
 27-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:17:9-23:20
 27-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:17:19-83
 28            <intent-filter>
@@ -55,10 +55,10 @@
 31-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:21:27-74
 32            </intent-filter>
 33        </activity>
-34        <activity android:name="com.projettec.imageStudio.controller.StudioActivity" />
+34        <activity android:name="com.projetTec.imageStudio.controller.StudioActivity" />
 34-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:24:9-88
 34-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:24:19-85
-35        <activity android:name="com.projettec.imageStudio.controller.HistogramActivity" />
+35        <activity android:name="com.projetTec.imageStudio.controller.HistogramActivity" />
 35-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:25:9-91
 35-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:25:19-88
 36        <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
