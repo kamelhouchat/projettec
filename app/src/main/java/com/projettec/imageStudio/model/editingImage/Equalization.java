@@ -14,9 +14,9 @@ import androidx.renderscript.RenderScript;
 
 public class Equalization {
     private Bitmap imagebitmap;
-    private Context context;
+    private final Context context;
 
-    Filter filter ;
+    private final Filter filter ;
 
     public Equalization(Bitmap imagebitmap, Context context) {
         this.imagebitmap = imagebitmap;

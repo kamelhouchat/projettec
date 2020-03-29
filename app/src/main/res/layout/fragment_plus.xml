@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey_bg_light"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="Overdraw">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,7 +27,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Informations"
+                android:text="@string/information_text"
                 android:textColor="#fff"
                 android:textStyle="bold"
                 android:textSize="21sp"/>
@@ -40,7 +41,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:weightSum="3"
+                android:baselineAligned="false">
                 <LinearLayout
                     android:gravity="center"
                     android:orientation="vertical"
@@ -50,7 +52,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Largeur"
+                        android:text="@string/width_text"
                         android:textSize="20sp"
                         />
                     <TextView
@@ -72,7 +74,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hauteur"
+                        android:text="@string/height_text"
                         android:textSize="20sp"
                         />
                     <TextView
@@ -90,35 +92,22 @@
                     android:orientation="vertical"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    tools:ignore="UseCompoundDrawables">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Histog"
+                        android:text="@string/show_histogram_text"
                         android:textSize="20sp"
                         android:layout_marginBottom="5dp"
                         android:layout_marginTop="2dp"
                         />
-                    <!--<TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/barchart_button"
-                        android:text="Show"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:paddingTop="10dp"
-                        android:textColor="@color/blue_active"/>-->
-                    <!--<Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:background="@drawable/barchart_buttonstyle"
-                        android:text="Show"
-                        />-->
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
                         android:src="@drawable/ic_graphic_eq_black_24dp"
-                        android:id="@+id/barchart_button"/>
+                        android:id="@+id/histogram_button"
+                        android:contentDescription="@string/show_histogram_icon_content"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -139,26 +128,29 @@
 >
             <LinearLayout
                 android:orientation="horizontal"
-                android:paddingLeft="25dp"
+                android:paddingStart="25dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                tools:ignore="RtlSymmetry">
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/ic_new_rs"/>
+                    android:src="@drawable/ic_new_rs"
+                    android:contentDescription="@string/renderscript_icon_content"/>
                 <TextView
                     android:textStyle="bold"
                     android:layout_gravity="center_vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:text="Avec ou sans renderScript"/>
+                    android:paddingStart="20dp"
+                    android:text="@string/renderscript_choice_text"
+                    tools:ignore="RtlSymmetry" />
 
                 <com.polyak.iconswitch.IconSwitch
                     android:id="@+id/toggle_renderscript_java"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginStart="40dp"
 
                     app:isw_icon_left="@drawable/ic_render_black_24dp"
                     app:isw_icon_right="@drawable/ic_no_render_black_24dp"
@@ -169,26 +161,29 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="25dp"
+                android:paddingStart="25dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                tools:ignore="RtlSymmetry">
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/ic_brightness"/>
+                    android:src="@drawable/ic_brightness"
+                    android:contentDescription="@string/brightness_icon_content"/>
                 <TextView
                     android:textStyle="bold"
                     android:layout_gravity="center_vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:text="Luminosité en HSV ou pas"/>
+                    android:paddingStart="20dp"
+                    android:text="@string/brightness_choice_text"
+                    tools:ignore="RtlSymmetry" />
 
                 <com.polyak.iconswitch.IconSwitch
                     android:id="@+id/toggle_brightness_hsv_rgb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginStart="40dp"
 
                     app:isw_icon_left="@drawable/ic_render_black_24dp"
                     app:isw_icon_right="@drawable/ic_no_render_black_24dp"
@@ -196,44 +191,6 @@
                     />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingLeft="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_save_black_24dp"/>
-                <TextView
-                    android:textStyle="bold"
-
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:text="Save"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingLeft="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_save_black_24dp"/>
-                <TextView
-                    android:textStyle="bold"
-
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:text="Save"/>
-            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>
@@ -241,11 +198,11 @@
     <Button
         android:id="@+id/fragment_plus_github_button"
         android:textColor="#fff"
-        android:background="@drawable/buttonstyle"
+        android:background="@drawable/button_style"
         android:layout_marginTop="35dp"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Github"/>
+        android:text="@string/github_button_text"/>
 
 </LinearLayout>

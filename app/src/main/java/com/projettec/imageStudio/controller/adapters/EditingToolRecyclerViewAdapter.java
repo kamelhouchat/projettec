@@ -33,10 +33,10 @@ import java.util.ArrayList;
 public class EditingToolRecyclerViewAdapter extends RecyclerView.Adapter<EditingToolRecyclerViewAdapter.ViewHolder> {
 
     //ArrayList which contains the ToolModels
-    private ArrayList<ToolModel> toolList = new ArrayList<ToolModel>();
+    private final ArrayList<ToolModel> toolList = new ArrayList<>();
 
     //The onItemToolSelected method which facilitates the management of listener
-    private OnItemToolSelected onItemToolSelected;
+    private final OnItemToolSelected onItemToolSelected;
 
     /**
      * <p>
@@ -58,7 +58,7 @@ public class EditingToolRecyclerViewAdapter extends RecyclerView.Adapter<Editing
         toolList.add(new ToolModel("Filtre", R.drawable.ic_filter_black_24dp, ToolType.FILTER));
         toolList.add(new ToolModel("Texte", R.drawable.ic_text_fields_black_24dp, ToolType.TEXT));
         toolList.add(new ToolModel("Pinceau", R.drawable.ic_brush_black_24dp, ToolType.BRUSH));
-        toolList.add(new ToolModel("Gomme", R.drawable.ic_eraser, ToolType.ERASER));
+        toolList.add(new ToolModel("Gomme", R.drawable.ic_eraser_black, ToolType.ERASER));
         toolList.add(new ToolModel("Emoji", R.drawable.ic_insert_emoticon_black_24dp, ToolType.EMOJI));
         toolList.add(new ToolModel("Autocollant", R.drawable.ic_sticker, ToolType.STICKER));
     }
@@ -91,17 +91,17 @@ public class EditingToolRecyclerViewAdapter extends RecyclerView.Adapter<Editing
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         //ImageView on which we put the tool icon each time
-        ImageView imageView;
+        final ImageView imageView;
 
         //TextView on which we put the tool name each time
-        TextView textView;
+        final TextView textView;
 
         /**
          * <p>Constructor in which the views and listener were initialized
          *
          * @param itemView The layout view
          */
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imgToolIcon);
             textView = itemView.findViewById(R.id.txtTool);

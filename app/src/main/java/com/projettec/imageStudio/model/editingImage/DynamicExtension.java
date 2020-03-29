@@ -19,9 +19,9 @@ import androidx.renderscript.RenderScript;
 public class DynamicExtension {
 
     private Bitmap imagebitmap;
-    private Context context;
+    private final Context context;
 
-    Filter filter;
+    private final Filter filter;
 
     public DynamicExtension(Bitmap imagebitmap, Context context) {
         this.imagebitmap = imagebitmap;
@@ -70,7 +70,7 @@ public class DynamicExtension {
         imagebitmap.getPixels(pixels, 0, width, 0, 0, width, height);
         int[] min_max = AuxiliaryFunction.min_max_histo(pixels, false);
         if (min_max[0] == min_max[1]) return;
-        int[] LUT = new int[256];
+        int[] LUT;
         // INITIALISATION DE LA LUT
         LUT = AuxiliaryFunction.LUT_Init(min_max, true);
         for (int i = 0; i < height * width; i++) {
@@ -99,7 +99,7 @@ public class DynamicExtension {
         min_max[1] = min_max[1]-perc ;
 
         if (min_max[0] < 0 || min_max[1] > 255) return;
-        int[] LUT = new int[256];
+        int[] LUT;
         // INITIALISATION DE LA LUT
         LUT = AuxiliaryFunction.LUT_Init(min_max,false);
         // CALCUL DE LA TRANSFORMATION

@@ -3,17 +3,7 @@ package com.projettec.imageStudio.model.editingImage;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 
-public class AuxiliaryFunction {
-    /**
-     * Function to copy a bitmap image to another
-     * @param old -> The image we want to copy
-     * @param new_image -> The destination image
-     */
-    public static void copy_image(Bitmap old , Bitmap new_image){
-        int[] pixels = new int[old.getHeight() * old.getWidth()];
-        old.getPixels(pixels,0,old.getWidth(),0,0,old.getWidth(),old.getHeight());
-        new_image.setPixels(pixels,0,new_image.getWidth(),0,0,new_image.getWidth(),new_image.getHeight());
-    }
+class AuxiliaryFunction {
 
     /**
      * Function that separates an RGB color into three components (R,G and B)
@@ -24,8 +14,7 @@ public class AuxiliaryFunction {
         int r = Color.red(rgb);
         int g = Color.green(rgb);
         int b = Color.blue(rgb);
-        int[] r_g_b = new int[]{r, g, b};
-        return  r_g_b;
+        return new int[]{r, g, b};
     }
 
     /**
@@ -33,14 +22,13 @@ public class AuxiliaryFunction {
      * @param reper the hue we spot
      * @param val the hue we want to compare
      * @param radius the margin that is accepted
-     * @return
+     * @return true if yes, else false
      */
     public static boolean Is_like(float reper , float val, int radius){
-        final int RADIUS = radius ;
         float min_accept;
         float max_accept;
-        max_accept = (reper + RADIUS)%360 ;
-        min_accept = reper - RADIUS;
+        max_accept = (reper + radius)%360 ;
+        min_accept = reper - radius;
         if (min_accept < 0)
             min_accept = 360 + min_accept;
 
@@ -56,9 +44,9 @@ public class AuxiliaryFunction {
      */
     public static int[] histogramme(int[] pixels){
         int[] histogramme = new int[256];
-        for (int i = 0 ; i < pixels.length ; i++){
-            int color = Color.red(pixels[i]);
-            histogramme[color] +=1;
+        for (int pixel : pixels) {
+            int color = Color.red(pixel);
+            histogramme[color] += 1;
         }
         return histogramme ;
     }
@@ -69,13 +57,13 @@ public class AuxiliaryFunction {
      * @param pixels the table which contains the pixels of the image
      * @return the image histogram (table of 256 boxes)
      */
-    public static int[] histogrammeHSV(int[] pixels){
+    private static int[] histogrammeHSV(int[] pixels){
         int[] histogramme = new int[256];
         int r, g, b, max;
-        for (int i = 0; i < pixels.length; i++) {
-            r = Color.red(pixels[i]);
-            g = Color.green(pixels[i]);
-            b = Color.blue(pixels[i]);
+        for (int pixel : pixels) {
+            r = Color.red(pixel);
+            g = Color.green(pixel);
+            b = Color.blue(pixel);
             max = Math.max(r, g);
             max = Math.max(max, b);
             histogramme[max]++;
@@ -92,7 +80,7 @@ public class AuxiliaryFunction {
      */
     public static int[] min_max_histo(int [] pixels, boolean hsv){
         int min = 0 ; boolean min_t = false ;
-        int max = 0 ; int[] histo = new int[256];
+        int max = 0 ; int[] histo;
         if (hsv){ histo = histogrammeHSV(pixels);}
         else { histo = histogramme(pixels);}
         for (int i = 0 ; i < 256 ; i++){
@@ -104,7 +92,7 @@ public class AuxiliaryFunction {
                 max = i ;
             }
         }
-        int[] min_max = new int[2];
+        int[] min_max;
         min_max = new int[]{min, max};
         return min_max ;
     }

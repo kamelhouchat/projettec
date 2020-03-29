@@ -35,7 +35,8 @@
 
         app:cardMaxElevation="2dp"
         app:cardElevation="1dp"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        tools:ignore="MissingConstraints">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -50,13 +51,12 @@
                 android:scaleType="centerCrop"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/ic_filter_black_24dp"
-                />
+                android:contentDescription="@string/tool_icon_content"/>
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:text="Gray"
                 android:id="@+id/txtTool"
                 android:layout_below="@+id/imgToolIcon"
                 android:layout_centerHorizontal="true"

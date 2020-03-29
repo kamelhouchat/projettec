@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="IconLauncherShape">
+        <ignore path="src/main/res/drawable/icon.png" />
+    </issue>
+    <issue id="IconLocation">
+        <ignore path="src/main/res/drawable/background.png" />
+        <ignore path="src/main/res/drawable/background_color.png" />
+        <ignore path="src/main/res/drawable/background_gray.jpg" />
+        <ignore path="src/main/res/drawable/background_org.png" />
+        <ignore path="src/main/res/drawable/bgapp.png" />
+        <ignore path="src/main/res/drawable/camera.png" />
+        <ignore path="src/main/res/drawable/chateaux.jpg" />
+        <ignore path="src/main/res/drawable/clover.png" />
+        <ignore path="src/main/res/drawable/gallery.png" />
+        <ignore path="src/main/res/drawable/icon.png" />
+        <ignore path="src/main/res/drawable/logolast.png" />
+        <ignore path="src/main/res/drawable/pipimage.jpg" />
+        <ignore path="src/main/res/drawable/plage.jpg" />
+        <ignore path="src/main/res/drawable/tig.jpg" />
+    </issue>
+</lint>

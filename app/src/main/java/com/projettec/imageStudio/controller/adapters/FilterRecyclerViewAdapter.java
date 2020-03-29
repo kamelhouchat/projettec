@@ -6,15 +6,12 @@ import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.projettec.imageStudio.controller.fragments.Studio_fragment;
 import com.projettec.imageStudio.model.editingImage.Convolution;
 import com.projettec.imageStudio.model.editingImage.DynamicExtension;
 import com.projettec.imageStudio.model.editingImage.Equalization;
@@ -44,25 +41,25 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecyclerViewAdapter.ViewHolder> {
 
     //ArrayList which contains the FilterModels
-    private ArrayList<FilterModel> filterModels = new ArrayList<FilterModel>();
+    private final ArrayList<FilterModel> filterModels = new ArrayList<>();
 
     //The loaded image, which will be used for initializing the filters, and applying the filters to small images to get a glimpse of the filter
-    private Bitmap loadedImage;
+    private final Bitmap loadedImage;
 
     //The image after compression which will be used for applying the filters in recyclerView
-    private Bitmap loadedToRecycle;
+    private final Bitmap loadedToRecycle;
 
     //The activity context
-    private Context mContext;
+    private final Context mContext;
 
     //The onItemFilterSelected method which facilitates the management of listener
-    private OnItemFilterSelected onItemFilterSelected;
+    private final OnItemFilterSelected onItemFilterSelected;
 
     //Class instances that contain filters
-    private Filter filter;
-    private DynamicExtension dynamicExtension;
-    private Equalization equalization;
-    private Convolution convolution;
+    private final Filter filter;
+    private final DynamicExtension dynamicExtension;
+    private final Equalization equalization;
+    private final Convolution convolution;
 
     private static final String TAG = "FilterRecyclerViewAdapt";
 
@@ -85,17 +82,17 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
      * @see FilterModel
      */
     public FilterRecyclerViewAdapter(Bitmap loadedImage, Context mContext, OnItemFilterSelected onItemFilterSelected) {
-        filterModels.add(new FilterModel("Gray", FilterType.TOGRAY));
+        filterModels.add(new FilterModel("Gray", FilterType.TO_GRAY));
         filterModels.add(new FilterModel("Colorize", FilterType.COLORIZE));
-        filterModels.add(new FilterModel("KeepColor", FilterType.KEEPCOLOR));
-        filterModels.add(new FilterModel("Cont + Gray", FilterType.CONTRASTPLUSGRAY));
-        filterModels.add(new FilterModel("Cont + RGB", FilterType.CONTRASTPLUSRGB));
-        filterModels.add(new FilterModel("Cont + HSV", FilterType.CONTRASTPLUSHSV));
-        filterModels.add(new FilterModel("Cont - Gray", FilterType.CONTRASTFEWERGRAY));
-        filterModels.add(new FilterModel("Equa Gray", FilterType.EQUALIZATIONGRAY));
-        filterModels.add(new FilterModel("Equa RGB", FilterType.EQUALIZATIONRGB));
-        filterModels.add(new FilterModel("Moyenneur", FilterType.CONVOLUTIONMOY));
-        filterModels.add(new FilterModel("Gaussian", FilterType.CONVOLUTIONGAUS));
+        filterModels.add(new FilterModel("KeepColor", FilterType.KEEP_COLOR));
+        filterModels.add(new FilterModel("Cont + Gray", FilterType.CONTRAST_PLUS_GRAY));
+        filterModels.add(new FilterModel("Cont + RGB", FilterType.CONTRAST_PLUS_RGB));
+        filterModels.add(new FilterModel("Cont + HSV", FilterType.CONTRAST_PLUS_HSV));
+        filterModels.add(new FilterModel("Cont - Gray", FilterType.CONTRAST_FEWER_GRAY));
+        filterModels.add(new FilterModel("Equa Gray", FilterType.EQUALIZATION_GRAY));
+        filterModels.add(new FilterModel("Equa RGB", FilterType.EQUALIZATION_RGB));
+        filterModels.add(new FilterModel("Moyenneur", FilterType.CONVOLUTION_MOY));
+        filterModels.add(new FilterModel("Gaussian", FilterType.CONVOLUTION_GAUS));
         filterModels.add(new FilterModel("Contours", FilterType.CONTOUR));
 
         this.loadedImage = loadedImage;
@@ -146,21 +143,21 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         //ImageView on which we put an overview of the filter each time
-        CircleImageView filter_image;
+        final CircleImageView filter_image;
 
         //TextView on which we put the filter name each time
-        TextView filter_name;
+        final TextView filter_name;
 
         /**
          * <p>Constructor in which the views and listener were initialized
          *
          * @param itemView The layout view
          */
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             //filter_image = (ImageView) itemView.findViewById(R.id.image_view_filter);
-            filter_image = (CircleImageView) itemView.findViewById(R.id.image_view_filter);
-            filter_name = (TextView) itemView.findViewById(R.id.text_view_filter);
+            filter_image = itemView.findViewById(R.id.image_view_filter);
+            filter_name = itemView.findViewById(R.id.text_view_filter);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -181,43 +178,44 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
      * @see FilterType
      * @see FilterModel
      */
-    public Bitmap chargeImage(FilterType filterType) {
+    @SuppressWarnings("AccessStaticViaInstance")
+    private Bitmap chargeImage(FilterType filterType) {
         /*Bitmap loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
                 100,
                 100,
                 true);*/
         Bitmap loadedToRecycle = Bitmap.createBitmap(this.loadedToRecycle);
         switch (filterType) {
-            case TOGRAY:
+            case TO_GRAY:
                 filter.tograyRS(loadedToRecycle);
                 break;
             case COLORIZE:
                 filter.colorizeRS(loadedToRecycle, 200);
                 break;
-            case KEEPCOLOR:
+            case KEEP_COLOR:
                 filter.KeepColorRS(loadedToRecycle, 90);
                 break;
-            case CONTRASTPLUSGRAY:
+            case CONTRAST_PLUS_GRAY:
                 dynamicExtension.contrastePlusGrayRS(loadedToRecycle);
                 break;
-            case CONTRASTPLUSRGB:
+            case CONTRAST_PLUS_RGB:
                 dynamicExtension.contrastePlusRGB_RS(loadedToRecycle);
                 break;
-            case CONTRASTPLUSHSV:
+            case CONTRAST_PLUS_HSV:
                 dynamicExtension.contrastePlusHSV_RS(loadedToRecycle);
                 break;
-            case CONTRASTFEWERGRAY:
+            case CONTRAST_FEWER_GRAY:
                 dynamicExtension.contrasteFewerGrayRS(loadedToRecycle);
                 break;
-            case EQUALIZATIONGRAY:
+            case EQUALIZATION_GRAY:
                 equalization.egalisationGrayRS(loadedToRecycle);
                 break;
-            case EQUALIZATIONRGB:
+            case EQUALIZATION_RGB:
                 equalization.egalisationRGBRS(loadedToRecycle);
                 break;
-            case CONVOLUTIONMOY:
+            case CONVOLUTION_MOY:
                 int size = 7;
-                int filterMoy[][] = new int[size][size];
+                int[][] filterMoy = new int[size][size];
                 for (int i = 0; i < size; i++) {
                     for (int j = 0; j < size; j++) {
                         filterMoy[i][j] = 1;
@@ -225,8 +223,8 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 }
                 convolution.convolutions(loadedToRecycle, filterMoy);
                 break;
-            case CONVOLUTIONGAUS:
-                int filterGaus[][] = {{1, 2, 3, 2, 1},
+            case CONVOLUTION_GAUS:
+                int[][] filterGaus = {{1, 2, 3, 2, 1},
                         {2, 6, 8, 6, 2},
                         {3, 8, 10, 8, 3},
                         {2, 6, 8, 6, 2},
@@ -235,8 +233,8 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 break;
             case CONTOUR:
                 //utilisation du contours
-                int gx[][] =  {{-1,0,1},{-2,0,2},{-1,0,1}};
-                int gy[][] =  {{-1,-2,-1},{0,0,0},{1,2,1}};
+                int[][] gx =  {{-1,0,1},{-2,0,2},{-1,0,1}};
+                int[][] gy =  {{-1,-2,-1},{0,0,0},{1,2,1}};
                 filter.tograyRS(loadedToRecycle);
                 Convolution.contours(loadedToRecycle,gx,gy);
                 break;

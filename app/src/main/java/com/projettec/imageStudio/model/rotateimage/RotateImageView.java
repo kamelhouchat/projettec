@@ -5,6 +5,7 @@ import android.graphics.Matrix;
 
 public class RotateImageView {
 
+    @SuppressWarnings("UnusedAssignment")
     public static void rotateImage(float degree, Bitmap loadedToRestore, Bitmap loadedToChange) {
         Matrix matrix = new Matrix();
         matrix.postRotate(degree);
@@ -15,8 +16,8 @@ public class RotateImageView {
         //photo_view.setImageBitmap(loadedToChange);
     }
 
-    /**
-     * TODO -- fixing auto rotating when we load image from gellery or camera
+    /*
+      TODO -- fixing auto rotating when we load image from gallery or camera
      */
 
 }

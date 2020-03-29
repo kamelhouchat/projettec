@@ -18,13 +18,13 @@ package com.projettec.imageStudio.model.tools;
 public class ToolModel {
 
     //The name of the tool that will be displayed on the menu
-    private String ToolName;
+    private final String ToolName;
 
     //The icon of the tool that will be displayed on the menu
-    private int ToolIcon;
+    private final int ToolIcon;
 
     //The type of the tool which will be essential for the management of listener and adapter
-    private ToolType ToolType;
+    private final ToolType ToolType;
 
     /**
      * <p>The ToolModel constructor which takes the name, icon and type as parameters</p>

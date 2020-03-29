@@ -14,7 +14,8 @@
         android:elevation="6dp"
         android:src="@drawable/clover"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/clover_image_content"/>
 
     <LinearLayout
         android:id="@+id/logo"
@@ -23,30 +24,31 @@
         android:elevation="6dp"
         android:gravity="center"
         android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints,UseCompoundDrawables">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon" />
+            android:src="@drawable/icon"
+            android:contentDescription="@string/application_logo__content"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="cursive"
-            android:text="Image Studio"
+            android:text="@string/main_activity_application_name"
             android:textColor="#95ECE8"
             android:textSize="26sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/hometext"
+        android:id="@+id/home_text"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:elevation="6dp"
-        android:gravity="left"
+        android:gravity="start"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -56,7 +58,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Explorer"
+            android:text="@string/main_activity_top_title"
             android:textColor="#95ECE8"
             android:textSize="26sp"
             android:textStyle="bold" />
@@ -64,7 +66,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Veuillez charger ou prendre une photo"
+            android:text="@string/main_activity_top_text"
             android:textColor="#95ECE8"
             android:textSize="16sp" />
 
@@ -89,23 +91,24 @@
             android:id="@+id/camera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="50dp"
+            android:layout_marginEnd="50dp"
             android:gravity="center"
             android:orientation="vertical"
-            android:onClick="TakeImage"
-            tools:ignore="MissingConstraints">
+            android:onClick="takeImage"
+            tools:ignore="MissingConstraints,UseCompoundDrawables">
 
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginBottom="4dp"
-                android:src="@drawable/camera" />
+                android:src="@drawable/camera"
+                android:contentDescription="@string/camera_logo_content"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Camera"
+                android:text="@string/camera_logo_text"
                 android:textColor="#0E1843"
                 android:textSize="22sp" />
         </LinearLayout>
@@ -114,23 +117,24 @@
             android:id="@+id/gallery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="50dp"
+            android:layout_marginEnd="50dp"
             android:gravity="center"
             android:orientation="vertical"
-            android:onClick="LoadImage"
-            tools:ignore="MissingConstraints">
+            android:onClick="loadImage"
+            tools:ignore="MissingConstraints,UseCompoundDrawables">
 
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginBottom="4dp"
-                android:src="@drawable/gallery" />
+                android:src="@drawable/gallery"
+                android:contentDescription="@string/gallery_logo_content"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Galerie"
+                android:text="@string/gallery_logo_text"
                 android:textColor="#0E1843"
                 android:textSize="22sp" />
         </LinearLayout>
@@ -138,17 +142,17 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/universite"
+        android:id="@+id/university"
         android:layout_width="313dp"
         android:layout_height="202dp"
 
         android:elevation="6dp"
 
-        android:src="@drawable/logolast"
+        android:src="@drawable/logo_last"
         app:layout_constraintBottom_toBottomOf="@+id/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+        android:contentDescription="@string/university_logo_content"/>
 
     <ImageView
         android:id="@+id/background_main"
@@ -157,11 +161,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:scaleType="fitXY"
-        android:src="@drawable/bgapp"
+        android:src="@drawable/bg_app"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/background_content"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

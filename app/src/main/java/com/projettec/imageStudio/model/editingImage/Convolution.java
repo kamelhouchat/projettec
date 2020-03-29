@@ -8,7 +8,7 @@ import android.graphics.Color;
 public class Convolution {
 
     private Bitmap imagebitmap;
-    private Context context;
+    private final Context context;
 
     public Convolution(Bitmap imagebitmap, Context context) {
         this.imagebitmap = imagebitmap;
@@ -32,7 +32,7 @@ public class Convolution {
         int width = bmp.getWidth();
         int height = bmp.getHeight();
         int[] pixel = new int[width * height];
-        int red = 0, green = 0, bleu = 0;
+        int red, green, bleu;
         int sizeFilter = filter.length;
         int n = sizeFilter / 2;
 
@@ -69,7 +69,7 @@ public class Convolution {
         int width = bmp.getWidth();
         int height = bmp.getHeight();
         int[] pixel = new int[width * height];
-        int red = 0, green = 0, bleu = 0;
+        int red, green, bleu;
         int sizeFilter = filter.length;
         int n = sizeFilter / 2;
 
@@ -103,12 +103,11 @@ public class Convolution {
      * @param pixel the table containing the weighted average
      * @return sum of the values in the array
      */
-    public static int somme(int[][] pixel) {
+    private static int somme(int[][] pixel) {
         int som = 0;
         int n = pixel.length;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < pixel[i].length; j++)
-                som += pixel[i][j];
+        for (int[] ints : pixel) {
+            for (int anInt : ints) som += anInt;
         }
         return som;
     }
@@ -120,13 +119,13 @@ public class Convolution {
      * @param gx
      * @param gy
      */
-    public static void contours(Bitmap bmp, int gx[][] ,int gy[][]) {
+    public static void contours(Bitmap bmp, int[][] gx, int[][] gy) {
         //Filter filter = new Filter(bmp,context);
         int width = bmp.getWidth();
         int height = bmp.getHeight();
         int[] pixels = new int[width * height];
         int[] newpixels = new int[width * height];
-        int grayX = 0, grayY = 0;
+        int grayX, grayY;
         int sizeGx = gx.length;
 
         int n = sizeGx / 2;

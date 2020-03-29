@@ -8,10 +8,4 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="CroopStyle" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/gray_btn_bg_color</item>
-        <item name="colorPrimaryDark">@color/grey_active</item>
-        <item name="colorAccent">@color/blue_grey_active</item>
-    </style>
-
 </resources>

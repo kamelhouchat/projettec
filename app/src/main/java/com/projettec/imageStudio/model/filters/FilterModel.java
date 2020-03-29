@@ -17,10 +17,10 @@ package com.projettec.imageStudio.model.filters;
 public class FilterModel {
 
     //The name of the filter that will be displayed on the menu
-    private String filterName;
+    private final String filterName;
 
     //The type of the filter which will be essential for the management of listener and adapter
-    private FilterType filterType;
+    private final FilterType filterType;
 
     /**
      * <p>The FilterModel constructor which takes the name and the filter type as parameters</p>

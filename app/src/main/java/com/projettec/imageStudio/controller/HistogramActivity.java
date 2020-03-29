@@ -48,7 +48,7 @@ public class HistogramActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        com.github.mikephil.charting.charts.BarChart barChart = findViewById(R.id.barchart);
+        com.github.mikephil.charting.charts.BarChart barChart = findViewById(R.id.bar_chart);
 
         ArrayIndex = new ArrayList();
         for (int i = 0; i<256; i++)
@@ -101,7 +101,7 @@ public class HistogramActivity extends AppCompatActivity {
 
     }
 
-    public int[][] histoOfThreeColors(){
+    private int[][] histoOfThreeColors(){
         int height = captImage.getHeight();
         int width = captImage.getWidth();
         int[] pixels = new int[height*width];
@@ -116,7 +116,7 @@ public class HistogramActivity extends AppCompatActivity {
         return tabHisto;
     }
 
-    public void setBarEntry(){
+    private void setBarEntry(){
         int[][] tabHisto = histoOfThreeColors();
         for (int i = 0; i<256; i++){
             ColorR.add(new BarEntry(tabHisto[0][i],i));

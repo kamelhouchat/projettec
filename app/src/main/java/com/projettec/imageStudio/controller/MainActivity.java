@@ -29,8 +29,8 @@ import com.zhihu.matisse.MimeType;
 
 
 import java.util.List;
+import java.util.Objects;
 
-import cn.pedant.SweetAlert.SweetAlertDialog;
 import es.dmoral.toasty.Toasty;
 
 /**
@@ -51,24 +51,24 @@ import es.dmoral.toasty.Toasty;
 public class MainActivity extends AppCompatActivity {
 
     //ImageView loaded from the layout
-    ImageView background, clover, logoUniversite;
+    private ImageView background, clover, logoUniversity;
 
     //LinearLayout loaded from the layout
-    LinearLayout logo, hometext, menus;
+    private LinearLayout logo, homeText, menus;
 
     //Animation loaded from R.anim
-    Animation frombuttom, logoAnimation;
+    private Animation fromBottom, logoAnimation;
 
     //The uri of the loaded image from camera
-    Uri image_uri;
+    private Uri imageUri;
 
     //Random code that identifies the result of the picker
-    static final int PICKER_REQUEST_CODE = 1;
-    static final int REQUEST_CODE = 123;
-    static final int REQUEST_CAMERA = 100;
+    private static final int PICKER_REQUEST_CODE = 1;
+    private static final int REQUEST_CODE = 123;
+    private static final int REQUEST_CAMERA = 100;
 
     //List that will contain the selected photos
-    List<Uri> mSelected;
+    private List<Uri> mSelected;
 
 
     @Override
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        frombuttom = AnimationUtils.loadAnimation(this, R.anim.frombuttom);
+        fromBottom = AnimationUtils.loadAnimation(this, R.anim.frombuttom);
         logoAnimation = AnimationUtils.loadAnimation(this, R.anim.logoanimation);
 
         initView();
@@ -84,9 +84,9 @@ public class MainActivity extends AppCompatActivity {
         background.animate().translationY(-1900).setDuration(800).setStartDelay(1000);
         clover.animate().alpha(0).setDuration(800).setStartDelay(700);
         logo.animate().translationY(140).alpha(0).setDuration(800).setStartDelay(1000);
-        hometext.startAnimation(frombuttom);
-        menus.startAnimation(frombuttom);
-        logoUniversite.startAnimation(logoAnimation);
+        homeText.startAnimation(fromBottom);
+        menus.startAnimation(fromBottom);
+        logoUniversity.startAnimation(logoAnimation);
 
         checkPermission();
     }
@@ -97,13 +97,13 @@ public class MainActivity extends AppCompatActivity {
      * @see LinearLayout
      * @see ImageView
      */
-    public void initView() {
-        background = (ImageView) findViewById(R.id.background_main);
-        clover = (ImageView) findViewById(R.id.clover);
-        logoUniversite = (ImageView) findViewById(R.id.universite);
-        logo = (LinearLayout) findViewById(R.id.logo);
-        hometext = (LinearLayout) findViewById(R.id.hometext);
-        menus = (LinearLayout) findViewById(R.id.menus);
+    private void initView() {
+        background = findViewById(R.id.background_main);
+        clover = findViewById(R.id.clover);
+        logoUniversity = findViewById(R.id.university);
+        logo = findViewById(R.id.logo);
+        homeText = findViewById(R.id.home_text);
+        menus = findViewById(R.id.menus);
     }
 
     @Override
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 100 && resultCode == RESULT_OK) {
             Intent studioIntent = new Intent(this, StudioActivity.class);
             try {
-                studioIntent.putExtra("imagePath", image_uri.toString());
+                studioIntent.putExtra("imagePath", imageUri.toString());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             overridePendingTransition(R.anim.slidein, R.anim.slideout);
         }
         if (requestCode == PICKER_REQUEST_CODE && resultCode == RESULT_OK) {
-            mSelected = Matisse.obtainResult(data);
+            mSelected = Matisse.obtainResult(Objects.requireNonNull(data));
             Intent studioIntent = new Intent(this, StudioActivity.class);
             try {
                 studioIntent.putExtra("imagePath", mSelected.get(0).toString());
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param view The view that corresponds to the gallery button
      */
-    public void LoadImage(View view) {
+    public void loadImage(View view) {
         Matisse.from(MainActivity.this)
                 .choose(MimeType.ofImage())
                 .countable(false)
@@ -156,13 +156,13 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param view the view that corresponds to the camera button
      */
-    public void TakeImage(View view) {
+    public void takeImage(View view) {
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, "New Picture");
         values.put(MediaStore.Images.Media.DESCRIPTION, "From the Camera");
-        image_uri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+        imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, image_uri);
+        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         startActivityForResult(cameraIntent, REQUEST_CAMERA);
     }
 
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * @return true if yes, false if not
      */
-    public boolean isGranted() {
+    private boolean isGranted() {
         return (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) +
                 ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) +
                 ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Method that asks the user to grant permissions if they are not granted
      */
-    public void checkPermission() {
+    private void checkPermission() {
         if (!isGranted()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Permission d'accès");
@@ -207,15 +207,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case REQUEST_CODE:
-                if (grantResults.length >= 3 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED
-                        && grantResults[2] == PackageManager.PERMISSION_GRANTED) {
-                    Toasty.success(this, "Autorisation Accordée !", Toast.LENGTH_LONG).show();
-                } else
-                    Toasty.error(this, "Veuillez autoriser l'accès", Toast.LENGTH_LONG).show();
-                checkPermission();
-                break;
+        if (requestCode == REQUEST_CODE) {
+            if (grantResults.length >= 3 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED
+                    && grantResults[2] == PackageManager.PERMISSION_GRANTED) {
+                Toasty.success(this, "Autorisation Accordée !", Toast.LENGTH_LONG).show();
+            } else
+                Toasty.error(this, "Veuillez autoriser l'accès", Toast.LENGTH_LONG).show();
+            checkPermission();
         }
     }
 

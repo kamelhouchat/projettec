@@ -1,7 +1,43 @@
 <resources>
-    <string name="app_name">Projet Tech</string>
+    <string name="app_name">Img Studio</string>
     <string name="home">Studio</string>
     <string name="search">Plus</string>
+
+    //Main Activity
+    <string name="background_content">activity background</string>
+    <string name="university_logo_content">university logo</string>
+    <string name="gallery_logo_content">import from gallery logo</string>
+    <string name="camera_logo_content">import from camera logo</string>
+    <string name="application_logo__content">application logo</string>
+    <string name="clover_image_content">top left clover image</string>
+    <string name="gallery_logo_text">Galerie</string>
+    <string name="camera_logo_text">Camera</string>
+    <string name="main_activity_top_text">Veuillez charger ou prendre une photo</string>
+    <string name="main_activity_top_title">Explorer</string>
+    <string name="main_activity_application_name">Image Studio</string>
+
+    //Fragment Studio
+    <string name="rotate_right_content">rotate image right</string>
+    <string name="rotate_left_content">rotate image left</string>
+    <string name="restore_image_content">restore image</string>
+    <string name="save_image_content">save image</string>
+    <string name="center_text_default">Studio</string>
+    <string name="go_back_content">go back</string>
+
+    //Fragment Plus
+    <string name="brightness_icon_content">brightness switcher icon</string>
+    <string name="renderscript_icon_content">render script switcher icon</string>
+    <string name="show_histogram_icon_content">show histogram icon</string>
+    <string name="github_button_text">Github</string>
+    <string name="brightness_choice_text">Luminosité en HSV ou pas</string>
+    <string name="renderscript_choice_text">Avec ou sans renderScript</string>
+    <string name="show_histogram_text">Histog</string>
+    <string name="height_text">Hauteur</string>
+    <string name="width_text">Largeur</string>
+    <string name="information_text">Informations</string>
+
+    //Editing Tool Row
+    <string name="tool_icon_content">tool icon</string>
 
 
 </resources>

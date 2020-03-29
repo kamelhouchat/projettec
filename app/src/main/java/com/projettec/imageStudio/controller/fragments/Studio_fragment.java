@@ -1,5 +1,6 @@
 package com.projettec.imageStudio.controller.fragments;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -10,7 +11,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +25,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
-import com.google.android.material.resources.TextAppearance;
 import com.projettec.imageStudio.controller.adapters.EditingToolRecyclerViewAdapter;
 
 import com.projettec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
@@ -49,10 +48,9 @@ import com.tapadoo.alerter.Alerter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Objects;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
-
-import android.widget.Toast;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -91,7 +89,7 @@ import org.jetbrains.annotations.NotNull;
 public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected, View.OnClickListener {
 
     //The bitmap passed by MainActivity, used to reset to main state
-    public static Bitmap captImage;
+    private static Bitmap captImage;
 
     //Used to reset before applying filter
     private Bitmap loadedToRestore;
@@ -168,7 +166,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         applicationContext = StudioActivity.getContextOfApplication();
 
-        image_path = getArguments().getString("image");
+        image_path = Objects.requireNonNull(getArguments()).getString("image");
         image_uri = Uri.parse(image_path);
         captImage = null;
         try {
@@ -231,36 +229,36 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     /**
      * <p>Method that initializes views.
      */
-    public void initView() {
-        colorSeekBar = (ColorSeekBar) v.findViewById(R.id.seek);
+    private void initView() {
+        colorSeekBar = v.findViewById(R.id.seek);
         colorSeekBar.setVisibility(View.INVISIBLE);
 
-        undoImage = (ImageView) v.findViewById(R.id.fragment_studio_undo_parent);
+        undoImage = v.findViewById(R.id.fragment_studio_undo_parent);
         undoImage.setOnClickListener(this);
 
-        saveImage = (ImageView) v.findViewById(R.id.fragment_studio_save);
+        saveImage = v.findViewById(R.id.fragment_studio_save);
         saveImage.setOnClickListener(this);
 
-        restoreImage = (ImageView) v.findViewById(R.id.fragment_studio_restore);
+        restoreImage = v.findViewById(R.id.fragment_studio_restore);
         restoreImage.setOnClickListener(this);
 
-        centerText = (TextView) v.findViewById(R.id.fragment_studio_center_text);
+        centerText = v.findViewById(R.id.fragment_studio_center_text);
 
-        photo_view = (PhotoView) v.findViewById(R.id.photo_view);
+        photo_view = v.findViewById(R.id.photo_view);
 
-        cropLayout = (CropLayout) v.findViewById(R.id.crop_view);
+        cropLayout = v.findViewById(R.id.crop_view);
         cropLayout.setVisibility(View.INVISIBLE);
 
-        rotationButtonLayout = (LinearLayout) v.findViewById(R.id.degree_seekbar);
+        rotationButtonLayout = v.findViewById(R.id.degree_seek_bar);
         rotationButtonLayout.setVisibility(View.INVISIBLE);
 
-        rotateLeft = (ImageView) v.findViewById(R.id.rotate_left);
+        rotateLeft = v.findViewById(R.id.rotate_left);
         rotateLeft.setOnClickListener(this);
 
-        rotateRight = (ImageView) v.findViewById(R.id.rotate_right);
+        rotateRight = v.findViewById(R.id.rotate_right);
         rotateRight.setOnClickListener(this);
 
-        seekBar = (SeekBar) v.findViewById(R.id.brightness_seekbar);
+        seekBar = v.findViewById(R.id.brightness_seek_bar);
         seekBar.setVisibility(View.INVISIBLE);
     }
 
@@ -269,7 +267,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      */
     private void initFilterRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false);
-        filterRecyclerView = (RecyclerView) v.findViewById(R.id.filter_recyclerview);
+        filterRecyclerView = v.findViewById(R.id.filter_recyclerview);
         filterRecyclerView.setLayoutManager(layoutManager);
         FilterRecyclerViewAdapter adapter = new FilterRecyclerViewAdapter(captImage, applicationContext, this);
         filterRecyclerView.setAdapter(adapter);
@@ -281,7 +279,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      */
     private void initEditingToolRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false);
-        editingToolRecyclerView = (RecyclerView) v.findViewById(R.id.editing_tool_recyclerview);
+        editingToolRecyclerView = v.findViewById(R.id.editing_tool_recyclerview);
         editingToolRecyclerView.setLayoutManager(layoutManager);
         EditingToolRecyclerViewAdapter adapter = new EditingToolRecyclerViewAdapter(this);
         editingToolRecyclerView.setAdapter(adapter);
@@ -322,8 +320,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     /**
      * <p>Method that displays an alert : in progress.
      */
-    public void incoming() {
-        Alerter.create(getActivity())
+    private void incoming() {
+        Alerter.create(Objects.requireNonNull(getActivity()))
                 .enableProgress(true)
                 .setProgressColorRes(R.color.blue_grey_active)
                 .setDuration(2000)
@@ -340,6 +338,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      * @see ToolType
      * @see com.projettec.imageStudio.model.tools.ToolModel
      */
+    @SuppressLint("SetTextI18n")
     @Override
     public void onToolSelected(ToolType toolType) {
         switch (toolType) {
@@ -401,6 +400,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      * @see FilterType
      * @see com.projettec.imageStudio.model.filters.FilterModel
      */
+    @SuppressWarnings({"ConstantConditions", "AccessStaticViaInstance"})
     @Override
     public void onFilterSelected(FilterType filterType) {
         //Bitmap loadedToChange = Bitmap.createBitmap(this.loadedImage);
@@ -414,7 +414,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         loadedToChange = loadedToRestore.copy(loadedToRestore.getConfig(), true);
 
         switch (filterType) {
-            case TOGRAY:
+            case TO_GRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 if (isRenderScript) filter.tograyRS(loadedToChange);
                 else if (!isRenderScript) filter.toGrays(loadedToChange);
@@ -428,7 +428,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 colorSeekBar.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
                     @Override
                     public void onColorChangeListener(int colorBarPosition, int alphaBarPosition, int color) {
-                        float hsv[] = new float[3];
+                        float[] hsv = new float[3];
                         Conversion.RGBToHSV_new(Color.red(color), Color.green(color), Color.blue(color), hsv);
                         if (isRenderScript) filter.colorizeRS(loadedToChange, hsv[0]);
                         else if (!isRenderScript) filter.colorize(loadedToChange, hsv[0]);
@@ -436,46 +436,46 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                     }
                 });
                 break;
-            case KEEPCOLOR:
+            case KEEP_COLOR:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 if (isRenderScript) filter.KeepColorRS(loadedToChange, 90);
                 else if (!isRenderScript)
                     filter.keepColor(loadedToChange, Color.rgb(0, 0, 255), 15);
                 break;
-            case CONTRASTPLUSGRAY:
+            case CONTRAST_PLUS_GRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 if (isRenderScript) dynamicExtension.contrastePlusGrayRS(loadedToChange);
                 else if (!isRenderScript) dynamicExtension.contrastePlusGrayLut(loadedToChange);
                 break;
-            case CONTRASTPLUSRGB:
+            case CONTRAST_PLUS_RGB:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 if (isRenderScript) dynamicExtension.contrastePlusRGB_RS(loadedToChange);
                 else if (!isRenderScript) dynamicExtension.contrastePlusCouleurRGB(loadedToChange);
                 break;
-            case CONTRASTPLUSHSV:
+            case CONTRAST_PLUS_HSV:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 if (isRenderScript) dynamicExtension.contrastePlusHSV_RS(loadedToChange);
                 else if (!isRenderScript) dynamicExtension.contrastePlusCouleurHSV(loadedToChange);
                 break;
-            case CONTRASTFEWERGRAY:
+            case CONTRAST_FEWER_GRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 if (isRenderScript) dynamicExtension.contrasteFewerGrayRS(loadedToChange);
                 else if (!isRenderScript) dynamicExtension.contrasteFewerGray(loadedToChange);
                 break;
-            case EQUALIZATIONGRAY:
+            case EQUALIZATION_GRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 if (isRenderScript) equalization.egalisationGrayRS(loadedToChange);
                 else if (!isRenderScript) equalization.egalisationNB(loadedToChange);
                 break;
-            case EQUALIZATIONRGB:
+            case EQUALIZATION_RGB:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 if (isRenderScript) equalization.egalisationRGBRS(loadedToChange);
                 else if (!isRenderScript) equalization.egalisationcouleur(loadedToChange);
                 break;
-            case CONVOLUTIONMOY:
+            case CONVOLUTION_MOY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 int size = 15;
-                int filterMoy[][] = new int[size][size];
+                int[][] filterMoy = new int[size][size];
                 for (int i = 0; i < size; i++) {
                     for (int j = 0; j < size; j++) {
                         filterMoy[i][j] = 1;
@@ -483,9 +483,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 }
                 convolution.convolutions(loadedToChange, filterMoy);
                 break;
-            case CONVOLUTIONGAUS:
+            case CONVOLUTION_GAUS:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-                int filterGaus[][] = {{1, 2, 3, 2, 1},
+                int[][] filterGaus = {{1, 2, 3, 2, 1},
                         {2, 6, 8, 6, 2},
                         {3, 8, 10, 8, 3},
                         {2, 6, 8, 6, 2},
@@ -495,8 +495,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             case CONTOUR:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 //utilisation du contours
-                int gx[][] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
-                int gy[][] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
+                int[][] gx = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
+                int[][] gy = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
                 filter.tograyRS(loadedToChange);
                 Convolution.contours(loadedToChange, gx, gy);
                 break;
@@ -518,7 +518,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 goBack();
                 break;
             case R.id.fragment_studio_save:
-                final SweetAlertDialog saveAlerter = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
+                final SweetAlertDialog saveAlerter = new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.PROGRESS_TYPE);
                 saveAlerter.setTitleText("Sauvgarde ...").show();
                 final Handler saveHandler = new Handler();
                 saveHandler.postDelayed(new Runnable() {
@@ -526,14 +526,14 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                     public void run() {
                         saveImage(loadedToChange);
                         saveAlerter.hide();
-                        new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
+                        new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("Sauvegardé avec succès!")
                                 .show();
                     }
                 }, 1000);
                 break;
             case R.id.fragment_studio_restore:
-                final SweetAlertDialog restoreAlerter = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
+                final SweetAlertDialog restoreAlerter = new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.PROGRESS_TYPE);
                 restoreAlerter.setTitleText("Réstauration...").show();
                 final Handler restoreHandler = new Handler();
                 restoreHandler.postDelayed(new Runnable() {
@@ -560,7 +560,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      *
      * @see ViewAnimation
      */
-    public void goBack() {
+    @SuppressLint("SetTextI18n")
+    private void goBack() {
         if (isCropImage) {
             cropLayout.isOffFrame();
             cropLayout.crop();
@@ -574,11 +575,11 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 photo_view.setImageBitmap(loadedToChange);
                 isCropImage = false;
             }
-            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
+            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_left_black_24dp);
         } else if (isFilter) {
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, filterRecyclerView, editingToolRecyclerView,
                     0, 200, 200);
-            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
+            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_left_black_24dp);
             centerText.setText("Studio");
             isFilter = false;
         } else if (isColorize) {
@@ -591,26 +592,26 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             centerText.setText("Studio");
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, rotationButtonLayout, editingToolRecyclerView,
                     0, 200, 200);
-            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
+            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_left_black_24dp);
         } else if (isBrightness) {
             isBrightness = false;
             centerText.setText("Studio");
-            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
+            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_left_black_24dp);
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, seekBar, editingToolRecyclerView,
                     0, 200, 200);
             loadedToChange = loadedToRestore.copy(loadedToRestore.getConfig(), true);
         } else if (isSaturation) {
             isSaturation = false;
             centerText.setText("Studio");
-            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_keyboard_arrow_left_black_24dp);
+            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_left_black_24dp);
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, seekBar, editingToolRecyclerView,
                     0, 200, 200);
             loadedToChange = loadedToRestore.copy(loadedToRestore.getConfig(), true);
         } else {
             if (captImage.sameAs(loadedToChange))
-                getActivity().finish();
+                Objects.requireNonNull(getActivity()).finish();
             else {
-                new SweetAlertDialog(getContext(), SweetAlertDialog.WARNING_TYPE)
+                new SweetAlertDialog(Objects.requireNonNull(getContext()), SweetAlertDialog.WARNING_TYPE)
                         .setTitleText("Êtes-vous sûr?")
                         .setContentText("Vous perdrez vos modifications! Sauvgardez avant")
                         .setConfirmText("Oui, je suis sûr!")
@@ -626,7 +627,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                                 handler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
-                                        getActivity().finish();
+                                        Objects.requireNonNull(getActivity()).finish();
                                     }
                                 }, 1000);
                             }
@@ -644,14 +645,15 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      * @see FileOutputStream
      * @see MediaScannerConnection
      */
-    public void saveImage(Bitmap finalBitmap) {
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    private void saveImage(Bitmap finalBitmap) {
         String root = Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES).toString();
         File myDir = new File(root + "/Image_Studio");
         myDir.mkdirs();
 
-        String fname = "Image-" + System.currentTimeMillis() + ".jpg";
-        File file = new File(myDir, fname);
+        String fileName = "Image-" + System.currentTimeMillis() + ".jpg";
+        File file = new File(myDir, fileName);
         if (file.exists()) file.delete();
         try {
             FileOutputStream out = new FileOutputStream(file);
@@ -671,7 +673,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      * @see CropLayout
      * @see ViewAnimation
      */
-    public void cropImage() {
+    private void cropImage() {
         ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_out, saveImage, 0, 200, false);
@@ -694,7 +696,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
             @Override
             public void onFailure(@NotNull Exception e) {
-                Toast.makeText(applicationContext, "NOOOOOO", Toast.LENGTH_LONG).show();
+
             }
         });
 
@@ -708,7 +710,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      * @param degree The degree of rotation
      * @see Matrix
      */
-    public void rotateImage(float degree) {
+    private void rotateImage(float degree) {
         Matrix matrix = new Matrix();
         matrix.postRotate(degree);
         Bitmap rotatedBitmapLadedToRestore = Bitmap.createBitmap(loadedToRestore, 0, 0, loadedToRestore.getWidth(), loadedToRestore.getHeight(), matrix, true);
@@ -741,6 +743,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
             }
 
+            @SuppressWarnings("ConstantConditions")
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 int progressValue = seekBar.getProgress() - 256;

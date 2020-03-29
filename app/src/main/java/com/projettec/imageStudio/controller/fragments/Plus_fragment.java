@@ -1,10 +1,6 @@
 package com.projettec.imageStudio.controller.fragments;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Icon;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.polyak.iconswitch.IconSwitch;
@@ -22,7 +17,7 @@ import com.projettec.imageStudio.controller.StudioActivity;
 import com.projettec.imageStudio.R;
 import com.tapadoo.alerter.Alerter;
 
-import java.sql.Struct;
+import java.util.Objects;
 
 /**
  * <p>
@@ -61,7 +56,7 @@ public class Plus_fragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_plus, container, false);
 
-        final String image_path = getArguments().getString("image_path");
+        final String image_path = Objects.requireNonNull(getArguments()).getString("image_path");
 
         initView();
 
@@ -107,17 +102,17 @@ public class Plus_fragment extends Fragment implements View.OnClickListener{
     /**
      * <p>Method that initializes views
      */
-    public void initView() {
-        buttonHistog = v.findViewById(R.id.barchart_button);
+    private void initView() {
+        buttonHistog = v.findViewById(R.id.histogram_button);
 
         imageWidth = v.findViewById(R.id.fragment_plus_image_width);
 
         imageHeight = v.findViewById(R.id.fragment_plus_image_height);
 
-        githubButton = (TextView) v.findViewById(R.id.fragment_plus_github_button);
+        githubButton = v.findViewById(R.id.fragment_plus_github_button);
         githubButton.setOnClickListener(this);
 
-        iconSwitchRenderscriptJava = (IconSwitch) v.findViewById(R.id.toggle_renderscript_java);
+        iconSwitchRenderscriptJava = v.findViewById(R.id.toggle_renderscript_java);
         iconSwitchRenderscriptJava.setCheckedChangeListener(new IconSwitch.CheckedChangeListener() {
             @Override
             public void onCheckChanged(IconSwitch.Checked current) {
@@ -134,7 +129,7 @@ public class Plus_fragment extends Fragment implements View.OnClickListener{
             }
         });
 
-        iconSwitchBrightnessRGB_HSV = (IconSwitch) v.findViewById(R.id.toggle_brightness_hsv_rgb);
+        iconSwitchBrightnessRGB_HSV = v.findViewById(R.id.toggle_brightness_hsv_rgb);
         iconSwitchBrightnessRGB_HSV.setCheckedChangeListener(new IconSwitch.CheckedChangeListener() {
             @Override
             public void onCheckChanged(IconSwitch.Checked current) {
@@ -172,8 +167,8 @@ public class Plus_fragment extends Fragment implements View.OnClickListener{
      *
      * @param string Text to show
      */
-    public void showAlerter(String string) {
-        Alerter.create(getActivity())
+    private void showAlerter(String string) {
+        Alerter.create(Objects.requireNonNull(getActivity()))
                 .setText(string)
                 .setBackgroundColorRes(R.color.blue_active)
                 .setDuration(300)

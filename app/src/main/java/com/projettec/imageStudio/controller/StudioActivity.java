@@ -2,15 +2,9 @@ package com.projettec.imageStudio.controller;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.ImageView;
 
 import com.projettec.imageStudio.controller.fragments.Studio_fragment;
 import com.projettec.imageStudio.controller.fragments.Plus_fragment;
@@ -19,7 +13,6 @@ import com.tapadoo.alerter.Alerter;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -49,7 +42,7 @@ import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 public class StudioActivity extends AppCompatActivity {
 
     //The context of the activity
-    public static Context contextOfApplication;
+    private static Context contextOfApplication;
 
     //The image path
     private String image_path;
@@ -85,7 +78,7 @@ public class StudioActivity extends AppCompatActivity {
         final BubbleNavigationLinearView bubbleNavigationLinearView = findViewById(R.id.bottom_navigation_view_linear);
         bubbleNavigationLinearView.setTypeface(Typeface.createFromAsset(getAssets(), "rubik.ttf"));
 
-        final ViewPager pager = (ViewPager) findViewById(R.id.view_pager);
+        final ViewPager pager = findViewById(R.id.view_pager);
         pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -120,10 +113,12 @@ public class StudioActivity extends AppCompatActivity {
      */
     private class MyPagerAdapter extends FragmentPagerAdapter {
 
-        public MyPagerAdapter(FragmentManager fm) {
+        @SuppressWarnings("deprecation")
+        MyPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
+        @SuppressWarnings("NullableProblems")
         @Override
         public Fragment getItem(int pos) {
             switch (pos) {
@@ -132,7 +127,7 @@ public class StudioActivity extends AppCompatActivity {
                 case 1:
                     return Plus_fragment.newInstance(image_path);
             }
-            return null;
+            return null ;
         }
 
         @Override
@@ -143,7 +138,7 @@ public class StudioActivity extends AppCompatActivity {
 
     /**
      * <p>Static method which returns the context of the activity
-     * @return
+     * @return The application context
      */
     public static Context getContextOfApplication() {
         return contextOfApplication;
