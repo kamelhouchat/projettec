@@ -137,7 +137,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
     //Booleans to find out which action is selected at a given time
     private boolean isFilter = false;
-    private boolean isColorize = false;
+    private boolean isColorizeOrShading = false;
     private boolean isCropImage = false;
     private boolean isRotate = false;
     private boolean isBrightness = false;
@@ -427,7 +427,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             case COLORIZE:
                 ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, filterRecyclerView, colorSeekBar,
                         0, 200, 200);
-                isColorize = true;
+                isColorizeOrShading = true;
                 isFilter = false;
                 colorSeekBar.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
                     @Override
@@ -545,11 +545,26 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 }
                 break;
             case SHADING_EFFECT:
-                if (isRenderScript)
+                ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, filterRecyclerView, colorSeekBar,
+                        0, 200, 200);
+                isColorizeOrShading = true;
+                isFilter = false;
+                colorSeekBar.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
+                    @Override
+                    public void onColorChangeListener(int colorBarPosition, int alphaBarPosition, int color) {
+                        if (isRenderScript)
+                            loadedToChange = additionalFilters.shadingFilterRS(loadedToRestore, color);
+                        else if (!isRenderScript)
+                            loadedToChange = additionalFilters.shadingFilter(loadedToRestore, color);
+                        photo_view.setImageBitmap(loadedToChange);
+                    }
+                });
+                /*if (isRenderScript)
                     additionalFilters.shadingFilterRS(loadedToChange, Color.rgb(199, 252, 236));
                 else if (!isRenderScript)
                     additionalFilters.shadingFilter(loadedToChange, Color.rgb(199, 252, 236));
-                break;
+                break;*/
+
         }
         //Glide.with(mContext).load(this.loadedImage).into(photoView);
         photo_view.setImageBitmap(loadedToChange);
@@ -632,10 +647,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_left_black_24dp);
             centerText.setText("Studio");
             isFilter = false;
-        } else if (isColorize) {
+        } else if (isColorizeOrShading) {
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, colorSeekBar, filterRecyclerView,
                     0, 200, 200);
-            isColorize = false;
+            isColorizeOrShading = false;
             isFilter = true;
         } else if (isRotate) {
             isRotate = false;

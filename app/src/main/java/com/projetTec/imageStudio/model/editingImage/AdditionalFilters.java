@@ -179,10 +179,11 @@ public class AdditionalFilters {
      * </p>
      *
      * @param imageBitmap  A Bitmap image
-     * @param shadingColor shading color (RGB)
+     * @param shadingColor Shading color (RGB)
+     * @return The result in Bitmap
      * @see com.projetTec.imageStudio.model.filters.FilterType
      */
-    public void shadingFilter(Bitmap imageBitmap, int shadingColor) {
+    public Bitmap shadingFilter(Bitmap imageBitmap, int shadingColor) {
         int width = imageBitmap.getWidth();
         int height = imageBitmap.getHeight();
 
@@ -192,7 +193,10 @@ public class AdditionalFilters {
         for (int i = 0; i < height * width - 1; i++) {
             pixels[i] &= shadingColor;
         }
-        imageBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+        Bitmap returnBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        returnBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+
+        return returnBitmap;
     }
 
     /*######################################"Render Script#########################################*/
@@ -287,10 +291,11 @@ public class AdditionalFilters {
      * </p>
      *
      * @param imageBitmap  A Bitmap image
-     * @param shadingColor shading color (RGB)
+     * @param shadingColor Shading color (RGB)
+     * @return The result in Bitmap
      * @see com.projetTec.imageStudio.model.filters.FilterType
      */
-    public void shadingFilterRS(Bitmap imageBitmap, int shadingColor) {
+    public Bitmap shadingFilterRS(Bitmap imageBitmap, int shadingColor) {
         RenderScript rs = RenderScript.create(context);
 
         Allocation input = Allocation.createFromBitmap(rs, imageBitmap);
@@ -304,12 +309,16 @@ public class AdditionalFilters {
 
         scriptCAdditionalShading.forEach_shadingEffect(input, output);
 
-        output.copyTo(imageBitmap);
+//        Bitmap returnBitmap = imageBitmap.copy(imageBitmap.getConfig(), true);
+        Bitmap returnBitmap = Bitmap.createBitmap(imageBitmap.getWidth(), imageBitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        output.copyTo(returnBitmap);
 
         input.destroy();
         output.destroy();
         scriptCAdditionalShading.destroy();
         rs.destroy();
+
+        return returnBitmap;
     }
 
 }
