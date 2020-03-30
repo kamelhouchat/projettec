@@ -419,15 +419,12 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         switch (filterType) {
             case TO_GRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-/*                if (isRenderScript)
+                if (isRenderScript)
                     filters.tograyRS(loadedToChange);
                 else if (!isRenderScript)
-                    filters.toGrays(loadedToChange);*/
-                int new_color = Color.rgb(199, 252, 236);
-                additionalFilters.shadingFilterRS(loadedToChange, new_color);
+                    filters.toGrays(loadedToChange);
                 break;
             case COLORIZE:
-                //colorSeekBar.setVisibility(View.VISIBLE);
                 ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, filterRecyclerView, colorSeekBar,
                         0, 200, 200);
                 isColorize = true;
