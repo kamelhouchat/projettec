@@ -419,10 +419,12 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         switch (filterType) {
             case TO_GRAY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-                if (isRenderScript)
+/*                if (isRenderScript)
                     filters.tograyRS(loadedToChange);
                 else if (!isRenderScript)
-                    filters.toGrays(loadedToChange);
+                    filters.toGrays(loadedToChange);*/
+                int new_color = Color.rgb(199, 252, 236);
+                additionalFilters.shadingFilterRS(loadedToChange, new_color);
                 break;
             case COLORIZE:
                 //colorSeekBar.setVisibility(View.VISIBLE);
@@ -544,6 +546,13 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 else if (!isRenderScript) {
                     additionalFilters.invertEffect(loadedToChange);
                 }
+                break;
+            case SHADING_EFFECT:
+                if (isRenderScript)
+                    additionalFilters.shadingFilterRS(loadedToChange, Color.rgb(199, 252, 236));
+                else if (!isRenderScript)
+                    additionalFilters.shadingFilter(loadedToChange, Color.rgb(199, 252, 236));
+                break;
         }
         //Glide.with(mContext).load(this.loadedImage).into(photoView);
         photo_view.setImageBitmap(loadedToChange);

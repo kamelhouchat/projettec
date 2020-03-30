@@ -2,13 +2,19 @@ package com.projetTec.imageStudio.model.editingImage;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BlurMaskFilter;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
 
 import androidx.renderscript.Allocation;
 import androidx.renderscript.RenderScript;
+import androidx.renderscript.Short4;
 
 import com.android.rssample.ScriptC_additional_invert;
 import com.android.rssample.ScriptC_additional_noise;
+import com.android.rssample.ScriptC_additional_shading;
 import com.android.rssample.ScriptC_additional_snow_black;
 
 import java.util.Random;
@@ -166,6 +172,29 @@ public class AdditionalFilters {
         imageBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
     }
 
+    /**
+     * <p>
+     * Method which allows to apply a shading effect to the image passed in parameter
+     * (Using JAVA)
+     * </p>
+     *
+     * @param imageBitmap  A Bitmap image
+     * @param shadingColor shading color (RGB)
+     * @see com.projetTec.imageStudio.model.filters.FilterType
+     */
+    public void shadingFilter(Bitmap imageBitmap, int shadingColor) {
+        int width = imageBitmap.getWidth();
+        int height = imageBitmap.getHeight();
+
+        int[] pixels = new int[width * height];
+        imageBitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+
+        for (int i = 0; i < height * width - 1; i++) {
+            pixels[i] &= shadingColor;
+        }
+        imageBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+    }
+
     /*######################################"Render Script#########################################*/
 
     /**
@@ -248,6 +277,38 @@ public class AdditionalFilters {
         input.destroy();
         output.destroy();
         scriptCAdditionalInvert.destroy();
+        rs.destroy();
+    }
+
+    /**
+     * <p>
+     * Method which allows to apply a shading effect to the image passed in parameter
+     * (Using Render Script)
+     * </p>
+     *
+     * @param imageBitmap  A Bitmap image
+     * @param shadingColor shading color (RGB)
+     * @see com.projetTec.imageStudio.model.filters.FilterType
+     */
+    public void shadingFilterRS(Bitmap imageBitmap, int shadingColor) {
+        RenderScript rs = RenderScript.create(context);
+
+        Allocation input = Allocation.createFromBitmap(rs, imageBitmap);
+        Allocation output = Allocation.createTyped(rs, input.getType());
+
+        ScriptC_additional_shading scriptCAdditionalShading = new ScriptC_additional_shading(rs);
+
+        scriptCAdditionalShading.set_red((short) Color.red(shadingColor));
+        scriptCAdditionalShading.set_green((short) Color.green(shadingColor));
+        scriptCAdditionalShading.set_blue((short) Color.blue(shadingColor));
+
+        scriptCAdditionalShading.forEach_shadingEffect(input, output);
+
+        output.copyTo(imageBitmap);
+
+        input.destroy();
+        output.destroy();
+        scriptCAdditionalShading.destroy();
         rs.destroy();
     }
 

@@ -28,6 +28,7 @@ public enum FilterType {
     SNOW_EFFECT,
     BLACK_EFFECT,
     NOISE_EFFECT,
-    INVERT_EFFECT
+    INVERT_EFFECT,
+    SHADING_EFFECT
 
 }

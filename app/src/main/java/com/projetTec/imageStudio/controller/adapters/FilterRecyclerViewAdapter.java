@@ -3,6 +3,7 @@ package com.projetTec.imageStudio.controller.adapters;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,6 +102,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
         filterModels.add(new FilterModel("Noire", FilterType.BLACK_EFFECT));
         filterModels.add(new FilterModel("Bruit", FilterType.NOISE_EFFECT));
         filterModels.add(new FilterModel("Inverser", FilterType.INVERT_EFFECT));
+        filterModels.add(new FilterModel("Ombre", FilterType.SHADING_EFFECT));
 
         this.loadedImage = loadedImage;
         this.loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
@@ -257,6 +259,10 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 break;
             case INVERT_EFFECT:
                 additionalFilters.invertEffectRS(loadedToRecycle);
+                break;
+            case SHADING_EFFECT:
+                additionalFilters.shadingFilterRS(loadedToRecycle, Color.rgb(199, 252, 236));
+                break;
         }
         return loadedToRecycle;
     }
