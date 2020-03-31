@@ -105,6 +105,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
         filterModels.add(new FilterModel("Inverser", FilterType.INVERT_EFFECT));
         filterModels.add(new FilterModel("Ombre", FilterType.SHADING_EFFECT));
         filterModels.add(new FilterModel("Equa YUV", FilterType.EQUALIZATION_YUV));
+        filterModels.add(new FilterModel("Equa YUV & RGB", FilterType.MIX_EQUALIZATION_RGB_YUV));
 
         this.loadedImage = loadedImage;
         this.loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
@@ -267,6 +268,9 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 break;
             case EQUALIZATION_YUV:
                 additionalFilters.equalizationYuvY(loadedToRecycle);
+                break;
+            case MIX_EQUALIZATION_RGB_YUV:
+                additionalFilters.mixEqualizationRgbYuv(loadedToRecycle);
                 break;
         }
         return loadedToRecycle;

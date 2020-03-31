@@ -178,7 +178,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             e.printStackTrace();
         }
 
-        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.chateaux);
+        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.plage);
         loadedToRestore = captImage.copy(captImage.getConfig(), true);
         loadedToChange = captImage.copy(captImage.getConfig(), true);
 
@@ -562,6 +562,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 break;
             case EQUALIZATION_YUV:
                 additionalFilters.equalizationYuvY(loadedToChange);
+                break;
+            case MIX_EQUALIZATION_RGB_YUV:
+                additionalFilters.mixEqualizationRgbYuv(loadedToChange);
                 break;
 
         }

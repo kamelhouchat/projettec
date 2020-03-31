@@ -16,6 +16,7 @@ import com.android.rssample.ScriptC_additional_invert;
 import com.android.rssample.ScriptC_additional_noise;
 import com.android.rssample.ScriptC_additional_shading;
 import com.android.rssample.ScriptC_additional_snow_black;
+import com.projetTec.imageStudio.model.editingImage.Equalization;
 
 import java.util.Random;
 
@@ -203,6 +204,7 @@ public class AdditionalFilters {
      * <p>
      * Method which makes it possible to apply a histogram equalization to the Y value of a pixel
      * after conversion into YUV and to convert the image back to rgb.
+     * (Using JAVA)
      * </p>
      *
      * @param imageBitmap A bitmap image.
@@ -225,6 +227,42 @@ public class AdditionalFilters {
             float[] yuv = Conversion.rgbToYuv(pixels[i]);
             yuv[0] = LUT[(int) yuv[0]];
             pixels[i] = Conversion.yuvToRgb(yuv);
+        }
+        imageBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+    }
+
+    /**
+     * <p>
+     * Method that applies RGB equalization and YUV equalization and mixes them all in a single
+     * image.
+     * (Using JAVA)
+     * </p>
+     *
+     * @param imageBitmap A bitmap image
+     * @see AdditionalFilters
+     * @see Equalization
+     */
+    public void mixEqualizationRgbYuv(Bitmap imageBitmap) {
+        Equalization equalization = new Equalization(imageBitmap, context);
+
+        Bitmap ega = imageBitmap.copy(imageBitmap.getConfig(), true);
+        Bitmap egaYUV = imageBitmap.copy(imageBitmap.getConfig(), true);
+
+        equalizationYuvY(egaYUV);
+        equalization.equalizationRGB_RS(ega);
+
+        int width = imageBitmap.getWidth();
+        int height = imageBitmap.getHeight();
+
+        int[] pixels = new int[width * height];
+        int[] pixelsEga = new int[width * height];
+        int[] pixelsEgaYUV = new int[width * height];
+
+        ega.getPixels(pixelsEga, 0, width, 0, 0, width, height);
+        egaYUV.getPixels(pixelsEgaYUV, 0, width, 0, 0, width, height);
+
+        for (int i = 0; i < height * width - 1; i++) {
+            pixels[i] = pixelsEga[i] & pixelsEgaYUV[i];
         }
         imageBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
     }
