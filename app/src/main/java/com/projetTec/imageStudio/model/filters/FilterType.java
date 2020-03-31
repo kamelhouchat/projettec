@@ -29,6 +29,7 @@ public enum FilterType {
     BLACK_EFFECT,
     NOISE_EFFECT,
     INVERT_EFFECT,
-    SHADING_EFFECT
+    SHADING_EFFECT,
+    EQUALIZATION_YUV
 
 }

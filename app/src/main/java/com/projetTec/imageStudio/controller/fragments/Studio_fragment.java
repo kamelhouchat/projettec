@@ -30,7 +30,7 @@ import com.projetTec.imageStudio.controller.adapters.EditingToolRecyclerViewAdap
 import com.projetTec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
 import com.projetTec.imageStudio.controller.StudioActivity;
 import com.projetTec.imageStudio.model.animation.ViewAnimation;
-import com.projetTec.imageStudio.model.editingImage.AdditionalFilters;
+import com.projetTec.imageStudio.model.editingImage.additionalFilters.AdditionalFilters;
 import com.projetTec.imageStudio.model.editingImage.Conversion;
 import com.projetTec.imageStudio.model.editingImage.Convolution;
 import com.projetTec.imageStudio.model.editingImage.DynamicExtension;
@@ -493,7 +493,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 break;
             case CONVOLUTION_MOY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-                int size = 15;
+                int size = 3;
                 int[][] filterMoy = new int[size][size];
                 for (int i = 0; i < size; i++) {
                     for (int j = 0; j < size; j++) {
@@ -559,11 +559,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                         photo_view.setImageBitmap(loadedToChange);
                     }
                 });
-                /*if (isRenderScript)
-                    additionalFilters.shadingFilterRS(loadedToChange, Color.rgb(199, 252, 236));
-                else if (!isRenderScript)
-                    additionalFilters.shadingFilter(loadedToChange, Color.rgb(199, 252, 236));
-                break;*/
+                break;
+            case EQUALIZATION_YUV:
+                additionalFilters.equalizationYuvY(loadedToChange);
+                break;
 
         }
         //Glide.with(mContext).load(this.loadedImage).into(photoView);

@@ -7,13 +7,14 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.projetTec.imageStudio.model.editingImage.AdditionalFilters;
+import com.projetTec.imageStudio.model.editingImage.additionalFilters.AdditionalFilters;
 import com.projetTec.imageStudio.model.editingImage.Convolution;
 import com.projetTec.imageStudio.model.editingImage.DynamicExtension;
 import com.projetTec.imageStudio.model.editingImage.Equalization;
@@ -103,6 +104,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
         filterModels.add(new FilterModel("Bruit", FilterType.NOISE_EFFECT));
         filterModels.add(new FilterModel("Inverser", FilterType.INVERT_EFFECT));
         filterModels.add(new FilterModel("Ombre", FilterType.SHADING_EFFECT));
+        filterModels.add(new FilterModel("Equa YUV", FilterType.EQUALIZATION_YUV));
 
         this.loadedImage = loadedImage;
         this.loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
@@ -262,6 +264,9 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 break;
             case SHADING_EFFECT:
                 additionalFilters.shadingFilterRS(loadedToRecycle, Color.rgb(199, 252, 236));
+                break;
+            case EQUALIZATION_YUV:
+                additionalFilters.equalizationYuvY(loadedToRecycle);
                 break;
         }
         return loadedToRecycle;
