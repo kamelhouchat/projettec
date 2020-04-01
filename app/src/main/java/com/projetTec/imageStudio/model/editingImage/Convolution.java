@@ -4,6 +4,12 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 
+import androidx.renderscript.Allocation;
+import androidx.renderscript.Element;
+import androidx.renderscript.RenderScript;
+
+import com.android.rssample.ScriptC_convolution;
+
 
 public class Convolution {
 
@@ -112,6 +118,13 @@ public class Convolution {
         return som;
     }
 
+    private static int somme(int[] pixel) {
+        int som = 0;
+        int n = pixel.length;
+        for (int anInt : pixel)
+            som += anInt;
+        return som;
+    }
 
     /**
      *
@@ -156,19 +169,46 @@ public class Convolution {
 
     /*--------------------------------------RenderScript---------------------------------------*/
 
-    /*public void convolutionAverageFilterRS(Bitmap imageBitmap){
-        RenderScript rs = RenderScript.create(this);
-        ScriptC_average_convolution convolutionScript = new ScriptC_average_convolution(rs);
+
+    /**
+     * <p> this function implement the convolution function in renderscript </p>
+     * @param imageBitmap
+     * @param filters
+     */
+    public void convolutionAverageFilterRS(Bitmap imageBitmap, int[] filters){
+        RenderScript rs = RenderScript.create(context);
+
+        Allocation input = Allocation.createFromBitmap (rs, imageBitmap);
+        Allocation output = Allocation.createTyped (rs, input.getType());
+        ScriptC_convolution convolutionScript = new ScriptC_convolution(rs);
 
         int width = imageBitmap.getWidth();
         int height = imageBitmap.getHeight();
-        int[] pixels = new int[height*width];
-        imageBitmap.getPixels(pixels,0,width,0,0,width,height);
+        //int[] pixels = new int[height*width];
 
-        Allocation pixels_rs = Allocation.createSized(rs, Element.I32(rs),pixels.length);
-        pixels_rs.copyFrom(pixels);
-        convolutionScript.bind_pixels(pixels_rs);
+        //imageBitmap.getPixels(pixels,0,width,0,0,width,height);
 
-    }*/
+        convolutionScript.set_height(height);
+        convolutionScript.set_width(width);
+        convolutionScript.set_sum(somme(filters));
+        convolutionScript.set_sizeFilter(filters.length/4);
+
+        //Allocation pixels_rs = Allocation.createSized(rs, Element.I32(rs),pixels.length);
+        //pixels_rs.copyFrom(pixels);
+        convolutionScript.bind_pixels(input);
+
+        Allocation filter_rs = Allocation.createSized(rs, Element.I32(rs),filters.length);
+        filter_rs.copyFrom(filters);
+        convolutionScript.bind_filter(filter_rs);
+
+        convolutionScript.forEach_convolution(input, output);
+
+        output.copyTo(imageBitmap) ;
+        //pixels_rs.destroy();
+        filter_rs.destroy();
+        input.destroy(); output.destroy();
+        convolutionScript.destroy(); rs.destroy();
+
+    }
 
 }

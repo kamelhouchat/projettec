@@ -493,14 +493,18 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 break;
             case CONVOLUTION_MOY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-                int size = 3;
-                int[][] filterMoy = new int[size][size];
+                int size = 7;
+                /*int[][] filterMoy = new int[size][size];
                 for (int i = 0; i < size; i++) {
                     for (int j = 0; j < size; j++) {
                         filterMoy[i][j] = 1;
                     }
-                }
-                convolution.convolutions(loadedToChange, filterMoy);
+                }*/
+                int[] filterMoy = new int[size];
+                for (int i = 0; i < size; i++)
+                    filterMoy[i] = 1;
+                convolution.convolutionAverageFilterRS(loadedToChange, filterMoy);
+                //convolution.convolutions(loadedToChange, filterMoy);
                 break;
             case CONVOLUTION_GAUS:
                 colorSeekBar.setVisibility(View.INVISIBLE);

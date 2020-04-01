@@ -228,13 +228,17 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 break;
             case CONVOLUTION_MOY:
                 int size = 7;
-                int[][] filterMoy = new int[size][size];
+                /*int[][] filterMoy = new int[size][size];
                 for (int i = 0; i < size; i++) {
                     for (int j = 0; j < size; j++) {
                         filterMoy[i][j] = 1;
                     }
-                }
-                convolution.convolutions(loadedToRecycle, filterMoy);
+                }*/
+                int[] filterMoy = new int[size];
+                for (int i = 0; i < size; i++)
+                    filterMoy[i] = 1;
+                convolution.convolutionAverageFilterRS(loadedToRecycle,filterMoy);
+                //convolution.convolutions(loadedToRecycle, filterMoy);
                 break;
             case CONVOLUTION_GAUS:
                 int[][] filterGaus = {{1, 2, 3, 2, 1},
