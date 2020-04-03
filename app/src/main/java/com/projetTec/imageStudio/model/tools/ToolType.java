@@ -20,5 +20,8 @@ public enum ToolType {
     EDIT,
     ROTATE,
     BRIGHTNESS,
-    SATURATION
+    SATURATION,
+
+    //Additional Tools
+    FACE
 }

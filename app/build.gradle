@@ -75,6 +75,12 @@ dependencies {
     //Icon Switch
     implementation 'com.polyak:icon-switch:1.0.0'
 
+    //Google Vision
+    implementation 'com.google.android.gms:play-services-vision:19.0.0'
+
+    //Photo Editor
+    implementation 'ja.burhanrashid52:photoeditor:1.0.0'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

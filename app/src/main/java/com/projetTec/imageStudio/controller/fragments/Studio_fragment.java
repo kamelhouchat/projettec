@@ -3,8 +3,11 @@ package com.projetTec.imageStudio.controller.fragments;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
 import android.graphics.Matrix;
+import android.graphics.PorterDuff;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,17 +28,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
+import com.google.android.gms.dynamite.descriptors.com.google.android.gms.flags.ModuleDescriptor;
 import com.projetTec.imageStudio.controller.adapters.EditingToolRecyclerViewAdapter;
 
 import com.projetTec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
 import com.projetTec.imageStudio.controller.StudioActivity;
 import com.projetTec.imageStudio.model.animation.ViewAnimation;
 import com.projetTec.imageStudio.model.editingImage.additionalFilters.AdditionalFilters;
-import com.projetTec.imageStudio.model.editingImage.Conversion;
-import com.projetTec.imageStudio.model.editingImage.Convolution;
-import com.projetTec.imageStudio.model.editingImage.DynamicExtension;
-import com.projetTec.imageStudio.model.editingImage.Equalization;
-import com.projetTec.imageStudio.model.editingImage.Filters;
+import com.projetTec.imageStudio.model.editingImage.additionalFilters.FaceDetection;
+import com.projetTec.imageStudio.model.editingImage.basicFilters.Conversion;
+import com.projetTec.imageStudio.model.editingImage.basicFilters.Convolution;
+import com.projetTec.imageStudio.model.editingImage.basicFilters.DynamicExtension;
+import com.projetTec.imageStudio.model.editingImage.basicFilters.Equalization;
+import com.projetTec.imageStudio.model.editingImage.basicFilters.Filters;
 import com.projetTec.imageStudio.R;
 import com.projetTec.imageStudio.model.filters.FilterType;
 import com.projetTec.imageStudio.model.filters.OnItemFilterSelected;
@@ -52,6 +57,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import ja.burhanrashid52.photoeditor.PhotoEditor;
+import ja.burhanrashid52.photoeditor.PhotoEditorView;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -118,7 +125,13 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private CropLayout cropLayout;
 
     //The photo view layout (Support zoom)
-    private PhotoView photo_view;
+    private PhotoView photoView;
+
+    //The photo editor layout (Support Text, Emoji, Sticker, Brush, Eraser)
+    private PhotoEditorView photoEditorView;
+
+    //The photo editor to use the image editing feature
+    private PhotoEditor photoEditor;
 
     //The images present in the layout
     private ImageView undoImage, saveImage, restoreImage, rotateLeft, rotateRight;
@@ -178,7 +191,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             e.printStackTrace();
         }
 
-        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.plage);
+        captImage = BitmapFactory.decodeResource(getResources(), R.drawable.tom);
         loadedToRestore = captImage.copy(captImage.getConfig(), true);
         loadedToChange = captImage.copy(captImage.getConfig(), true);
 
@@ -192,7 +205,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         int height = captImage.getHeight();
         int width = captImage.getWidth();
 
-        Glide.with(applicationContext).load(captImage).override(width, height).into(photo_view);
+        Glide.with(applicationContext).load(captImage).override(width, height).into(photoView);
 
 
         //Glide.with(applicationContext).load(captImage).centerInside().into(photo_view);
@@ -247,7 +260,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         centerText = v.findViewById(R.id.fragment_studio_center_text);
 
-        photo_view = v.findViewById(R.id.photo_view);
+        photoView = v.findViewById(R.id.photo_view);
+
+        photoEditorView = v.findViewById(R.id.photo_editor);
+        photoEditorView.setVisibility(View.INVISIBLE);
 
         cropLayout = v.findViewById(R.id.crop_view);
         cropLayout.setVisibility(View.INVISIBLE);
@@ -263,6 +279,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         seekBar = v.findViewById(R.id.brightness_seek_bar);
         seekBar.setVisibility(View.INVISIBLE);
+
+        photoEditor = new PhotoEditor.Builder(getContext(), photoEditorView).build();
     }
 
     /**
@@ -374,7 +392,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 break;
             case TEXT:
                 centerText.setText("Texte");
-                incoming();
+                //incoming();
+                writeText();
                 break;
             case BRUSH:
                 centerText.setText("Pinceau");
@@ -391,6 +410,11 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             case STICKER:
                 centerText.setText("Sticker");
                 incoming();
+                break;
+            case FACE:
+                centerText.setText("Face");
+                FaceDetection faceDetection = new FaceDetection(applicationContext);
+                faceDetection.detectFace(loadedToChange, photoView);
                 break;
         }
     }
@@ -438,7 +462,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                             filters.colorizeRS(loadedToChange, hsv[0]);
                         else if (!isRenderScript)
                             filters.colorize(loadedToChange, hsv[0]);
-                        photo_view.setImageBitmap(loadedToChange);
+                        photoView.setImageBitmap(loadedToChange);
                     }
                 });
                 break;
@@ -560,7 +584,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                             loadedToChange = additionalFilters.shadingFilterRS(loadedToRestore, color);
                         else if (!isRenderScript)
                             loadedToChange = additionalFilters.shadingFilter(loadedToRestore, color);
-                        photo_view.setImageBitmap(loadedToChange);
+                        photoView.setImageBitmap(loadedToChange);
                     }
                 });
                 break;
@@ -573,7 +597,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         }
         //Glide.with(mContext).load(this.loadedImage).into(photoView);
-        photo_view.setImageBitmap(loadedToChange);
+        photoView.setImageBitmap(loadedToChange);
     }
 
     /**
@@ -612,7 +636,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                     public void run() {
                         loadedToChange = captImage.copy(captImage.getConfig(), true);
                         loadedToRestore = captImage.copy(captImage.getConfig(), true);
-                        Glide.with(applicationContext).load(captImage).override(captImage.getWidth(), captImage.getHeight()).into(photo_view);
+                        Glide.with(applicationContext).load(captImage).override(captImage.getWidth(), captImage.getHeight()).into(photoView);
                         restoreAlerter.hide();
                     }
                 }, 1000);
@@ -641,9 +665,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.frombuttom, editingToolRecyclerView, 0, 200, true);
                 ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, saveImage, 0, 200, true);
                 ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, restoreImage, 0, 200, true);
-                ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, cropLayout, photo_view,
+                ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, cropLayout, photoView,
                         0, 200, 200);
-                photo_view.setImageBitmap(loadedToChange);
+                photoView.setImageBitmap(loadedToChange);
                 isCropImage = false;
             }
             ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_left_black_24dp);
@@ -749,7 +773,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_out, saveImage, 0, 200, false);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_out, restoreImage, 0, 200, false);
-        ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photo_view, cropLayout,
+        ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photoView, cropLayout,
                 0, 200, 200);
         cropLayout.addOnCropListener(new OnCropListener() {
             @Override
@@ -757,11 +781,11 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.frombuttom, editingToolRecyclerView, 0, 200, true);
                 ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, saveImage, 0, 200, true);
                 ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, restoreImage, 0, 200, true);
-                ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, cropLayout, photo_view,
+                ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, cropLayout, photoView,
                         0, 200, 200);
                 loadedToRestore = bitmap.copy(bitmap.getConfig(), true);
                 loadedToChange = bitmap.copy(bitmap.getConfig(), true);
-                photo_view.setImageBitmap(loadedToChange);
+                photoView.setImageBitmap(loadedToChange);
                 isCropImage = false;
             }
 
@@ -772,6 +796,17 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         });
 
         cropLayout.setBitmap(loadedToChange);
+        isCropImage = true;
+    }
+
+    private void writeText() {
+        ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
+        ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);
+        ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_out, saveImage, 0, 200, false);
+        ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_out, restoreImage, 0, 200, false);
+        ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photoView, photoEditorView,
+                0, 200, 200);
+
         isCropImage = true;
     }
 
@@ -788,7 +823,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         Bitmap rotatedBitmapLoadedToChange = Bitmap.createBitmap(loadedToChange, 0, 0, loadedToChange.getWidth(), loadedToChange.getHeight(), matrix, true);
         loadedToRestore = rotatedBitmapLadedToRestore.copy(rotatedBitmapLadedToRestore.getConfig(), true);
         loadedToChange = rotatedBitmapLoadedToChange.copy(rotatedBitmapLoadedToChange.getConfig(), true);
-        photo_view.setImageBitmap(loadedToChange);
+        photoView.setImageBitmap(loadedToChange);
     }
 
     /**
@@ -822,9 +857,11 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 //                Bitmap returnBitmap = filter.brightnessAndSaturationHSV_RS(loadedToChange, val);
 //                loadedToRestore = filter.brightnessAndSaturationHSV(loadedToChange, val, true);
 
-                if (isBrightnessRGB) loadedToRestore = filters.brightnessRGB(loadedToChange, progressValue);
-                else if (!isBrightnessRGB) loadedToRestore = filters.brightnessAndSaturationHSV(loadedToChange, (float) progressValue / 256, true);
-                photo_view.setImageBitmap(loadedToRestore);
+                if (isBrightnessRGB)
+                    loadedToRestore = filters.brightnessRGB(loadedToChange, progressValue);
+                else if (!isBrightnessRGB)
+                    loadedToRestore = filters.brightnessAndSaturationHSV(loadedToChange, (float) progressValue / 256, true);
+                photoView.setImageBitmap(loadedToRestore);
             }
         });
     }
@@ -857,7 +894,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 int progressSaturation = seekBar.getProgress() - 256;
                 float val = (float) progressSaturation / 256;
                 loadedToRestore = filters.brightnessAndSaturationHSV(loadedToChange, val, false);
-                photo_view.setImageBitmap(loadedToRestore);
+                photoView.setImageBitmap(loadedToRestore);
             }
         });
     }

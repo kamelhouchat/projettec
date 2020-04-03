@@ -2,21 +2,16 @@ package com.projetTec.imageStudio.model.editingImage.additionalFilters;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BlurMaskFilter;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
 
 import androidx.renderscript.Allocation;
 import androidx.renderscript.RenderScript;
-import androidx.renderscript.Short4;
 
 import com.android.rssample.ScriptC_additional_invert;
 import com.android.rssample.ScriptC_additional_noise;
 import com.android.rssample.ScriptC_additional_shading;
 import com.android.rssample.ScriptC_additional_snow_black;
-import com.projetTec.imageStudio.model.editingImage.Equalization;
+import com.projetTec.imageStudio.model.editingImage.basicFilters.Equalization;
 
 import java.util.Random;
 
@@ -119,7 +114,7 @@ public class AdditionalFilters {
      * @param percent     The percentage of the change
      * @see com.projetTec.imageStudio.model.filters.FilterType
      */
-    public void boostCanals(Bitmap imageBitmap, int type, float percent) {
+    public void colorizeRGB(Bitmap imageBitmap, int type, float percent) {
         int width = imageBitmap.getWidth();
         int height = imageBitmap.getHeight();
 

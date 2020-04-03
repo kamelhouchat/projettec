@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,10 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.projetTec.imageStudio.model.editingImage.additionalFilters.AdditionalFilters;
-import com.projetTec.imageStudio.model.editingImage.Convolution;
-import com.projetTec.imageStudio.model.editingImage.DynamicExtension;
-import com.projetTec.imageStudio.model.editingImage.Equalization;
-import com.projetTec.imageStudio.model.editingImage.Filters;
+import com.projetTec.imageStudio.model.editingImage.basicFilters.Convolution;
+import com.projetTec.imageStudio.model.editingImage.basicFilters.DynamicExtension;
+import com.projetTec.imageStudio.model.editingImage.basicFilters.Equalization;
+import com.projetTec.imageStudio.model.editingImage.basicFilters.Filters;
 import com.projetTec.imageStudio.R;
 import com.projetTec.imageStudio.model.filters.FilterModel;
 import com.projetTec.imageStudio.model.filters.FilterType;

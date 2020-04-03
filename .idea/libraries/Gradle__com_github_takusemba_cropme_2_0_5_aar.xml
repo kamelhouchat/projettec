@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.takusemba:cropme:2.0.5@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4d54b6b4ee6bff2441cd10c433e9c536/jetified-cropme-2.0.5/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4d54b6b4ee6bff2441cd10c433e9c536/jetified-cropme-2.0.5/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0d8a2fb4131bd4c226eb9f57ede2d8cd/jetified-cropme-2.0.5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0d8a2fb4131bd4c226eb9f57ede2d8cd/jetified-cropme-2.0.5/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.takusemba/cropme/2.0.5/2560c62eaa9bd38e2859f7f53ea36d71845fa556/cropme-2.0.5-javadoc.jar!/" />

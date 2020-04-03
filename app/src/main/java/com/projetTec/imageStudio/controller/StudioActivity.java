@@ -53,7 +53,7 @@ public class StudioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.studio_final_test);
+        setContentView(R.layout.activity_studio);
 
         contextOfApplication = getApplicationContext();
 

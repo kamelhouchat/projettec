@@ -61,6 +61,7 @@ public class EditingToolRecyclerViewAdapter extends RecyclerView.Adapter<Editing
         toolList.add(new ToolModel("Gomme", R.drawable.ic_eraser_black, ToolType.ERASER));
         toolList.add(new ToolModel("Emoji", R.drawable.ic_insert_emoticon_black_24dp, ToolType.EMOJI));
         toolList.add(new ToolModel("Autocollant", R.drawable.ic_sticker, ToolType.STICKER));
+        toolList.add(new ToolModel("Face", R.drawable.ic_face_black_24dp, ToolType.FACE));
     }
 
     @NonNull
