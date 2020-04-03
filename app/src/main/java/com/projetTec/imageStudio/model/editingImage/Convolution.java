@@ -3,6 +3,7 @@ package com.projetTec.imageStudio.model.editingImage;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.util.Log;
 
 import androidx.renderscript.Allocation;
 import androidx.renderscript.Element;
@@ -184,18 +185,15 @@ public class Convolution {
 
         int width = imageBitmap.getWidth();
         int height = imageBitmap.getHeight();
-        //int[] pixels = new int[height*width];
-
-        //imageBitmap.getPixels(pixels,0,width,0,0,width,height);
 
         convolutionScript.set_height(height);
         convolutionScript.set_width(width);
         convolutionScript.set_sum(somme(filters));
-        convolutionScript.set_sizeFilter(filters.length/4);
+        int size = (int) Math.sqrt(filters.length);
+        Log.i("--------->", "" +size/2);
+        convolutionScript.set_sizeFilter(size/2);
 
-        //Allocation pixels_rs = Allocation.createSized(rs, Element.I32(rs),pixels.length);
-        //pixels_rs.copyFrom(pixels);
-        convolutionScript.bind_pixels(input);
+        convolutionScript.set_pixels(input);
 
         Allocation filter_rs = Allocation.createSized(rs, Element.I32(rs),filters.length);
         filter_rs.copyFrom(filters);
@@ -204,7 +202,6 @@ public class Convolution {
         convolutionScript.forEach_convolution(input, output);
 
         output.copyTo(imageBitmap) ;
-        //pixels_rs.destroy();
         filter_rs.destroy();
         input.destroy(); output.destroy();
         convolutionScript.destroy(); rs.destroy();
