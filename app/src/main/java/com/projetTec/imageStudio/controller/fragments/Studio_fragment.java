@@ -191,7 +191,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             e.printStackTrace();
         }
 
-        captImage = BitmapFactory.decodeResource(getResources(), R.drawable.tom);
+        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.tom);
         loadedToRestore = captImage.copy(captImage.getConfig(), true);
         loadedToChange = captImage.copy(captImage.getConfig(), true);
 
