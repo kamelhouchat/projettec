@@ -35,23 +35,29 @@ public class ScriptC_convolution extends ScriptC {
               __rs_resource_name,
               convolutionBitCode.getBitCode32(),
               convolutionBitCode.getBitCode64());
+        __ALLOCATION = Element.ALLOCATION(rs);
         __I32 = Element.I32(rs);
         __U8_4 = Element.U8_4(rs);
     }
 
+    private Element __ALLOCATION;
     private Element __I32;
     private Element __U8_4;
+    private FieldPacker __rs_fp_ALLOCATION;
     private FieldPacker __rs_fp_I32;
     private final static int mExportVarIdx_pixels = 0;
     private Allocation mExportVar_pixels;
-    public void bind_pixels(Allocation v) {
+    public synchronized void set_pixels(Allocation v) {
+        setVar(mExportVarIdx_pixels, v);
         mExportVar_pixels = v;
-        if (v == null) bindAllocation(null, mExportVarIdx_pixels);
-        else bindAllocation(v, mExportVarIdx_pixels);
     }
 
     public Allocation get_pixels() {
         return mExportVar_pixels;
+    }
+
+    public Script.FieldID getFieldID_pixels() {
+        return createFieldID(mExportVarIdx_pixels, null);
     }
 
     private final static int mExportVarIdx_filter = 1;
