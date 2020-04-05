@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,9 +60,12 @@ import java.io.IOException;
 import java.util.Objects;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import ja.burhanrashid52.photoeditor.OnPhotoEditorListener;
+import ja.burhanrashid52.photoeditor.OnSaveBitmap;
 import ja.burhanrashid52.photoeditor.PhotoEditor;
 import ja.burhanrashid52.photoeditor.PhotoEditorView;
 import ja.burhanrashid52.photoeditor.TextStyleBuilder;
+import ja.burhanrashid52.photoeditor.ViewType;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -97,7 +101,7 @@ import org.jetbrains.annotations.NotNull;
  * @see ViewAnimation
  */
 
-public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected, View.OnClickListener {
+public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected, View.OnClickListener, OnPhotoEditorListener {
 
     //The bitmap passed by MainActivity, used to reset to main state
     private static Bitmap captImage;
@@ -158,6 +162,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private boolean isRotate = false;
     private boolean isBrightness = false;
     private boolean isSaturation = false;
+    private boolean isText = false;
 
     //Boolean to choose if we want to execute the methods in java or render script
     private static boolean isRenderScript = true;
@@ -284,6 +289,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         seekBar.setVisibility(View.INVISIBLE);
 
         photoEditor = new PhotoEditor.Builder(getContext(), photoEditorView).build();
+        photoEditor.setOnPhotoEditorListener(this);
     }
 
     /**
@@ -705,6 +711,26 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             ViewAnimation.viewAnimatedChange(applicationContext, R.anim.frombuttom, R.anim.tobuttom, seekBar, editingToolRecyclerView,
                     0, 200, 200);
             loadedToChange = loadedToRestore.copy(loadedToRestore.getConfig(), true);
+        } else if (isText) {
+          isText = false;
+            ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.frombuttom, editingToolRecyclerView, 0, 200, true);
+            ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, saveImage, 0, 200, true);
+            ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, restoreImage, 0, 200, true);
+            ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photoEditorView, photoView,
+                    0, 200, 200);
+            photoEditor.saveAsBitmap(new OnSaveBitmap() {
+                @Override
+                public void onBitmapReady(Bitmap saveBitmap) {
+                    loadedToRestore = saveBitmap.copy(saveBitmap.getConfig(), true);
+                    loadedToChange = saveBitmap.copy(saveBitmap.getConfig(), true);
+                    photoView.setImageBitmap(loadedToChange);
+                }
+
+                @Override
+                public void onFailure(Exception e) {
+                    Log.i(TAG, "onFailure: Failed to save bitmap after adding text");
+                }
+            });
         } else {
             if (captImage.sameAs(loadedToChange))
                 Objects.requireNonNull(getActivity()).finish();
@@ -813,6 +839,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photoView, photoEditorView,
                 0, 200, 200);
 
+        isText = true;
+
         TextDialogFragment textEditorDialogFragment = TextDialogFragment.show(getActivity());
         textEditorDialogFragment.setOnTextEditorListener(new TextDialogFragment.TextEditor() {
             @Override
@@ -913,5 +941,40 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 photoView.setImageBitmap(loadedToRestore);
             }
         });
+    }
+
+    @Override
+    public void onEditTextChangeListener(final View rootView, String text, int colorCode) {
+        TextDialogFragment textEditorDialogFragment =
+                TextDialogFragment.show(getActivity(), text, colorCode);
+        textEditorDialogFragment.setOnTextEditorListener(new TextDialogFragment.TextEditor() {
+            @Override
+            public void onDone(String inputText, int colorCode) {
+                final TextStyleBuilder styleBuilder = new TextStyleBuilder();
+                styleBuilder.withTextColor(colorCode);
+
+                photoEditor.editText(rootView, inputText, styleBuilder);
+            }
+        });
+    }
+
+    @Override
+    public void onAddViewListener(ViewType viewType, int numberOfAddedViews) {
+
+    }
+
+    @Override
+    public void onRemoveViewListener(ViewType viewType, int numberOfAddedViews) {
+
+    }
+
+    @Override
+    public void onStartViewChangeListener(ViewType viewType) {
+
+    }
+
+    @Override
+    public void onStopViewChangeListener(ViewType viewType) {
+
     }
 }
