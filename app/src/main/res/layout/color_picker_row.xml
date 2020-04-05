@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp"
+    android:elevation="1dp"
+    android:layout_centerInParent="true">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="90dp"
@@ -9,7 +13,6 @@
         android:id="@+id/color_picker_imageColor"
         android:src="@color/blue_grey_active"
         android:padding="5dp"
-
         />
 
 

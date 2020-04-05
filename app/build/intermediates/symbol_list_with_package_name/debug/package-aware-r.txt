@@ -1766,6 +1766,7 @@ drawable notify_panel_notification_icon_bg
 drawable pipimage
 drawable plage
 drawable red_button_background
+drawable rounded_border
 drawable rounded_border_tv
 drawable rounded_rect
 drawable search_background_oval
@@ -1891,6 +1892,7 @@ id clip_vertical
 id clover
 id collapseActionView
 id color_picker_imageColor
+id color_picker_recycler_view_add_text_dialog_fragment
 id confirm_button
 id container
 id content
@@ -1919,8 +1921,10 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
+id done_add_text_dialog_fragment
 id dropdown_menu
 id edit_query
+id edit_text_add_text_dialog_fragment
 id editing_tool_recyclerview
 id empty_view
 id empty_view_content
@@ -2258,6 +2262,7 @@ layout activity_matisse
 layout activity_media_preview
 layout activity_mock
 layout activity_studio
+layout add_text_dialog_fragment
 layout album_list_item
 layout alert_dialog
 layout alerter_alert_view
@@ -2734,6 +2739,7 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style EditTextAddTextDialogFragment
 style EmptyTheme
 style MaterialAlertDialog_MaterialComponents
 style MaterialAlertDialog_MaterialComponents_Body_Text

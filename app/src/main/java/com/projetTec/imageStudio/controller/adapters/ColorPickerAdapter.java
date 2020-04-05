@@ -31,6 +31,7 @@ public class ColorPickerAdapter extends RecyclerView.Adapter<ColorPickerAdapter.
         colorList.add(Color.MAGENTA);
         colorList.add(Color.LTGRAY);
         colorList.add(Color.GRAY);
+        colorList.add(R.color.dracula_page_bg);
     }
 
     public interface OnColorPickerClickListener {
@@ -50,7 +51,7 @@ public class ColorPickerAdapter extends RecyclerView.Adapter<ColorPickerAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.circleImageView.setBackgroundResource(colorList.get(position));
+        holder.circleImageView.setColorFilter(colorList.get(position));
     }
 
     @Override

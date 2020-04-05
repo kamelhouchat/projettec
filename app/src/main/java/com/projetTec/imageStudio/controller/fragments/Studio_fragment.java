@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +34,7 @@ import com.projetTec.imageStudio.controller.adapters.EditingToolRecyclerViewAdap
 
 import com.projetTec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
 import com.projetTec.imageStudio.controller.StudioActivity;
+import com.projetTec.imageStudio.controller.dialogFragment.TextDialogFragment;
 import com.projetTec.imageStudio.model.animation.ViewAnimation;
 import com.projetTec.imageStudio.model.editingImage.additionalFilters.AdditionalFilters;
 import com.projetTec.imageStudio.model.editingImage.additionalFilters.FaceDetection;
@@ -59,6 +61,7 @@ import java.util.Objects;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import ja.burhanrashid52.photoeditor.PhotoEditor;
 import ja.burhanrashid52.photoeditor.PhotoEditorView;
+import ja.burhanrashid52.photoeditor.TextStyleBuilder;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -804,10 +807,23 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_out, saveImage, 0, 200, false);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_out, restoreImage, 0, 200, false);
+
+        photoEditorView.getSource().setImageBitmap(loadedToChange);
+
         ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photoView, photoEditorView,
                 0, 200, 200);
 
-        isCropImage = true;
+        TextDialogFragment textEditorDialogFragment = TextDialogFragment.show(getActivity());
+        textEditorDialogFragment.setOnTextEditorListener(new TextDialogFragment.TextEditor() {
+            @Override
+            public void onDone(String inputText, int colorCode) {
+                final TextStyleBuilder styleBuilder = new TextStyleBuilder();
+                styleBuilder.withTextColor(colorCode);
+
+                photoEditor.addText(inputText, styleBuilder);
+            }
+        });
+
     }
 
     /**

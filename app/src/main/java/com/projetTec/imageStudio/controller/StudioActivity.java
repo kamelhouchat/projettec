@@ -57,6 +57,8 @@ public class StudioActivity extends AppCompatActivity {
 
         contextOfApplication = getApplicationContext();
 
+
+
         decorView = getWindow().getDecorView();
         decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
             @Override
