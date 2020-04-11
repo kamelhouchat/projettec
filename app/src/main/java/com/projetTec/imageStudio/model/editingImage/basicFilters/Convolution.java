@@ -9,13 +9,14 @@ import androidx.renderscript.Allocation;
 import androidx.renderscript.Element;
 import androidx.renderscript.RenderScript;
 
+import com.android.rssample.ScriptC_contours;
 import com.android.rssample.ScriptC_convolution;
 
 
 public class Convolution {
 
     private Bitmap imageBitmap;
-    private final Context context;
+    private static Context context;
 
     public Convolution(Bitmap imageBitmap, Context context) {
         this.imageBitmap = imageBitmap;
@@ -128,13 +129,12 @@ public class Convolution {
     }
 
     /**
-     *
-     * @param bmp
-     * @param gx
-     * @param gy
+     * <p> This function allows you to apply the sobel filter to a gray image </p>
+     * @param bmp image on which we want to apply the filter
+     * @param gx  first filter to apply
+     * @param gy  second filter to apply
      */
     public static void contours(Bitmap bmp, int[][] gx, int[][] gy) {
-        //Filter filter = new Filter(bmp,context);
         int width = bmp.getWidth();
         int height = bmp.getHeight();
         int[] pixels = new int[width * height];
@@ -176,7 +176,7 @@ public class Convolution {
      * @param imageBitmap
      * @param filters
      */
-    public void convolutionAverageFilterRS(Bitmap imageBitmap, int[] filters){
+    public static void convolutionAverageFilterRS(Bitmap imageBitmap, int[] filters){
         RenderScript rs = RenderScript.create(context);
 
         Allocation input = Allocation.createFromBitmap (rs, imageBitmap);
@@ -208,4 +208,41 @@ public class Convolution {
 
     }
 
+    /**
+     *
+     * @param imageBitmap
+     * @param gx
+     * @param gy
+     */
+    public static void contoursFilterRS(Bitmap imageBitmap, int[] gx, int[] gy){
+        RenderScript rs = RenderScript.create(context);
+
+        Allocation input = Allocation.createFromBitmap (rs, imageBitmap);
+        Allocation output = Allocation.createTyped (rs, input.getType());
+        ScriptC_contours contourScript = new ScriptC_contours(rs);
+
+        int width = imageBitmap.getWidth();
+        int height = imageBitmap.getHeight();
+
+        contourScript.set_height(height);
+        contourScript.set_width(width);
+
+        int size = (int) Math.sqrt(gx.length);
+        contourScript.set_sizeFilter(size/2);
+
+        Allocation gxRs = Allocation.createSized(rs, Element.I32(rs),gx.length);
+        gxRs.copyFrom(gx);
+        contourScript.bind_filterX(gxRs);
+
+        Allocation gyRs = Allocation.createSized(rs, Element.I32(rs),gy.length);
+        gxRs.copyFrom(gy);
+        contourScript.bind_filterY(gyRs);
+
+        contourScript.forEach_contours(input, output);
+        output.copyTo(imageBitmap);
+
+        gxRs.destroy(); gyRs.destroy();
+        input.destroy(); output.destroy();
+        rs.destroy(); contourScript.destroy();
+    }
 }
