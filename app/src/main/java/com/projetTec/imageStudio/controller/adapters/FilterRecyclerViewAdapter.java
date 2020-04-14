@@ -249,13 +249,13 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 break;
             case CONTOUR:
                 //utilisation du contours
-                //int[][] gx =  {{-1,0,1},{-2,0,2},{-1,0,1}};
-                //int[][] gy =  {{-1,-2,-1},{0,0,0},{1,2,1}};
-                int[] gx =  {-1,0,1,-2,0,2,-1,0,1};
-                int[] gy =  {-1,-2,-1,0,0,0,1,2,1};
+                int[][] gx =  {{-1,0,1},{-2,0,2},{-1,0,1}};
+                int[][] gy =  {{-1,-2,-1},{0,0,0},{1,2,1}};
+                //int[] gx =  {-1,0,1,-2,0,2,-1,0,1};
+                //int[] gy =  {-1,-2,-1,0,0,0,1,2,1};
                 filters.tograyRS(loadedToRecycle);
-                Convolution.contoursFilterRS(loadedToRecycle,gx,gy);
-                //Convolution.contours(loadedToRecycle,gx,gy);
+                //Convolution.contoursFilterRS(loadedToRecycle,gx,gy);
+                Convolution.contours(loadedToRecycle,gx,gy);
                 break;
             case SNOW_EFFECT:
                 additionalFilters.snowAndBlackEffectRS(loadedToRecycle, true);

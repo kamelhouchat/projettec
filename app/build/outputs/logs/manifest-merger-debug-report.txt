@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
+ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
 MERGED from [com.github.GrenderG:Toasty:1.4.2] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\a181a2699f5b47fe82f0c5289a9a5cb0\jetified-Toasty-1.4.2\AndroidManifest.xml:2:1-11:12
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:17:1-33:12
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\cb49f5e2837fede7893f9c5340e481b7\material-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -68,41 +68,41 @@ MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\d9z\.gradle\caches\
 MERGED from [it.sephiroth.android.library.imagezoom:library:1.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8cdb8cd8caad8ce0a5c13099d83e6814\jetified-library-1.0.4\AndroidManifest.xml:1:106-7:12
 MERGED from [com.pnikosis:materialish-progress:1.7] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\1c0926e139afda106416b9dae4df96b6\jetified-materialish-progress-1.7\AndroidManifest.xml:2:1-13:12
 MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\a88ae3819c4ea731d84ad363cf0352e0\jetified-library-1.0.2\AndroidManifest.xml:1:116-8:12
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
 	package
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:3:5-40
-		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:3:5-40
+		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
-		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
+		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
-		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:2:1-29:12
+		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.CAMERA
-ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:5:5-64
+ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:5:5-64
 	android:name
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:5:22-62
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:5:22-62
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:6:5-79
+ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:6:5-79
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:25:5-80
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:25:5-80
 	android:name
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:6:22-77
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:6:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:7:5-80
+ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:7:5-80
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:24:5-81
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:24:5-81
 	android:name
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:7:22-78
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:7:22-78
 application
-ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:9:5-27:19
+ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:9:5-27:19
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:27:5-31:19
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:27:5-31:19
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\cb49f5e2837fede7893f9c5340e481b7\material-1.1.0\AndroidManifest.xml:22:5-20
@@ -150,45 +150,45 @@ MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\d9z\.gr
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\298ea8177a06e7e73d842fb4acd8415b\core-1.1.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:12:9-41
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:12:9-41
 	android:fullBackupContent
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:16:9-59
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:16:9-59
 	android:roundIcon
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:13:9-43
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:13:9-43
 	android:icon
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:11:9-38
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:11:9-38
 	android:allowBackup
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:10:9-35
 	android:theme
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:15:9-40
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:15:9-40
 activity#com.projetTec.imageStudio.controller.MainActivity
-ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:17:9-23:20
+ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:17:9-23:20
 	android:name
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:17:19-83
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:17:19-83
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:18:13-22:29
+ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:18:13-22:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:19:17-69
+ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:19:17-69
 	android:name
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:19:25-66
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:19:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:21:17-77
+ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:21:17-77
 	android:name
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:21:27-74
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:21:27-74
 activity#com.projetTec.imageStudio.controller.StudioActivity
-ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:24:9-88
+ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:24:9-88
 	android:name
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:24:19-85
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:24:19-85
 activity#com.projetTec.imageStudio.controller.HistogramActivity
-ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:25:9-91
+ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:25:9-91
 	android:name
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml:25:19-88
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:25:19-88
 uses-sdk
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
 MERGED from [com.github.GrenderG:Toasty:1.4.2] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\a181a2699f5b47fe82f0c5289a9a5cb0\jetified-Toasty-1.4.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.GrenderG:Toasty:1.4.2] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\a181a2699f5b47fe82f0c5289a9a5cb0\jetified-Toasty-1.4.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:20:5-22:41
@@ -317,18 +317,18 @@ MERGED from [com.pnikosis:materialish-progress:1.7] C:\Users\d9z\.gradle\caches\
 MERGED from [com.pnikosis:materialish-progress:1.7] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\1c0926e139afda106416b9dae4df96b6\jetified-materialish-progress-1.7\AndroidManifest.xml:7:5-9:41
 MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\a88ae3819c4ea731d84ad363cf0352e0\jetified-library-1.0.2\AndroidManifest.xml:3:5-72
 MERGED from [it.sephiroth.android.library.easing:library:1.0.2] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\a88ae3819c4ea731d84ad363cf0352e0\jetified-library-1.0.2\AndroidManifest.xml:3:5-72
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
 	tools:overrideLibrary
 		ADDED from [com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\f402b1796dad34a68eece8570ff50ee4\jetified-alerter-2.0.4\AndroidManifest.xml:10:9-69
 	android:targetSdkVersion
-		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\projettec\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml
 activity#com.zhihu.matisse.ui.MatisseActivity
 ADDED from [com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:28:9-73
 	android:name
