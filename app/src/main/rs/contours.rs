@@ -12,7 +12,6 @@ uchar4 RS_KERNEL contours(uchar4 in, uint32_t x, uint32_t y) {
     if (x < sizeFilter || y < sizeFilter || x >= width - sizeFilter || y >= height - sizeFilter)
            return in;
     uchar4 out;
-    rsDebug("sizeFilter",sizeFilter);
 
     int grayX = 0, grayY = 0;
     int pos = 0;

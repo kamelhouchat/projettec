@@ -227,17 +227,13 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 break;
             case CONVOLUTION_MOY:
                 int size = 7;
-                /*int[][] filterMoy = new int[size][size];
+                int[][] filterMoy = new int[size][size];
                 for (int i = 0; i < size; i++) {
                     for (int j = 0; j < size; j++) {
                         filterMoy[i][j] = 1;
                     }
-                }*/
-                int[] filterMoy = new int[size];
-                for (int i = 0; i < size; i++)
-                    filterMoy[i] = 1;
-                convolution.convolutionAverageFilterRS(loadedToRecycle,filterMoy);
-                //convolution.convolutions(loadedToRecycle, filterMoy);
+                }
+                convolution.convolutions(loadedToRecycle, filterMoy);
                 break;
             case CONVOLUTION_GAUS:
                 int[][] filterGaus = {{1, 2, 3, 2, 1},
@@ -255,10 +251,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 //utilisation du contours
                 int[][] gx =  {{-1,0,1},{-2,0,2},{-1,0,1}};
                 int[][] gy =  {{-1,-2,-1},{0,0,0},{1,2,1}};
-                //int[] gx =  {-1,0,1,-2,0,2,-1,0,1};
-                //int[] gy =  {-1,-2,-1,0,0,0,1,2,1};
                 filters.tograyRS(loadedToRecycle);
-                //Convolution.contoursFilterRS(loadedToRecycle,gx,gy);
                 Convolution.contours(loadedToRecycle,gx,gy);
                 break;
             case SNOW_EFFECT:

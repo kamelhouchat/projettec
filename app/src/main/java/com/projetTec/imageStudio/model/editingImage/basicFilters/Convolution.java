@@ -173,8 +173,8 @@ public class Convolution {
 
     /**
      * <p> this function implement the convolution function in renderscript </p>
-     * @param imageBitmap
-     * @param filters
+     * @param imageBitmap image on which we want to apply the filter
+     * @param filters the filter to apply
      */
     public static void convolutionAverageFilterRS(Bitmap imageBitmap, int[] filters){
         RenderScript rs = RenderScript.create(context);
@@ -190,7 +190,8 @@ public class Convolution {
         convolutionScript.set_width(width);
         convolutionScript.set_sum(somme(filters));
         int size = (int) Math.sqrt(filters.length);
-        Log.i("--------->", "" +size/2);
+
+
         convolutionScript.set_sizeFilter(size/2);
 
         convolutionScript.set_pixels(input);
@@ -209,10 +210,10 @@ public class Convolution {
     }
 
     /**
-     *
-     * @param imageBitmap
-     * @param gx
-     * @param gy
+     * <p> this function implement the contour function in renderscript </p>
+     * @param imageBitmap image on which we want to apply the filter
+     * @param gx first filter to apply
+     * @param gy second filter to apply
      */
     public static void contoursFilterRS(Bitmap imageBitmap, int[] gx, int[] gy){
         RenderScript rs = RenderScript.create(context);
@@ -229,6 +230,7 @@ public class Convolution {
 
         int size = (int) Math.sqrt(gx.length);
         contourScript.set_sizeFilter(size/2);
+        contourScript.set_pixels(input);
 
         Allocation gxRs = Allocation.createSized(rs, Element.I32(rs),gx.length);
         gxRs.copyFrom(gx);
