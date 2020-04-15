@@ -1911,7 +1911,6 @@ id dark
 id date_picker_actions
 id decor_content_parent
 id default_activity_button
-id degree_seek_bar
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -2078,6 +2077,7 @@ id rlContainer
 id root
 id rotate_left
 id rotate_right
+id rotation_button_menu
 id rounded
 id save_non_transition_alpha
 id save_overlay_view

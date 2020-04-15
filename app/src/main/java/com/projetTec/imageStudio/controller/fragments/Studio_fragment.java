@@ -3,11 +3,8 @@ package com.projetTec.imageStudio.controller.fragments;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
 import android.graphics.Matrix;
-import android.graphics.PorterDuff;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,14 +20,12 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
-import com.google.android.gms.dynamite.descriptors.com.google.android.gms.flags.ModuleDescriptor;
 import com.projetTec.imageStudio.controller.adapters.EditingToolRecyclerViewAdapter;
 
 import com.projetTec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
@@ -163,6 +158,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private boolean isBrightness = false;
     private boolean isSaturation = false;
     private boolean isText = false;
+    private boolean isBrush = false;
 
     //Boolean to choose if we want to execute the methods in java or render script
     private static boolean isRenderScript = true;
@@ -276,7 +272,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         cropLayout = v.findViewById(R.id.crop_view);
         cropLayout.setVisibility(View.INVISIBLE);
 
-        rotationButtonLayout = v.findViewById(R.id.degree_seek_bar);
+        rotationButtonLayout = v.findViewById(R.id.rotation_button_menu);
         rotationButtonLayout.setVisibility(View.INVISIBLE);
 
         rotateLeft = v.findViewById(R.id.rotate_left);
@@ -401,16 +397,12 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 break;
             case TEXT:
                 centerText.setText("Texte");
-                //incoming();
                 writeText();
                 break;
             case BRUSH:
                 centerText.setText("Pinceau");
-                incoming();
-                break;
-            case ERASER:
-                centerText.setText("Gomme");
-                incoming();
+                //incoming();
+                brush();
                 break;
             case EMOJI:
                 centerText.setText("Emoji");
@@ -716,25 +708,25 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                     0, 200, 200);
             loadedToChange = loadedToRestore.copy(loadedToRestore.getConfig(), true);
         } else if (isText) {
-          isText = false;
+            isText = false;
+            centerText.setText("Studio");
+            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_left_black_24dp);
             ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.frombuttom, editingToolRecyclerView, 0, 200, true);
             ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, saveImage, 0, 200, true);
             ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, restoreImage, 0, 200, true);
             ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photoEditorView, photoView,
                     0, 200, 200);
-            photoEditor.saveAsBitmap(new OnSaveBitmap() {
-                @Override
-                public void onBitmapReady(Bitmap saveBitmap) {
-                    loadedToRestore = saveBitmap.copy(saveBitmap.getConfig(), true);
-                    loadedToChange = saveBitmap.copy(saveBitmap.getConfig(), true);
-                    photoView.setImageBitmap(loadedToChange);
-                }
-
-                @Override
-                public void onFailure(Exception e) {
-                    Log.i(TAG, "onFailure: Failed to save bitmap after adding text");
-                }
-            });
+            saveImageAfterChangesPhotoEditor();
+        } else if (isBrush) {
+            isBrush = false;
+            centerText.setText("Studio");
+            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_left_black_24dp);
+            ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.frombuttom, editingToolRecyclerView, 0, 200, true);
+            ViewAnimation.imageViewAnimatedChange(applicationContext, saveImage, R.drawable.ic_save_black_24dp);
+            ViewAnimation.imageViewAnimatedChange(applicationContext, restoreImage, R.drawable.ic_restore_black_24dp);
+            ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photoEditorView, photoView,
+                    0, 200, 200);
+            saveImageAfterChangesPhotoEditor();
         } else {
             if (captImage.sameAs(loadedToChange))
                 Objects.requireNonNull(getActivity()).finish();
@@ -855,7 +847,22 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 photoEditor.addText(inputText, styleBuilder);
             }
         });
+    }
 
+    public void brush() {
+        ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
+        ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);
+        ViewAnimation.imageViewAnimatedChange(applicationContext, saveImage, R.drawable.ic_brush_black_24dp);
+        ViewAnimation.imageViewAnimatedChange(applicationContext, restoreImage, R.drawable.ic_eraser_black);
+
+        photoEditorView.getSource().setImageBitmap(loadedToChange);
+
+        ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photoView, photoEditorView,
+                0, 200, 200);
+
+        isBrush = true;
+
+        photoEditor.setBrushDrawingMode(true);
     }
 
     /**
@@ -943,6 +950,22 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 float val = (float) progressSaturation / 256;
                 loadedToRestore = filters.brightnessAndSaturationHSV(loadedToChange, val, false);
                 photoView.setImageBitmap(loadedToRestore);
+            }
+        });
+    }
+
+    private void saveImageAfterChangesPhotoEditor() {
+        photoEditor.saveAsBitmap(new OnSaveBitmap() {
+            @Override
+            public void onBitmapReady(Bitmap saveBitmap) {
+                loadedToRestore = saveBitmap.copy(saveBitmap.getConfig(), true);
+                loadedToChange = saveBitmap.copy(saveBitmap.getConfig(), true);
+                photoView.setImageBitmap(loadedToChange);
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                Log.i(TAG, "onFailure: Failed to save bitmap after adding text");
             }
         });
     }

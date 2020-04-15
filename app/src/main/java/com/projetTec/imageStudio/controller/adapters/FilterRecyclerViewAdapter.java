@@ -245,6 +245,10 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                         {3, 8, 10, 8, 3},
                         {2, 6, 8, 6, 2},
                         {1, 2, 3, 2, 1}};
+                int[][] cartoonFilter = {
+                        { -1 , -1, -1 },
+                        { -1 ,  9, -1 },
+                        { -1 , -1, -1 } };
                 convolution.convolutions(loadedToRecycle, filterGaus);
                 break;
             case CONTOUR:

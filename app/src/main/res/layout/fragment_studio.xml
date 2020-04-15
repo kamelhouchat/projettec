@@ -130,7 +130,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:id="@+id/degree_seek_bar"
+        android:id="@+id/rotation_button_menu"
         android:orientation="horizontal"
 
 
