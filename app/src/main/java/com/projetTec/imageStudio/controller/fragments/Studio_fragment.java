@@ -618,33 +618,43 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 goBack();
                 break;
             case R.id.fragment_studio_save:
-                final SweetAlertDialog saveAlerter = new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.PROGRESS_TYPE);
-                saveAlerter.setTitleText("Sauvgarde ...").show();
-                final Handler saveHandler = new Handler();
-                saveHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        saveImage(loadedToChange);
-                        saveAlerter.hide();
-                        new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.SUCCESS_TYPE)
-                                .setTitleText("Sauvegardé avec succès!")
-                                .show();
-                    }
-                }, 1000);
+                if (isBrush) {
+                    photoEditor.setBrushDrawingMode(true);
+                }
+                else {
+                    final SweetAlertDialog saveAlerter = new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.PROGRESS_TYPE);
+                    saveAlerter.setTitleText("Sauvgarde ...").show();
+                    final Handler saveHandler = new Handler();
+                    saveHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            saveImage(loadedToChange);
+                            saveAlerter.hide();
+                            new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.SUCCESS_TYPE)
+                                    .setTitleText("Sauvegardé avec succès!")
+                                    .show();
+                        }
+                    }, 1000);
+                }
                 break;
             case R.id.fragment_studio_restore:
-                final SweetAlertDialog restoreAlerter = new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.PROGRESS_TYPE);
-                restoreAlerter.setTitleText("Réstauration...").show();
-                final Handler restoreHandler = new Handler();
-                restoreHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        loadedToChange = captImage.copy(captImage.getConfig(), true);
-                        loadedToRestore = captImage.copy(captImage.getConfig(), true);
-                        Glide.with(applicationContext).load(captImage).override(captImage.getWidth(), captImage.getHeight()).into(photoView);
-                        restoreAlerter.hide();
-                    }
-                }, 1000);
+                if (isBrush) {
+                    photoEditor.brushEraser();
+                }
+                else {
+                    final SweetAlertDialog restoreAlerter = new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.PROGRESS_TYPE);
+                    restoreAlerter.setTitleText("Réstauration...").show();
+                    final Handler restoreHandler = new Handler();
+                    restoreHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadedToChange = captImage.copy(captImage.getConfig(), true);
+                            loadedToRestore = captImage.copy(captImage.getConfig(), true);
+                            Glide.with(applicationContext).load(captImage).override(captImage.getWidth(), captImage.getHeight()).into(photoView);
+                            restoreAlerter.hide();
+                        }
+                    }, 1000);
+                }
                 break;
             case R.id.rotate_left:
                 rotateImage(270);
@@ -824,6 +834,14 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         isCropImage = true;
     }
 
+    /**
+     * <p>Method which makes it possible to call on the TextDialogFragment, which makes it possible to write text on the bitmap image.
+     *
+     * @see PhotoEditor
+     * @see ToolType
+     * @see TextDialogFragment
+     * @see ViewAnimation
+     */
     private void writeText() {
         ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);
@@ -849,6 +867,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         });
     }
 
+    /**
+     * 
+     */
     public void brush() {
         ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);
