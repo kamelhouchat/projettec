@@ -1,6 +1,8 @@
 package com.projetTec.imageStudio.model.editingImage.basicFilters;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Matrix;
 
 class AuxiliaryFunction {
 
@@ -131,5 +133,23 @@ class AuxiliaryFunction {
                 LUT[ng] = ((ng * (minMax[1] - minMax[0])) / 255) + minMax[0];
         }
         return LUT;
+    }
+
+    /**
+     * <p> This function allows allows resizing a bitmap image</p>
+     * @param imageBitmap image which we want to resize
+     * @param newWidth new width
+     * @param newHeight new height
+     * @return new image resized
+     */
+    public static Bitmap resizeBitmap(Bitmap imageBitmap, int newWidth, int newHeight){
+        int width = imageBitmap.getWidth();
+        int height = imageBitmap.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        Matrix matrix = new Matrix();
+        matrix.postScale(scaleWidth, scaleHeight);
+        Bitmap resizedBitmap = Bitmap.createBitmap(imageBitmap, 0, 0,width, height, matrix, true);
+        return resizedBitmap;
     }
 }
