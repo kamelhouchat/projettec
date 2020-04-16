@@ -1,9 +1,9 @@
-package com.projetTec.imageStudio.model.rotateImage;
+package com.projetTec.imageStudio.model.imageAdaptation;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 
-public class RotateImageView {
+public class BitmapImageAdaptation {
 
     @SuppressWarnings("UnusedAssignment")
     public static void rotateImage(float degree, Bitmap loadedToRestore, Bitmap loadedToChange) {
@@ -19,5 +19,24 @@ public class RotateImageView {
     /*
       TODO -- fixing auto rotating when we load image from gallery or camera
      */
+
+    /**
+     * <p>This function allows allows resizing a bitmap image</p>
+     *
+     * @param imageBitmap image which we want to resize
+     * @param newWidth    new width
+     * @param newHeight   new height
+     * @return new image resized
+     */
+    public static Bitmap resizeBitmap(Bitmap imageBitmap, int newWidth, int newHeight) {
+        int width = imageBitmap.getWidth();
+        int height = imageBitmap.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        Matrix matrix = new Matrix();
+        matrix.postScale(scaleWidth, scaleHeight);
+        Bitmap resizedBitmap = Bitmap.createBitmap(imageBitmap, 0, 0, width, height, matrix, true);
+        return resizedBitmap;
+    }
 
 }
