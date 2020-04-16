@@ -868,7 +868,11 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     }
 
     /**
-     * 
+     * <p>Method which allows the user, the use of a brush to draw on a bitmap image, and the use of the eraser.
+     *
+     * @see PhotoEditor
+     * @see ToolType
+     * @see ViewAnimation
      */
     public void brush() {
         ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
