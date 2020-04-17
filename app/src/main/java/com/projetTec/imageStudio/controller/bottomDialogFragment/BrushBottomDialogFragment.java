@@ -1,8 +1,5 @@
 package com.projetTec.imageStudio.controller.bottomDialogFragment;
 
-import android.app.Dialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,16 +16,35 @@ import com.projetTec.imageStudio.controller.adapters.ColorPickerAdapter;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterface.OnBrushOptionsChange;
 
 /**
+ * <p>
+ * The BrushBottomSheetDialogFragment class which extends from BottomSheetDialogFragment which allows
+ * to implement a Dialog Fragment which contains a ColorPicker which will allow us to change brush color.
+ * </p>
+ *
  * @author Kamel.H
+ * @see ja.burhanrashid52.photoeditor.PhotoEditor
+ * @see ColorPickerAdapter
+ * @see com.projetTec.imageStudio.controller.fragments.Studio_fragment
  */
 public class BrushBottomDialogFragment extends BottomSheetDialogFragment {
 
+    //The onBrushOptionsChange method which facilitates the management of listener
     private OnBrushOptionsChange onBrushOptionsChange;
 
+    /**
+     * The constructor is empty.
+     */
     public BrushBottomDialogFragment() {
 
     }
 
+    /**
+     * <p>
+     * The setter of onBrushOptionsChange
+     * </p>
+     *
+     * @param onBrushOptionsChange The new listener.
+     */
     public void setOnBrushOptionsChange(OnBrushOptionsChange onBrushOptionsChange) {
         this.onBrushOptionsChange = onBrushOptionsChange;
     }

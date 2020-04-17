@@ -23,24 +23,71 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.projetTec.imageStudio.R;
 import com.projetTec.imageStudio.controller.adapters.ColorPickerAdapter;
 
+/**
+ * <p>
+ * The class extends from DialogFragment, it allows to implement and display a fragment dialog in which
+ * the user can choose the color of the text and enter a text then validate it.
+ * </p>
+ *
+ * @author Kamel.H
+ * @see ja.burhanrashid52.photoeditor.PhotoEditor
+ */
+
 public class TextDialogFragment extends DialogFragment {
 
     private static final String TAG = "TextDialogFragment";
     public static final String EXTRA_INPUT_TEXT = "extra_input_text";
     public static final String EXTRA_COLOR_CODE = "extra_color_code";
-    private EditText mAddTextEditText;
-    private TextView mAddTextDoneTextView;
-    private InputMethodManager mInputMethodManager;
-    private int mColorCode;
-    private TextEditor mTextEditor;
 
+    //The place where we will enter text
+    private EditText addTextEditText;
+
+    //The done button
+    private TextView addTextDoneTextView;
+
+    //An InputMethodManager which will allow us to manage the keyboard display
+    private InputMethodManager inputMethodManager;
+
+    //A color that will contain the color chosen by the user
+    private int colorCode;
+
+    //The textEditor method which facilitates the management of listener
+    private TextEditor textEditor;
+
+    /**
+     * <p>
+     * The interface which contains the method which manages the listener of the done button.
+     * </p>
+     *
+     * @author Kamel.H
+     * @see com.projetTec.imageStudio.controller.fragments.Studio_fragment
+     * @see TextDialogFragment
+     */
     public interface TextEditor {
+
+        /**
+         * <p>
+         * The listener which will be called when the user presses the done button.
+         * </p>
+         *
+         * @param inputText The text written by the user
+         * @param colorCode The color chosen by the user
+         * @see TextDialogFragment
+         * @see com.projetTec.imageStudio.controller.fragments.Studio_fragment
+         */
         void onDone(String inputText, int colorCode);
+
     }
 
-    //Callback to listener if user is done with text editing
+    /**
+     * <p>
+     * The listener of textEditor, which allows to make a callback to listener if user is done with text editing.
+     * </p>
+     *
+     * @param textEditor The new listener
+     */
     public void setOnTextEditorListener(TextEditor textEditor) {
-        mTextEditor = textEditor;
+        this.textEditor = textEditor;
     }
 
     //Show dialog with provide text and text color
@@ -82,9 +129,9 @@ public class TextDialogFragment extends DialogFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mAddTextDoneTextView = view.findViewById(R.id.done_add_text_dialog_fragment);
-        mAddTextEditText = view.findViewById(R.id.edit_text_add_text_dialog_fragment);
-        mInputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        addTextDoneTextView = view.findViewById(R.id.done_add_text_dialog_fragment);
+        addTextEditText = view.findViewById(R.id.edit_text_add_text_dialog_fragment);
+        inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
 
         //Setup the color picker for text color
         RecyclerView addTextColorPickerRecyclerView = view.findViewById(R.id.color_picker_recycler_view_add_text_dialog_fragment);
@@ -96,25 +143,25 @@ public class TextDialogFragment extends DialogFragment {
         colorPickerAdapter.setOnColorPickerClickListener(new ColorPickerAdapter.OnColorPickerClickListener() {
             @Override
             public void onColorPickerClickListener(int colorCode) {
-                mColorCode = colorCode;
-                mAddTextEditText.setTextColor(colorCode);
+                TextDialogFragment.this.colorCode = colorCode;
+                addTextEditText.setTextColor(colorCode);
             }
         });
         addTextColorPickerRecyclerView.setAdapter(colorPickerAdapter);
-        mAddTextEditText.setText(getArguments().getString(EXTRA_INPUT_TEXT));
-        mColorCode = getArguments().getInt(EXTRA_COLOR_CODE);
-        mAddTextEditText.setTextColor(mColorCode);
-        mInputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+        addTextEditText.setText(getArguments().getString(EXTRA_INPUT_TEXT));
+        colorCode = getArguments().getInt(EXTRA_COLOR_CODE);
+        addTextEditText.setTextColor(colorCode);
+        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
 
         //Make a callback on activity when user is done with text editing
-        mAddTextDoneTextView.setOnClickListener(new View.OnClickListener() {
+        addTextDoneTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mInputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
                 dismiss();
-                String inputText = mAddTextEditText.getText().toString();
-                if (!TextUtils.isEmpty(inputText) && mTextEditor != null) {
-                    mTextEditor.onDone(inputText, mColorCode);
+                String inputText = addTextEditText.getText().toString();
+                if (!TextUtils.isEmpty(inputText) && textEditor != null) {
+                    textEditor.onDone(inputText, colorCode);
                 }
             }
         });
