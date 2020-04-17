@@ -19,9 +19,9 @@ import java.util.ArrayList;
 
 /**
  * <p>
- * the class is an adapter of the EditingToolsRecyclerView, it allows you to generate
+ * The class is an adapter of the EditingToolsRecyclerView, it allows you to generate
  * all the tools necessary for image management by specifying the icon and the name of
- * the tool, it allows to classify them side by side and create more copied from a tool copy
+ * the tool, it allows to classify them side by side and create more copied from a tool copy.
  * </p>
  *
  * @author Kamel.H

@@ -1007,6 +1007,13 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         });
     }
 
+    /**
+     * <p>Method which allows to apply the changes on the bitmap after using the text tool or the brush tool
+     *
+     * @see PhotoEditor
+     * @see TextDialogFragment
+     * @see BrushBottomDialogFragment
+     */
     private void saveImageAfterChangesPhotoEditor() {
         photoEditor.saveAsBitmap(new OnSaveBitmap() {
             @Override
