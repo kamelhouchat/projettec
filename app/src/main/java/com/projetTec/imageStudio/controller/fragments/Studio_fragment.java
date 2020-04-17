@@ -27,11 +27,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.projetTec.imageStudio.controller.adapters.ColorPickerAdapter;
 import com.projetTec.imageStudio.controller.adapters.EditingToolRecyclerViewAdapter;
 
 import com.projetTec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
 import com.projetTec.imageStudio.controller.StudioActivity;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.BrushBottomDialogFragment;
+import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterface.OnBrushOptionsChange;
 import com.projetTec.imageStudio.controller.dialogFragment.TextDialogFragment;
 import com.projetTec.imageStudio.model.animation.ViewAnimation;
 import com.projetTec.imageStudio.model.editingImage.additionalFilters.AdditionalFilters;
@@ -98,7 +100,7 @@ import org.jetbrains.annotations.NotNull;
  * @see ViewAnimation
  */
 
-public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected, View.OnClickListener, OnPhotoEditorListener {
+public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected, View.OnClickListener, OnPhotoEditorListener, OnBrushOptionsChange {
 
     //The bitmap passed by MainActivity, used to reset to main state
     private static Bitmap captImage;
@@ -152,6 +154,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     //The rotation linear layout (It contain two button 'Left and Right')
     private LinearLayout rotationButtonLayout;
 
+    //An instance of brush bottom dialog fragment
+    private BrushBottomDialogFragment brushBottomDialogFragment = new BrushBottomDialogFragment();
+
     //Booleans to find out which action is selected at a given time
     private boolean isFilter = false;
     private boolean isColorizeOrShading = false;
@@ -184,6 +189,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         isBrightnessRGB = true;
         isRenderScript = true;
+
+        brushBottomDialogFragment.setOnBrushOptionsChange(this);
 
         applicationContext = StudioActivity.getContextOfApplication();
 
@@ -638,6 +645,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             case R.id.fragment_studio_save:
                 if (isBrush) {
                     photoEditor.setBrushDrawingMode(true);
+                    brushBottomDialogFragment.show(getFragmentManager() ,brushBottomDialogFragment.getTag());
                 }
                 else {
                     final SweetAlertDialog saveAlerter = new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.PROGRESS_TYPE);
@@ -747,6 +755,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             saveImageAfterChangesPhotoEditor();
         } else if (isBrush) {
             isBrush = false;
+            photoEditor.setBrushDrawingMode(false);
             centerText.setText("Studio");
             ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_left_black_24dp);
             ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.frombuttom, editingToolRecyclerView, 0, 200, true);
@@ -905,8 +914,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         isBrush = true;
 
-        BottomSheetDialogFragment bottomSheetDialogFragment = new BottomSheetDialogFragment();
-        bottomSheetDialogFragment.show(getFragmentManager() ,bottomSheetDialogFragment.getTag());
+        brushBottomDialogFragment.show(getFragmentManager() ,brushBottomDialogFragment.getTag());
         photoEditor.setBrushDrawingMode(true);
     }
 
@@ -1048,5 +1056,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     @Override
     public void onStopViewChangeListener(ViewType viewType) {
 
+    }
+
+    @Override
+    public void onBrushColorChanged(int colorCode) {
+        photoEditor.setBrushColor(colorCode);
     }
 }

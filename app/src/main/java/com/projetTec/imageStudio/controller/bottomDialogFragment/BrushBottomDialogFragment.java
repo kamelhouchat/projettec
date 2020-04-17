@@ -1,5 +1,8 @@
 package com.projetTec.imageStudio.controller.bottomDialogFragment;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,8 +56,10 @@ public class BrushBottomDialogFragment extends BottomSheetDialogFragment {
         colorPickerAdapter.setOnColorPickerClickListener(new ColorPickerAdapter.OnColorPickerClickListener() {
             @Override
             public void onColorPickerClickListener(int colorCode) {
-                dismiss();
-                onBrushOptionsChange.onBrushColorChanged(colorCode);
+                if (onBrushOptionsChange != null) {
+                    dismiss();
+                    onBrushOptionsChange.onBrushColorChanged(colorCode);
+                }
             }
         });
     }
