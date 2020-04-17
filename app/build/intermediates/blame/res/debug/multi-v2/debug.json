@@ -454,21 +454,6 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\values-ldltr-v21_values-ldltr-v21.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\d9z\\.gradle\\caches\\transforms-2\\files-2.1\\aa9e18d12c5afb35dcd731ed91706877\\appcompat-1.1.0\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "112",
-                        "endOffsets": "163"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\values-nb_values-nb.arsc.flat",
             "map": [
                 {
@@ -537,6 +522,21 @@
                         "startOffsets": "2737,2844,3035,3163,3274,3489,3621,3771,4092,4305,4414,4606,4736,4937,5143,5240,5332",
                         "endColumns": "106,190,127,110,214,131,149,131,212,108,191,129,200,205,96,91,106",
                         "endOffsets": "2839,3030,3158,3269,3484,3616,3766,3898,4300,4409,4601,4731,4932,5138,5235,5327,5434"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\values-ldltr-v21_values-ldltr-v21.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\d9z\\.gradle\\caches\\transforms-2\\files-2.1\\aa9e18d12c5afb35dcd731ed91706877\\appcompat-1.1.0\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
                     }
                 }
             ]
@@ -1085,6 +1085,22 @@
             ]
         },
         {
+            "outputFile": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\values-hdpi-v4_values-hdpi-v4.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\d9z\\.gradle\\caches\\transforms-2\\files-2.1\\aa9e18d12c5afb35dcd731ed91706877\\appcompat-1.1.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\values-vi_values-vi.arsc.flat",
             "map": [
                 {
@@ -1153,22 +1169,6 @@
                         "startOffsets": "5629",
                         "endColumns": "100",
                         "endOffsets": "5725"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\values-hdpi-v4_values-hdpi-v4.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\d9z\\.gradle\\caches\\transforms-2\\files-2.1\\aa9e18d12c5afb35dcd731ed91706877\\appcompat-1.1.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "6",
-                        "endColumns": "13",
-                        "endOffsets": "327"
                     }
                 }
             ]

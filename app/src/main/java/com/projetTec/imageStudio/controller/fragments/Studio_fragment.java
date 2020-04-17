@@ -26,10 +26,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.projetTec.imageStudio.controller.adapters.EditingToolRecyclerViewAdapter;
 
 import com.projetTec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
 import com.projetTec.imageStudio.controller.StudioActivity;
+import com.projetTec.imageStudio.controller.bottomDialogFragment.BrushBottomDialogFragment;
 import com.projetTec.imageStudio.controller.dialogFragment.TextDialogFragment;
 import com.projetTec.imageStudio.model.animation.ViewAnimation;
 import com.projetTec.imageStudio.model.editingImage.additionalFilters.AdditionalFilters;
@@ -903,6 +905,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         isBrush = true;
 
+        BottomSheetDialogFragment bottomSheetDialogFragment = new BottomSheetDialogFragment();
+        bottomSheetDialogFragment.show(getFragmentManager() ,bottomSheetDialogFragment.getTag());
         photoEditor.setBrushDrawingMode(true);
     }
 

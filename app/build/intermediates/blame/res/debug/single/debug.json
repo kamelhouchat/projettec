@@ -68,10 +68,6 @@
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\src\\main\\res\\drawable\\ic_brush_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\layout_add_text_dialog_fragment.xml.flat",
-        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\src\\main\\res\\layout\\add_text_dialog_fragment.xml"
-    },
-    {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
@@ -156,6 +152,10 @@
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\src\\main\\res\\layout\\fragment_plus.xml"
     },
     {
+        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_fragment_add_text.xml.flat",
+        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\src\\main\\res\\layout\\dialog_fragment_add_text.xml"
+    },
+    {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_sticker.xml.flat",
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\src\\main\\res\\drawable\\ic_sticker.xml"
     },
@@ -214,6 +214,10 @@
     {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_gallery.png.flat",
         "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\src\\main\\res\\drawable\\gallery.png"
+    },
+    {
+        "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\layout_bottom_dialog_fragment_brush.xml.flat",
+        "source": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\src\\main\\res\\layout\\bottom_dialog_fragment_brush.xml"
     },
     {
         "merged": "C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_filter_black_24dp.xml.flat",

@@ -1893,6 +1893,7 @@ id clover
 id collapseActionView
 id color_picker_imageColor
 id color_picker_recycler_view_add_text_dialog_fragment
+id color_picker_recycler_view_brush_bottom_sheet_fragment
 id confirm_button
 id container
 id content
@@ -2262,10 +2263,10 @@ layout activity_matisse
 layout activity_media_preview
 layout activity_mock
 layout activity_studio
-layout add_text_dialog_fragment
 layout album_list_item
 layout alert_dialog
 layout alerter_alert_view
+layout bottom_dialog_fragment_brush
 layout color_picker_row
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -2283,6 +2284,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_fragment_add_text
 layout editing_tool_row
 layout filter_row
 layout fragment_media_selection
