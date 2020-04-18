@@ -3,7 +3,6 @@ package com.projetTec.imageStudio.controller.fragments;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.media.MediaScannerConnection;
@@ -27,8 +26,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.projetTec.imageStudio.controller.adapters.ColorPickerAdapter;
 import com.projetTec.imageStudio.controller.adapters.EditingToolRecyclerViewAdapter;
 
 import com.projetTec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
@@ -176,10 +173,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private static boolean isBrightnessRGB = true;
 
     //The image path
-    private String image_path;
+    private String imagePath;
 
     //The image's uri
-    private Uri image_uri;
+    private Uri imageUri;
 
     private static final String TAG = "Studio_fragment";
 
@@ -196,23 +193,25 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         applicationContext = StudioActivity.getContextOfApplication();
 
-        image_path = Objects.requireNonNull(getArguments()).getString("image");
-        image_uri = Uri.parse(image_path);
+        imagePath = Objects.requireNonNull(getArguments()).getString("image");
+        imageUri = Uri.parse(imagePath);
         captImage = null;
         try {
             captImage = MediaStore.Images.Media.getBitmap(
-                    applicationContext.getContentResolver(), image_uri);
+                    applicationContext.getContentResolver(), imageUri);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.tig);
 
-        int[] reducedHeightWidth = BitmapImageAdaptation.getReducedHeightWidth(captImage);
-        captImage = Bitmap.createScaledBitmap(captImage,
-                reducedHeightWidth[1],
-                reducedHeightWidth[0],
-                true);
+        captImage = BitmapImageAdaptation.getReducedBitmap(captImage);
+
+        try {
+            BitmapImageAdaptation.fixAutoRotate(captImage, applicationContext.getContentResolver().openInputStream(imageUri));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         loadedToRestore = captImage.copy(captImage.getConfig(), true);
         loadedToChange = captImage.copy(captImage.getConfig(), true);

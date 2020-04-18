@@ -3,42 +3,24 @@ package com.projetTec.imageStudio.model.imageAdaptation;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.net.Uri;
 
+import androidx.exifinterface.media.ExifInterface;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+/**
+ * <p>
+ * Class which contains all the static methods which allow the adaptation and the adjustment of the problems of the images before loading.
+ * </p>
+ *
+ * @author Kamel.H
+ * @see ExifInterface
+ * @see Matrix
+ * @see com.projetTec.imageStudio.controller.fragments.Studio_fragment
+ */
 public class BitmapImageAdaptation {
-
-    @SuppressWarnings("UnusedAssignment")
-    public static void rotateImage(float degree, Bitmap loadedToRestore, Bitmap loadedToChange) {
-        Matrix matrix = new Matrix();
-        matrix.postRotate(degree);
-        Bitmap rotatedBitmapLadedToRestore = Bitmap.createBitmap(loadedToRestore, 0, 0, loadedToRestore.getWidth(), loadedToRestore.getHeight(), matrix, true);
-        Bitmap rotatedBitmapLoadedToChange = Bitmap.createBitmap(loadedToChange, 0, 0, loadedToChange.getWidth(), loadedToChange.getHeight(), matrix, true);
-        loadedToRestore = rotatedBitmapLadedToRestore.copy(rotatedBitmapLadedToRestore.getConfig(), true);
-        loadedToChange = rotatedBitmapLoadedToChange.copy(rotatedBitmapLoadedToChange.getConfig(), true);
-        //photo_view.setImageBitmap(loadedToChange);
-    }
-
-    /*
-      TODO -- fixing auto rotating when we load image from gallery or camera
-     */
-
-    /**
-     * <p>This function allows allows resizing a bitmap image</p>
-     *
-     * @param imageBitmap image which we want to resize
-     * @param newWidth    new width
-     * @param newHeight   new height
-     * @return new image resized
-     */
-    public static Bitmap resizeBitmap(Bitmap imageBitmap, int newWidth, int newHeight) {
-        int width = imageBitmap.getWidth();
-        int height = imageBitmap.getHeight();
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeight) / height;
-        Matrix matrix = new Matrix();
-        matrix.postScale(scaleWidth, scaleHeight);
-        Bitmap resizedBitmap = Bitmap.createBitmap(imageBitmap, 0, 0, width, height, matrix, true);
-        return resizedBitmap;
-    }
 
     /**
      * <p>
@@ -48,7 +30,7 @@ public class BitmapImageAdaptation {
      * @param imageBitmap The bitmap image
      * @return An integer array containing the new height and the new width (reduced).
      */
-    public static int[] getReducedHeightWidth(Bitmap imageBitmap) {
+    public static Bitmap getReducedBitmap(Bitmap imageBitmap) {
         int height = imageBitmap.getHeight();
         int width = imageBitmap.getWidth();
 
@@ -56,8 +38,39 @@ public class BitmapImageAdaptation {
             height *= 0.9;
             width *= 0.9;
         }
-        return new int[]{height, width};
+        return  Bitmap.createScaledBitmap(imageBitmap, width, height, true);
     }
 
+    /**
+     * <p>
+     * Method which makes it possible to check if the rotation of the image is correct and to correct it if it is not the case.
+     * </p>
+     *
+     * @param imageBitmap      The bitmap image
+     * @param imageInputStream The image input stream
+     * @throws IOException
+     * @see com.projetTec.imageStudio.controller.fragments.Studio_fragment
+     * @see ExifInterface
+     * @see Matrix
+     */
+    public static void fixAutoRotate(Bitmap imageBitmap, InputStream imageInputStream) throws IOException {
+        ExifInterface exifInterface = new ExifInterface(imageInputStream);
+
+        int orientation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
+        Matrix matrix = new Matrix();
+        switch (orientation) {
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                matrix.setRotate(90);
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                matrix.setRotate(180);
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                matrix.setRotate(270);
+                break;
+        }
+        imageBitmap = Bitmap.createBitmap(imageBitmap, 0, 0, imageBitmap.getWidth(), imageBitmap.getHeight(), matrix, true);
+    }
 
 }
+
