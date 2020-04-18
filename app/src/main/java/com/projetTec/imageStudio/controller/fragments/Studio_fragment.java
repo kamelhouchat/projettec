@@ -3,6 +3,7 @@ package com.projetTec.imageStudio.controller.fragments;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.media.MediaScannerConnection;
@@ -46,6 +47,7 @@ import com.projetTec.imageStudio.model.editingImage.basicFilters.Filters;
 import com.projetTec.imageStudio.R;
 import com.projetTec.imageStudio.model.filters.FilterType;
 import com.projetTec.imageStudio.model.filters.OnItemFilterSelected;
+import com.projetTec.imageStudio.model.imageAdaptation.BitmapImageAdaptation;
 import com.projetTec.imageStudio.model.tools.OnItemToolSelected;
 import com.projetTec.imageStudio.model.tools.ToolType;
 import com.rtugeek.android.colorseekbar.ColorSeekBar;
@@ -204,7 +206,14 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             e.printStackTrace();
         }
 
-        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.tom);
+        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.tig);
+
+        int[] reducedHeightWidth = BitmapImageAdaptation.getReducedHeightWidth(captImage);
+        captImage = Bitmap.createScaledBitmap(captImage,
+                reducedHeightWidth[1],
+                reducedHeightWidth[0],
+                true);
+
         loadedToRestore = captImage.copy(captImage.getConfig(), true);
         loadedToChange = captImage.copy(captImage.getConfig(), true);
 

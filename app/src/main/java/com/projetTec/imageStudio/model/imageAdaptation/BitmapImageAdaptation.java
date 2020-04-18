@@ -1,6 +1,7 @@
 package com.projetTec.imageStudio.model.imageAdaptation;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 
 public class BitmapImageAdaptation {
@@ -38,5 +39,25 @@ public class BitmapImageAdaptation {
         Bitmap resizedBitmap = Bitmap.createBitmap(imageBitmap, 0, 0, width, height, matrix, true);
         return resizedBitmap;
     }
+
+    /**
+     * <p>
+     * Method which allows to calculate a new height and a new width to reduce the size of the image passed in parameter.
+     * </p>
+     *
+     * @param imageBitmap The bitmap image
+     * @return An integer array containing the new height and the new width (reduced).
+     */
+    public static int[] getReducedHeightWidth(Bitmap imageBitmap) {
+        int height = imageBitmap.getHeight();
+        int width = imageBitmap.getWidth();
+
+        while (height > 1500 && width > 1500) {
+            height *= 0.9;
+            width *= 0.9;
+        }
+        return new int[]{height, width};
+    }
+
 
 }
