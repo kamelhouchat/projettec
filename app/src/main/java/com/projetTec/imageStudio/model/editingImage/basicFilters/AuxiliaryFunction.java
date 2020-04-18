@@ -36,8 +36,6 @@ class AuxiliaryFunction {
         return (( 0 < val && val < max_accept) || ( min_accept < val && val < 360 ));
     }
 
-
-
     /**
      * Function that calculates the histogram from an array that contains the pixels of the a gray image
      * @param pixels the table which contains the pixels of the image

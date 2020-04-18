@@ -170,7 +170,6 @@ public class Convolution {
 
     /*--------------------------------------RenderScript---------------------------------------*/
 
-
     /**
      * <p> this function implement the convolution function in renderscript </p>
      * @param imageBitmap image on which we want to apply the filter

@@ -9,6 +9,7 @@ import android.graphics.Color;
  */
 
 public class Conversion {
+
     /**
      * Function that converts from RGB to HSV
      *
@@ -59,4 +60,5 @@ public class Conversion {
         b = (int) ((hsvColor[2] - hsvColor[2] * hsvColor[1] * Math.max(Math.min(Math.min(k, 4 - k), 1), 0)) * 255.0);
         return Color.rgb((int) r, (int) g, (int) b);
     }
+
 }

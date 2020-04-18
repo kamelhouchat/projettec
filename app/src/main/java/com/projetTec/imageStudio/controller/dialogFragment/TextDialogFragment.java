@@ -90,7 +90,16 @@ public class TextDialogFragment extends DialogFragment {
         this.textEditor = textEditor;
     }
 
-    //Show dialog with provide text and text color
+    /**
+     * <p>
+     * Method to display a TextDialogFragment with provide text and text color
+     * </p>
+     *
+     * @param appCompatActivity The FragmentActivity
+     * @param inputText         The text already entered
+     * @param colorCode         The color already chosen
+     * @return A TextDialogFragment which contains the Bundle
+     */
     public static TextDialogFragment show(FragmentActivity appCompatActivity, String inputText, int colorCode) {
         Bundle args = new Bundle();
         args.putString(EXTRA_INPUT_TEXT, inputText);
@@ -101,7 +110,14 @@ public class TextDialogFragment extends DialogFragment {
         return fragment;
     }
 
-    //Show dialog with default text input as empty and text color white
+    /**
+     * <p>
+     * Method to display a TextDialogFragment with default text input as empty and text color white.
+     * </p>
+     *
+     * @param appCompatActivity The FragmentActivity
+     * @return A TextDialogFragment
+     */
     public static TextDialogFragment show(FragmentActivity appCompatActivity) {
         return show(appCompatActivity,
                 "", ContextCompat.getColor(appCompatActivity, R.color.white));
