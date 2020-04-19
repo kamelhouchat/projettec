@@ -68,6 +68,12 @@ public class BitmapImageAdaptation {
             case ExifInterface.ORIENTATION_ROTATE_270:
                 matrix.setRotate(270);
                 break;
+            case ExifInterface.ORIENTATION_FLIP_HORIZONTAL:
+                matrix.preScale(-1, 1);
+                break;
+            case ExifInterface.ORIENTATION_FLIP_VERTICAL:
+                matrix.preScale(1, -1);
+                break;
         }
         imageBitmap = Bitmap.createBitmap(imageBitmap, 0, 0, imageBitmap.getWidth(), imageBitmap.getHeight(), matrix, true);
     }
