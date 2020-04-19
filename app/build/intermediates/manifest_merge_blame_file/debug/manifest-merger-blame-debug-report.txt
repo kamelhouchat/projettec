@@ -25,7 +25,7 @@
 16        android:allowBackup="true"
 16-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:10:9-35
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-17-->[androidx.core:core:1.1.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\298ea8177a06e7e73d842fb4acd8415b\core-1.1.0\AndroidManifest.xml:24:18-86
+17-->[androidx.core:core:1.1.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\7f464ad4e486d0c714a6d8a0a1f991d4\core-1.1.0\AndroidManifest.xml:24:18-86
 18        android:debuggable="true"
 19        android:extractNativeLibs="false"
 20        android:fullBackupContent="@xml/backup_descriptor"
@@ -38,58 +38,59 @@
 23-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:13:9-43
 24        android:supportsRtl="true"
 24-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:14:9-35
-25        android:theme="@style/AppTheme" >
-25-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:15:9-40
-26        <activity android:name="com.projetTec.imageStudio.controller.MainActivity" >
-26-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:17:9-23:20
-26-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:17:19-83
-27            <intent-filter>
-27-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:18:13-22:29
-28                <action android:name="android.intent.action.MAIN" />
-28-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:19:17-69
-28-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:19:25-66
-29
-30                <category android:name="android.intent.category.LAUNCHER" />
-30-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:21:17-77
-30-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:21:27-74
-31            </intent-filter>
-32        </activity>
-33        <activity android:name="com.projetTec.imageStudio.controller.StudioActivity" />
-33-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:24:9-88
-33-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:24:19-85
-34        <activity android:name="com.projetTec.imageStudio.controller.HistogramActivity" />
-34-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:25:9-91
-34-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:25:19-88
-35        <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
-35-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:28:9-73
-35-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:28:19-70
-36        <activity android:name="com.zhihu.matisse.internal.ui.AlbumPreviewActivity" />
-36-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:29:9-87
-36-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:29:19-84
-37        <activity android:name="com.zhihu.matisse.internal.ui.SelectedPreviewActivity" /> <!-- This is just an Activity for Testing from within src/androidTest -->
-37-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:30:9-90
-37-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\8c8b71fe2d94fa297677781213c3eaa4\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:30:19-87
-38        <activity
-38-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\f402b1796dad34a68eece8570ff50ee4\jetified-alerter-2.0.4\AndroidManifest.xml:15:9-17:54
-39            android:name="com.tapadoo.alerter.MockActivity"
-39-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\f402b1796dad34a68eece8570ff50ee4\jetified-alerter-2.0.4\AndroidManifest.xml:16:13-60
-40            android:theme="@style/Theme.AppCompat" />
-40-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\f402b1796dad34a68eece8570ff50ee4\jetified-alerter-2.0.4\AndroidManifest.xml:17:13-51
-41        <activity
-41-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\9ec2f2a8209c127e297d42f850a4d196\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-42            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-42-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\9ec2f2a8209c127e297d42f850a4d196\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-43            android:exported="false"
-43-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\9ec2f2a8209c127e297d42f850a4d196\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-44            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-44-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\9ec2f2a8209c127e297d42f850a4d196\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-45
-46        <meta-data
-46-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\f1e22e0968909a125d1a96eaaa6ef2d7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-47            android:name="com.google.android.gms.version"
-47-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\f1e22e0968909a125d1a96eaaa6ef2d7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-48            android:value="@integer/google_play_services_version" />
-48-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\f1e22e0968909a125d1a96eaaa6ef2d7\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-49    </application>
-50
-51</manifest>
+25        android:testOnly="true"
+26        android:theme="@style/AppTheme" >
+26-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:15:9-40
+27        <activity android:name="com.projetTec.imageStudio.controller.MainActivity" >
+27-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:17:9-23:20
+27-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:17:19-83
+28            <intent-filter>
+28-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:18:13-22:29
+29                <action android:name="android.intent.action.MAIN" />
+29-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:19:17-69
+29-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:19:25-66
+30
+31                <category android:name="android.intent.category.LAUNCHER" />
+31-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:21:17-77
+31-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:21:27-74
+32            </intent-filter>
+33        </activity>
+34        <activity android:name="com.projetTec.imageStudio.controller.StudioActivity" />
+34-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:24:9-88
+34-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:24:19-85
+35        <activity android:name="com.projetTec.imageStudio.controller.HistogramActivity" />
+35-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:25:9-91
+35-->C:\Users\d9z\Desktop\projet tec\version combin\nouvelle version combin\nouveau\nouveau\projettec\app\src\main\AndroidManifest.xml:25:19-88
+36        <activity android:name="com.zhihu.matisse.ui.MatisseActivity" />
+36-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\15b4d53f726ff47e6f74931f5b87657d\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:28:9-73
+36-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\15b4d53f726ff47e6f74931f5b87657d\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:28:19-70
+37        <activity android:name="com.zhihu.matisse.internal.ui.AlbumPreviewActivity" />
+37-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\15b4d53f726ff47e6f74931f5b87657d\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:29:9-87
+37-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\15b4d53f726ff47e6f74931f5b87657d\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:29:19-84
+38        <activity android:name="com.zhihu.matisse.internal.ui.SelectedPreviewActivity" /> <!-- This is just an Activity for Testing from within src/androidTest -->
+38-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\15b4d53f726ff47e6f74931f5b87657d\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:30:9-90
+38-->[com.zhihu.android:matisse:0.5.3-beta3] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\15b4d53f726ff47e6f74931f5b87657d\jetified-matisse-0.5.3-beta3\AndroidManifest.xml:30:19-87
+39        <activity
+39-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\bb60fe0769f8f556ada364625acedac0\jetified-alerter-2.0.4\AndroidManifest.xml:15:9-17:54
+40            android:name="com.tapadoo.alerter.MockActivity"
+40-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\bb60fe0769f8f556ada364625acedac0\jetified-alerter-2.0.4\AndroidManifest.xml:16:13-60
+41            android:theme="@style/Theme.AppCompat" />
+41-->[com.tapadoo.android:alerter:2.0.4] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\bb60fe0769f8f556ada364625acedac0\jetified-alerter-2.0.4\AndroidManifest.xml:17:13-51
+42        <activity
+42-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\1dccaebfb68d3f498403c17c3071402d\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+43            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+43-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\1dccaebfb68d3f498403c17c3071402d\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+44            android:exported="false"
+44-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\1dccaebfb68d3f498403c17c3071402d\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+45            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+45-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\1dccaebfb68d3f498403c17c3071402d\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+46
+47        <meta-data
+47-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\3c944e9fbe6b1ab738e1b3e25146c3da\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+48            android:name="com.google.android.gms.version"
+48-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\3c944e9fbe6b1ab738e1b3e25146c3da\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+49            android:value="@integer/google_play_services_version" />
+49-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\d9z\.gradle\caches\transforms-2\files-2.1\3c944e9fbe6b1ab738e1b3e25146c3da\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+50    </application>
+51
+52</manifest>

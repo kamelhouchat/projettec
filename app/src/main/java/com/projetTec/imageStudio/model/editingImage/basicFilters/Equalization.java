@@ -13,23 +13,14 @@ import androidx.renderscript.Allocation;
 import androidx.renderscript.RenderScript;
 
 public class Equalization {
-    private Bitmap imageBitmap;
     private final Context context;
 
     private final Filters filters;
 
-    public Equalization(Bitmap imageBitmap, Context context) {
-        this.imageBitmap = imageBitmap;
+    public Equalization(Context context) {
         this.context = context;
 
-        filters = new Filters(imageBitmap,context);
-    }
-
-    public Bitmap getImageBitmap() {
-        return imageBitmap;
-    }
-    public void setImageBitmap(Bitmap imageBitmap) {
-        this.imageBitmap = imageBitmap;
+        filters = new Filters(context);
     }
 
 
@@ -47,6 +38,7 @@ public class Equalization {
         int[] pixels = new int[height * width];
         imageBitmap.getPixels(pixels, 0, width, 0, 0, width, height);
         int[] histo = AuxiliaryFunction.histogram(pixels);
+        //noinspection unused
         int[] histo_cum = new int[256];
         int[] LUT = new int[256];
         for (int i = 0; i < 256; i++) {
@@ -78,6 +70,7 @@ public class Equalization {
         for (int i = 0 ; i < height*width ; i++){
             histo[ (int) (Color.red(pixels[i])*0.3 + Color.green(pixels[i])*0.59 + Color.blue(pixels[i])*0.11) ] +=1;
         }
+        //noinspection unused
         int[] histo_cum= new int[256];
         for (int i = 0 ; i < 256 ; i++){
             accumulator += histo[i];

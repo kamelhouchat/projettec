@@ -8,7 +8,7 @@ import android.graphics.Color;
  * @author Kamel.H
  */
 
-public class Conversion {
+class Conversion {
 
     /**
      * <p>static method that converts from rgb color space to YUV.

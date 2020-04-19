@@ -120,7 +120,7 @@ public class StudioActivity extends AppCompatActivity {
             super(fm);
         }
 
-        @SuppressWarnings("NullableProblems")
+        @SuppressWarnings({"NullableProblems", "ConstantConditions"})
         @Override
         public Fragment getItem(int pos) {
             switch (pos) {

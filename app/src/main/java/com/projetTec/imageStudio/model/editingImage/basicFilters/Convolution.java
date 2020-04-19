@@ -3,7 +3,6 @@ package com.projetTec.imageStudio.model.editingImage.basicFilters;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.util.Log;
 
 import androidx.renderscript.Allocation;
 import androidx.renderscript.Element;
@@ -15,19 +14,10 @@ import com.android.rssample.ScriptC_convolution;
 
 public class Convolution {
 
-    private Bitmap imageBitmap;
-    private static Context context;
+    private final Context context;
 
-    public Convolution(Bitmap imageBitmap, Context context) {
-        this.imageBitmap = imageBitmap;
+    public Convolution(Context context) {
         this.context = context;
-    }
-
-    public Bitmap getImageBitmap() {
-        return imageBitmap;
-    }
-    public void setImageBitmap(Bitmap imageBitmap) {
-        this.imageBitmap = imageBitmap;
     }
 
     /**
@@ -36,6 +26,7 @@ public class Convolution {
      * @param bmp    image to convolve
      * @param filter filter to apply on the image
      */
+    @SuppressWarnings("unused")
     public void convolution(Bitmap bmp, int[][] filter) {
         int width = bmp.getWidth();
         int height = bmp.getHeight();
@@ -73,7 +64,7 @@ public class Convolution {
      * @param imageBitmap Image to convolve
      * @param filter      Filter to apply on the image
      */
-    public static void convolutions(Bitmap imageBitmap, int[][] filter) {
+    public void convolutions(Bitmap imageBitmap, int[][] filter) {
         int width = imageBitmap.getWidth();
         int height = imageBitmap.getHeight();
         int[] pixel = new int[width * height];
@@ -111,18 +102,18 @@ public class Convolution {
      * @param pixel the table containing the weighted average
      * @return sum of the values in the array
      */
-    private static int somme(int[][] pixel) {
+    private int somme(int[][] pixel) {
         int som = 0;
-        int n = pixel.length;
+        @SuppressWarnings("unused") int n = pixel.length;
         for (int[] ints : pixel) {
             for (int anInt : ints) som += anInt;
         }
         return som;
     }
 
-    private static int somme(int[] pixel) {
+    private int somme(int[] pixel) {
         int som = 0;
-        int n = pixel.length;
+        @SuppressWarnings("unused") int n = pixel.length;
         for (int anInt : pixel)
             som += anInt;
         return som;
@@ -134,7 +125,7 @@ public class Convolution {
      * @param gx  first filter to apply
      * @param gy  second filter to apply
      */
-    public static void contours(Bitmap bmp, int[][] gx, int[][] gy) {
+    public void contours(Bitmap bmp, int[][] gx, int[][] gy) {
         int width = bmp.getWidth();
         int height = bmp.getHeight();
         int[] pixels = new int[width * height];
@@ -175,7 +166,7 @@ public class Convolution {
      * @param imageBitmap image on which we want to apply the filter
      * @param filters the filter to apply
      */
-    public static void convolutionAverageFilterRS(Bitmap imageBitmap, int[] filters){
+    public void convolutionAverageFilterRS(Bitmap imageBitmap, int[] filters){
         RenderScript rs = RenderScript.create(context);
 
         Allocation input = Allocation.createFromBitmap (rs, imageBitmap);
@@ -214,7 +205,7 @@ public class Convolution {
      * @param gx first filter to apply
      * @param gy second filter to apply
      */
-    public static void contoursFilterRS(Bitmap imageBitmap, int[] gx, int[] gy){
+    public void contoursFilterRS(Bitmap imageBitmap, int[] gx, int[] gy){
         RenderScript rs = RenderScript.create(context);
 
         Allocation input = Allocation.createFromBitmap (rs, imageBitmap);

@@ -8,15 +8,20 @@
         <ignore path="src/main/res/drawable/background_color.png" />
         <ignore path="src/main/res/drawable/background_gray.jpg" />
         <ignore path="src/main/res/drawable/background_org.png" />
+        <ignore path="src/main/res/drawable/bg_app.png" />
         <ignore path="src/main/res/drawable/bgapp.png" />
         <ignore path="src/main/res/drawable/camera.png" />
         <ignore path="src/main/res/drawable/chateaux.jpg" />
         <ignore path="src/main/res/drawable/clover.png" />
+        <ignore path="src/main/res/drawable/flower.png" />
         <ignore path="src/main/res/drawable/gallery.png" />
+        <ignore path="src/main/res/drawable/hat.png" />
         <ignore path="src/main/res/drawable/icon.png" />
+        <ignore path="src/main/res/drawable/logo_last.png" />
         <ignore path="src/main/res/drawable/logolast.png" />
         <ignore path="src/main/res/drawable/pipimage.jpg" />
         <ignore path="src/main/res/drawable/plage.jpg" />
         <ignore path="src/main/res/drawable/tig.jpg" />
+        <ignore path="src/main/res/drawable/tom.jpg" />
     </issue>
 </lint>

@@ -40,6 +40,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * @see OnItemFilterSelected
  */
 
+@SuppressWarnings("FieldCanBeLocal")
 public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecyclerViewAdapter.ViewHolder> {
 
     //ArrayList which contains the FilterModels
@@ -63,8 +64,6 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
     private final Equalization equalization;
     private final Convolution convolution;
     private final AdditionalFilters additionalFilters;
-
-    private static final String TAG = "FilterRecyclerViewAdapt";
 
     /**
      * <p>
@@ -113,11 +112,11 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 true);
         this.mContext = mContext;
         this.onItemFilterSelected = onItemFilterSelected;
-        this.filters = new Filters(loadedImage, mContext);
-        this.dynamicExtension = new DynamicExtension(loadedImage, mContext);
-        this.equalization = new Equalization(loadedImage, mContext);
-        this.convolution = new Convolution(loadedImage, mContext);
-        this.additionalFilters = new AdditionalFilters(loadedImage, mContext);
+        this.filters = new Filters(mContext);
+        this.dynamicExtension = new DynamicExtension(mContext);
+        this.equalization = new Equalization(mContext);
+        this.convolution = new Convolution(mContext);
+        this.additionalFilters = new AdditionalFilters(mContext);
     }
 
     @NonNull
@@ -190,7 +189,6 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
      * @see FilterType
      * @see FilterModel
      */
-    @SuppressWarnings("AccessStaticViaInstance")
     private Bitmap chargeImage(FilterType filterType) {
         /*Bitmap loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
                 100,
@@ -241,6 +239,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                         {3, 8, 10, 8, 3},
                         {2, 6, 8, 6, 2},
                         {1, 2, 3, 2, 1}};
+                //noinspection unused
                 int[][] cartoonFilter = {
                         { -1 , -1, -1 },
                         { -1 ,  9, -1 },
@@ -252,7 +251,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 int[][] gx =  {{-1,0,1},{-2,0,2},{-1,0,1}};
                 int[][] gy =  {{-1,-2,-1},{0,0,0},{1,2,1}};
                 filters.tograyRS(loadedToRecycle);
-                Convolution.contours(loadedToRecycle,gx,gy);
+                convolution.contours(loadedToRecycle,gx,gy);
                 break;
             case SNOW_EFFECT:
                 additionalFilters.snowAndBlackEffectRS(loadedToRecycle, true);

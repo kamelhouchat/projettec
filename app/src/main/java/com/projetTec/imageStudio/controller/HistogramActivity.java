@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
  * @author Fall.E-P
  */
 
+@SuppressWarnings("FieldCanBeLocal")
 public class HistogramActivity extends AppCompatActivity {
 
     private ArrayList ColorG;
@@ -32,6 +33,7 @@ public class HistogramActivity extends AppCompatActivity {
     private ArrayList ArrayIndex;
     private String image_path ;
     private Bitmap captImage ;
+    @SuppressWarnings("unchecked")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,6 +118,7 @@ public class HistogramActivity extends AppCompatActivity {
         return tabHisto;
     }
 
+    @SuppressWarnings("unchecked")
     private void setBarEntry(){
         int[][] tabHisto = histoOfThreeColors();
         for (int i = 0; i<256; i++){

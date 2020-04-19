@@ -48,6 +48,7 @@ import es.dmoral.toasty.Toasty;
  * @see R.anim
  */
 
+@SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends AppCompatActivity {
 
     //ImageView loaded from the layout
@@ -137,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param view The view that corresponds to the gallery button
      */
-    public void loadImage(View view) {
+    public void loadImage(@SuppressWarnings("unused") View view) {
         Matisse.from(MainActivity.this)
                 .choose(MimeType.ofImage())
                 .countable(false)
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param view the view that corresponds to the camera button
      */
-    public void takeImage(View view) {
+    public void takeImage(@SuppressWarnings("unused") View view) {
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, "New Picture");
         values.put(MediaStore.Images.Media.DESCRIPTION, "From the Camera");

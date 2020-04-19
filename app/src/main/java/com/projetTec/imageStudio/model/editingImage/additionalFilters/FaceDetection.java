@@ -1,7 +1,6 @@
 package com.projetTec.imageStudio.model.editingImage.additionalFilters;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -10,8 +9,6 @@ import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
 import android.util.SparseArray;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.github.chrisbanes.photoview.PhotoView;
@@ -20,22 +17,21 @@ import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
 import com.google.android.gms.vision.face.Landmark;
 import com.projetTec.imageStudio.R;
-import com.projetTec.imageStudio.controller.StudioActivity;
-import com.projetTec.imageStudio.controller.fragments.Studio_fragment;
 
 public class FaceDetection {
 
     private Canvas canvas;
     private Bitmap flowerLine;
 
-    private Paint rectPaint = new Paint();
+    private final Paint rectPaint = new Paint();
 
-    private Context context;
+    private final Context context;
 
     public FaceDetection(Context context) {
         this.context = context;
     }
 
+    @SuppressWarnings("IntegerDivisionInFloatingPointContext")
     private void drawEyePatchBitmap(int landmarkType, float cx, float cy) {
 
 //        if (landmarkType == Landmark.LEFT_EYE) {

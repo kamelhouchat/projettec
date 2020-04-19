@@ -1,9 +1,7 @@
 package com.projetTec.imageStudio.model.imageAdaptation;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.net.Uri;
 
 import androidx.exifinterface.media.ExifInterface;
 
@@ -48,11 +46,12 @@ public class BitmapImageAdaptation {
      *
      * @param imageBitmap      The bitmap image
      * @param imageInputStream The image input stream
-     * @throws IOException
+     * @throws IOException By ExifInterface when imageInputStream is wrong
      * @see com.projetTec.imageStudio.controller.fragments.Studio_fragment
      * @see ExifInterface
      * @see Matrix
      */
+    @SuppressWarnings("UnusedAssignment")
     public static void fixAutoRotate(Bitmap imageBitmap, InputStream imageInputStream) throws IOException {
         ExifInterface exifInterface = new ExifInterface(imageInputStream);
 

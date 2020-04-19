@@ -27,7 +27,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ColorPickerAdapter extends RecyclerView.Adapter<ColorPickerAdapter.ViewHolder> {
 
     //The list which will contain the different colors
-    private ArrayList<Integer> colorList = new ArrayList<>();
+    private final ArrayList<Integer> colorList = new ArrayList<>();
 
     //The onColorPickerClickListener method which facilitates the management of listener
     private OnColorPickerClickListener onColorPickerClickListener;
@@ -118,7 +118,7 @@ public class ColorPickerAdapter extends RecyclerView.Adapter<ColorPickerAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         //CircleImageView on which we put the color each time
-        CircleImageView circleImageView;
+        final CircleImageView circleImageView;
 
         /**
          * <p>
@@ -127,7 +127,7 @@ public class ColorPickerAdapter extends RecyclerView.Adapter<ColorPickerAdapter.
          *
          * @param itemView The layout view
          */
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             circleImageView = itemView.findViewById(R.id.color_picker_imageColor);
             itemView.setOnClickListener(new View.OnClickListener() {

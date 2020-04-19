@@ -2432,6 +2432,7 @@ string default_progressbar
 string dialog_cancel
 string dialog_default_title
 string dialog_ok
+string done_text
 string empty_text
 string error_file_type
 string error_icon_content_description

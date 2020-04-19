@@ -7,7 +7,7 @@ package com.projetTec.imageStudio.model.editingImage.additionalFilters;
  * @see AdditionalFilters
  */
 
-public class AuxiliaryFunction {
+class AuxiliaryFunction {
 
     /**
      * <p>Method which calculates the histogram of the value v of a pixel after conversion.

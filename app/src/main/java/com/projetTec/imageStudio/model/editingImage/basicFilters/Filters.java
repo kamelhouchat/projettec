@@ -18,20 +18,9 @@ import static android.graphics.Color.HSVToColor;
 
 public class Filters {
 
-    private static final String TAG = "Filter";
-    
-    private Bitmap imageBitmap;
     private final Context context;
-    public Filters(Bitmap imageBitmap, Context context) {
-        this.imageBitmap = imageBitmap;
+    public Filters(Context context) {
         this.context = context;
-    }
-
-    public Bitmap getImageBitmap() {
-        return imageBitmap;
-    }
-    public void setImageBitmap(Bitmap imageBitmap) {
-        this.imageBitmap = imageBitmap;
     }
 
     /**
@@ -39,6 +28,7 @@ public class Filters {
      * (In JAVA)
      * @param imageBitmap a Bitmap image
      */
+    @SuppressWarnings("unused")
     public void toGray(Bitmap imageBitmap){
         int height = imageBitmap.getHeight();
         int width = imageBitmap.getWidth();
@@ -322,6 +312,7 @@ public class Filters {
      * @param newValue    The value we want to add to the old
      * @return A bitmap to which the changes have been applied
      */
+    @SuppressWarnings("unused")
     public Bitmap brightnessRGB_RS(Bitmap imageBitmap, int newValue) {
         RenderScript rs = RenderScript.create(context);
 

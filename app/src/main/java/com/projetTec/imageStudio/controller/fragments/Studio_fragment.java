@@ -99,6 +99,7 @@ import org.jetbrains.annotations.NotNull;
  * @see ViewAnimation
  */
 
+@SuppressWarnings("FieldCanBeLocal")
 public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected, View.OnClickListener, OnPhotoEditorListener, OnBrushOptionsChange {
 
     //The bitmap passed by MainActivity, used to reset to main state
@@ -154,7 +155,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private LinearLayout rotationButtonLayout;
 
     //An instance of brush bottom dialog fragment
-    private BrushBottomDialogFragment brushBottomDialogFragment = new BrushBottomDialogFragment();
+    private final BrushBottomDialogFragment brushBottomDialogFragment = new BrushBottomDialogFragment();
 
     //Booleans to find out which action is selected at a given time
     private boolean isFilter = false;
@@ -203,7 +204,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             e.printStackTrace();
         }
 
-        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.tig);
+        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.tom);
 
         captImage = BitmapImageAdaptation.getReducedBitmap(captImage);
 
@@ -217,11 +218,11 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         loadedToChange = captImage.copy(captImage.getConfig(), true);
 
         //Load filters
-        filters = new Filters(captImage, applicationContext);
-        dynamicExtension = new DynamicExtension(captImage, applicationContext);
-        equalization = new Equalization(captImage, applicationContext);
-        convolution = new Convolution(captImage, applicationContext);
-        additionalFilters = new AdditionalFilters(captImage, applicationContext);
+        filters = new Filters(applicationContext);
+        dynamicExtension = new DynamicExtension(applicationContext);
+        equalization = new Equalization(applicationContext);
+        convolution = new Convolution(applicationContext);
+        additionalFilters = new AdditionalFilters(applicationContext);
 
         int height = captImage.getHeight();
         int width = captImage.getWidth();
@@ -445,7 +446,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      * @see FilterType
      * @see com.projetTec.imageStudio.model.filters.FilterModel
      */
-    @SuppressWarnings({"ConstantConditions", "AccessStaticViaInstance"})
+    @SuppressWarnings({"ConstantConditions"})
     @Override
     public void onFilterSelected(FilterType filterType) {
         //Bitmap loadedToChange = Bitmap.createBitmap(this.loadedImage);
@@ -581,7 +582,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 else {*/
                     int[] gx =  {-1,0,1,-2,0,2,-1,0,1};
                     int[] gy =  {-1,-2,-1,0,0,0,1,2,1};
-                    Convolution.contoursFilterRS(loadedToChange,gx,gy);
+                    convolution.contoursFilterRS(loadedToChange,gx,gy);
                 //}
 
                 break;
@@ -653,7 +654,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             case R.id.fragment_studio_save:
                 if (isBrush) {
                     photoEditor.setBrushDrawingMode(true);
-                    brushBottomDialogFragment.show(getFragmentManager() ,brushBottomDialogFragment.getTag());
+                    brushBottomDialogFragment.show(Objects.requireNonNull(getFragmentManager()),brushBottomDialogFragment.getTag());
                 }
                 else {
                     final SweetAlertDialog saveAlerter = new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.PROGRESS_TYPE);
@@ -909,7 +910,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      * @see ToolType
      * @see ViewAnimation
      */
-    public void brush() {
+    private void brush() {
         ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);
         ViewAnimation.imageViewAnimatedChange(applicationContext, saveImage, R.drawable.ic_brush_black_24dp);
@@ -922,7 +923,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         isBrush = true;
 
-        brushBottomDialogFragment.show(getFragmentManager() ,brushBottomDialogFragment.getTag());
+        brushBottomDialogFragment.show(Objects.requireNonNull(getFragmentManager()),brushBottomDialogFragment.getTag());
         photoEditor.setBrushDrawingMode(true);
     }
 
@@ -955,19 +956,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 0, 200, 200);
         seekBar.setProgress(256);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
 
             @SuppressWarnings("ConstantConditions")
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 int progressValue = seekBar.getProgress() - 256;
 //                float val = (float) progressValue / 256;
 //                Bitmap returnBitmap = filter.brightnessAndSaturationHSV_RS(loadedToChange, val);
@@ -978,6 +970,16 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 else if (!isBrightnessRGB)
                     loadedToRestore = filters.brightnessAndSaturationHSV(loadedToChange, (float) progressValue / 256, true);
                 photoView.setImageBitmap(loadedToRestore);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
     }
@@ -1041,7 +1043,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     @Override
     public void onEditTextChangeListener(final View rootView, String text, int colorCode) {
         TextDialogFragment textEditorDialogFragment =
-                TextDialogFragment.show(getActivity(), text, colorCode);
+                TextDialogFragment.show(Objects.requireNonNull(getActivity()), text, colorCode);
         textEditorDialogFragment.setOnTextEditorListener(new TextDialogFragment.TextEditor() {
             @Override
             public void onDone(String inputText, int colorCode) {

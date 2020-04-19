@@ -1,8 +1,6 @@
 package com.projetTec.imageStudio.model.editingImage.basicFilters;
 
-import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.Matrix;
 
 class AuxiliaryFunction {
 

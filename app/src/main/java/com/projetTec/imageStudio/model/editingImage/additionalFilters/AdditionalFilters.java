@@ -28,18 +28,14 @@ import java.util.Random;
 
 public class AdditionalFilters {
 
-    private Bitmap imageBitmap;
-
     //The application context
     private final Context context;
 
     //Static values
-    public static final int COLOR_MIN = 0;
-    public static final int COLOR_MAX = 255;
-    private static final String TAG = "AdditionalFilters";
+    private static final int COLOR_MIN = 0;
+    private static final int COLOR_MAX = 255;
 
-    public AdditionalFilters(Bitmap imageBitmap, Context context) {
-        this.imageBitmap = imageBitmap;
+    public AdditionalFilters(Context context) {
         this.context = context;
     }
 
@@ -114,6 +110,7 @@ public class AdditionalFilters {
      * @param percent     The percentage of the change
      * @see com.projetTec.imageStudio.model.filters.FilterType
      */
+    @SuppressWarnings("unused")
     public void colorizeRGB(Bitmap imageBitmap, int type, float percent) {
         int width = imageBitmap.getWidth();
         int height = imageBitmap.getHeight();
@@ -238,7 +235,7 @@ public class AdditionalFilters {
      * @see Equalization
      */
     public void mixEqualizationRgbYuv(Bitmap imageBitmap) {
-        Equalization equalization = new Equalization(imageBitmap, context);
+        Equalization equalization = new Equalization(context);
 
         Bitmap ega = imageBitmap.copy(imageBitmap.getConfig(), true);
         Bitmap egaYUV = imageBitmap.copy(imageBitmap.getConfig(), true);

@@ -23,6 +23,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.projetTec.imageStudio.R;
 import com.projetTec.imageStudio.controller.adapters.ColorPickerAdapter;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
+
 /**
  * <p>
  * The class extends from DialogFragment, it allows to implement and display a fragment dialog in which
@@ -33,11 +37,12 @@ import com.projetTec.imageStudio.controller.adapters.ColorPickerAdapter;
  * @see ja.burhanrashid52.photoeditor.PhotoEditor
  */
 
+@SuppressWarnings("FieldCanBeLocal")
 public class TextDialogFragment extends DialogFragment {
 
     private static final String TAG = "TextDialogFragment";
-    public static final String EXTRA_INPUT_TEXT = "extra_input_text";
-    public static final String EXTRA_COLOR_CODE = "extra_color_code";
+    private static final String EXTRA_INPUT_TEXT = "extra_input_text";
+    private static final String EXTRA_COLOR_CODE = "extra_color_code";
 
     //The place where we will enter text
     private EditText addTextEditText;
@@ -131,7 +136,7 @@ public class TextDialogFragment extends DialogFragment {
         if (dialog != null) {
             int width = ViewGroup.LayoutParams.MATCH_PARENT;
             int height = ViewGroup.LayoutParams.MATCH_PARENT;
-            dialog.getWindow().setLayout(width, height);
+            Objects.requireNonNull(dialog.getWindow()).setLayout(width, height);
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
     }
@@ -143,11 +148,11 @@ public class TextDialogFragment extends DialogFragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         addTextDoneTextView = view.findViewById(R.id.done_add_text_dialog_fragment);
         addTextEditText = view.findViewById(R.id.edit_text_add_text_dialog_fragment);
-        inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
 
         //Setup the color picker for text color
         RecyclerView addTextColorPickerRecyclerView = view.findViewById(R.id.color_picker_recycler_view_add_text_dialog_fragment);
@@ -164,7 +169,7 @@ public class TextDialogFragment extends DialogFragment {
             }
         });
         addTextColorPickerRecyclerView.setAdapter(colorPickerAdapter);
-        addTextEditText.setText(getArguments().getString(EXTRA_INPUT_TEXT));
+        addTextEditText.setText(Objects.requireNonNull(getArguments()).getString(EXTRA_INPUT_TEXT));
         colorCode = getArguments().getInt(EXTRA_COLOR_CODE);
         addTextEditText.setTextColor(colorCode);
         inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);

@@ -39,5 +39,8 @@
     //Editing Tool Row
     <string name="tool_icon_content">tool icon</string>
 
+    //Dialog Fragment Add Text
+    <string name="done_text">Terminer</string>
+
 
 </resources>

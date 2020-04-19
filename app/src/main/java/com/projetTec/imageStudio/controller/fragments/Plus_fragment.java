@@ -29,6 +29,7 @@ import java.util.Objects;
  * @see Fragment
  */
 
+@SuppressWarnings("FieldCanBeLocal")
 public class Plus_fragment extends Fragment implements View.OnClickListener{
 
     // The layout view
@@ -152,6 +153,7 @@ public class Plus_fragment extends Fragment implements View.OnClickListener{
      *
      * @param v The view we just clicked on
      */
+    @SuppressWarnings("SwitchStatementWithTooFewBranches")
     @Override
     public void onClick(View v) {
         switch (v.getId()){

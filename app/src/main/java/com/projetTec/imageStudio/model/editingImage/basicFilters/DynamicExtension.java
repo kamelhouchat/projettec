@@ -18,23 +18,14 @@ import androidx.renderscript.RenderScript;
 
 public class DynamicExtension {
 
-    private Bitmap imageBitmap;
     private final Context context;
 
     private final Filters filters;
 
-    public DynamicExtension(Bitmap imageBitmap, Context context) {
-        this.imageBitmap = imageBitmap;
+    public DynamicExtension(Context context) {
         this.context = context;
 
-        this.filters = new Filters(imageBitmap,context);
-    }
-
-    public Bitmap getImageBitmap() {
-        return imageBitmap;
-    }
-    public void setImageBitmap(Bitmap imageBitmap) {
-        this.imageBitmap = imageBitmap;
+        this.filters = new Filters(context);
     }
 
     /**
@@ -42,6 +33,7 @@ public class DynamicExtension {
      * (In JAVA)
      * @param imageBitmap a Bitmap image
      */
+    @SuppressWarnings("unused")
     public void contrastPlus(Bitmap imageBitmap){
         filters.toGrays(imageBitmap);
         int height = imageBitmap.getHeight();
@@ -116,6 +108,7 @@ public class DynamicExtension {
      * (In JAVA)
      * @param imageBitmap a Bitmap image
      */
+    @SuppressWarnings("unused")
     public void contrastPlusCouleurRGB(Bitmap imageBitmap){
         int height = imageBitmap.getHeight();
         int width = imageBitmap.getWidth();

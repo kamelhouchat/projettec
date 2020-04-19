@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_grey_bg_light">
+    android:background="@color/blue_grey_bg_light"
+    tools:ignore="Overdraw">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/color_picker_recycler_view_brush_bottom_sheet_fragment"
