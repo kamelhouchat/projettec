@@ -540,7 +540,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             case CONVOLUTION_MOY:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 int size = 7;
-                /*if (!isRenderScript){
+                if (!isRenderScript){
                     int[][] filterMoy = new int[size][size];
                     for (int i = 0; i < size; i++) {
                         for (int j = 0; j < size; j++) {
@@ -548,16 +548,16 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                         }
                     }
                     convolution.convolutions(loadedToChange, filterMoy);
-                } else { */
+                } else {
                     int[] filterMoy = new int[size];
                     for (int i = 0; i < size; i++)
                         filterMoy[i] = 1;
                     convolution.convolutionAverageFilterRS(loadedToChange, filterMoy);
-                //}
+                }
                 break;
             case CONVOLUTION_GAUS:
                 colorSeekBar.setVisibility(View.INVISIBLE);
-                //if (!isRenderScript){
+                if (!isRenderScript){
                     int[][] filterGaus = {
                             {1, 2, 3, 2, 1},
                             {2, 6, 8, 6, 2},
@@ -565,29 +565,29 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                             {2, 6, 8, 6, 2},
                             {1, 2, 3, 2, 1}};
                     convolution.convolutions(loadedToChange, filterGaus);
-                /*}else {
+                }else {
                     int[] filterGaus = {1, 2, 3, 2, 1,
                                         2, 6, 8, 6, 2,
                                         3, 8, 10, 8, 3,
                                         2, 6, 8, 6, 2,
                                         1, 2, 3, 2, 1};
                     convolution.convolutionAverageFilterRS(loadedToChange, filterGaus);
-                }*/
+                }
 
                 break;
             case CONTOUR:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 filters.tograyRS(loadedToChange);
-                /*if (!isRenderScript){
+                if (!isRenderScript){
                     int[][] gx = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
                     int[][] gy = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
                     Convolution.contours(loadedToChange, gx, gy);
                 }
-                else {*/
+                else {
                     int[] gx =  {-1,0,1,-2,0,2,-1,0,1};
                     int[] gy =  {-1,-2,-1,0,0,0,1,2,1};
                     convolution.contoursFilterRS(loadedToChange,gx,gy);
-                //}
+                }
 
                 break;
             case SNOW_EFFECT:

@@ -11,6 +11,15 @@ import androidx.renderscript.RenderScript;
 import com.android.rssample.ScriptC_contours;
 import com.android.rssample.ScriptC_convolution;
 
+/**
+ * <p>
+ *     this class allows the implementation of
+ *     the convolution for the averaging and gaussion filter
+ *     and the contours for the sobel laplacian filter etc
+ * </p>
+ *
+ * @author Ibrahima.D
+ */
 
 public class Convolution {
 
@@ -125,7 +134,7 @@ public class Convolution {
      * @param gx  first filter to apply
      * @param gy  second filter to apply
      */
-    public void contours(Bitmap bmp, int[][] gx, int[][] gy) {
+    public static void contours(Bitmap bmp, int[][] gx, int[][] gy) {
         int width = bmp.getWidth();
         int height = bmp.getHeight();
         int[] pixels = new int[width * height];
