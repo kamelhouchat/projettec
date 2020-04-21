@@ -33,6 +33,7 @@ import com.projetTec.imageStudio.controller.StudioActivity;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.BrushBottomDialogFragment;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.EmojiBottomDialogFragment;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterface.OnBrushOptionsChange;
+import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterface.OnEmojiOptionsChange;
 import com.projetTec.imageStudio.controller.dialogFragment.TextDialogFragment;
 import com.projetTec.imageStudio.model.animation.ViewAnimation;
 import com.projetTec.imageStudio.model.editingImage.additionalFilters.AdditionalFilters;
@@ -101,7 +102,8 @@ import org.jetbrains.annotations.NotNull;
  */
 
 @SuppressWarnings("FieldCanBeLocal")
-public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected, View.OnClickListener, OnPhotoEditorListener, OnBrushOptionsChange {
+public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected, View.OnClickListener, OnPhotoEditorListener,
+        OnBrushOptionsChange, OnEmojiOptionsChange {
 
     //The bitmap passed by MainActivity, used to reset to main state
     private static Bitmap captImage;
@@ -167,6 +169,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private boolean isSaturation = false;
     private boolean isText = false;
     private boolean isBrush = false;
+    private boolean isEmoji = false;
 
     //Boolean to choose if we want to execute the methods in java or render script
     private static boolean isRenderScript = true;
@@ -420,14 +423,11 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 break;
             case BRUSH:
                 centerText.setText("Pinceau");
-                //incoming();
                 brush();
                 break;
             case EMOJI:
                 centerText.setText("Emoji");
-                //incoming();
-                EmojiBottomDialogFragment emojiBottomDialogFragment = new EmojiBottomDialogFragment();
-                emojiBottomDialogFragment.show(Objects.requireNonNull(getFragmentManager()),emojiBottomDialogFragment.getTag());
+                emoji();
                 break;
             case STICKER:
                 centerText.setText("Sticker");
@@ -931,6 +931,23 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         photoEditor.setBrushDrawingMode(true);
     }
 
+    private void emoji() {
+        ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
+        ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);
+        ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_out, saveImage, 0, 200, false);
+        ViewAnimation.imageViewAnimatedChange(applicationContext, restoreImage, R.drawable.ic_add_black_24dp);
+
+        photoEditorView.getSource().setImageBitmap(loadedToChange);
+
+        ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photoView, photoEditorView,
+                0, 200, 200);
+
+        isEmoji = true;
+
+        EmojiBottomDialogFragment emojiBottomDialogFragment = new EmojiBottomDialogFragment();
+        emojiBottomDialogFragment.show(Objects.requireNonNull(getFragmentManager()),emojiBottomDialogFragment.getTag());
+    }
+
     /**
      * <p>Method which allows to rotate the image to a degree passed in parameter.
      *
@@ -1082,5 +1099,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     @Override
     public void onBrushColorChanged(int colorCode) {
         photoEditor.setBrushColor(colorCode);
+    }
+
+    @Override
+    public void onEmojiOptionsChange(String emojiCode) {
+        photoEditor.addEmoji(emojiCode);
     }
 }

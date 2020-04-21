@@ -1690,6 +1690,7 @@ drawable gray_button_background
 drawable green_button_background
 drawable hat
 drawable home_background_oval
+drawable ic_add_black_24dp
 drawable ic_arrow_drop_down_white_24dp
 drawable ic_arrow_left_black_24dp
 drawable ic_brightness
