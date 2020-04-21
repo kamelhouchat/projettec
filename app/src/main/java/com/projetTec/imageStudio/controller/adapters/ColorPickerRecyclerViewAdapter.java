@@ -24,7 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * @see com.projetTec.imageStudio.controller.bottomDialogFragment.BrushBottomDialogFragment
  */
 
-public class ColorPickerAdapter extends RecyclerView.Adapter<ColorPickerAdapter.ViewHolder> {
+public class ColorPickerRecyclerViewAdapter extends RecyclerView.Adapter<ColorPickerRecyclerViewAdapter.ViewHolder> {
 
     //The list which will contain the different colors
     private final ArrayList<Integer> colorList = new ArrayList<>();
@@ -40,7 +40,7 @@ public class ColorPickerAdapter extends RecyclerView.Adapter<ColorPickerAdapter.
      * @see com.projetTec.imageStudio.controller.dialogFragment.TextDialogFragment
      * @see com.projetTec.imageStudio.controller.bottomDialogFragment.BrushBottomDialogFragment
      */
-    public ColorPickerAdapter() {
+    public ColorPickerRecyclerViewAdapter() {
         colorList.add(Color.BLACK);
         colorList.add(Color.WHITE);
         colorList.add(Color.BLUE);
@@ -57,7 +57,7 @@ public class ColorPickerAdapter extends RecyclerView.Adapter<ColorPickerAdapter.
 
     /**
      * <p>
-     * The interface that will be implemented in the class where the {@link ColorPickerAdapter}
+     * The interface that will be implemented in the class where the {@link ColorPickerRecyclerViewAdapter}
      * will be instantiated and used.
      * </p>
      *

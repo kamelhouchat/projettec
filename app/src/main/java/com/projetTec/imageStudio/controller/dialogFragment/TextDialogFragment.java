@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.projetTec.imageStudio.R;
-import com.projetTec.imageStudio.controller.adapters.ColorPickerAdapter;
+import com.projetTec.imageStudio.controller.adapters.ColorPickerRecyclerViewAdapter;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -159,16 +159,16 @@ public class TextDialogFragment extends DialogFragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         addTextColorPickerRecyclerView.setLayoutManager(layoutManager);
         addTextColorPickerRecyclerView.setHasFixedSize(true);
-        ColorPickerAdapter colorPickerAdapter = new ColorPickerAdapter();
+        ColorPickerRecyclerViewAdapter colorPickerRecyclerViewAdapter = new ColorPickerRecyclerViewAdapter();
         //This listener will change the text color when clicked on any color from picker
-        colorPickerAdapter.setOnColorPickerClickListener(new ColorPickerAdapter.OnColorPickerClickListener() {
+        colorPickerRecyclerViewAdapter.setOnColorPickerClickListener(new ColorPickerRecyclerViewAdapter.OnColorPickerClickListener() {
             @Override
             public void onColorPickerClickListener(int colorCode) {
                 TextDialogFragment.this.colorCode = colorCode;
                 addTextEditText.setTextColor(colorCode);
             }
         });
-        addTextColorPickerRecyclerView.setAdapter(colorPickerAdapter);
+        addTextColorPickerRecyclerView.setAdapter(colorPickerRecyclerViewAdapter);
         addTextEditText.setText(Objects.requireNonNull(getArguments()).getString(EXTRA_INPUT_TEXT));
         colorCode = getArguments().getInt(EXTRA_COLOR_CODE);
         addTextEditText.setTextColor(colorCode);

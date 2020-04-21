@@ -31,6 +31,7 @@ import com.projetTec.imageStudio.controller.adapters.EditingToolRecyclerViewAdap
 import com.projetTec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
 import com.projetTec.imageStudio.controller.StudioActivity;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.BrushBottomDialogFragment;
+import com.projetTec.imageStudio.controller.bottomDialogFragment.EmojiBottomDialogFragment;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterface.OnBrushOptionsChange;
 import com.projetTec.imageStudio.controller.dialogFragment.TextDialogFragment;
 import com.projetTec.imageStudio.model.animation.ViewAnimation;
@@ -424,7 +425,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 break;
             case EMOJI:
                 centerText.setText("Emoji");
-                incoming();
+                //incoming();
+                EmojiBottomDialogFragment emojiBottomDialogFragment = new EmojiBottomDialogFragment();
+                emojiBottomDialogFragment.show(Objects.requireNonNull(getFragmentManager()),emojiBottomDialogFragment.getTag());
                 break;
             case STICKER:
                 centerText.setText("Sticker");
@@ -555,7 +558,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             case CONVOLUTION_GAUS:
                 colorSeekBar.setVisibility(View.INVISIBLE);
                 //if (!isRenderScript){
-                    int[][] filterGaus = {{1, 2, 3, 2, 1},
+                    int[][] filterGaus = {
+                            {1, 2, 3, 2, 1},
                             {2, 6, 8, 6, 2},
                             {3, 8, 10, 8, 3},
                             {2, 6, 8, 6, 2},

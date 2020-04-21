@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.projetTec.imageStudio.R;
-import com.projetTec.imageStudio.controller.adapters.ColorPickerAdapter;
+import com.projetTec.imageStudio.controller.adapters.ColorPickerRecyclerViewAdapter;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterface.OnBrushOptionsChange;
 
 /**
@@ -23,7 +23,7 @@ import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterfa
  *
  * @author Kamel.H
  * @see ja.burhanrashid52.photoeditor.PhotoEditor
- * @see ColorPickerAdapter
+ * @see ColorPickerRecyclerViewAdapter
  * @see com.projetTec.imageStudio.controller.fragments.Studio_fragment
  */
 public class BrushBottomDialogFragment extends BottomSheetDialogFragment {
@@ -67,9 +67,9 @@ public class BrushBottomDialogFragment extends BottomSheetDialogFragment {
         RecyclerView colorPickerRecyclerView = view.findViewById(R.id.color_picker_recycler_view_brush_bottom_sheet_fragment);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         colorPickerRecyclerView.setLayoutManager(linearLayoutManager);
-        ColorPickerAdapter colorPickerAdapter = new ColorPickerAdapter();
-        colorPickerRecyclerView.setAdapter(colorPickerAdapter);
-        colorPickerAdapter.setOnColorPickerClickListener(new ColorPickerAdapter.OnColorPickerClickListener() {
+        ColorPickerRecyclerViewAdapter colorPickerRecyclerViewAdapter = new ColorPickerRecyclerViewAdapter();
+        colorPickerRecyclerView.setAdapter(colorPickerRecyclerViewAdapter);
+        colorPickerRecyclerViewAdapter.setOnColorPickerClickListener(new ColorPickerRecyclerViewAdapter.OnColorPickerClickListener() {
             @Override
             public void onColorPickerClickListener(int colorCode) {
                 if (onBrushOptionsChange != null) {
