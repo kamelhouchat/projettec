@@ -10,9 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.projetTec.imageStudio.R;
 import com.projetTec.imageStudio.controller.StudioActivity;
-import com.projetTec.imageStudio.controller.fragments.Studio_fragment;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import ja.burhanrashid52.photoeditor.PhotoEditor;
@@ -29,6 +27,10 @@ public class EmojiRecyclerViewAdapter extends RecyclerView.Adapter<EmojiRecycler
 
     public interface OnEmojiClickListener {
         void onEmojiClickListener(String emojiCode);
+    }
+
+    public void setOnEmojiClickListener(OnEmojiClickListener onEmojiClickListener) {
+        this.onEmojiClickListener = onEmojiClickListener;
     }
 
     @NonNull
