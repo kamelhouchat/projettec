@@ -17,7 +17,7 @@ import ja.burhanrashid52.photoeditor.PhotoEditor;
 
 public class EmojiRecyclerViewAdapter extends RecyclerView.Adapter<EmojiRecyclerViewAdapter.ViewHolder> {
 
-    ArrayList<String> emojiList;
+    private final ArrayList<String> emojiList;
 
     private OnEmojiClickListener onEmojiClickListener;
 
@@ -52,9 +52,9 @@ public class EmojiRecyclerViewAdapter extends RecyclerView.Adapter<EmojiRecycler
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView emojiText;
+        final TextView emojiText;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             emojiText = itemView.findViewById(R.id.text_view_emoji_row);
 

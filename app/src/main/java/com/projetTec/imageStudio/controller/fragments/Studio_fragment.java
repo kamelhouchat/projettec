@@ -3,7 +3,6 @@ package com.projetTec.imageStudio.controller.fragments;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.media.MediaScannerConnection;
@@ -210,7 +209,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             e.printStackTrace();
         }
 
-        captImage = BitmapFactory.decodeResource(getResources(), R.drawable.tom);
+        //captImage = BitmapFactory.decodeResource(getResources(), R.drawable.tom);
 
         captImage = BitmapImageAdaptation.getReducedBitmap(captImage);
 
@@ -570,7 +569,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 if (!isRenderScript){
                     int[][] gx = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
                     int[][] gy = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
-                    Convolution.contours(loadedToChange, gx, gy);
+                    convolution.contours(loadedToChange, gx, gy);
                 } else {
                     int[] gx =  {-1,0,1,-2,0,2,-1,0,1};
                     int[] gy =  {-1,-2,-1,0,0,0,1,2,1};

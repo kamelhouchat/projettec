@@ -276,6 +276,7 @@ public class Filters {
      * @param newValue    The value we want to add to the old
      * @return A bitmap to which the changes have been applied
      */
+    @SuppressWarnings("unused")
     public Bitmap brightnessAndSaturationHSV_RS(Bitmap imageBitmap, float newValue) {
         RenderScript rs = RenderScript.create(context);
 

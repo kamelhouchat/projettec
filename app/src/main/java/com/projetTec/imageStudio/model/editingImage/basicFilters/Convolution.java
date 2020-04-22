@@ -133,7 +133,7 @@ public class Convolution {
      * @param gx  first filter to apply
      * @param gy  second filter to apply
      */
-    public static void contours(Bitmap bmp, int[][] gx, int[][] gy) {
+    public void contours(Bitmap bmp, int[][] gx, int[][] gy) {
         int width = bmp.getWidth();
         int height = bmp.getHeight();
         int[] pixels = new int[width * height];
