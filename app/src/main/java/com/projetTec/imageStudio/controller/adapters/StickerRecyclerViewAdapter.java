@@ -37,7 +37,7 @@ public class StickerRecyclerViewAdapter extends RecyclerView.Adapter<StickerRecy
      * @see com.projetTec.imageStudio.controller.bottomDialogFragment.StickerBottomDialogFragment
      */
     public StickerRecyclerViewAdapter() {
-        stickerList = new int[]{R.drawable.hat};
+        stickerList = new int[]{R.drawable.hat, R.drawable.aa, R.drawable.bb};
     }
 
     /**
