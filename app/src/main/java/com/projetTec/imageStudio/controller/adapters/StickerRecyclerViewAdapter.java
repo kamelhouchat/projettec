@@ -13,8 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.projetTec.imageStudio.R;
 import com.projetTec.imageStudio.controller.StudioActivity;
 
+/**
+ * <p>
+ * The class is an adapter of the StickerRecyclerView, it generates a list of sticker that will be displayed and sets up a listener.
+ * </p>
+ *
+ * @author Kamel.H
+ * @see com.projetTec.imageStudio.controller.bottomDialogFragment.StickerBottomDialogFragment
+ */
 public class StickerRecyclerViewAdapter extends RecyclerView.Adapter<StickerRecyclerViewAdapter.ViewHolder>{
 
+    //The array which will contain the different sticker
     private final int[] stickerList;
 
     private OnStickerClickListener onStickerClickListener;

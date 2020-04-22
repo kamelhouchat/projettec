@@ -978,6 +978,15 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         emojiBottomDialogFragment.show(Objects.requireNonNull(getFragmentManager()), emojiBottomDialogFragment.getTag());
     }
 
+    /**
+     * <p>Method which allows to display a list of stickers and to add the sticker selected by the user on the image.
+     *
+     * @see PhotoEditor
+     * @see StickerBottomDialogFragment
+     * @see com.projetTec.imageStudio.controller.adapters.StickerRecyclerViewAdapter
+     * @see ToolType
+     * @see ViewAnimation
+     */
     private void sticker() {
         ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);

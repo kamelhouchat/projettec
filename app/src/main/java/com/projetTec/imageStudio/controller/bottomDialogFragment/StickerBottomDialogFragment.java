@@ -12,14 +12,35 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.projetTec.imageStudio.R;
 import com.projetTec.imageStudio.controller.adapters.EmojiRecyclerViewAdapter;
 import com.projetTec.imageStudio.controller.adapters.StickerRecyclerViewAdapter;
+import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterface.OnEmojiOptionsChange;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterface.OnStickerOptionsChange;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * <p>
+ * The StickerBottomSheetDialogFragment class which extends from BottomSheetDialogFragment which allows
+ * to implement a Dialog Fragment which contains different sticker which will be selected by user.
+ * </p>
+ *
+ * @author Kamel.H
+ * @see ja.burhanrashid52.photoeditor.PhotoEditor
+ * @see StickerRecyclerViewAdapter
+ * @see OnStickerOptionsChange
+ * @see com.projetTec.imageStudio.controller.fragments.Studio_fragment
+ */
 public class StickerBottomDialogFragment extends BottomSheetDialogFragment {
 
+    //The onStickerOptionsChange method which facilitates the management of listener
     private OnStickerOptionsChange onStickerOptionsChange;
 
+    /**
+     * <p>
+     * The setter of onStickerOptionsChange
+     * </p>
+     *
+     * @param onStickerOptionsChange The new listener.
+     */
     public void setOnStickerOptionsChange(OnStickerOptionsChange onStickerOptionsChange) {
         this.onStickerOptionsChange = onStickerOptionsChange;
     }
