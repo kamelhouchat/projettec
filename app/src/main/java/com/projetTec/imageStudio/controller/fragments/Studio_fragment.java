@@ -160,6 +160,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     //An instance of brush bottom dialog fragment
     private final BrushBottomDialogFragment brushBottomDialogFragment = new BrushBottomDialogFragment();
 
+    //An instance of emoji bottom dialog fragment
+    private final EmojiBottomDialogFragment emojiBottomDialogFragment = new EmojiBottomDialogFragment();
+
     //Booleans to find out which action is selected at a given time
     private boolean isFilter = false;
     private boolean isColorizeOrShading = false;
@@ -195,6 +198,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         isRenderScript = true;
 
         brushBottomDialogFragment.setOnBrushOptionsChange(this);
+        emojiBottomDialogFragment.setOnEmojiOptionsChange(this);
 
         applicationContext = StudioActivity.getContextOfApplication();
 
@@ -680,6 +684,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 if (isBrush) {
                     photoEditor.brushEraser();
                 }
+                else if (isEmoji) {
+                    emojiBottomDialogFragment.show(Objects.requireNonNull(getFragmentManager()),emojiBottomDialogFragment.getTag());
+                }
                 else {
                     final SweetAlertDialog restoreAlerter = new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.PROGRESS_TYPE);
                     restoreAlerter.setTitleText("Réstauration...").show();
@@ -773,6 +780,16 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_left_black_24dp);
             ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.frombuttom, editingToolRecyclerView, 0, 200, true);
             ViewAnimation.imageViewAnimatedChange(applicationContext, saveImage, R.drawable.ic_save_black_24dp);
+            ViewAnimation.imageViewAnimatedChange(applicationContext, restoreImage, R.drawable.ic_restore_black_24dp);
+            ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photoEditorView, photoView,
+                    0, 200, 200);
+            saveImageAfterChangesPhotoEditor();
+        } else if (isEmoji) {
+            isEmoji = false;
+            centerText.setText("Studio");
+            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_left_black_24dp);
+            ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.frombuttom, editingToolRecyclerView, 0, 200, true);
+            ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, saveImage, 0, 200, true);
             ViewAnimation.imageViewAnimatedChange(applicationContext, restoreImage, R.drawable.ic_restore_black_24dp);
             ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photoEditorView, photoView,
                     0, 200, 200);
@@ -944,7 +961,6 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         isEmoji = true;
 
-        EmojiBottomDialogFragment emojiBottomDialogFragment = new EmojiBottomDialogFragment();
         emojiBottomDialogFragment.show(Objects.requireNonNull(getFragmentManager()),emojiBottomDialogFragment.getTag());
     }
 

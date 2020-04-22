@@ -17,6 +17,10 @@ public class EmojiBottomDialogFragment extends BottomSheetDialogFragment {
 
     private OnEmojiOptionsChange onEmojiOptionsChange;
 
+    public void setOnEmojiOptionsChange(OnEmojiOptionsChange onEmojiOptionsChange) {
+        this.onEmojiOptionsChange = onEmojiOptionsChange;
+    }
+
     @SuppressLint("RestrictedApi")
     @Override
     public void setupDialog(Dialog dialog, int style) {
