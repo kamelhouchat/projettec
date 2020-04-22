@@ -787,6 +787,16 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photoEditorView, photoView,
                     0, 200, 200);
             saveImageAfterChangesPhotoEditor();
+        } else if (isSticker) {
+            isSticker = false;
+            centerText.setText("Studio");
+            ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_arrow_left_black_24dp);
+            ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.frombuttom, editingToolRecyclerView, 0, 200, true);
+            ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_in, saveImage, 0, 200, true);
+            ViewAnimation.imageViewAnimatedChange(applicationContext, restoreImage, R.drawable.ic_restore_black_24dp);
+            ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photoEditorView, photoView,
+                    0, 200, 200);
+            saveImageAfterChangesPhotoEditor();
         } else {
             if (captImage.sameAs(loadedToChange))
                 Objects.requireNonNull(getActivity()).finish();
