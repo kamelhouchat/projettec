@@ -102,7 +102,7 @@ public class StickerRecyclerViewAdapter extends RecyclerView.Adapter<StickerRecy
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         //ImageView on which we put the sticker each time
-        ImageView stickerImage;
+        final ImageView stickerImage;
 
         /**
          * <p>
@@ -111,7 +111,7 @@ public class StickerRecyclerViewAdapter extends RecyclerView.Adapter<StickerRecy
          *
          * @param itemView The layout view
          */
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             stickerImage = itemView.findViewById(R.id.image_view_sticker_row);
 

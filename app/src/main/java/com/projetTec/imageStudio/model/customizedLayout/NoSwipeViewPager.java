@@ -1,5 +1,6 @@
 package com.projetTec.imageStudio.model.customizedLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -28,6 +29,7 @@ public class NoSwipeViewPager extends ViewPager {
         return false;
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         // Never allow swiping to switch between pages
@@ -47,8 +49,8 @@ public class NoSwipeViewPager extends ViewPager {
         }
     }
 
-    public class MyScroller extends Scroller {
-        public MyScroller(Context context) {
+    static class MyScroller extends Scroller {
+        MyScroller(Context context) {
             super(context, new DecelerateInterpolator());
         }
 

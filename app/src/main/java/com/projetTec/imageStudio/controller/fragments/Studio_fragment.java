@@ -54,7 +54,6 @@ import com.projetTec.imageStudio.model.tools.ToolType;
 import com.rtugeek.android.colorseekbar.ColorSeekBar;
 import com.takusemba.cropme.CropLayout;
 import com.takusemba.cropme.OnCropListener;
-import com.tapadoo.alerter.Alerter;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -367,19 +366,6 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      */
     public static void setIsBrightnessRGB(boolean isBrightnessRGB) {
         Studio_fragment.isBrightnessRGB = isBrightnessRGB;
-    }
-
-    /**
-     * <p>Method that displays an alert : in progress.
-     */
-    private void incoming() {
-        Alerter.create(Objects.requireNonNull(getActivity()))
-                .enableProgress(true)
-                .setProgressColorRes(R.color.blue_grey_active)
-                .setDuration(2000)
-                .setBackgroundColorRes(R.color.blue_grey_active)
-                .setText("En cours ...")
-                .show();
     }
 
     /**

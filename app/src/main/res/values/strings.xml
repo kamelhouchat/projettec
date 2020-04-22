@@ -42,5 +42,7 @@
     //Dialog Fragment Add Text
     <string name="done_text">Terminer</string>
 
+    //Sticker
+    <string name="sticker_image_content">Sticker Image</string>
 
 </resources>

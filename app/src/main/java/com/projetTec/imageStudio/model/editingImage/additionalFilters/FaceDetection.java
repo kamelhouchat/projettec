@@ -62,7 +62,7 @@ public class FaceDetection {
     private void detectLandmarks(Face face) {
         Log.i("FACE DETECTOR", "detectLandmarks: " + face.getLandmarks().size());
         for (Landmark landmark : face.getLandmarks()) {
-            
+
             int cx = (int) (landmark.getPosition().x);
             int cy = (int) (landmark.getPosition().y);
 

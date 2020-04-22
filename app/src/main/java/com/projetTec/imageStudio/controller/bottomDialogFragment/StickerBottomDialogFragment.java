@@ -10,9 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.projetTec.imageStudio.R;
-import com.projetTec.imageStudio.controller.adapters.EmojiRecyclerViewAdapter;
 import com.projetTec.imageStudio.controller.adapters.StickerRecyclerViewAdapter;
-import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterface.OnEmojiOptionsChange;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterface.OnStickerOptionsChange;
 
 import org.jetbrains.annotations.NotNull;
