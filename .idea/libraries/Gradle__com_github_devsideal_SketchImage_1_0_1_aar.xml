@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.devsideal:SketchImage:1.0.1@aar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/transforms-2/files-2.1/2d4e6ae903c1e06b5b8f1fa2ba607c67/jetified-SketchImage-1.0.1/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-2/files-2.1/2d4e6ae903c1e06b5b8f1fa2ba607c67/jetified-SketchImage-1.0.1/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

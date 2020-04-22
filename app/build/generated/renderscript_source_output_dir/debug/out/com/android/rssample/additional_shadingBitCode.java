@@ -16,7 +16,7 @@
 
 /*
  * This file is auto-generated. DO NOT MODIFY!
- * The source Renderscript file: C:\\Users\\d9z\\Desktop\\projet tec\\version combin\\nouvelle version combin\\nouveau\\nouveau\\projettec\\app\\src\\main\\rs\\additional_shading.rs
+ * The source Renderscript file: C:\\Users\\IBRAHIMA\\projettec\\app\\src\\main\\rs\\additional_shading.rs
  */
 
 package com.android.rssample;

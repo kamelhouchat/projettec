@@ -11,6 +11,7 @@ import com.android.rssample.ScriptC_additional_invert;
 import com.android.rssample.ScriptC_additional_noise;
 import com.android.rssample.ScriptC_additional_shading;
 import com.android.rssample.ScriptC_additional_snow_black;
+import com.devs.sketchimage.SketchImage;
 import com.projetTec.imageStudio.model.editingImage.basicFilters.Equalization;
 
 import java.util.Random;
@@ -257,6 +258,29 @@ public class AdditionalFilters {
             pixels[i] = pixelsEga[i] & pixelsEgaYUV[i];
         }
         imageBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+    }
+
+    /**
+     * <p>
+     * This method simulates a pencil drawing effect on the image passed in parameter
+     * </p>
+     *
+     * @param imageBitmap The bitmap image
+     * @see SketchImage
+     * @see com.projetTec.imageStudio.controller.adapters.FilterRecyclerViewAdapter
+     * @see com.projetTec.imageStudio.model.filters.FilterType
+     * @see com.projetTec.imageStudio.controller.fragments.Studio_fragment
+     */
+    public void sketchEffect(Bitmap imageBitmap) {
+        SketchImage sketchImage = new SketchImage.Builder(context, imageBitmap).build();
+        imageBitmap = sketchImage.getImageAs(
+                SketchImage.ORIGINAL_TO_SKETCH, 100 // value 0 - 100
+                // Other options
+                // SketchImage.ORIGINAL_TO_GRAY
+                // SketchImage.ORIGINAL_TO_COLORED_SKETCH
+                // SketchImage.ORIGINAL_TO_SOFT_SKETCH
+                // And many more.....
+        );
     }
 
     /*######################################"Render Script#########################################*/

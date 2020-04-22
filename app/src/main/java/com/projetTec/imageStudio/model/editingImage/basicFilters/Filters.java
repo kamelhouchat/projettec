@@ -151,11 +151,8 @@ public class Filters {
                 if (h[1] < 0.0f) h[1] = 0.0f;
                 else if (h[1] > 1.0f) h[1] = 1.0f;
             }
-
             pixels[i] = HSVToColor(h);
         }
-
-        //imageBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
         return Bitmap.createBitmap(pixels, width, height, Bitmap.Config.ARGB_8888);
     }
 
@@ -192,7 +189,6 @@ public class Filters {
             pixels[i] = Color.rgb(r_g_b[0], r_g_b[1], r_g_b[2]);
         }
 
-        //imageBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
         return Bitmap.createBitmap(pixels, width, height, Bitmap.Config.ARGB_8888);
     }
 

@@ -96,6 +96,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
         filterModels.add(new FilterModel("Moyenneur", FilterType.CONVOLUTION_MOY));
         filterModels.add(new FilterModel("Gaussian", FilterType.CONVOLUTION_GAUS));
         filterModels.add(new FilterModel("Contours", FilterType.CONTOUR));
+        filterModels.add(new FilterModel("Dessin", FilterType.SKETCH_EFFECT));
         //Additional filters
         filterModels.add(new FilterModel("Neige", FilterType.SNOW_EFFECT));
         filterModels.add(new FilterModel("Noire", FilterType.BLACK_EFFECT));
@@ -190,10 +191,6 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
      * @see FilterModel
      */
     private Bitmap chargeImage(FilterType filterType) {
-        /*Bitmap loadedToRecycle = Bitmap.createScaledBitmap(this.loadedImage,
-                100,
-                100,
-                true);*/
         Bitmap loadedToRecycle = Bitmap.createBitmap(this.loadedToRecycle);
         switch (filterType) {
             case TO_GRAY:
@@ -239,11 +236,6 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                         {3, 8, 10, 8, 3},
                         {2, 6, 8, 6, 2},
                         {1, 2, 3, 2, 1}};
-                //noinspection unused
-                int[][] cartoonFilter = {
-                        { -1 , -1, -1 },
-                        { -1 ,  9, -1 },
-                        { -1 , -1, -1 } };
                 convolution.convolutions(loadedToRecycle, filterGaus);
                 break;
             case CONTOUR:
@@ -252,6 +244,9 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 int[][] gy =  {{-1,-2,-1},{0,0,0},{1,2,1}};
                 filters.tograyRS(loadedToRecycle);
                 convolution.contours(loadedToRecycle,gx,gy);
+                break;
+            case SKETCH_EFFECT:
+                additionalFilters.sketchEffect(loadedToRecycle);
                 break;
             case SNOW_EFFECT:
                 additionalFilters.snowAndBlackEffectRS(loadedToRecycle, true);

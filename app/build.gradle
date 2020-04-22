@@ -90,7 +90,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-
+    implementation 'com.github.devsideal:SketchImage:1.0.1'
 }
 repositories {
     mavenCentral()

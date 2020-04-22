@@ -197,9 +197,6 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         isBrightnessRGB = true;
         isRenderScript = true;
 
-        brushBottomDialogFragment.setOnBrushOptionsChange(this);
-        emojiBottomDialogFragment.setOnEmojiOptionsChange(this);
-
         applicationContext = StudioActivity.getContextOfApplication();
 
         imagePath = Objects.requireNonNull(getArguments()).getString("image");
@@ -237,12 +234,6 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         Glide.with(applicationContext).load(captImage).override(width, height).into(photoView);
 
-
-        //Glide.with(applicationContext).load(captImage).centerInside().into(photo_view);
-        //photo_view.setImageBitmap(captImage);
-        //Glide.with(applicationContext).load(captImage).override(width,height).into(image_view);
-
-
         initFilterRecyclerView();
         initEditingToolRecyclerView();
 
@@ -261,7 +252,6 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      * @see Bundle
      */
     public static Studio_fragment newInstance(String image_path) {
-
         Studio_fragment f = new Studio_fragment();
         Bundle b = new Bundle();
 
@@ -312,6 +302,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         photoEditor = new PhotoEditor.Builder(getContext(), photoEditorView).build();
         photoEditor.setOnPhotoEditorListener(this);
+
+        brushBottomDialogFragment.setOnBrushOptionsChange(this);
+        emojiBottomDialogFragment.setOnEmojiOptionsChange(this);
     }
 
     /**
@@ -456,14 +449,6 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     @SuppressWarnings({"ConstantConditions"})
     @Override
     public void onFilterSelected(FilterType filterType) {
-        //Bitmap loadedToChange = Bitmap.createBitmap(this.loadedImage);
-        /*final Bitmap loadedToChange = Bitmap.createScaledBitmap(this.loadedImage,
-                50,
-                50,
-                true);*/
-
-        //final Bitmap loadedToChange = captImage.copy(captImage.getConfig(), true);
-
         loadedToChange = loadedToRestore.copy(loadedToRestore.getConfig(), true);
 
         switch (filterType) {
@@ -569,7 +554,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                             {2, 6, 8, 6, 2},
                             {1, 2, 3, 2, 1}};
                     convolution.convolutions(loadedToChange, filterGaus);
-                }else {
+                } else {
                     int[] filterGaus = {1, 2, 3, 2, 1,
                                         2, 6, 8, 6, 2,
                                         3, 8, 10, 8, 3,
@@ -577,7 +562,6 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                                         1, 2, 3, 2, 1};
                     convolution.convolutionAverageFilterRS(loadedToChange, filterGaus);
                 }
-
                 break;
             case CONTOUR:
                 colorSeekBar.setVisibility(View.INVISIBLE);
@@ -586,13 +570,14 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                     int[][] gx = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
                     int[][] gy = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
                     Convolution.contours(loadedToChange, gx, gy);
-                }
-                else {
+                } else {
                     int[] gx =  {-1,0,1,-2,0,2,-1,0,1};
                     int[] gy =  {-1,-2,-1,0,0,0,1,2,1};
                     convolution.contoursFilterRS(loadedToChange,gx,gy);
                 }
-
+                break;
+            case SKETCH_EFFECT:
+                additionalFilters.sketchEffect(loadedToChange);
                 break;
             case SNOW_EFFECT:
                 if (isRenderScript)
@@ -641,9 +626,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
             case MIX_EQUALIZATION_RGB_YUV:
                 additionalFilters.mixEqualizationRgbYuv(loadedToChange);
                 break;
-
         }
-        //Glide.with(mContext).load(this.loadedImage).into(photoView);
         photoView.setImageBitmap(loadedToChange);
     }
 
@@ -928,6 +911,8 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
      * <p>Method which allows the user, the use of a brush to draw on a bitmap image, and the use of the eraser.
      *
      * @see PhotoEditor
+     * @see BrushBottomDialogFragment
+     * @see com.projetTec.imageStudio.controller.adapters.ColorPickerRecyclerViewAdapter
      * @see ToolType
      * @see ViewAnimation
      */
@@ -948,6 +933,15 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         photoEditor.setBrushDrawingMode(true);
     }
 
+    /**
+     * <p>Method which allows to display a list of emoji and to add the emoji selected by the user on the image.
+     *
+     * @see PhotoEditor
+     * @see EmojiBottomDialogFragment
+     * @see com.projetTec.imageStudio.controller.adapters.EmojiRecyclerViewAdapter
+     * @see ToolType
+     * @see ViewAnimation
+     */
     private void emoji() {
         ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
         ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);
@@ -961,7 +955,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         isEmoji = true;
 
-        emojiBottomDialogFragment.show(Objects.requireNonNull(getFragmentManager()),emojiBottomDialogFragment.getTag());
+        emojiBottomDialogFragment.show(Objects.requireNonNull(getFragmentManager()), emojiBottomDialogFragment.getTag());
     }
 
     /**
@@ -1011,12 +1005,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
     }
@@ -1036,12 +1028,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
 
             @Override
@@ -1094,22 +1084,18 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
     @Override
     public void onAddViewListener(ViewType viewType, int numberOfAddedViews) {
-
     }
 
     @Override
     public void onRemoveViewListener(ViewType viewType, int numberOfAddedViews) {
-
     }
 
     @Override
     public void onStartViewChangeListener(ViewType viewType) {
-
     }
 
     @Override
     public void onStopViewChangeListener(ViewType viewType) {
-
     }
 
     @Override

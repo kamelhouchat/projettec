@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.view.View;
 
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,10 +12,30 @@ import com.projetTec.imageStudio.R;
 import com.projetTec.imageStudio.controller.adapters.EmojiRecyclerViewAdapter;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterface.OnEmojiOptionsChange;
 
+/**
+ * <p>
+ * The EmojiBottomSheetDialogFragment class which extends from BottomSheetDialogFragment which allows
+ * to implement a Dialog Fragment which contains different emoji which will be selected by user.
+ * </p>
+ *
+ * @author Kamel.H
+ * @see ja.burhanrashid52.photoeditor.PhotoEditor
+ * @see EmojiRecyclerViewAdapter
+ * @see OnEmojiOptionsChange
+ * @see com.projetTec.imageStudio.controller.fragments.Studio_fragment
+ */
 public class EmojiBottomDialogFragment extends BottomSheetDialogFragment {
 
+    //The onEmojiOptionsChange method which facilitates the management of listener
     private OnEmojiOptionsChange onEmojiOptionsChange;
 
+    /**
+     * <p>
+     * The setter of onEmojiOptionsChange
+     * </p>
+     *
+     * @param onEmojiOptionsChange The new listener.
+     */
     public void setOnEmojiOptionsChange(OnEmojiOptionsChange onEmojiOptionsChange) {
         this.onEmojiOptionsChange = onEmojiOptionsChange;
     }
@@ -44,5 +63,4 @@ public class EmojiBottomDialogFragment extends BottomSheetDialogFragment {
             }
         });
     }
-
 }

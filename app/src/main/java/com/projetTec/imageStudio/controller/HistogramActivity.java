@@ -21,18 +21,34 @@ import java.util.ArrayList;
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
+ * <p>This class is used to display the histogram of an image whose path has passed through a bundle. </p>
+ *
  * @author Fall.E-P
+ * @see com.projetTec.imageStudio.controller.fragments.Plus_fragment
+ * @see com.github.mikephil.charting.charts.BarChart
  */
 
 @SuppressWarnings("FieldCanBeLocal")
 public class HistogramActivity extends AppCompatActivity {
 
-    private ArrayList ColorG;
-    private ArrayList ColorR;
-    private ArrayList ColorB;
-    private ArrayList ArrayIndex;
-    private String image_path ;
-    private Bitmap captImage ;
+    //ArrayList that will contain the green color
+    private ArrayList colorG;
+
+    //ArrayList that will contain the red color
+    private ArrayList colorR;
+
+    //ArrayList that will contain the blue color
+    private ArrayList colorB;
+
+    //The array index
+    private ArrayList arrayIndex;
+
+    //The image path
+    private String imagePath;
+
+    //The loaded image (with uses of imagePath)
+    private Bitmap captImage;
+
     @SuppressWarnings("unchecked")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +56,8 @@ public class HistogramActivity extends AppCompatActivity {
         setContentView(R.layout.activity_barchart);
 
         Intent intent = getIntent();
-        image_path = intent.getStringExtra("image_path");
-        Uri image_uri = Uri.parse(image_path);
+        imagePath = intent.getStringExtra("image_path");
+        Uri image_uri = Uri.parse(imagePath);
         captImage = null;
         try {
             captImage = MediaStore.Images.Media.getBitmap(
@@ -52,22 +68,19 @@ public class HistogramActivity extends AppCompatActivity {
 
         com.github.mikephil.charting.charts.BarChart barChart = findViewById(R.id.bar_chart);
 
-        ArrayIndex = new ArrayList();
-        for (int i = 0; i<256; i++)
-            ArrayIndex.add(Integer.toString(i));
+        arrayIndex = new ArrayList();
+        for (int i = 0; i < 256; i++)
+            arrayIndex.add(Integer.toString(i));
 
-        ColorR = new ArrayList();
-        ColorG = new ArrayList();
-        ColorB = new ArrayList();
-
+        colorR = new ArrayList();
+        colorG = new ArrayList();
+        colorB = new ArrayList();
 
         setBarEntry();
 
-
-        /*-----------------------*/
-        BarDataSet barDataSetR = new BarDataSet(ColorR,"Color.red");
-        BarDataSet barDataSetG = new BarDataSet(ColorG,"Color.green");
-        BarDataSet barDataSetB = new BarDataSet(ColorB,"Color.blue");
+        BarDataSet barDataSetR = new BarDataSet(colorR, "Color.red");
+        BarDataSet barDataSetG = new BarDataSet(colorG, "Color.green");
+        BarDataSet barDataSetB = new BarDataSet(colorB, "Color.blue");
         barDataSetR.setColor(ColorTemplate.rgb("#FF0000"));
         barDataSetG.setColor(ColorTemplate.rgb("#00FF00"));
         barDataSetB.setColor(ColorTemplate.rgb("#0000FF"));
@@ -77,17 +90,12 @@ public class HistogramActivity extends AppCompatActivity {
         dataSets.add(barDataSetG);
         dataSets.add(barDataSetB);
 
-        BarData data = new BarData(ArrayIndex,dataSets);
-        //data.setGroupSpace(80f);
+        BarData data = new BarData(arrayIndex, dataSets);
 
         data.setValueFormatter(new LargeValueFormatter());
-        //data.setValueTypeface(tf);
 
         barChart.setData(data);
         barChart.invalidate(); // refresh
-
-        /*------------------------*/
-
 
         barChart.setTouchEnabled(true);
         barChart.setDragEnabled(true);
@@ -100,17 +108,24 @@ public class HistogramActivity extends AppCompatActivity {
         barChart.setDrawGridBackground(false);
 
         barChart.setDescription("Histogramme : Niveau de gris");
-
     }
 
-    private int[][] histoOfThreeColors(){
+    /**
+     * <p>
+     * This method allows to calculate the three channel's histograms of loaded image.
+     * </p>
+     *
+     * @return Matrix that contains the R G  and B histogram's.
+     * @see com.github.mikephil.charting.charts.BarChart
+     */
+    private int[][] histoOfThreeColors() {
         int height = captImage.getHeight();
         int width = captImage.getWidth();
-        int[] pixels = new int[height*width];
-        captImage.getPixels(pixels,0,width,0,0,width,height);
+        int[] pixels = new int[height * width];
+        captImage.getPixels(pixels, 0, width, 0, 0, width, height);
 
         int[][] tabHisto = new int[3][256];
-        for (int i=0; i<height*width; i++){
+        for (int i = 0; i < height * width; i++) {
             tabHisto[0][Color.red(pixels[i])]++;
             tabHisto[1][Color.green(pixels[i])]++;
             tabHisto[2][Color.blue(pixels[i])]++;
@@ -118,14 +133,20 @@ public class HistogramActivity extends AppCompatActivity {
         return tabHisto;
     }
 
+    /**
+     * <p>
+     * This method allows to set different {@link com.github.mikephil.charting.charts.BarChart} entries(R,G,B).
+     * </p>
+     *
+     * @see com.github.mikephil.charting.charts.BarChart
+     */
     @SuppressWarnings("unchecked")
-    private void setBarEntry(){
+    private void setBarEntry() {
         int[][] tabHisto = histoOfThreeColors();
-        for (int i = 0; i<256; i++){
-            ColorR.add(new BarEntry(tabHisto[0][i],i));
-            ColorG.add(new BarEntry(tabHisto[1][i],i));
-            ColorB.add(new BarEntry(tabHisto[2][i],i));
+        for (int i = 0; i < 256; i++) {
+            colorR.add(new BarEntry(tabHisto[0][i], i));
+            colorG.add(new BarEntry(tabHisto[1][i], i));
+            colorB.add(new BarEntry(tabHisto[2][i], i));
         }
     }
-
 }

@@ -13,8 +13,8 @@ import com.android.rssample.ScriptC_convolution;
 
 /**
  * <p>
- *     this class allows the implementation of
- *     the convolution for the averaging and gaussion filter
+ *     This class allows the implementation of
+ *     the convolution for the averaging and gaussian filter
  *     and the contours for the sobel laplacian filter etc
  * </p>
  *
@@ -113,7 +113,6 @@ public class Convolution {
      */
     private int somme(int[][] pixel) {
         int som = 0;
-        @SuppressWarnings("unused") int n = pixel.length;
         for (int[] ints : pixel) {
             for (int anInt : ints) som += anInt;
         }
@@ -122,7 +121,6 @@ public class Convolution {
 
     private int somme(int[] pixel) {
         int som = 0;
-        @SuppressWarnings("unused") int n = pixel.length;
         for (int anInt : pixel)
             som += anInt;
         return som;
@@ -130,6 +128,7 @@ public class Convolution {
 
     /**
      * <p> This function allows you to apply the sobel filter to a gray image </p>
+     *
      * @param bmp image on which we want to apply the filter
      * @param gx  first filter to apply
      * @param gy  second filter to apply
@@ -144,7 +143,7 @@ public class Convolution {
 
         int n = sizeGx / 2;
 
-        bmp.getPixels(pixels,0, width , 0, 0,width ,height);
+        bmp.getPixels(pixels, 0, width, 0, 0, width, height);
 
         for (int y = n; y < height - n; y++) {
             for (int x = n; x < width - n; x++) {
@@ -162,24 +161,25 @@ public class Convolution {
                 int modGrad = (int) Math.sqrt((grayX * grayX) + (grayY * grayY));
                 if (modGrad > 255) modGrad = 255;
 
-                newPixels[(width * y) + x ] = Color.rgb(modGrad, modGrad, modGrad);
+                newPixels[(width * y) + x] = Color.rgb(modGrad, modGrad, modGrad);
             }
         }
-        bmp.setPixels(newPixels,0, width , 0, 0,width ,height);
+        bmp.setPixels(newPixels, 0, width, 0, 0, width, height);
     }
 
     /*--------------------------------------RenderScript---------------------------------------*/
 
     /**
      * <p> this function implement the convolution function in renderscript </p>
+     *
      * @param imageBitmap image on which we want to apply the filter
-     * @param filters the filter to apply
+     * @param filters     the filter to apply
      */
-    public void convolutionAverageFilterRS(Bitmap imageBitmap, int[] filters){
+    public void convolutionAverageFilterRS(Bitmap imageBitmap, int[] filters) {
         RenderScript rs = RenderScript.create(context);
 
-        Allocation input = Allocation.createFromBitmap (rs, imageBitmap);
-        Allocation output = Allocation.createTyped (rs, input.getType());
+        Allocation input = Allocation.createFromBitmap(rs, imageBitmap);
+        Allocation output = Allocation.createTyped(rs, input.getType());
         ScriptC_convolution convolutionScript = new ScriptC_convolution(rs);
 
         int width = imageBitmap.getWidth();
@@ -191,34 +191,37 @@ public class Convolution {
         int size = (int) Math.sqrt(filters.length);
 
 
-        convolutionScript.set_sizeFilter(size/2);
+        convolutionScript.set_sizeFilter(size / 2);
 
         convolutionScript.set_pixels(input);
 
-        Allocation filter_rs = Allocation.createSized(rs, Element.I32(rs),filters.length);
+        Allocation filter_rs = Allocation.createSized(rs, Element.I32(rs), filters.length);
         filter_rs.copyFrom(filters);
         convolutionScript.bind_filter(filter_rs);
 
         convolutionScript.forEach_convolution(input, output);
 
-        output.copyTo(imageBitmap) ;
+        output.copyTo(imageBitmap);
         filter_rs.destroy();
-        input.destroy(); output.destroy();
-        convolutionScript.destroy(); rs.destroy();
+        input.destroy();
+        output.destroy();
+        convolutionScript.destroy();
+        rs.destroy();
 
     }
 
     /**
      * <p> this function implement the contour function in renderscript </p>
+     *
      * @param imageBitmap image on which we want to apply the filter
-     * @param gx first filter to apply
-     * @param gy second filter to apply
+     * @param gx          first filter to apply
+     * @param gy          second filter to apply
      */
-    public void contoursFilterRS(Bitmap imageBitmap, int[] gx, int[] gy){
+    public void contoursFilterRS(Bitmap imageBitmap, int[] gx, int[] gy) {
         RenderScript rs = RenderScript.create(context);
 
-        Allocation input = Allocation.createFromBitmap (rs, imageBitmap);
-        Allocation output = Allocation.createTyped (rs, input.getType());
+        Allocation input = Allocation.createFromBitmap(rs, imageBitmap);
+        Allocation output = Allocation.createTyped(rs, input.getType());
         ScriptC_contours contourScript = new ScriptC_contours(rs);
 
         int width = imageBitmap.getWidth();
@@ -228,22 +231,25 @@ public class Convolution {
         contourScript.set_width(width);
 
         int size = (int) Math.sqrt(gx.length);
-        contourScript.set_sizeFilter(size/2);
+        contourScript.set_sizeFilter(size / 2);
         contourScript.set_pixels(input);
 
-        Allocation gxRs = Allocation.createSized(rs, Element.I32(rs),gx.length);
+        Allocation gxRs = Allocation.createSized(rs, Element.I32(rs), gx.length);
         gxRs.copyFrom(gx);
         contourScript.bind_filterX(gxRs);
 
-        Allocation gyRs = Allocation.createSized(rs, Element.I32(rs),gy.length);
+        Allocation gyRs = Allocation.createSized(rs, Element.I32(rs), gy.length);
         gxRs.copyFrom(gy);
         contourScript.bind_filterY(gyRs);
 
         contourScript.forEach_contours(input, output);
         output.copyTo(imageBitmap);
 
-        gxRs.destroy(); gyRs.destroy();
-        input.destroy(); output.destroy();
-        rs.destroy(); contourScript.destroy();
+        gxRs.destroy();
+        gyRs.destroy();
+        input.destroy();
+        output.destroy();
+        rs.destroy();
+        contourScript.destroy();
     }
 }
