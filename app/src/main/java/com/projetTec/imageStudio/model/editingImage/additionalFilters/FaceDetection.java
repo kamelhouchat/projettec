@@ -18,6 +18,16 @@ import com.google.android.gms.vision.face.FaceDetector;
 import com.google.android.gms.vision.face.Landmark;
 import com.projetTec.imageStudio.R;
 
+/**
+ * <p>
+ * This function allows to detect a face on an image and to add flowers to the hair.
+ * </p>
+ *
+ * @author Kamel.H
+ * @see com.projetTec.imageStudio.controller.fragments.Studio_fragment
+ * @see com.projetTec.imageStudio.model.tools.ToolType
+ * @see com.projetTec.imageStudio.model.tools.ToolModel
+ */
 public class FaceDetection {
 
     private Canvas canvas;
@@ -41,20 +51,18 @@ public class FaceDetection {
 //            canvas.drawBitmap(eyePatchBitmap, cx - (scaledWidth / 2)+20, cy - (scaledHeight / 2), null);
 //        }
 
-        if(landmarkType == Landmark.NOSE_BASE)
-        {
+        if (landmarkType == Landmark.NOSE_BASE) {
             int scaledWidth = flowerLine.getScaledWidth(canvas);
             int scaledHeight = flowerLine.getScaledHeight(canvas);
-            canvas.drawBitmap(flowerLine, cx - (scaledWidth/2), cy-(scaledHeight*2), null);
+            canvas.drawBitmap(flowerLine, cx - (scaledWidth / 2), cy - (scaledHeight * 2), null);
         }
 
     }
 
     private void detectLandmarks(Face face) {
-        Log.i("FACE DETECTOR", "detectLandmarks: "+face.getLandmarks().size());
+        Log.i("FACE DETECTOR", "detectLandmarks: " + face.getLandmarks().size());
         for (Landmark landmark : face.getLandmarks()) {
-
-
+            
             int cx = (int) (landmark.getPosition().x);
             int cy = (int) (landmark.getPosition().y);
 
@@ -70,35 +78,26 @@ public class FaceDetection {
         rectPaint.setColor(Color.WHITE);
         rectPaint.setStyle(Paint.Style.STROKE);
 
-        final Bitmap tempBitmap = Bitmap.createBitmap(imageBitmap.getWidth(),imageBitmap.getHeight(), Bitmap.Config.RGB_565);
-        canvas  = new Canvas(tempBitmap);
-        canvas.drawBitmap(imageBitmap,0,0,null);
+        final Bitmap tempBitmap = Bitmap.createBitmap(imageBitmap.getWidth(), imageBitmap.getHeight(), Bitmap.Config.RGB_565);
+        canvas = new Canvas(tempBitmap);
+        canvas.drawBitmap(imageBitmap, 0, 0, null);
 
         FaceDetector faceDetector = new FaceDetector.Builder(context)
                 .setTrackingEnabled(false)
                 .setLandmarkType(FaceDetector.ALL_LANDMARKS)
                 .setMode(FaceDetector.FAST_MODE)
                 .build();
-        if(!faceDetector.isOperational())
-        {
+        if (!faceDetector.isOperational()) {
             Toast.makeText(context, "Face Detector could not be set up on your device", Toast.LENGTH_SHORT).show();
             return;
         }
         Frame frame = new Frame.Builder().setBitmap(imageBitmap).build();
         SparseArray<Face> sparseArray = faceDetector.detect(frame);
 
-        for(int i=0;i<sparseArray.size();i++)
-        {
+        for (int i = 0; i < sparseArray.size(); i++) {
             Face face = sparseArray.valueAt(i);
-//                    float x1=face.getPosition().x;
-//                    float y1 =face.getPosition().y;
-//                    float x2 = x1+face.getWidth();
-//                    float y2=y1+face.getHeight();
-//                    //RectF rectF = new RectF(x1,y1,x2,y2);
-//                    canvas.drawRoundRect(rectF,2,2,rectPaint);
 
             detectLandmarks(face);
-
         }
 
         photoView.setImageDrawable(new BitmapDrawable(context.getResources(), tempBitmap));
