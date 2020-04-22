@@ -26,16 +26,49 @@ public class StickerRecyclerViewAdapter extends RecyclerView.Adapter<StickerRecy
     //The array which will contain the different sticker
     private final int[] stickerList;
 
+    //The onStickerClickListener method which facilitates the management of listener
     private OnStickerClickListener onStickerClickListener;
 
+    /**
+     * <p>
+     *     The constructor takes nothing in parameter, ie fills the list with the different sticker.
+     * </p>
+     *
+     * @see com.projetTec.imageStudio.controller.bottomDialogFragment.StickerBottomDialogFragment
+     */
     public StickerRecyclerViewAdapter() {
         stickerList = new int[]{R.drawable.hat};
     }
 
+    /**
+     * <p>
+     * The interface that will be implemented in the class where the {@link StickerRecyclerViewAdapter}
+     * will be instantiated and used.
+     * </p>
+     *
+     * @author Kamel.H
+     * @see com.projetTec.imageStudio.controller.bottomDialogFragment.StickerBottomDialogFragment
+     */
     public interface OnStickerClickListener {
+
+        /**
+         * <p>
+         * The listener which will be called when a sticker is selected in the Sticker RecyclerView class.
+         * </p>
+         *
+         * @param sticker The Emoji code
+         */
         void onStickerClickListener(Bitmap sticker);
+
     }
 
+    /**
+     * <p>
+     * The setter of onStickerClickListener.
+     * </p>
+     *
+     * @param onStickerClickListener The new listener
+     */
     public void setOnStickerClickListener(OnStickerClickListener onStickerClickListener) {
         this.onStickerClickListener = onStickerClickListener;
     }
@@ -57,10 +90,27 @@ public class StickerRecyclerViewAdapter extends RecyclerView.Adapter<StickerRecy
         return stickerList.length;
     }
 
+    /**
+     * <p>
+     * The class allows us to extract the elements of the exemplary layout.
+     * </p>
+     *
+     * @author Kamel.H
+     * @see RecyclerView.ViewHolder
+     * @see StickerRecyclerViewAdapter.OnStickerClickListener
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        //ImageView on which we put the sticker each time
         ImageView stickerImage;
 
+        /**
+         * <p>
+         * Constructor in which the views and listener were initialized.
+         * </p>
+         *
+         * @param itemView The layout view
+         */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             stickerImage = itemView.findViewById(R.id.image_view_sticker_row);

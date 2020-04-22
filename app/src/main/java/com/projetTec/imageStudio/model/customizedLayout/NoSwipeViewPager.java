@@ -12,12 +12,6 @@ import java.lang.reflect.Field;
 
 public class NoSwipeViewPager extends ViewPager {
 
-    public boolean isSwipe = false;
-
-    public void setSwipe(boolean swipe) {
-        isSwipe = swipe;
-    }
-
     public NoSwipeViewPager(Context context) {
         super(context);
         setMyScroller();
@@ -31,13 +25,13 @@ public class NoSwipeViewPager extends ViewPager {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
         // Never allow swiping to switch between pages
-        return isSwipe;
+        return false;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         // Never allow swiping to switch between pages
-        return isSwipe;
+        return false;
     }
 
     //down one is added for smooth scrolling

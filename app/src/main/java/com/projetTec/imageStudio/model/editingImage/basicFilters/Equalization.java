@@ -12,7 +12,18 @@ import com.android.rssample.ScriptC_togray;
 import androidx.renderscript.Allocation;
 import androidx.renderscript.RenderScript;
 
+/**
+ * <p>
+ * This class contains the methods necessary for the application of a equalization on bitmaps.
+ * </p>
+ *
+ * @author Kamel.H
+ * @see com.projetTec.imageStudio.model.filters.FilterModel
+ * @see com.projetTec.imageStudio.model.filters.FilterType
+ */
+
 public class Equalization {
+
     private final Context context;
 
     private final Filters filters;
@@ -56,36 +67,37 @@ public class Equalization {
     /**
      * Function to apply histogram equalization to a color image (RGB)
      * (In JAVA)
+     *
      * @param imageBitmap a Bitmap image
      */
-    public void equalizationCouleur(Bitmap imageBitmap){
+    public void equalizationCouleur(Bitmap imageBitmap) {
         int height = imageBitmap.getHeight();
         int width = imageBitmap.getWidth();
-        int accumulator = 0 ;
-        int[] pixels = new int[height*width];
-        imageBitmap.getPixels(pixels,0,width,0,0,width,height);
+        int accumulator = 0;
+        int[] pixels = new int[height * width];
+        imageBitmap.getPixels(pixels, 0, width, 0, 0, width, height);
         int[] histo = new int[256];
         int[] LUT = new int[256];
 
-        for (int i = 0 ; i < height*width ; i++){
-            histo[ (int) (Color.red(pixels[i])*0.3 + Color.green(pixels[i])*0.59 + Color.blue(pixels[i])*0.11) ] +=1;
+        for (int i = 0; i < height * width; i++) {
+            histo[(int) (Color.red(pixels[i]) * 0.3 + Color.green(pixels[i]) * 0.59 + Color.blue(pixels[i]) * 0.11)] += 1;
         }
         //noinspection unused
-        int[] histo_cum= new int[256];
-        for (int i = 0 ; i < 256 ; i++){
+        int[] histo_cum = new int[256];
+        for (int i = 0; i < 256; i++) {
             accumulator += histo[i];
-            LUT[i] = ((accumulator * 255) / ((width * height) )) ;
+            LUT[i] = ((accumulator * 255) / ((width * height)));
         }
-        for (int i = 0 ; i < height*width ; i++){
+        for (int i = 0; i < height * width; i++) {
             int R = Color.red(pixels[i]);
             int G = Color.green(pixels[i]);
             int B = Color.blue(pixels[i]);
             int new_colorR = LUT[R];
             int new_colorG = LUT[G];
             int new_colorB = LUT[B];
-            pixels[i] = Color.rgb(new_colorR,new_colorG,new_colorB);
+            pixels[i] = Color.rgb(new_colorR, new_colorG, new_colorB);
         }
-        imageBitmap.setPixels(pixels,0,width,0,0,width,height);
+        imageBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
     }
 
     /*--------------------------------------Render Script---------------------------------------*/
@@ -93,27 +105,28 @@ public class Equalization {
     /**
      * Function to apply histogram equalization to a gray image
      * (Using RenderScript)
+     *
      * @param imageBitmap a Bitmap image
      */
-    public void equalizationGrayRS(Bitmap imageBitmap){
+    public void equalizationGrayRS(Bitmap imageBitmap) {
         RenderScript rs = RenderScript.create(context);
 
-        Allocation input = Allocation.createFromBitmap(rs,imageBitmap);
-        Allocation output = Allocation.createTyped(rs,input.getType());
-        Allocation output_gray = Allocation.createTyped(rs,input.getType());
+        Allocation input = Allocation.createFromBitmap(rs, imageBitmap);
+        Allocation output = Allocation.createTyped(rs, input.getType());
+        Allocation output_gray = Allocation.createTyped(rs, input.getType());
 
         ScriptC_togray ToGray = new ScriptC_togray(rs);
-        ToGray.forEach_toGray(input,output_gray);
+        ToGray.forEach_toGray(input, output_gray);
         ToGray.destroy();
 
         ScriptC_histogramme HistogramScript = new ScriptC_histogramme(rs);
-        HistogramScript.set_size(imageBitmap.getHeight()*imageBitmap.getWidth());
+        HistogramScript.set_size(imageBitmap.getHeight() * imageBitmap.getWidth());
         int[] histo_cum = HistogramScript.reduce_calculate_histogram_CUM(output_gray).get();
 
         ScriptC_lutinit_and_equalize_gray LutEqualizeScript = new ScriptC_lutinit_and_equalize_gray(rs);
 
         LutEqualizeScript.set_LutTable(histo_cum);
-        LutEqualizeScript.forEach_ApplyChanges_Equalize_Gray(output_gray,output);
+        LutEqualizeScript.forEach_ApplyChanges_Equalize_Gray(output_gray, output);
         LutEqualizeScript.destroy();
 
         output.copyTo(imageBitmap);
@@ -126,27 +139,28 @@ public class Equalization {
     /**
      * Function to apply histogram equalization to a color image (RGB)
      * (Using RenderScript)
+     *
      * @param imageBitmap a Bitmap image
      */
-    public void equalizationRGB_RS(Bitmap imageBitmap){
+    public void equalizationRGB_RS(Bitmap imageBitmap) {
         RenderScript rs = RenderScript.create(context);
 
-        Allocation input = Allocation.createFromBitmap(rs,imageBitmap);
-        Allocation output = Allocation.createTyped(rs,input.getType());
-        Allocation output_gray = Allocation.createTyped(rs,input.getType());
+        Allocation input = Allocation.createFromBitmap(rs, imageBitmap);
+        Allocation output = Allocation.createTyped(rs, input.getType());
+        Allocation output_gray = Allocation.createTyped(rs, input.getType());
 
         ScriptC_togray ToGray = new ScriptC_togray(rs);
-        ToGray.forEach_toGray(input,output_gray);
+        ToGray.forEach_toGray(input, output_gray);
         ToGray.destroy();
 
         ScriptC_histogramme HistogramScript = new ScriptC_histogramme(rs);
-        HistogramScript.set_size(imageBitmap.getHeight()*imageBitmap.getWidth());
+        HistogramScript.set_size(imageBitmap.getHeight() * imageBitmap.getWidth());
         int[] histo_cum = HistogramScript.reduce_calculate_histogram_CUM(output_gray).get();
 
         ScriptC_lutinit_and_equalize_RGB LutEqualizeScript = new ScriptC_lutinit_and_equalize_RGB(rs);
 
         LutEqualizeScript.set_LutTable(histo_cum);
-        LutEqualizeScript.forEach_ApplyChanges_Equalize_RGB(input,output);
+        LutEqualizeScript.forEach_ApplyChanges_Equalize_RGB(input, output);
         LutEqualizeScript.destroy();
 
         output.copyTo(imageBitmap);

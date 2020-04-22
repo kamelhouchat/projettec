@@ -103,7 +103,7 @@ public class EmojiRecyclerViewAdapter extends RecyclerView.Adapter<EmojiRecycler
      */
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        //TextView on which we put the color each time
+        //TextView on which we put the emoji each time
         final TextView emojiText;
 
         /**

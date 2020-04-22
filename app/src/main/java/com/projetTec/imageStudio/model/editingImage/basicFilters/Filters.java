@@ -16,9 +16,19 @@ import androidx.renderscript.RenderScript;
 
 import static android.graphics.Color.HSVToColor;
 
+/**
+ * <p>
+ * This class contains the methods necessary for the application of a different filter on bitmaps.
+ * </p>
+ *
+ * @author Kamel.H
+ * @see com.projetTec.imageStudio.model.filters.FilterType
+ * @see com.projetTec.imageStudio.model.filters.FilterModel
+ */
 public class Filters {
 
     private final Context context;
+
     public Filters(Context context) {
         this.context = context;
     }
@@ -26,21 +36,22 @@ public class Filters {
     /**
      * Function which converts the image pass into parameter in gray using getPixel() function
      * (In JAVA)
+     *
      * @param imageBitmap a Bitmap image
      */
     @SuppressWarnings("unused")
-    public void toGray(Bitmap imageBitmap){
+    public void toGray(Bitmap imageBitmap) {
         int height = imageBitmap.getHeight();
         int width = imageBitmap.getWidth();
 
-        for (int i = 0 ; i < width; i++ ){
-            for (int j = 0 ; j < height; j++){
-                int color = imageBitmap.getPixel(i,j);
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                int color = imageBitmap.getPixel(i, j);
                 int R = Color.red(color);
                 int G = Color.green(color);
                 int B = Color.blue(color);
-                int new_color = (int) (R*0.3 + G*0.59 + B*0.11);
-                imageBitmap.setPixel(i,j,Color.rgb(new_color,new_color,new_color));
+                int new_color = (int) (R * 0.3 + G * 0.59 + B * 0.11);
+                imageBitmap.setPixel(i, j, Color.rgb(new_color, new_color, new_color));
             }
         }
     }
@@ -48,77 +59,80 @@ public class Filters {
     /**
      * Function which converts the image pass into parameter in gray using getPixels() function
      * (In JAVA)
+     *
      * @param imageBitmap a Bitmap image
      */
-    public void toGrays(Bitmap imageBitmap){
+    public void toGrays(Bitmap imageBitmap) {
         int height = imageBitmap.getHeight();
         int width = imageBitmap.getWidth();
 
         int[] pixels = new int[height * width];
-        imageBitmap.getPixels(pixels,0,width,0,0,width,height);
-        for(int i = 0 ; i < height * width - 1; i++){
+        imageBitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+        for (int i = 0; i < height * width - 1; i++) {
             int R = Color.red(pixels[i]);
             int G = Color.green(pixels[i]);
             int B = Color.blue(pixels[i]);
-            int new_color = (int) (R*0.3 + G*0.59 + B*0.11);
-            pixels[i]= Color.rgb(new_color,new_color,new_color);
+            int new_color = (int) (R * 0.3 + G * 0.59 + B * 0.11);
+            pixels[i] = Color.rgb(new_color, new_color, new_color);
         }
 
-        imageBitmap.setPixels(pixels,0,width,0,0,width,height);
+        imageBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
     }
 
     /**
      * Function that allows you to apply a colorization filter (random color)
      * (In JAVA)
+     *
      * @param imageBitmap a Bitmap image
      */
-    public void colorize(Bitmap imageBitmap, float newHue){
+    public void colorize(Bitmap imageBitmap, float newHue) {
         int height = imageBitmap.getHeight();
         int width = imageBitmap.getWidth();
         float[] h = new float[3];
         int[] pixels = new int[height * width];
 
         int[] r_g_b;
-        imageBitmap.getPixels(pixels,0,width,0,0,width,height);
-        for (int i = 0 ; i < height*width-1 ; i++){
+        imageBitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+        for (int i = 0; i < height * width - 1; i++) {
             r_g_b = AuxiliaryFunction.RGBtoR_G_B(pixels[i]);
-            Conversion.RGBToHSV_new(r_g_b[0],r_g_b[1],r_g_b[2],h);
-            h[0] =  newHue  ;
+            Conversion.RGBToHSV_new(r_g_b[0], r_g_b[1], r_g_b[2], h);
+            h[0] = newHue;
             pixels[i] = HSVToColor(h);
         }
 
-        imageBitmap.setPixels(pixels,0,width,0,0,width,height);
+        imageBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
     }
 
     /**
      * Function which allows to keep only one color in the image passed in parameter
      * (In JAVA)
+     *
      * @param imageBitmap a Bitmap image
-     * @param rgb the RGB color we want to keep
-     * @param radius the margin that we will accept
+     * @param rgb         the RGB color we want to keep
+     * @param radius      the margin that we will accept
      */
-    public void keepColor(Bitmap imageBitmap , int rgb, int radius){
+    public void keepColor(Bitmap imageBitmap, int rgb, int radius) {
         int height = imageBitmap.getHeight();
         int width = imageBitmap.getWidth();
         float[] h = new float[3];
 
         int[] r_g_b_landmark = AuxiliaryFunction.RGBtoR_G_B(rgb);
         float[] hh = new float[3];
-        Conversion.RGBToHSV_new(r_g_b_landmark[0],r_g_b_landmark[1],r_g_b_landmark[2],hh);
+        Conversion.RGBToHSV_new(r_g_b_landmark[0], r_g_b_landmark[1], r_g_b_landmark[2], hh);
         float landmark = hh[0];  // Le H de la couleur passer en paramétre
 
-        int[] pixels = new int[height*width];
-        imageBitmap.getPixels(pixels,0,width,0,0,width,height);
-        for (int i = 0 ; i < height * width ; i++){
+        int[] pixels = new int[height * width];
+        imageBitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+        for (int i = 0; i < height * width; i++) {
             int[] r_g_b_image = AuxiliaryFunction.RGBtoR_G_B(pixels[i]);
 
-            Conversion.RGBToHSV_new(r_g_b_image[0],r_g_b_image[1],r_g_b_image[2],h);
-            if (!AuxiliaryFunction.Is_like(landmark , h[0], radius)){
-                int new_color = (int) (r_g_b_image[0]*0.3 + r_g_b_image[1]*0.59 + r_g_b_image[2]*0.11);
-                pixels[i]= Color.rgb(new_color,new_color,new_color);
+            Conversion.RGBToHSV_new(r_g_b_image[0], r_g_b_image[1], r_g_b_image[2], h);
+            if (!AuxiliaryFunction.Is_like(landmark, h[0], radius)) {
+                int new_color = (int) (r_g_b_image[0] * 0.3 + r_g_b_image[1] * 0.59 + r_g_b_image[2] * 0.11);
+                pixels[i] = Color.rgb(new_color, new_color, new_color);
             }
         }
-        imageBitmap.setPixels(pixels,0,width,0,0,width,height);
+        imageBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
     }
 
     /**
@@ -197,17 +211,18 @@ public class Filters {
     /**
      * Function which converts the image pass into parameter in gray
      * (Using RenderScript)
+     *
      * @param imageBitmap a Bitmap image
      */
-    public void tograyRS(Bitmap imageBitmap){
+    public void tograyRS(Bitmap imageBitmap) {
         RenderScript rs = RenderScript.create(context);
 
-        Allocation input = Allocation.createFromBitmap(rs,imageBitmap);
-        Allocation output = Allocation.createTyped(rs,input.getType());
+        Allocation input = Allocation.createFromBitmap(rs, imageBitmap);
+        Allocation output = Allocation.createTyped(rs, input.getType());
 
         ScriptC_togray GrayScript = new ScriptC_togray(rs);
 
-        GrayScript.forEach_toGray(input,output);
+        GrayScript.forEach_toGray(input, output);
 
         output.copyTo(imageBitmap);
 
@@ -220,19 +235,20 @@ public class Filters {
     /**
      * Function that allows you to apply a colorization filter (random color)
      * (Using RenderScript)
+     *
      * @param imageBitmap a Bitmap image
      */
-    public void colorizeRS(Bitmap imageBitmap, float newHue){
+    public void colorizeRS(Bitmap imageBitmap, float newHue) {
         RenderScript rs = RenderScript.create(context);
 
-        Allocation input = Allocation.createFromBitmap(rs,imageBitmap);
-        Allocation output = Allocation.createTyped(rs,input.getType());
+        Allocation input = Allocation.createFromBitmap(rs, imageBitmap);
+        Allocation output = Allocation.createTyped(rs, input.getType());
 
         ScriptC_colorize ColorizeScript = new ScriptC_colorize(rs);
 
         ColorizeScript.set_new_hue(newHue);
 
-        ColorizeScript.forEach_Colorize(input,output);
+        ColorizeScript.forEach_Colorize(input, output);
 
         output.copyTo(imageBitmap);
 
@@ -245,20 +261,21 @@ public class Filters {
     /**
      * Function which allows to keep only one color in the image passed in parameter
      * (Using RenderScript)
+     *
      * @param imageBitmap a Bitmap image
      * @param colorToKeep the color we want to keep (Hue)
      */
-    public void KeepColorRS(Bitmap imageBitmap, float colorToKeep){
+    public void KeepColorRS(Bitmap imageBitmap, float colorToKeep) {
         RenderScript rs = RenderScript.create(context);
 
-        Allocation input = Allocation.createFromBitmap(rs,imageBitmap);
-        Allocation output = Allocation.createTyped(rs,input.getType());
+        Allocation input = Allocation.createFromBitmap(rs, imageBitmap);
+        Allocation output = Allocation.createTyped(rs, input.getType());
 
         ScriptC_keepcolor KeepColorScript = new ScriptC_keepcolor(rs);
 
         KeepColorScript.set_color_to_keep(colorToKeep);
 
-        KeepColorScript.forEach_KeepColor(input,output);
+        KeepColorScript.forEach_KeepColor(input, output);
 
         output.copyTo(imageBitmap);
 
