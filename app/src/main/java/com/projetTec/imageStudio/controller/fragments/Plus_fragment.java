@@ -15,6 +15,7 @@ import com.polyak.iconswitch.IconSwitch;
 import com.projetTec.imageStudio.controller.HistogramActivity;
 import com.projetTec.imageStudio.controller.StudioActivity;
 import com.projetTec.imageStudio.R;
+import com.projetTec.imageStudio.model.customizedLayout.NoSwipeViewPager;
 import com.tapadoo.alerter.Alerter;
 
 import java.util.Objects;
