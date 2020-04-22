@@ -271,16 +271,9 @@ public class AdditionalFilters {
      * @see com.projetTec.imageStudio.model.filters.FilterType
      * @see com.projetTec.imageStudio.controller.fragments.Studio_fragment
      */
-    public void sketchEffect(Bitmap imageBitmap) {
+    public Bitmap sketchEffect(Bitmap imageBitmap) {
         SketchImage sketchImage = new SketchImage.Builder(context, imageBitmap).build();
-        imageBitmap = sketchImage.getImageAs(
-                SketchImage.ORIGINAL_TO_SKETCH, 100 // value 0 - 100
-                // Other options
-                // SketchImage.ORIGINAL_TO_GRAY
-                // SketchImage.ORIGINAL_TO_COLORED_SKETCH
-                // SketchImage.ORIGINAL_TO_SOFT_SKETCH
-                // And many more.....
-        );
+        return sketchImage.getImageAs(SketchImage.GRAY_TO_SKETCH, 100);
     }
 
     /*######################################"Render Script#########################################*/

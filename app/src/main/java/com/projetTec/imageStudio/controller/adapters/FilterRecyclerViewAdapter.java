@@ -246,7 +246,7 @@ public class FilterRecyclerViewAdapter extends RecyclerView.Adapter<FilterRecycl
                 convolution.contours(loadedToRecycle,gx,gy);
                 break;
             case SKETCH_EFFECT:
-                additionalFilters.sketchEffect(loadedToRecycle);
+                loadedToRecycle = additionalFilters.sketchEffect(loadedToRecycle);
                 break;
             case SNOW_EFFECT:
                 additionalFilters.snowAndBlackEffectRS(loadedToRecycle, true);

@@ -81,6 +81,10 @@ dependencies {
     //Photo Editor
     implementation 'ja.burhanrashid52:photoeditor:1.0.0'
 
+    //Sketch filter
+    implementation 'com.github.devsideal:SketchImage:1.0.1'
+
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -90,7 +94,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    implementation 'com.github.devsideal:SketchImage:1.0.1'
 }
 repositories {
     mavenCentral()
