@@ -1685,7 +1685,6 @@ drawable error_center_x
 drawable error_circle
 drawable flower
 drawable gallery
-drawable glass
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable gradient_background_plus_fragment
@@ -1745,6 +1744,7 @@ drawable ic_studio
 drawable ic_text_fields_black_24dp
 drawable icon
 drawable logo_last
+drawable mask
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
 drawable mtrl_ic_arrow_drop_down

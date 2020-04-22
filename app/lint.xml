@@ -4,10 +4,12 @@
         <ignore path="src/main/res/drawable/icon.png" />
     </issue>
     <issue id="IconLocation">
+        <ignore path="src/main/res/drawable/aa.png" />
         <ignore path="src/main/res/drawable/background.png" />
         <ignore path="src/main/res/drawable/background_color.png" />
         <ignore path="src/main/res/drawable/background_gray.jpg" />
         <ignore path="src/main/res/drawable/background_org.png" />
+        <ignore path="src/main/res/drawable/bb.png" />
         <ignore path="src/main/res/drawable/bg_app.png" />
         <ignore path="src/main/res/drawable/bgapp.png" />
         <ignore path="src/main/res/drawable/camera.png" />
@@ -19,6 +21,7 @@
         <ignore path="src/main/res/drawable/icon.png" />
         <ignore path="src/main/res/drawable/logo_last.png" />
         <ignore path="src/main/res/drawable/logolast.png" />
+        <ignore path="src/main/res/drawable/mask.png" />
         <ignore path="src/main/res/drawable/pipimage.jpg" />
         <ignore path="src/main/res/drawable/plage.jpg" />
         <ignore path="src/main/res/drawable/tig.jpg" />
