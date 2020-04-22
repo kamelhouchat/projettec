@@ -1981,6 +1981,7 @@ id ifRoom
 id image
 id image_view
 id image_view_filter
+id image_view_sticker_row
 id imgPhotoEditorClose
 id imgPhotoEditorImage
 id imgToolIcon
@@ -2127,6 +2128,7 @@ id src_over
 id standard
 id start
 id status_bar_latest_event_content
+id sticker_list_recycler_view_emoji_bottom_sheet_fragment
 id stretch
 id submenuarrow
 id submit_area
@@ -2271,6 +2273,7 @@ layout alert_dialog
 layout alerter_alert_view
 layout bottom_dialog_fragment_brush
 layout bottom_dialog_fragment_emoji
+layout bottom_dialog_fragment_sticker
 layout color_picker_row
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -2345,6 +2348,7 @@ layout photo_capture_item
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout sticker_row
 layout support_simple_spinner_dropdown_item
 layout test_action_chip
 layout test_design_checkbox

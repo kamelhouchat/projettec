@@ -32,8 +32,10 @@ import com.projetTec.imageStudio.controller.adapters.FilterRecyclerViewAdapter;
 import com.projetTec.imageStudio.controller.StudioActivity;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.BrushBottomDialogFragment;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.EmojiBottomDialogFragment;
+import com.projetTec.imageStudio.controller.bottomDialogFragment.StickerBottomDialogFragment;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterface.OnBrushOptionsChange;
 import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterface.OnEmojiOptionsChange;
+import com.projetTec.imageStudio.controller.bottomDialogFragment.listenerInterface.OnStickerOptionsChange;
 import com.projetTec.imageStudio.controller.dialogFragment.TextDialogFragment;
 import com.projetTec.imageStudio.model.animation.ViewAnimation;
 import com.projetTec.imageStudio.model.editingImage.additionalFilters.AdditionalFilters;
@@ -103,7 +105,7 @@ import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class Studio_fragment extends Fragment implements OnItemToolSelected, OnItemFilterSelected, View.OnClickListener, OnPhotoEditorListener,
-        OnBrushOptionsChange, OnEmojiOptionsChange {
+        OnBrushOptionsChange, OnEmojiOptionsChange, OnStickerOptionsChange {
 
     //The bitmap passed by MainActivity, used to reset to main state
     private static Bitmap captImage;
@@ -163,6 +165,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     //An instance of emoji bottom dialog fragment
     private final EmojiBottomDialogFragment emojiBottomDialogFragment = new EmojiBottomDialogFragment();
 
+    //An instance of sticker bottom dialog fragment
+    private final StickerBottomDialogFragment stickerBottomDialogFragment = new StickerBottomDialogFragment();
+
     //Booleans to find out which action is selected at a given time
     private boolean isFilter = false;
     private boolean isColorizeOrShading = false;
@@ -173,6 +178,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     private boolean isText = false;
     private boolean isBrush = false;
     private boolean isEmoji = false;
+    private boolean isSticker = false;
 
     //Boolean to choose if we want to execute the methods in java or render script
     private static boolean isRenderScript = true;
@@ -305,6 +311,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
 
         brushBottomDialogFragment.setOnBrushOptionsChange(this);
         emojiBottomDialogFragment.setOnEmojiOptionsChange(this);
+        stickerBottomDialogFragment.setOnStickerOptionsChange(this);
     }
 
     /**
@@ -428,7 +435,7 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 break;
             case STICKER:
                 centerText.setText("Sticker");
-                incoming();
+                sticker();
                 break;
             case FACE:
                 centerText.setText("Face");
@@ -669,6 +676,9 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
                 }
                 else if (isEmoji) {
                     emojiBottomDialogFragment.show(Objects.requireNonNull(getFragmentManager()),emojiBottomDialogFragment.getTag());
+                }
+                else if (isSticker) {
+                    stickerBottomDialogFragment.show(Objects.requireNonNull(getFragmentManager()), stickerBottomDialogFragment.getTag());
                 }
                 else {
                     final SweetAlertDialog restoreAlerter = new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.PROGRESS_TYPE);
@@ -958,6 +968,23 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
         emojiBottomDialogFragment.show(Objects.requireNonNull(getFragmentManager()), emojiBottomDialogFragment.getTag());
     }
 
+    private void sticker() {
+        ViewAnimation.imageViewAnimatedChange(applicationContext, undoImage, R.drawable.ic_close_black_24dp);
+        ViewAnimation.viewAnimatedHideOrShow(applicationContext, R.anim.tobuttom, editingToolRecyclerView, 0, 200, false);
+        ViewAnimation.viewAnimatedHideOrShow(applicationContext, android.R.anim.fade_out, saveImage, 0, 200, false);
+        ViewAnimation.imageViewAnimatedChange(applicationContext, restoreImage, R.drawable.ic_add_black_24dp);
+
+        photoEditorView.getSource().setImageBitmap(loadedToChange);
+
+        ViewAnimation.viewAnimatedChange(applicationContext, android.R.anim.fade_in, android.R.anim.fade_out, photoView, photoEditorView,
+                0, 200, 200);
+
+        isSticker = true;
+
+        stickerBottomDialogFragment.show(Objects.requireNonNull(getFragmentManager()), stickerBottomDialogFragment.getTag());
+
+    }
+
     /**
      * <p>Method which allows to rotate the image to a degree passed in parameter.
      *
@@ -1106,5 +1133,10 @@ public class Studio_fragment extends Fragment implements OnItemToolSelected, OnI
     @Override
     public void onEmojiOptionsChange(String emojiCode) {
         photoEditor.addEmoji(emojiCode);
+    }
+
+    @Override
+    public void onStickerOptionsChange(Bitmap stickerImage) {
+        photoEditor.addImage(stickerImage);
     }
 }
